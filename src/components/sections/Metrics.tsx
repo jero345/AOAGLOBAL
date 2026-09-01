@@ -1,43 +1,16 @@
 import React from 'react';
 import { motion } from 'framer-motion';
+import { useTranslation } from '../../context/LanguageContext';
 import { Section } from '../ui/Section';
 import { AnimatedCounter } from '../ui/AnimatedCounter';
 
 export const Metrics: React.FC = () => {
-  const metricsData = [
-    {
-      prefix: "$",
-      value: 450,
-      suffix: "M+",
-      label: "Valor Generado",
-      detail: "En eficiencias operativas, reducción de costos y expansión de ingresos."
-    },
-    {
-      prefix: "",
-      value: 85,
-      suffix: "+",
-      label: "Proyectos Ejecutados",
-      detail: "Implementaciones corporativas concluidas dentro de plazo y presupuesto."
-    },
-    {
-      prefix: "",
-      value: 14,
-      suffix: "",
-      label: "Mercados Globales",
-      detail: "Presencia y capacidad de despliegue en América del Norte, Latam y Europa."
-    },
-    {
-      prefix: "",
-      value: 98,
-      suffix: "%",
-      label: "Tasa de Satisfacción",
-      detail: "Clientes que extienden mandatos o nos recomiendan a sus comités directivos."
-    }
-  ];
+  const { language, t } = useTranslation('metrics');
 
   return (
     <Section tone="paper" className="border-b border-[var(--color-line)]">
       <motion.div
+        key={language}
         initial={{ opacity: 0, y: 20 }}
         whileInView={{ opacity: 1, y: 0 }}
         viewport={{ once: true, margin: '-60px' }}
@@ -45,15 +18,15 @@ export const Metrics: React.FC = () => {
         className="text-center max-w-2xl mx-auto mb-14"
       >
         <span className="text-[0.75rem] font-semibold uppercase tracking-[0.08em] text-[var(--color-slate)] block mb-2">
-          Impacto Verificable
+          {t.eyebrow}
         </span>
         <h2 className="text-2xl font-bold tracking-tight text-[var(--color-ink)] sm:text-3xl">
-          Resultados que respaldan nuestra metodología.
+          {t.title}
         </h2>
       </motion.div>
 
       <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 divide-y sm:divide-y-0 sm:divide-x divide-[var(--color-line)] border border-[var(--color-line)] rounded-[var(--radius-card)] overflow-hidden bg-[var(--color-paper)]">
-        {metricsData.map((item, index) => (
+        {t.items.map((item, index) => (
           <motion.div
             key={item.label}
             initial={{ opacity: 0, y: 20 }}

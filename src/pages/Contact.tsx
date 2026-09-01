@@ -4,10 +4,10 @@ import { useSearchParams } from 'react-router-dom';
 import { useForm } from 'react-hook-form';
 import { motion, AnimatePresence } from 'framer-motion';
 import confetti from 'canvas-confetti';
+import { useTranslation } from '../context/LanguageContext';
 import { Section } from '../components/ui/Section';
 import { Eyebrow } from '../components/ui/Eyebrow';
 import { Button } from '../components/ui/Button';
-import { services } from '../data/services';
 import { companyDetails } from '../data/nav';
 import { Mail, Phone, MapPin, CheckCircle2, AlertCircle } from 'lucide-react';
 
@@ -21,10 +21,13 @@ interface ContactFormData {
 }
 
 export const Contact: React.FC = () => {
+  const { language, t } = useTranslation('contact');
+  const { t: srv } = useTranslation('services');
+  const { t: seo } = useTranslation('seo');
+
   const [searchParams] = useSearchParams();
   const preselectedService = searchParams.get('service') || '';
   const [formStatus, setFormStatus] = useState<'idle' | 'sending' | 'success' | 'error'>('idle');
-  const [statusMessage, setStatusMessage] = useState<string>('');
 
   const {
     register,
@@ -52,12 +55,10 @@ export const Contact: React.FC = () => {
   const onSubmit = async (data: ContactFormData) => {
     if (data.website_honeypot) {
       setFormStatus('success');
-      setStatusMessage('Su solicitud ha sido recibida con éxito.');
       return;
     }
 
     setFormStatus('sending');
-    setStatusMessage('');
 
     try {
       const payload = {
@@ -66,6 +67,7 @@ export const Contact: React.FC = () => {
         company: data.company,
         service: data.service,
         message: data.message,
+        language,
         timestamp: new Date().toISOString()
       };
 
@@ -81,22 +83,18 @@ export const Contact: React.FC = () => {
       });
 
       setFormStatus('success');
-      setStatusMessage('Gracias por contactar a AOA Global Services. Un socio director se comunicará con usted en menos de 24 horas laborables.');
       reset();
     } catch {
       setFormStatus('error');
-      setStatusMessage('Ocurrió un error al procesar su solicitud. Por favor contáctenos directamente vía correo a contact@aoaglobalservices.com');
     }
   };
 
   return (
     <>
       <Helmet>
-        <title>Contacto | AOA Global Services</title>
-        <meta
-          name="description"
-          content="Inicie una conversación confidencial con nuestros socios directores. Solicite una sesión de diagnóstico estratégico para su empresa."
-        />
+        <html lang={language} />
+        <title>{seo.contactTitle}</title>
+        <meta name="description" content={seo.contactDesc} />
         <link rel="canonical" href="https://aoaglobalservices.com/contact" />
       </Helmet>
 
@@ -104,19 +102,20 @@ export const Contact: React.FC = () => {
       <section className="bg-[var(--color-line)] py-16 md:py-24 border-b border-[var(--color-line)]">
         <div className="mx-auto max-w-[1200px] px-6 md:px-8">
           <motion.div
+            key={language}
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6 }}
             className="max-w-3xl"
           >
             <Eyebrow tone="navy" className="mb-4">
-              Canales Corporativos
+              {t.eyebrow}
             </Eyebrow>
             <h1 className="text-3xl font-bold tracking-tight text-[var(--color-ink)] sm:text-4xl md:text-5xl">
-              Inicie una Consulta Confidencial
+              {t.title}
             </h1>
             <p className="mt-4 text-base text-[var(--color-slate)] md:text-lg leading-relaxed">
-              Complete el formulario para coordinar una sesión de evaluación inicial con nuestros socios directores.
+              {t.subtitle}
             </p>
           </motion.div>
         </div>
@@ -133,10 +132,10 @@ export const Contact: React.FC = () => {
             className="lg:col-span-7"
           >
             <h2 className="text-2xl font-bold text-[var(--color-ink)] mb-2">
-              Formulario de Solicitud Directiva
+              {t.formTitle}
             </h2>
             <p className="text-sm text-[var(--color-slate)] mb-8">
-              Todos los campos marcados con asterisco (*) son obligatorios.
+              {t.formRequiredNote}
             </p>
 
             <form onSubmit={handleSubmit(onSubmit)} className="space-y-8" noValidate>
@@ -155,13 +154,13 @@ export const Contact: React.FC = () => {
                   htmlFor="fullName"
                   className="text-[0.75rem] font-semibold uppercase tracking-[0.08em] text-[var(--color-slate)]"
                 >
-                  Nombre Completo *
+                  {t.fullNameLabel}
                 </label>
                 <input
                   id="fullName"
                   type="text"
-                  placeholder="Ej. Roberto Valenzuela"
-                  {...register('fullName', { required: 'Por favor ingrese su nombre completo' })}
+                  placeholder={t.fullNamePlaceholder}
+                  {...register('fullName', { required: t.fullNameRequired })}
                   className="w-full bg-transparent border-0 border-b border-[var(--color-line)] pb-3 text-base text-[var(--color-ink)] transition-colors duration-200 placeholder:text-slate-400 focus:border-[var(--color-navy)] focus:outline-none"
                   aria-invalid={errors.fullName ? 'true' : 'false'}
                 />
@@ -176,17 +175,17 @@ export const Contact: React.FC = () => {
                   htmlFor="email"
                   className="text-[0.75rem] font-semibold uppercase tracking-[0.08em] text-[var(--color-slate)]"
                 >
-                  Correo Corporativo *
+                  {t.emailLabel}
                 </label>
                 <input
                   id="email"
                   type="email"
-                  placeholder="Ej. rvalenzuela@empresa.com"
+                  placeholder={t.emailPlaceholder}
                   {...register('email', {
-                    required: 'Por favor ingrese su correo corporativo',
+                    required: t.emailRequired,
                     pattern: {
                       value: /^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,}$/i,
-                      message: 'Ingrese una dirección de correo válida'
+                      message: t.emailInvalid
                     }
                   })}
                   className="w-full bg-transparent border-0 border-b border-[var(--color-line)] pb-3 text-base text-[var(--color-ink)] transition-colors duration-200 placeholder:text-slate-400 focus:border-[var(--color-navy)] focus:outline-none"
@@ -203,13 +202,13 @@ export const Contact: React.FC = () => {
                   htmlFor="company"
                   className="text-[0.75rem] font-semibold uppercase tracking-[0.08em] text-[var(--color-slate)]"
                 >
-                  Empresa / Organización *
+                  {t.companyLabel}
                 </label>
                 <input
                   id="company"
                   type="text"
-                  placeholder="Ej. Grupo Industrial Andino S.A."
-                  {...register('company', { required: 'Por favor ingrese el nombre de su empresa' })}
+                  placeholder={t.companyPlaceholder}
+                  {...register('company', { required: t.companyRequired })}
                   className="w-full bg-transparent border-0 border-b border-[var(--color-line)] pb-3 text-base text-[var(--color-ink)] transition-colors duration-200 placeholder:text-slate-400 focus:border-[var(--color-navy)] focus:outline-none"
                   aria-invalid={errors.company ? 'true' : 'false'}
                 />
@@ -224,21 +223,21 @@ export const Contact: React.FC = () => {
                   htmlFor="service"
                   className="text-[0.75rem] font-semibold uppercase tracking-[0.08em] text-[var(--color-slate)]"
                 >
-                  Servicio de Interés Principal *
+                  {t.serviceLabel}
                 </label>
                 <select
                   id="service"
-                  {...register('service', { required: 'Seleccione un área de especialidad' })}
+                  {...register('service', { required: t.serviceRequired })}
                   className="w-full bg-transparent border-0 border-b border-[var(--color-line)] pb-3 text-base text-[var(--color-ink)] transition-colors duration-200 focus:border-[var(--color-navy)] focus:outline-none cursor-pointer"
                   aria-invalid={errors.service ? 'true' : 'false'}
                 >
-                  <option value="">-- Seleccionar servicio --</option>
-                  {services.map((item) => (
+                  <option value="">{t.servicePlaceholder}</option>
+                  {srv.items.map((item) => (
                     <option key={item.slug} value={item.slug}>
                       {item.title}
                     </option>
                   ))}
-                  <option value="otro">Evaluación Estratégica General</option>
+                  <option value="otro">{t.serviceGeneralOption}</option>
                 </select>
                 {errors.service && (
                   <span className="text-xs text-red-600 font-medium">{errors.service.message}</span>
@@ -251,15 +250,15 @@ export const Contact: React.FC = () => {
                   htmlFor="message"
                   className="text-[0.75rem] font-semibold uppercase tracking-[0.08em] text-[var(--color-slate)]"
                 >
-                  Resumen del Desafío o Contexto *
+                  {t.messageLabel}
                 </label>
                 <textarea
                   id="message"
                   rows={4}
-                  placeholder="Describa brevemente la situación actual de la empresa, objetivos esperados y cronograma estimado..."
+                  placeholder={t.messagePlaceholder}
                   {...register('message', {
-                    required: 'Por favor comparta un resumen de su proyecto',
-                    minLength: { value: 15, message: 'El mensaje debe contener al menos 15 caracteres' }
+                    required: t.messageRequired,
+                    minLength: { value: 15, message: t.messageMinLength }
                   })}
                   className="w-full bg-transparent border-0 border-b border-[var(--color-line)] pb-3 text-base text-[var(--color-ink)] transition-colors duration-200 placeholder:text-slate-400 focus:border-[var(--color-navy)] focus:outline-none resize-none"
                   aria-invalid={errors.message ? 'true' : 'false'}
@@ -279,7 +278,7 @@ export const Contact: React.FC = () => {
                     className="flex items-start gap-3 p-4 bg-emerald-50 border border-emerald-200 rounded-[var(--radius-card)] text-emerald-900 text-sm"
                   >
                     <CheckCircle2 size={20} className="text-emerald-600 shrink-0 mt-0.5" />
-                    <p>{statusMessage}</p>
+                    <p>{t.successMessage}</p>
                   </motion.div>
                 )}
 
@@ -291,7 +290,7 @@ export const Contact: React.FC = () => {
                     className="flex items-start gap-3 p-4 bg-red-50 border border-red-200 rounded-[var(--radius-card)] text-red-900 text-sm"
                   >
                     <AlertCircle size={20} className="text-red-600 shrink-0 mt-0.5" />
-                    <p>{statusMessage}</p>
+                    <p>{t.errorMessage}</p>
                   </motion.div>
                 )}
               </AnimatePresence>
@@ -304,12 +303,12 @@ export const Contact: React.FC = () => {
                   disabled={formStatus === 'sending'}
                   className="w-full sm:w-auto min-w-[200px]"
                 >
-                  {formStatus === 'sending' ? 'Enviando solicitud...' : 'Enviar Solicitud Confidencial'}
+                  {formStatus === 'sending' ? t.submittingBtn : t.submitBtn}
                 </Button>
               </div>
 
               <p className="text-xs text-[var(--color-slate)]">
-                Sus datos están protegidos bajo estricto secreto profesional y confidencialidad comercial.
+                {t.disclaimer}
               </p>
             </form>
           </motion.div>
@@ -323,10 +322,10 @@ export const Contact: React.FC = () => {
           >
             <div>
               <h3 className="text-lg font-bold text-[var(--color-ink)] mb-2">
-                Atención Directa
+                {t.directContactTitle}
               </h3>
               <p className="text-xs text-[var(--color-slate)] leading-relaxed">
-                Si requiere asistencia inmediata o desea remitir documentación corporativa bajo NDA previo:
+                {t.directContactSubtitle}
               </p>
             </div>
 
@@ -337,7 +336,7 @@ export const Contact: React.FC = () => {
                 </div>
                 <div>
                   <span className="block text-[0.7rem] font-bold uppercase tracking-wider text-[var(--color-slate)]">
-                    Correo Institucional
+                    {t.emailTitle}
                   </span>
                   <a
                     href={`mailto:${companyDetails.email}`}
@@ -354,7 +353,7 @@ export const Contact: React.FC = () => {
                 </div>
                 <div>
                   <span className="block text-[0.7rem] font-bold uppercase tracking-wider text-[var(--color-slate)]">
-                    Línea Ejecutiva
+                    {t.phoneTitle}
                   </span>
                   <a
                     href={`tel:${companyDetails.phone}`}
@@ -371,7 +370,7 @@ export const Contact: React.FC = () => {
                 </div>
                 <div>
                   <span className="block text-[0.7rem] font-bold uppercase tracking-wider text-[var(--color-slate)]">
-                    Oficina Principal
+                    {t.hqTitle}
                   </span>
                   <address className="not-italic text-sm text-[var(--color-ink)] leading-relaxed mt-0.5">
                     {companyDetails.address}
@@ -382,13 +381,13 @@ export const Contact: React.FC = () => {
 
             <div className="border-t border-[var(--color-line)] pt-6">
               <span className="block text-[0.7rem] font-bold uppercase tracking-wider text-[var(--color-slate)] mb-2">
-                Horario de Atención
+                {t.hoursTitle}
               </span>
               <p className="text-xs text-[var(--color-ink)]">
-                Lunes a Viernes: 08:30 – 18:30 (PST / EST / CET)
+                {t.hoursP1}
               </p>
               <p className="text-xs text-[var(--color-slate)] mt-1">
-                Atención a comités de crisis disponible 24/7 para clientes con mandato activo.
+                {t.hoursP2}
               </p>
             </div>
           </motion.div>

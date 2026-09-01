@@ -1,7 +1,10 @@
 import React from 'react';
+import { useTranslation } from '../../context/LanguageContext';
 import { Marquee } from '../ui/Marquee';
 
 export const TrustBar: React.FC = () => {
+  const { t } = useTranslation('trustBar');
+
   const partners = [
     { name: "Vanguard Asset Management", label: "VANGUARD ASSETS" },
     { name: "Global Logistics Alliance", label: "NORDIC LOGISTICS" },
@@ -16,7 +19,7 @@ export const TrustBar: React.FC = () => {
     <section className="border-b border-[var(--color-line)] bg-[var(--color-line)] py-10 overflow-hidden">
       <div className="mx-auto max-w-[1200px] px-6 md:px-8 mb-6">
         <p className="text-center text-[0.75rem] font-semibold uppercase tracking-[0.08em] text-[var(--color-slate)]">
-          Confianza de comités ejecutivos y fondos de inversión en múltiples mercados
+          {t.title}
         </p>
       </div>
 

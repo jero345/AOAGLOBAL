@@ -2,8 +2,10 @@ import React, { useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { Link } from 'react-router-dom';
 import { ArrowUpRight, MessageSquare } from 'lucide-react';
+import { useTranslation } from '../../context/LanguageContext';
 
 export const FloatingContactPill: React.FC = () => {
+  const { t } = useTranslation('nav');
   const [showPill, setShowPill] = useState(false);
 
   useEffect(() => {
@@ -34,7 +36,7 @@ export const FloatingContactPill: React.FC = () => {
             className="flex items-center gap-2.5 rounded-full bg-[var(--color-navy)] px-5 py-3 text-xs font-bold text-white shadow-lg transition-transform duration-200 hover:scale-105 hover:bg-[var(--color-ink)] focus-visible:outline-[var(--color-navy)]"
           >
             <MessageSquare size={16} />
-            <span>Agendar Consulta</span>
+            <span>{t.floatingCta}</span>
             <ArrowUpRight size={14} className="opacity-70" />
           </Link>
         </motion.div>

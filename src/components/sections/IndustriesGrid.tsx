@@ -1,8 +1,8 @@
 import React from 'react';
 import { motion } from 'framer-motion';
+import { useTranslation } from '../../context/LanguageContext';
 import { Section } from '../ui/Section';
 import { Eyebrow } from '../ui/Eyebrow';
-import { industries } from '../../data/industries';
 import {
   Landmark,
   Activity,
@@ -27,9 +27,12 @@ const iconMap: Record<string, LucideIcon> = {
 };
 
 export const IndustriesGrid: React.FC = () => {
+  const { language, t } = useTranslation('industries');
+
   return (
     <Section tone="line">
       <motion.div
+        key={language}
         initial={{ opacity: 0, y: 20 }}
         whileInView={{ opacity: 1, y: 0 }}
         viewport={{ once: true, margin: '-50px' }}
@@ -37,19 +40,19 @@ export const IndustriesGrid: React.FC = () => {
         className="flex flex-col items-start mb-12 max-w-2xl"
       >
         <Eyebrow tone="navy" className="mb-3">
-          Sectores de Especialidad
+          {t.eyebrow}
         </Eyebrow>
         <h2 className="text-2xl font-bold tracking-tight text-[var(--color-ink)] sm:text-3xl md:text-4xl">
-          Experiencia profunda en industrias de alta regulación e intensidad operativa.
+          {t.title}
         </h2>
         <p className="mt-4 text-base text-[var(--color-slate)] leading-relaxed">
-          Adaptamos nuestros marcos estratégicos a las particularidades normativas, tecnológicas y comerciales de cada vertical.
+          {t.description}
         </p>
       </motion.div>
 
       {/* 8 immersive visual cards with image zoom & hover overlay */}
       <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-5">
-        {industries.map((ind, index) => {
+        {t.items.map((ind, index) => {
           const Icon = iconMap[ind.iconName];
           return (
             <motion.div

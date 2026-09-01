@@ -1,64 +1,28 @@
 import React from 'react';
 import { Helmet } from 'react-helmet-async';
 import { motion } from 'framer-motion';
+import { useTranslation } from '../context/LanguageContext';
 import { Section } from '../components/ui/Section';
 import { Eyebrow } from '../components/ui/Eyebrow';
 import { TiltCard } from '../components/ui/TiltCard';
 import { ProcessSteps } from '../components/sections/ProcessSteps';
 import { Metrics } from '../components/sections/Metrics';
 import { CtaBand } from '../components/sections/CtaBand';
-import { ShieldCheck, Target, TrendingUp, Users } from 'lucide-react';
+import { ShieldCheck, Target, TrendingUp, Users, LucideIcon } from 'lucide-react';
+
+// Los textos viven en el diccionario; aquí solo el icono de cada pilar (mismo orden)
+const principleIcons: LucideIcon[] = [Target, Users, ShieldCheck, TrendingUp];
 
 export const About: React.FC = () => {
-  const principles = [
-    {
-      title: "Rigor Cuantitativo",
-      description: "Toda recomendación se sustenta en modelos financieros robustos y datos empíricos de la operación real.",
-      icon: Target
-    },
-    {
-      title: "Involucramiento Directo",
-      description: "Los socios fundadores y consultores senior participan directamente en cada sesión de trabajo y toma de decisiones.",
-      icon: Users
-    },
-    {
-      title: "Independencia y Ética",
-      description: "Garantizamos total objetividad profesional, orientando cada estrategia exclusivamente al beneficio del cliente.",
-      icon: ShieldCheck
-    },
-    {
-      title: "Transferencia de Valor",
-      description: "Nuestro objetivo es fortalecer las capacidades internas del cliente para que sostenga el crecimiento sin dependencia externa.",
-      icon: TrendingUp
-    }
-  ];
-
-  const aboutPhotos = [
-    {
-      url: "https://images.unsplash.com/photo-1497366811353-6870744d04b2?auto=format&fit=crop&w=600&q=80",
-      caption: "Centro de Modelado Estratégico",
-      location: "San Francisco"
-    },
-    {
-      url: "https://images.unsplash.com/photo-1577495508048-b635879837f1?auto=format&fit=crop&w=600&q=80",
-      caption: "Sesión de Directorio y Gobernanza",
-      location: "Nueva York"
-    },
-    {
-      url: "https://images.unsplash.com/photo-1521737604893-d14cc237f11d?auto=format&fit=crop&w=600&q=80",
-      caption: "Alineación de Equipos Ejecutivos",
-      location: "Londres"
-    }
-  ];
+  const { language, t } = useTranslation('about');
+  const { t: seo } = useTranslation('seo');
 
   return (
     <>
       <Helmet>
-        <title>Nosotros | AOA Global Services</title>
-        <meta
-          name="description"
-          content="Conozca el equipo directivo, principios operativos y trayectoria de AOA Global Services en consultoría estratégica y gestión empresarial."
-        />
+        <html lang={language} />
+        <title>{seo.aboutTitle}</title>
+        <meta name="description" content={seo.aboutDesc} />
         <link rel="canonical" href="https://aoaglobalservices.com/about" />
       </Helmet>
 
@@ -66,19 +30,20 @@ export const About: React.FC = () => {
       <section className="bg-[var(--color-line)] py-16 md:py-24 border-b border-[var(--color-line)]">
         <div className="mx-auto max-w-[1200px] px-6 md:px-8">
           <motion.div
+            key={language}
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6 }}
             className="max-w-3xl"
           >
             <Eyebrow tone="navy" className="mb-4">
-              Nuestra Firma
+              {t.eyebrow}
             </Eyebrow>
             <h1 className="text-3xl font-bold tracking-tight text-[var(--color-ink)] sm:text-4xl md:text-5xl">
-              Asesoría de Alta Dirección Basada en Resultados Concretos
+              {t.title}
             </h1>
             <p className="mt-4 text-base text-[var(--color-slate)] md:text-lg leading-relaxed">
-              Nacimos para brindar una alternativa ágil, rigurosa y comprometida a las estructuras burocráticas de las consultoras multinacionales tradicionales.
+              {t.subtitle}
             </p>
           </motion.div>
         </div>
@@ -94,15 +59,15 @@ export const About: React.FC = () => {
             transition={{ duration: 0.6 }}
             className="lg:col-span-6 space-y-6"
           >
-            <Eyebrow tone="navy">Nuestra Filosofía</Eyebrow>
+            <Eyebrow tone="navy">{t.philosophyEyebrow}</Eyebrow>
             <h2 className="text-2xl sm:text-3xl font-bold text-[var(--color-ink)] leading-snug">
-              Un enfoque práctico que une estrategia de directorio con ejecución en la planta.
+              {t.philosophyTitle}
             </h2>
             <p className="text-sm md:text-base text-[var(--color-slate)] leading-relaxed">
-              En AOA Global Services entendemos que la mejor estrategia carece de valor si no puede implementarse con éxito en la realidad diaria de la organización. Por ello, nuestros mandatos abarcan desde la conceptualización directiva hasta la puesta en marcha de nuevos protocolos operativos.
+              {t.philosophyP1}
             </p>
             <p className="text-sm md:text-base text-[var(--color-slate)] leading-relaxed">
-              Trabajamos junto a juntas directivas, directores generales y fondos de capital privado en América y Europa, optimizando operaciones críticas, gestionando transiciones complejas y diseñando estrategias de expansión internacional.
+              {t.philosophyP2}
             </p>
           </motion.div>
 
@@ -117,14 +82,14 @@ export const About: React.FC = () => {
               <div className="relative aspect-[4/3] w-full overflow-hidden rounded-[var(--radius-card)] border border-[var(--color-line)] bg-[var(--color-line)] group shadow-sm">
                 <img
                   src="https://images.unsplash.com/photo-1556761175-5973dc0f32e7?auto=format&fit=crop&w=1000&q=80"
-                  alt="Sesión de trabajo estratégica con directivos corporativos"
+                  alt={t.imageBadge}
                   className="h-full w-full object-cover grayscale contrast-125 transition-transform duration-700 group-hover:scale-105"
                   width={800}
                   height={600}
                   loading="lazy"
                 />
                 <div className="absolute bottom-4 left-4 bg-[var(--color-navy)] px-3 py-1.5 text-white text-[0.7rem] font-bold uppercase tracking-wider rounded-[var(--radius-btn)]">
-                  Liderazgo Ejecutivo en Acción
+                  {t.imageBadge}
                 </div>
               </div>
             </TiltCard>
@@ -136,15 +101,15 @@ export const About: React.FC = () => {
       <Section tone="line">
         <div className="max-w-2xl mb-12">
           <Eyebrow tone="navy" className="mb-3">
-            Infraestructura & Frentes de Trabajo
+            {t.infraEyebrow}
           </Eyebrow>
           <h2 className="text-2xl sm:text-3xl font-bold text-[var(--color-ink)]">
-            Presencia ejecutiva en centros neurálgicos de negocio
+            {t.infraTitle}
           </h2>
         </div>
 
         <div className="grid grid-cols-1 sm:grid-cols-3 gap-6">
-          {aboutPhotos.map((photo, idx) => (
+          {t.photos.map((photo, idx) => (
             <motion.div
               key={photo.caption}
               initial={{ opacity: 0, y: 20 }}
@@ -179,16 +144,16 @@ export const About: React.FC = () => {
       <Section tone="paper">
         <div className="max-w-2xl mb-12">
           <Eyebrow tone="navy" className="mb-3">
-            Pilares de Trabajo
+            {t.principlesEyebrow}
           </Eyebrow>
           <h2 className="text-2xl sm:text-3xl font-bold text-[var(--color-ink)]">
-            Principios que rigen cada uno de nuestros mandatos
+            {t.principlesTitle}
           </h2>
         </div>
 
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
-          {principles.map((item, index) => {
-            const Icon = item.icon;
+          {t.principles.map((item, index) => {
+            const Icon = principleIcons[index] ?? Target;
             return (
               <motion.div
                 key={item.title}

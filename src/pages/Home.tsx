@@ -11,8 +11,11 @@ import { GlobalGallery } from '../components/sections/GlobalGallery';
 import { Testimonial } from '../components/sections/Testimonial';
 import { CtaBand } from '../components/sections/CtaBand';
 import { companyDetails } from '../data/nav';
+import { useTranslation } from '../context/LanguageContext';
 
 export const Home: React.FC = () => {
+  const { language, t } = useTranslation('seo');
+
   const structuredData = {
     "@context": "https://schema.org",
     "@type": "ProfessionalService",
@@ -20,7 +23,7 @@ export const Home: React.FC = () => {
     "legalName": companyDetails.name,
     "url": "https://aoaglobalservices.com",
     "logo": "https://aoaglobalservices.com/favicon.svg",
-    "description": "Firma de consultoría estratégica y operativa especializada en modelos de alto rendimiento, optimización de capital y gobernanza corporativa.",
+    "description": t.homeDesc,
     "telephone": companyDetails.phone,
     "email": companyDetails.email,
     "address": {
@@ -40,11 +43,9 @@ export const Home: React.FC = () => {
   return (
     <>
       <Helmet>
-        <title>AOA Global Services | Consultoría Estratégica y Operativa</title>
-        <meta
-          name="description"
-          content="AOA Global Services ofrece consultoría estratégica, optimización de procesos y transformación empresarial para organizaciones globales de alto rendimiento."
-        />
+        <html lang={language} />
+        <title>{t.homeTitle}</title>
+        <meta name="description" content={t.homeDesc} />
         <link rel="canonical" href="https://aoaglobalservices.com/" />
         <script type="application/ld+json">
           {JSON.stringify(structuredData)}

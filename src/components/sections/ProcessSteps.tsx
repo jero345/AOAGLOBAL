@@ -1,8 +1,8 @@
 import React, { useState } from 'react';
 import { motion } from 'framer-motion';
+import { useTranslation } from '../../context/LanguageContext';
 import { Section, SectionTone } from '../ui/Section';
 import { Eyebrow } from '../ui/Eyebrow';
-import { processSteps } from '../../data/process';
 
 interface ProcessStepsProps {
   tone?: SectionTone;
@@ -13,11 +13,13 @@ export const ProcessSteps: React.FC<ProcessStepsProps> = ({
   tone = 'paper',
   showEyebrow = true
 }) => {
+  const { language, t } = useTranslation('process');
   const [activeStep, setActiveStep] = useState<string | null>(null);
 
   return (
     <Section tone={tone} id="metodologia">
       <motion.div
+        key={language}
         initial={{ opacity: 0, y: 20 }}
         whileInView={{ opacity: 1, y: 0 }}
         viewport={{ once: true, margin: '-50px' }}
@@ -26,20 +28,20 @@ export const ProcessSteps: React.FC<ProcessStepsProps> = ({
       >
         {showEyebrow && (
           <Eyebrow tone="navy" className="mb-3">
-            Metodología de Ejecución
+            {t.eyebrow}
           </Eyebrow>
         )}
         <h2 className="text-2xl font-bold tracking-tight text-[var(--color-ink)] sm:text-3xl md:text-4xl">
-          Un marco estructurado en cinco fases de alto rigor operacional.
+          {t.title}
         </h2>
         <p className="mt-4 text-base text-[var(--color-slate)] leading-relaxed">
-          Desde el análisis de datos hasta la transferencia final, cada paso cuenta con entregables cuantificables y comités de control.
+          {t.description}
         </p>
       </motion.div>
 
       {/* 5-step interactive timeline */}
       <div className="grid grid-cols-1 md:grid-cols-5 gap-6 relative">
-        {processSteps.map((step, index) => {
+        {t.steps.map((step, index) => {
           const isCurrentActive = activeStep === step.number;
           return (
             <motion.div
@@ -86,7 +88,7 @@ export const ProcessSteps: React.FC<ProcessStepsProps> = ({
 
               <div className="border-t border-[var(--color-line)] pt-3 mt-auto">
                 <span className="text-[0.65rem] font-bold uppercase tracking-wider text-[var(--color-navy)] block mb-1.5">
-                  Entregables:
+                  {t.deliverablesLabel}
                 </span>
                 <ul className="space-y-1 text-[0.7rem] text-[var(--color-ink)]">
                   {step.deliverables.map((del, i) => (

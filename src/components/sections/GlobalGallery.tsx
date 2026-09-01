@@ -1,108 +1,47 @@
 import React, { useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
+import { useTranslation } from '../../context/LanguageContext';
 import { Section } from '../ui/Section';
 import { Eyebrow } from '../ui/Eyebrow';
 
-interface GalleryItem {
-  id: string;
-  title: string;
-  category: 'financiero' | 'industrial' | 'tech';
-  categoryLabel: string;
-  location: string;
-  imageUrl: string;
-  description: string;
-}
-
-const galleryItems: GalleryItem[] = [
-  {
-    id: "sf-hq",
-    title: "Sede Directiva & Centro de Estrategia",
-    category: "financiero",
-    categoryLabel: "Finanzas & Gobernanza",
-    location: "San Francisco, EE.UU.",
-    imageUrl: "https://images.unsplash.com/photo-1506146332389-18140dc7b2fb?auto=format&fit=crop&w=800&q=80",
-    description: "Comité de supervisión y modelado de inversiones transfronterizas."
-  },
-  {
-    id: "industrial-plant",
-    title: "Modernización de Planta de Manufactura",
-    category: "industrial",
-    categoryLabel: "Industria & Manufactura",
-    location: "Monterrey, México",
-    imageUrl: "https://images.unsplash.com/photo-1581092160607-ee22621dd758?auto=format&fit=crop&w=800&q=80",
-    description: "Despliegue de metodologías Lean y automatización de líneas de ensamble."
-  },
-  {
-    id: "london-office",
-    title: "Oficina de Enlace Europeo",
-    category: "financiero",
-    categoryLabel: "Finanzas & Gobernanza",
-    location: "Londres, Reino Unido",
-    imageUrl: "https://images.unsplash.com/photo-1513635269975-59663e0ac1ad?auto=format&fit=crop&w=800&q=80",
-    description: "Estructuración de cumplimiento normativo y arbitraje regulatorio UE-EE.UU."
-  },
-  {
-    id: "cloud-center",
-    title: "Arquitectura Cloud & Centro de Datos",
-    category: "tech",
-    categoryLabel: "Tecnología & Infraestructura",
-    location: "Frankfurt, Alemania",
-    imageUrl: "https://images.unsplash.com/photo-1558494949-ef010cbdcc31?auto=format&fit=crop&w=800&q=80",
-    description: "Migración de plataformas core bancarias con alta redundancia."
-  },
-  {
-    id: "logistics-hub",
-    title: "Hub Logístico de Carga Aérea y Terrestre",
-    category: "industrial",
-    categoryLabel: "Industria & Manufactura",
-    location: "Panamá, Panamá",
-    imageUrl: "https://images.unsplash.com/photo-1578575437130-527eed3abbec?auto=format&fit=crop&w=800&q=80",
-    description: "Consolidación de cadena de distribución multirregional."
-  },
-  {
-    id: "telecom-node",
-    title: "Infraestructura de Conectividad y Redes",
-    category: "tech",
-    categoryLabel: "Tecnología & Infraestructura",
-    location: "Santiago, Chile",
-    imageUrl: "https://images.unsplash.com/photo-1544197150-b99a580bb7a8?auto=format&fit=crop&w=800&q=80",
-    description: "Optimización de red troncal de fibra y despliegue de telecomunicaciones."
-  }
-];
+type GalleryFilter = 'all' | 'financiero' | 'industrial' | 'tech';
 
 export const GlobalGallery: React.FC = () => {
-  const [selectedFilter, setSelectedFilter] = useState<'all' | 'financiero' | 'industrial' | 'tech'>('all');
+  const { language, t } = useTranslation('globalGallery');
+  const [selectedFilter, setSelectedFilter] = useState<GalleryFilter>('all');
+
+  const filters: Array<{ id: GalleryFilter; label: string }> = [
+    { id: 'all', label: t.tabs.all },
+    { id: 'financiero', label: t.tabs.financiero },
+    { id: 'industrial', label: t.tabs.industrial },
+    { id: 'tech', label: t.tabs.tech }
+  ];
 
   const filteredItems = selectedFilter === 'all'
-    ? galleryItems
-    : galleryItems.filter((item) => item.category === selectedFilter);
+    ? t.items
+    : t.items.filter((item) => item.category === selectedFilter);
 
   return (
     <Section tone="paper" className="border-t border-[var(--color-line)]">
-      <div className="flex flex-col md:flex-row md:items-end justify-between mb-12 gap-6">
+      <div key={language} className="flex flex-col md:flex-row md:items-end justify-between mb-12 gap-6">
         <div className="max-w-xl">
           <Eyebrow tone="navy" className="mb-3">
-            Presencia y Despliegue en Terreno
+            {t.eyebrow}
           </Eyebrow>
           <h2 className="text-2xl font-bold tracking-tight text-[var(--color-ink)] sm:text-3xl md:text-4xl">
-            Operaciones globales ejecutadas con precisión milimétrica.
+            {t.title}
           </h2>
         </div>
 
         {/* Filter Tabs with animated indicator */}
         <div className="flex flex-wrap gap-2">
-          {[
-            { id: 'all', label: 'Todos los Frentes' },
-            { id: 'financiero', label: 'Finanzas & Sede' },
-            { id: 'industrial', label: 'Plantas & Logística' },
-            { id: 'tech', label: 'Tecnología & Redes' }
-          ].map((tab) => {
+          {filters.map((tab) => {
             const isActive = selectedFilter === tab.id;
             return (
               <button
                 key={tab.id}
                 type="button"
-                onClick={() => setSelectedFilter(tab.id as any)}
+                onClick={() => setSelectedFilter(tab.id)}
                 className={`relative px-4 py-2 text-xs font-bold uppercase tracking-wider rounded-[var(--radius-btn)] transition-colors duration-200 cursor-pointer ${
                   isActive
                     ? 'bg-[var(--color-navy)] text-white'

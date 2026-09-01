@@ -1,16 +1,19 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import { motion } from 'framer-motion';
+import { useTranslation } from '../../context/LanguageContext';
 import { Section } from '../ui/Section';
 import { Eyebrow } from '../ui/Eyebrow';
 import { SpotlightCard } from '../ui/SpotlightCard';
-import { services } from '../../data/services';
 import { ArrowRight } from 'lucide-react';
 
 export const ServicesGrid: React.FC = () => {
+  const { language, t } = useTranslation('services');
+
   return (
     <Section tone="paper" id="servicios">
       <motion.div
+        key={language}
         initial={{ opacity: 0, y: 20 }}
         whileInView={{ opacity: 1, y: 0 }}
         viewport={{ once: true, margin: '-50px' }}
@@ -18,19 +21,19 @@ export const ServicesGrid: React.FC = () => {
         className="flex flex-col items-start mb-12 max-w-2xl"
       >
         <Eyebrow tone="navy" className="mb-3">
-          Nuestras Capacidades
+          {t.eyebrow}
         </Eyebrow>
         <h2 className="text-2xl font-bold tracking-tight text-[var(--color-ink)] sm:text-3xl md:text-4xl">
-          Especialidades de consultoría diseñadas para generar valor mensurable.
+          {t.title}
         </h2>
         <p className="mt-4 text-base text-[var(--color-slate)] leading-relaxed">
-          Abordamos desafíos estratégicos y operacionales con rigor metodológico, enfoque cuantitativo e implementación en el terreno.
+          {t.description}
         </p>
       </motion.div>
 
       {/* Grid with SpotlightCard, imagery header, and staggered entrance */}
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-        {services.map((service, index) => (
+        {t.items.map((service, index) => (
           <motion.div
             key={service.slug}
             initial={{ opacity: 0, y: 24 }}
@@ -75,7 +78,7 @@ export const ServicesGrid: React.FC = () => {
 
                   <div className="space-y-1.5 mb-2">
                     <p className="text-[0.65rem] font-bold uppercase tracking-wider text-[var(--color-slate)]">
-                      Entregables Clave:
+                      {t.deliverablesLabel}
                     </p>
                     <ul className="space-y-1 text-xs text-[var(--color-ink)]">
                       {service.deliverables.slice(0, 2).map((item, dIndex) => (
@@ -95,7 +98,7 @@ export const ServicesGrid: React.FC = () => {
                   to={`/services#${service.slug}`}
                   className="inline-flex items-center gap-1.5 text-xs font-bold text-[var(--color-navy)] uppercase tracking-wider transition-all duration-200 group-hover:translate-x-1"
                 >
-                  Detalle del servicio <ArrowRight size={14} />
+                  {t.detailLink} <ArrowRight size={14} />
                 </Link>
               </div>
             </SpotlightCard>

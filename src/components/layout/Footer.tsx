@@ -1,16 +1,19 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import { footerLinks, companyDetails } from '../../data/nav';
+import { useTranslation } from '../../context/LanguageContext';
+import { companyDetails } from '../../data/nav';
+import { LanguageSwitcher } from '../ui/LanguageSwitcher';
 import { ArrowUpRight } from 'lucide-react';
 
 export const Footer: React.FC = () => {
   const currentYear = new Date().getFullYear();
+  const { t } = useTranslation('footer');
 
   return (
     <footer className="bg-[var(--color-ink)] text-white">
       <div className="mx-auto max-w-[1200px] px-6 py-16 md:px-8 md:py-20">
         <div className="grid grid-cols-1 gap-12 sm:grid-cols-2 lg:grid-cols-4">
-          {/* Col 1: Brand */}
+          {/* Col 1: Brand & Lang */}
           <div className="flex flex-col space-y-4">
             <div className="flex items-center gap-3">
               <div className="flex h-8 w-8 items-center justify-center bg-white text-[var(--color-navy)] font-bold text-xs rounded-[var(--radius-btn)]">
@@ -21,27 +24,28 @@ export const Footer: React.FC = () => {
               </span>
             </div>
             <p className="text-sm text-white/70 leading-relaxed max-w-xs">
-              Consultoría estratégica, optimización de procesos y transformación empresarial para organizaciones globales de alto rendimiento.
+              {t.brandTagline}
             </p>
-            <div className="pt-2">
+            <div className="pt-2 flex flex-col items-start gap-3">
               <a
                 href={companyDetails.linkedin}
                 target="_blank"
                 rel="noopener noreferrer"
                 className="inline-flex items-center gap-1.5 text-xs font-semibold text-white/80 transition-colors hover:text-white"
               >
-                LinkedIn Institucional <ArrowUpRight size={14} />
+                {t.linkedin} <ArrowUpRight size={14} />
               </a>
+              <LanguageSwitcher variant="dark" />
             </div>
           </div>
 
           {/* Col 2: Services */}
           <div>
             <h4 className="text-xs font-semibold uppercase tracking-[0.08em] text-white/50 mb-4">
-              Servicios
+              {t.servicesTitle}
             </h4>
             <ul className="flex flex-col space-y-2.5">
-              {footerLinks.services.map((link) => (
+              {t.servicesLinks.map((link) => (
                 <li key={link.label}>
                   <Link
                     to={link.href}
@@ -57,10 +61,10 @@ export const Footer: React.FC = () => {
           {/* Col 3: Company */}
           <div>
             <h4 className="text-xs font-semibold uppercase tracking-[0.08em] text-white/50 mb-4">
-              Compañía
+              {t.companyTitle}
             </h4>
             <ul className="flex flex-col space-y-2.5">
-              {footerLinks.company.map((link) => (
+              {t.companyLinks.map((link) => (
                 <li key={link.label}>
                   <Link
                     to={link.href}
@@ -76,7 +80,7 @@ export const Footer: React.FC = () => {
           {/* Col 4: Contact & HQ */}
           <div>
             <h4 className="text-xs font-semibold uppercase tracking-[0.08em] text-white/50 mb-4">
-              Sede Global
+              {t.hqTitle}
             </h4>
             <address className="not-italic text-sm text-white/70 space-y-2 leading-relaxed">
               <p>{companyDetails.address}</p>
@@ -102,9 +106,9 @@ export const Footer: React.FC = () => {
 
         {/* Bottom Bar */}
         <div className="mt-16 border-t border-white/10 pt-8 flex flex-col items-center justify-between gap-4 sm:flex-row text-xs text-white/50">
-          <p>© {currentYear} {companyDetails.name}. Todos los derechos reservados.</p>
+          <p>© {currentYear} {companyDetails.name}. {t.allRightsReserved}</p>
           <div className="flex flex-wrap gap-6">
-            {footerLinks.legal.map((item) => (
+            {t.legalLinks.map((item) => (
               <span key={item.label} className="hover:text-white/80 transition-colors">
                 {item.label}
               </span>
