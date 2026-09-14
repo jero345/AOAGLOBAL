@@ -28,7 +28,7 @@ export const Pricing: React.FC = () => {
               key={plan.slug}
               delay={i * 0.05}
               className={`relative flex flex-col rounded-[var(--radius-card)] border p-6 md:p-7 ${
-                featured ? 'border-navy bg-navy text-white shadow-lg xl:-my-3' : 'border-line bg-paper'
+                featured ? 'glow-border border-navy bg-navy text-white shadow-xl xl:-my-3' : 'border-line bg-paper transition-all duration-300 hover:-translate-y-1 hover:border-navy hover:shadow-md'
               }`}
             >
               {featured && (

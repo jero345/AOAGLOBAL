@@ -1,4 +1,5 @@
 import React from 'react';
+import { motion } from 'framer-motion';
 import { Quote } from 'lucide-react';
 import { useTranslation } from '../../context/LanguageContext';
 import { Section } from '../ui/Section';
@@ -18,10 +19,16 @@ export const SocialProof: React.FC = () => {
 
       <ul className="mt-12 grid grid-cols-1 gap-5 md:grid-cols-3">
         {t.items.map((item, i) => (
-          <Reveal as="li" key={`${item.author}-${i}`} delay={i * 0.06} className="flex flex-col rounded-[var(--radius-card)] border border-line bg-paper p-6">
-            <span className="inline-flex rounded-[var(--radius-btn)] bg-accent px-2.5 py-1 text-xs font-bold text-navy self-start">
+          <Reveal as="li" key={`${item.author}-${i}`} delay={i * 0.06} className="flex flex-col rounded-[var(--radius-card)] border border-line bg-paper p-6 transition-all duration-300 hover:-translate-y-1 hover:border-navy hover:shadow-md">
+            <motion.span
+              initial={{ scale: 0.7, opacity: 0 }}
+              whileInView={{ scale: 1, opacity: 1 }}
+              viewport={{ once: true }}
+              transition={{ type: 'spring', stiffness: 320, damping: 16, delay: 0.2 + i * 0.1 }}
+              className="inline-flex rounded-[var(--radius-btn)] bg-accent px-2.5 py-1 text-xs font-bold text-navy self-start"
+            >
               {item.result}
-            </span>
+            </motion.span>
             <Quote size={20} aria-hidden className="mt-5 text-line" />
             <blockquote className="mt-2 flex-1 text-base leading-relaxed text-ink">{item.quote}</blockquote>
             <footer className="mt-5 border-t border-line pt-4 text-sm">

@@ -45,6 +45,8 @@ export const es: SiteContent = {
       'Cuéntanos qué necesitas. Recibes una cotización en 48 horas y un equipo que lo construye — sitio web, plataforma, automatización o SEO — con estándar internacional y un solo interlocutor.',
     primaryCta: 'Cuéntanos tu requerimiento',
     secondaryCta: 'Ver servicios y precios',
+    imageAlt: 'Torres de oficinas modernas vistas desde abajo',
+    ticker: ['Cotización en 48 horas', 'Un solo interlocutor', 'Sitios web', 'SEO', 'Plataformas a medida', 'Automatización e IA', 'Transformación digital', 'Todo queda a tu nombre'],
     card: {
       label: 'Qué pasa después de escribirnos',
       steps: [
@@ -112,7 +114,11 @@ export const es: SiteContent = {
     highlightTitle: 'Un solo interlocutor. Sin cadena de proveedores.',
     highlightText:
       'Hablas con una sola persona que entiende tu negocio. Detrás hay un equipo full-stack que diseña, construye y da soporte con el mismo estándar con el que atendemos clientes en Australia. No tienes que contratar a nadie más.',
-    cta: 'Empezar con tu requerimiento'
+    cta: 'Empezar con tu requerimiento',
+    places: [
+      { image: '/img/sydney.webp', alt: 'Bahía y skyline de Sídney', region: 'Australia', role: 'Dirección y relación con el cliente' },
+      { image: '/img/team.webp', alt: 'Equipo de ingeniería trabajando en portátiles', region: 'Colombia', role: 'Equipo de ingeniería' }
+    ]
   },
 
   services: {
@@ -123,41 +129,56 @@ export const es: SiteContent = {
     whatLabel: 'Qué hacemos',
     outcomeLabel: 'Qué obtienes',
     quoteCta: 'Cotizar este servicio',
+    undecided: {
+      title: '¿No sabes cuál necesitas?',
+      text: 'Descríbenos el problema en lenguaje simple. Te decimos qué hace falta — y qué no — antes de que gastes un peso.',
+      cta: 'Ayúdenme a decidir'
+    },
     items: [
       {
         slug: 'web',
         name: 'Diseño y desarrollo de sitios web',
         problem: 'Tu sitio se ve bien, pero nadie te escribe por ahí.',
         what: 'Diseñamos y construimos un sitio rápido y mobile-first con un solo objetivo: convertir visitas en consultas.',
-        outcome: 'Un sitio que carga en menos de dos segundos, posiciona y te envía leads calificados al correo.'
+        outcome: 'Un sitio que carga en menos de dos segundos, posiciona y te envía leads calificados al correo.',
+        image: '/img/web.webp',
+        imageAlt: 'Estación de diseño con el layout de un sitio web en pantalla'
       },
       {
         slug: 'seo',
         name: 'SEO y posicionamiento',
         problem: 'Tus clientes buscan lo que haces y encuentran a otro.',
         what: 'Correcciones técnicas, optimización on-page y contenido enfocado en las búsquedas que traen compradores.',
-        outcome: 'Crecimiento medible del tráfico orgánico calificado, con reporte mensual.'
+        outcome: 'Crecimiento medible del tráfico orgánico calificado, con reporte mensual.',
+        image: '/img/seo.webp',
+        imageAlt: 'Portátil con un tablero de analítica de tráfico de búsqueda'
       },
       {
         slug: 'software',
         name: 'Plataformas digitales y software a medida',
         problem: 'Las herramientas genéricas no encajan con cómo opera tu empresa.',
         what: 'Construimos plataformas web, portales y herramientas internas a la medida de tu proceso — del modelo de datos al despliegue.',
-        outcome: 'Un sistema que tu equipo sí usa, con tus datos en un solo lugar.'
+        outcome: 'Un sistema que tu equipo sí usa, con tus datos en un solo lugar.',
+        image: '/img/software.webp',
+        imageAlt: 'Código fuente en el portátil de un desarrollador'
       },
       {
         slug: 'automation',
         name: 'Automatización e IA aplicada',
         problem: 'El trabajo repetitivo se come las horas que tu equipo debería dedicar a clientes.',
         what: 'Conectamos tus herramientas y automatizamos el flujo: captación, seguimientos, reportes, documentos, asistentes con IA.',
-        outcome: 'Horas recuperadas cada semana, menos errores y procesos que corren sin perseguir a nadie.'
+        outcome: 'Horas recuperadas cada semana, menos errores y procesos que corren sin perseguir a nadie.',
+        image: '/img/automation.webp',
+        imageAlt: 'Robot asistente humanoide'
       },
       {
         slug: 'consulting',
         name: 'Consultoría de transformación digital',
         problem: 'Sabes que la tecnología debería ayudar, pero no por dónde empezar ni cuánto debería costar.',
         what: 'Un diagnóstico corto y estructurado de tu operación con hoja de ruta priorizada y presupuestos realistas.',
-        outcome: 'Un plan claro que puedes ejecutar — con nosotros o con quien quieras.'
+        outcome: 'Un plan claro que puedes ejecutar — con nosotros o con quien quieras.',
+        image: '/img/consulting.webp',
+        imageAlt: 'Equipo planeando una hoja de ruta con notas adhesivas'
       }
     ]
   },
@@ -322,6 +343,7 @@ export const es: SiteContent = {
     title: 'Cuéntanos tu requerimiento. Cotización en 48 horas.',
     subtitle: 'Cinco campos. Sin llamada comercial, a menos que tú la quieras.',
     reassurance: ['Respuesta en 48 horas hábiles', 'Sin compromiso hasta que apruebes', 'Tus datos son confidenciales'],
+    imageAlt: 'Dos ingenieros revisando un requerimiento juntos',
     form: {
       name: { label: 'Tu nombre', placeholder: 'Ej. Carolina Restrepo', required: 'Escribe tu nombre' },
       company: { label: 'Empresa', placeholder: 'Ej. Restrepo Logística S.A.S.', required: 'Escribe el nombre de tu empresa' },

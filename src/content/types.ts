@@ -44,6 +44,9 @@ export interface SiteContent {
     subtitle: string;
     primaryCta: string;
     secondaryCta: string;
+    imageAlt: string;
+    /** Frases del ticker bajo el hero */
+    ticker: string[];
     /** Tarjeta visual que ilustra la promesa requerimiento → estimado → entrega */
     card: {
       label: string;
@@ -67,6 +70,8 @@ export interface SiteContent {
     highlightTitle: string;
     highlightText: string;
     cta: string;
+    /** Dos fotos que representan la alianza AU / CO */
+    places: Array<{ image: string; alt: string; region: string; role: string }>;
   };
 
   services: {
@@ -77,12 +82,16 @@ export interface SiteContent {
     whatLabel: string;
     outcomeLabel: string;
     quoteCta: string;
+    /** Tarjeta final: para quien no sabe qué servicio necesita */
+    undecided: { title: string; text: string; cta: string };
     items: Array<{
       slug: ServiceSlug;
       name: string;
       problem: string;
       what: string;
       outcome: string;
+      image: string;
+      imageAlt: string;
     }>;
   };
 
@@ -135,6 +144,7 @@ export interface SiteContent {
     title: string;
     subtitle: string;
     reassurance: string[];
+    imageAlt: string;
     form: {
       name: { label: string; placeholder: string; required: string };
       company: { label: string; placeholder: string; required: string };

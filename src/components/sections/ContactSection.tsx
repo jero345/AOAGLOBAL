@@ -14,6 +14,18 @@ export const ContactSection: React.FC = () => {
     <Section tone="paper" id="contact">
       <div className="grid gap-12 lg:grid-cols-[2fr_3fr] lg:gap-16">
         <Reveal>
+          <div className="group relative mb-8 aspect-[16/10] overflow-hidden rounded-[var(--radius-card)] border border-line bg-mist">
+            <img
+              src="/img/contact.webp"
+              alt={t.imageAlt}
+              width={900}
+              height={700}
+              loading="lazy"
+              decoding="async"
+              className="h-full w-full object-cover grayscale transition-all duration-700 ease-out group-hover:scale-105 group-hover:grayscale-0"
+            />
+            <div aria-hidden className="absolute inset-0 bg-gradient-to-t from-navy/60 to-transparent" />
+          </div>
           <Eyebrow tone="navy" className="mb-3">{t.eyebrow}</Eyebrow>
           <h2 className="text-3xl md:text-h2 text-ink">{t.title}</h2>
           <p className="mt-4 text-base leading-relaxed text-slate">{t.subtitle}</p>

@@ -1,6 +1,7 @@
 import React from 'react';
 import { Eyebrow } from './Eyebrow';
 import { Reveal } from './Reveal';
+import { TextReveal } from './TextReveal';
 
 interface SectionHeaderProps {
   eyebrow: string;
@@ -26,7 +27,7 @@ export const SectionHeader: React.FC<SectionHeaderProps> = ({
       <Eyebrow tone={isDark ? 'white' : 'navy'} className="mb-3">
         {eyebrow}
       </Eyebrow>
-      <h2 className={`text-3xl md:text-h2 ${isDark ? 'text-white' : 'text-ink'}`}>{title}</h2>
+      <TextReveal as="h2" text={title} className={`text-3xl md:text-h2 ${isDark ? 'text-white' : 'text-ink'}`} />
       {description && (
         <p className={`mt-4 text-base leading-relaxed ${isDark ? 'text-white/75' : 'text-slate'}`}>{description}</p>
       )}

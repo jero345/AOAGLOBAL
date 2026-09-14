@@ -45,6 +45,8 @@ export const en: SiteContent = {
       'Tell us what you need. You get an estimate within 48 hours and a team that builds it — website, platform, automation or SEO — with one local contact in Australia.',
     primaryCta: 'Tell us your requirement',
     secondaryCta: 'See services & pricing',
+    imageAlt: 'Modern office towers seen from below',
+    ticker: ['Estimate within 48 hours', 'One local point of contact', 'Websites', 'SEO', 'Custom platforms', 'Automation & AI', 'Digital transformation', 'Everything stays in your name'],
     card: {
       label: 'What happens after you write to us',
       steps: [
@@ -112,7 +114,11 @@ export const en: SiteContent = {
     highlightTitle: 'One point of contact. No chain of vendors.',
     highlightText:
       'You deal with one person in Australia who understands your business. Behind them sits a full-stack team in Colombia that designs, builds and supports the solution. Nobody else to hire.',
-    cta: 'Start with your requirement'
+    cta: 'Start with your requirement',
+    places: [
+      { image: '/img/sydney.webp', alt: 'Sydney harbour and skyline', region: 'Australia', role: 'Your local point of contact' },
+      { image: '/img/team.webp', alt: 'Engineering team working on laptops', region: 'Colombia', role: 'The engineering team' }
+    ]
   },
 
   services: {
@@ -123,41 +129,56 @@ export const en: SiteContent = {
     whatLabel: 'What we do',
     outcomeLabel: 'What you get',
     quoteCta: 'Quote this service',
+    undecided: {
+      title: 'Not sure which one you need?',
+      text: 'Describe the problem in plain language. We tell you what it takes — and what it doesn’t — before you spend anything.',
+      cta: 'Help me decide'
+    },
     items: [
       {
         slug: 'web',
         name: 'Website design & development',
         problem: 'Your site looks fine but nobody enquires through it.',
         what: 'We design and build a fast, mobile-first website around one job: turning visitors into enquiries.',
-        outcome: 'A site that loads in under two seconds, ranks, and sends qualified leads to your inbox.'
+        outcome: 'A site that loads in under two seconds, ranks, and sends qualified leads to your inbox.',
+        image: '/img/web.webp',
+        imageAlt: 'Designer workstation with a website layout on screen'
       },
       {
         slug: 'seo',
         name: 'SEO & search visibility',
         problem: 'Customers search for what you do and find someone else.',
         what: 'Technical fixes, on-page optimisation and content targeted at the searches that bring buyers.',
-        outcome: 'Measurable growth in qualified organic traffic, reported monthly.'
+        outcome: 'Measurable growth in qualified organic traffic, reported monthly.',
+        image: '/img/seo.webp',
+        imageAlt: 'Laptop showing a search traffic analytics dashboard'
       },
       {
         slug: 'software',
         name: 'Custom platforms & software',
         problem: 'Off-the-shelf tools don’t fit how your business actually runs.',
         what: 'We build web platforms, portals and internal tools tailored to your process — from data model to deployment.',
-        outcome: 'One system your team actually uses, with your data in one place.'
+        outcome: 'One system your team actually uses, with your data in one place.',
+        image: '/img/software.webp',
+        imageAlt: 'Source code on a developer laptop'
       },
       {
         slug: 'automation',
         name: 'Automation & applied AI',
         problem: 'Repetitive work eats the hours your team should spend on customers.',
         what: 'We connect your tools and automate the workflow: intake, follow-ups, reporting, document handling, AI assistants.',
-        outcome: 'Hours back every week, fewer errors, and processes that run without chasing anyone.'
+        outcome: 'Hours back every week, fewer errors, and processes that run without chasing anyone.',
+        image: '/img/automation.webp',
+        imageAlt: 'Humanoid robot assistant'
       },
       {
         slug: 'consulting',
         name: 'Digital transformation consulting',
         problem: 'You know technology should help, but not where to start or what it should cost.',
         what: 'A short, structured diagnostic of your operation with a prioritised roadmap and realistic budgets.',
-        outcome: 'A clear plan you can execute — with us or with anyone else.'
+        outcome: 'A clear plan you can execute — with us or with anyone else.',
+        image: '/img/consulting.webp',
+        imageAlt: 'Team planning a roadmap with sticky notes on a wall'
       }
     ]
   },
@@ -323,6 +344,7 @@ export const en: SiteContent = {
     title: 'Tell us your requirement. Estimate within 48 hours.',
     subtitle: 'Five fields. No sales call unless you want one.',
     reassurance: ['Reply within 48 business hours', 'No commitment until you approve', 'Your data stays confidential'],
+    imageAlt: 'Two engineers reviewing a requirement together',
     form: {
       name: { label: 'Your name', placeholder: 'e.g. Sarah Mitchell', required: 'Please enter your name' },
       company: { label: 'Company', placeholder: 'e.g. Mitchell & Co Logistics', required: 'Please enter your company' },

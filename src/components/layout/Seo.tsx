@@ -2,6 +2,11 @@ import React from 'react';
 import { Helmet } from 'react-helmet-async';
 import { useLanguage } from '../../context/LanguageContext';
 import { content, company, localePath, SITE_URL, LOCALES, DEFAULT_LOCALE } from '../../content';
+import font400 from '@fontsource/montserrat/files/montserrat-latin-400-normal.woff2?url';
+import font700 from '@fontsource/montserrat/files/montserrat-latin-700-normal.woff2?url';
+
+/** Fuentes críticas del primer render (la imagen LCP se precarga en index.html, que es estático) */
+const PRELOADS = [font700, font400];
 
 const OG_IMAGE = `${SITE_URL}/og-image.png`;
 
@@ -64,6 +69,9 @@ export const Seo: React.FC = () => {
     <Helmet>
       <html lang={language} />
       <title>{t.meta.title}</title>
+      {PRELOADS.map((href) => (
+        <link key={href} rel="preload" as="font" type="font/woff2" href={href} crossOrigin="anonymous" />
+      ))}
       <meta name="description" content={t.meta.description} />
       <link rel="canonical" href={canonical} />
 
