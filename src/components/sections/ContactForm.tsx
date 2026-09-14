@@ -54,7 +54,6 @@ export const ContactForm: React.FC = () => {
     handleSubmit,
     setValue,
     reset,
-    watch,
     formState: { errors }
   } = useForm<FormData>({
     defaultValues: { name: '', company: '', email: '', service, message: '' },
@@ -65,12 +64,6 @@ export const ContactForm: React.FC = () => {
   useEffect(() => {
     setValue('service', service, { shouldValidate: false });
   }, [service, setValue]);
-
-  // Mantener el contexto en sincronía si el usuario cambia el select a mano
-  const watchedService = watch('service');
-  useEffect(() => {
-    if (watchedService !== service) setService(watchedService);
-  }, [watchedService, service, setService]);
 
   const serviceName = (slug: QuoteService) =>
     slug === GENERAL_SERVICE ? f.service.generalOption : services.items.find((s) => s.slug === slug)?.name ?? slug;
@@ -188,7 +181,11 @@ export const ContactForm: React.FC = () => {
           aria-invalid={!!errors.service}
           aria-describedby={errors.service ? 'service-error' : undefined}
           className={`${fieldClass} cursor-pointer`}
-          {...register('service', { required: f.service.required })}
+          {...register('service', {
+            required: f.service.required,
+            // Cambio manual del select → el contexto también se entera
+            onChange: (e) => setService(e.target.value as QuoteService)
+          })}
         >
           <option value="">{f.service.placeholder}</option>
           {services.items.map((s) => (
