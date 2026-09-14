@@ -1,6 +1,6 @@
 import type { SiteContent } from './types';
 
-// DATOS DE EJEMPLO: equipo, testimonios, precios y plazos son ficticios.
+// DATOS DE EJEMPLO: testimonios, precios y plazos son ficticios.
 // Reemplazar por los reales antes de publicar (ver docs/EDITAR-CONTENIDO.md).
 
 /**
@@ -22,7 +22,6 @@ export const en: SiteContent = {
       { label: 'How it works', anchor: '#how-it-works' },
       { label: 'Services', anchor: '#services' },
       { label: 'Pricing', anchor: '#pricing' },
-      { label: 'Team', anchor: '#team' },
       { label: 'FAQ', anchor: '#faq' }
     ],
     cta: 'Get an estimate',
@@ -256,50 +255,6 @@ export const en: SiteContent = {
   },
 
 
-  team: {
-    eyebrow: 'The team',
-    title: 'Local relationship in Australia. Engineering capacity in Colombia.',
-    description:
-      'AOA Global Services is a partnership: a business lead based in Australia and a full-stack engineering team in Colombia. You get a local contact who speaks your market and a team that builds at a pace local agencies rarely match.',
-    bridge: 'One team. Two time zones. Work moves while you sleep.',
-    sides: [
-      {
-        region: 'Australia',
-        role: 'Your local point of contact',
-        members: [
-          {
-            name: 'Andrea Salazar',
-            role: 'Managing Partner · AOA Global Services',
-            location: 'Sydney, Australia',
-            skills: ['Client strategy & delivery', 'Digital transformation', '12+ years'],
-            photo: null
-          }
-        ]
-      },
-      {
-        region: 'Colombia',
-        role: 'The engineering team',
-        members: [
-          {
-            name: 'Julián Restrepo',
-            role: 'Lead Full-Stack Engineer · Markfusion',
-            location: 'Medellín, Colombia',
-            skills: ['React · Node · PostgreSQL', 'Cloud & DevOps', '9 years'],
-            photo: null
-          },
-          {
-            name: 'Camila Ortiz',
-            role: 'Automation & AI Engineer · Markfusion',
-            location: 'Bogotá, Colombia',
-            skills: ['n8n · Python · LLMs', 'Integrations & data', '6 years'],
-            photo: null
-          }
-        ]
-      }
-    ]
-  },
-
-
   socialProof: {
     eyebrow: 'Results',
     title: 'What clients got — in their words.',
@@ -415,7 +370,6 @@ export const en: SiteContent = {
     companyTitle: 'Company',
     companyLinks: [
       { label: 'How it works', anchor: '#how-it-works' },
-      { label: 'Team', anchor: '#team' },
       { label: 'FAQ', anchor: '#faq' },
       { label: 'Get an estimate', anchor: '#contact' }
     ],

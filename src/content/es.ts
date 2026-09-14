@@ -1,6 +1,6 @@
 import type { SiteContent } from './types';
 
-// DATOS DE EJEMPLO: equipo, testimonios, precios y plazos son ficticios.
+// DATOS DE EJEMPLO: testimonios, precios y plazos son ficticios.
 // Reemplazar por los reales antes de publicar (ver docs/EDITAR-CONTENIDO.md).
 
 /**
@@ -22,7 +22,6 @@ export const es: SiteContent = {
       { label: 'Cómo funciona', anchor: '#how-it-works' },
       { label: 'Servicios', anchor: '#services' },
       { label: 'Precios', anchor: '#pricing' },
-      { label: 'Equipo', anchor: '#team' },
       { label: 'Preguntas', anchor: '#faq' }
     ],
     cta: 'Pedir cotización',
@@ -255,50 +254,6 @@ export const es: SiteContent = {
   },
 
 
-  team: {
-    eyebrow: 'El equipo',
-    title: 'Presencia en Australia. Ejecución técnica en Colombia.',
-    description:
-      'AOA Global Services es una alianza: dirección comercial con base en Australia y un equipo de ingeniería full-stack en Colombia. Trabajas con el mismo equipo y el mismo estándar con el que atendemos empresas australianas — con un solo interlocutor.',
-    bridge: 'Un equipo. Dos husos horarios. Estándar internacional.',
-    sides: [
-      {
-        region: 'Australia',
-        role: 'Dirección y relación con el cliente',
-        members: [
-          {
-            name: 'Andrea Salazar',
-            role: 'Socia directora · AOA Global Services',
-            location: 'Sídney, Australia',
-            skills: ['Estrategia y dirección de proyectos', 'Transformación digital', '12+ años'],
-            photo: null
-          }
-        ]
-      },
-      {
-        region: 'Colombia',
-        role: 'Equipo de ingeniería',
-        members: [
-          {
-            name: 'Julián Restrepo',
-            role: 'Líder de ingeniería full-stack · Markfusion',
-            location: 'Medellín, Colombia',
-            skills: ['React · Node · PostgreSQL', 'Cloud y DevOps', '9 años'],
-            photo: null
-          },
-          {
-            name: 'Camila Ortiz',
-            role: 'Ingeniera de automatización e IA · Markfusion',
-            location: 'Bogotá, Colombia',
-            skills: ['n8n · Python · LLMs', 'Integraciones y datos', '6 años'],
-            photo: null
-          }
-        ]
-      }
-    ]
-  },
-
-
   socialProof: {
     eyebrow: 'Resultados',
     title: 'Lo que obtuvieron nuestros clientes — en sus palabras.',
@@ -414,7 +369,6 @@ export const es: SiteContent = {
     companyTitle: 'Empresa',
     companyLinks: [
       { label: 'Cómo funciona', anchor: '#how-it-works' },
-      { label: 'Equipo', anchor: '#team' },
       { label: 'Preguntas frecuentes', anchor: '#faq' },
       { label: 'Pedir cotización', anchor: '#contact' }
     ],

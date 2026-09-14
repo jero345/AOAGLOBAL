@@ -3,7 +3,7 @@
  * en.ts y es.ts DEBEN implementar esta interfaz completa: si falta una clave,
  * `tsc` (que corre en `npm run build`) falla. Nunca cae a texto vacío en producción.
  *
- * Los datos de cliente (equipo, testimonios, precios) son de ejemplo hasta que se
+ * Los datos de cliente (testimonios, precios) son de ejemplo hasta que se
  * reemplacen por los reales; ver el comentario al inicio de en.ts / es.ts.
  */
 
@@ -109,25 +109,6 @@ export interface SiteContent {
       priceAud: string;
       timeline: string;
       featured: boolean;
-    }>;
-  };
-
-  team: {
-    eyebrow: string;
-    title: string;
-    description: string;
-    bridge: string;
-    sides: Array<{
-      region: string;
-      role: string;
-      members: Array<{
-        name: string;
-        role: string;
-        location: string;
-        skills: string[];
-        /** Ruta a la foto en /public. Sin foto → avatar con iniciales. */
-        photo: string | null;
-      }>;
     }>;
   };
 

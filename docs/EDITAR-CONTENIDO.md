@@ -18,7 +18,7 @@ Los componentes solo leen de ahí. No hay texto en `src/components/`.
 
 ## Datos de ejemplo
 
-Equipo, testimonios, precios y plazos son **ficticios** (hay un comentario al inicio de `en.ts` y `es.ts`). Reemplázalos por los reales antes de publicar: secciones `pricing.plans`, `team`, `socialProof` y las respuestas de `faq` sobre garantía (30 días) y ventana horaria.
+Testimonios, precios y plazos son **ficticios** (hay un comentario al inicio de `en.ts` y `es.ts`). Reemplázalos por los reales antes de publicar: secciones `pricing.plans`, `socialProof` y las respuestas de `faq` sobre garantía (30 días) y ventana horaria.
 
 ## Precios (`pricing.plans`)
 
@@ -47,11 +47,6 @@ Mismo `slug` que en `pricing.plans` y que en el `<select>` del formulario. Si a�
 1. Añade el slug a `ServiceSlug` en `src/content/types.ts`.
 2. Añádelo a `services.items` y `pricing.plans` en **ambos** idiomas.
 3. Añádelo a `VALID` en `src/context/QuoteContext.tsx`.
-
-## Equipo (`team.sides[].members[]`)
-
-- `photo: null` muestra un círculo con iniciales.
-- Para poner foto: guarda `public/team/nombre.webp` (cuadrada, ~400×400, WebP) y pon `photo: '/team/nombre.webp'`.
 
 ## Preguntas frecuentes (`faq.items`)
 
