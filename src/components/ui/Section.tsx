@@ -18,15 +18,15 @@ export const Section: React.FC<SectionProps> = ({
   containerClassName = ''
 }) => {
   const toneClasses: Record<SectionTone, string> = {
-    paper: 'bg-[var(--color-paper)] text-[var(--color-slate)]',
-    line: 'bg-[var(--color-line)] text-[var(--color-slate)]',
-    navy: 'bg-[var(--color-navy)] text-white'
+    paper: 'bg-paper text-slate',
+    line: 'bg-mist text-slate',
+    navy: 'bg-navy text-white'
   };
 
   return (
     <section
       id={id}
-      className={`py-20 md:py-30 ${toneClasses[tone]} ${className}`}
+      className={`scroll-mt-20 py-16 md:py-24 ${toneClasses[tone]} ${className}`}
     >
       <div className={`mx-auto max-w-[1200px] px-6 md:px-8 ${containerClassName}`}>
         {children}

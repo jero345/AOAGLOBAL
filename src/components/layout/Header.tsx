@@ -27,7 +27,7 @@ export const Header: React.FC = () => {
   return (
     <header className="sticky top-0 z-50 h-20 border-b border-line bg-paper/95 backdrop-blur-md">
       <div className="mx-auto flex h-full max-w-[1200px] items-center justify-between px-6 md:px-8">
-        <Link to={home} className="flex items-center gap-3 group" aria-label={`${company.name} — home`}>
+        <Link to={home} className="flex items-center gap-3 group">
           <div className="flex h-9 w-9 items-center justify-center bg-navy text-white font-bold text-sm rounded-[var(--radius-btn)]">
             <span className="tracking-tighter">AOA</span>
           </div>
