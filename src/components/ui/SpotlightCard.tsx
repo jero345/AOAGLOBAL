@@ -3,50 +3,42 @@ import { motion } from 'framer-motion';
 
 interface SpotlightCardProps {
   children: React.ReactNode;
+  /** Incluye el padding aquí (la tarjeta no fija uno por defecto). */
   className?: string;
-  tone?: 'paper' | 'line';
 }
 
-export const SpotlightCard: React.FC<SpotlightCardProps> = ({
-  children,
-  className = '',
-  tone = 'paper'
-}) => {
+/** Tarjeta con halo sutil que sigue al cursor. Solo decorativa; el contenido no depende de ella. */
+export const SpotlightCard: React.FC<SpotlightCardProps> = ({ children, className = '' }) => {
   const cardRef = useRef<HTMLDivElement>(null);
-  const [mousePosition, setMousePosition] = useState({ x: 0, y: 0 });
-  const [isHovered, setIsHovered] = useState(false);
+  const [pos, setPos] = useState({ x: 0, y: 0 });
+  const [hovered, setHovered] = useState(false);
 
-  const handleMouseMove = (e: React.MouseEvent<HTMLDivElement>) => {
+  const onMove = (e: React.MouseEvent<HTMLDivElement>) => {
     if (!cardRef.current) return;
     const rect = cardRef.current.getBoundingClientRect();
-    setMousePosition({
-      x: e.clientX - rect.left,
-      y: e.clientY - rect.top
-    });
+    setPos({ x: e.clientX - rect.left, y: e.clientY - rect.top });
   };
-
-  const bgBase = tone === 'paper' ? 'bg-[var(--color-paper)]' : 'bg-[var(--color-line)]';
 
   return (
     <motion.div
       ref={cardRef}
-      onMouseMove={handleMouseMove}
-      onMouseEnter={() => setIsHovered(true)}
-      onMouseLeave={() => setIsHovered(false)}
+      onMouseMove={onMove}
+      onMouseEnter={() => setHovered(true)}
+      onMouseLeave={() => setHovered(false)}
       whileHover={{ y: -3 }}
       transition={{ type: 'spring', stiffness: 400, damping: 25 }}
-      className={`relative overflow-hidden rounded-[var(--radius-card)] border border-[var(--color-line)] p-8 ${bgBase} transition-colors duration-200 hover:border-[var(--color-navy)] ${className}`}
+      className={`relative overflow-hidden rounded-[var(--radius-card)] border border-line bg-paper transition-colors duration-200 hover:border-navy ${className}`}
     >
-      {/* Subtle radial spotlight overlay on hover */}
-      {isHovered && (
+      {hovered && (
         <div
-          className="pointer-events-none absolute -inset-px transition-opacity duration-300"
+          aria-hidden
+          className="pointer-events-none absolute -inset-px"
           style={{
-            background: `radial-gradient(400px circle at ${mousePosition.x}px ${mousePosition.y}px, rgba(11, 29, 58, 0.05), transparent 80%)`
+            background: `radial-gradient(400px circle at ${pos.x}px ${pos.y}px, rgba(11, 29, 58, 0.05), transparent 80%)`
           }}
         />
       )}
-      <div className="relative z-10">{children}</div>
+      <div className="relative z-10 flex h-full flex-col">{children}</div>
     </motion.div>
   );
 };

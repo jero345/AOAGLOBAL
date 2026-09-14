@@ -1,68 +1,30 @@
 import React from 'react';
-import { Helmet } from 'react-helmet-async';
+import { Seo } from '../components/layout/Seo';
 import { Hero } from '../components/sections/Hero';
-import { TrustBar } from '../components/sections/TrustBar';
+import { Diagnosis } from '../components/sections/Diagnosis';
+import { HowItWorks } from '../components/sections/HowItWorks';
 import { ServicesGrid } from '../components/sections/ServicesGrid';
-import { ValueSplit } from '../components/sections/ValueSplit';
-import { Metrics } from '../components/sections/Metrics';
-import { IndustriesGrid } from '../components/sections/IndustriesGrid';
-import { CaseTeaser } from '../components/sections/CaseTeaser';
-import { GlobalGallery } from '../components/sections/GlobalGallery';
-import { Testimonial } from '../components/sections/Testimonial';
-import { CtaBand } from '../components/sections/CtaBand';
-import { companyDetails } from '../data/nav';
-import { useTranslation } from '../context/LanguageContext';
+import { Pricing } from '../components/sections/Pricing';
+import { Team } from '../components/sections/Team';
+import { SocialProof } from '../components/sections/SocialProof';
+import { Faq } from '../components/sections/Faq';
+import { ContactSection } from '../components/sections/ContactSection';
 
-export const Home: React.FC = () => {
-  const { language, t } = useTranslation('seo');
-
-  const structuredData = {
-    "@context": "https://schema.org",
-    "@type": "ProfessionalService",
-    "name": companyDetails.name,
-    "legalName": companyDetails.name,
-    "url": "https://aoaglobalservices.com",
-    "logo": "https://aoaglobalservices.com/favicon.svg",
-    "description": t.homeDesc,
-    "telephone": companyDetails.phone,
-    "email": companyDetails.email,
-    "address": {
-      "@type": "PostalAddress",
-      "streetAddress": "100 Pine Street, Suite 1250",
-      "addressLocality": "San Francisco",
-      "addressRegion": "CA",
-      "postalCode": "94111",
-      "addressCountry": "US"
-    },
-    "sameAs": [
-      companyDetails.linkedin
-    ],
-    "priceRange": "$$$$"
-  };
-
-  return (
-    <>
-      <Helmet>
-        <html lang={language} />
-        <title>{t.homeTitle}</title>
-        <meta name="description" content={t.homeDesc} />
-        <link rel="canonical" href="https://aoaglobalservices.com/" />
-        <script type="application/ld+json">
-          {JSON.stringify(structuredData)}
-        </script>
-      </Helmet>
-
-      {/* Ordered sections strictly following Table §5 with expanded visual gallery */}
-      <Hero />
-      <TrustBar />
-      <ServicesGrid />
-      <ValueSplit />
-      <Metrics />
-      <IndustriesGrid />
-      <CaseTeaser />
-      <GlobalGallery />
-      <Testimonial />
-      <CtaBand />
-    </>
-  );
-};
+/**
+ * One-page de conversión. Orden obligatorio (brief §4):
+ * problema → cómo funciona → servicios → precios → equipo → prueba → objeciones → formulario.
+ */
+export const Home: React.FC = () => (
+  <>
+    <Seo />
+    <Hero />
+    <Diagnosis />
+    <HowItWorks />
+    <ServicesGrid />
+    <Pricing />
+    <Team />
+    <SocialProof />
+    <Faq />
+    <ContactSection />
+  </>
+);

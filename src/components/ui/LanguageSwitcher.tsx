@@ -1,7 +1,8 @@
 import React, { useId } from 'react';
 import { motion } from 'framer-motion';
-import { useLanguage, Language } from '../../context/LanguageContext';
 import { Globe } from 'lucide-react';
+import { useLanguage, useTranslation, type Language } from '../../context/LanguageContext';
+import { LOCALES, content } from '../../content';
 
 interface LanguageSwitcherProps {
   variant?: 'light' | 'dark';
@@ -15,39 +16,25 @@ export const LanguageSwitcher: React.FC<LanguageSwitcherProps> = ({
   className = ''
 }) => {
   const { language, setLanguage } = useLanguage();
+  const { t } = useTranslation('nav');
   // Cada instancia necesita su propio layoutId: header, drawer móvil y footer coexisten
   const instanceId = useId();
 
   const isDark = variant === 'dark';
-
-  const containerBg = isDark
-    ? 'bg-white/10 border-white/15'
-    : 'bg-slate-100 border-[var(--color-line)]';
-
-  const activeTextColor = isDark
-    ? 'text-[var(--color-navy)] font-bold'
-    : 'text-white font-bold';
-
-  const inactiveTextColor = isDark
-    ? 'text-white/70 hover:text-white'
-    : 'text-[var(--color-slate)] hover:text-[var(--color-ink)]';
-
-  const activePillBg = isDark ? 'bg-white' : 'bg-[var(--color-navy)]';
+  const containerBg = isDark ? 'bg-white/10 border-white/15' : 'bg-mist border-line';
+  const activeText = isDark ? 'text-navy' : 'text-white';
+  const inactiveText = isDark ? 'text-white/70 hover:text-white' : 'text-slate hover:text-ink';
+  const pillBg = isDark ? 'bg-white' : 'bg-navy';
 
   return (
     <div
       className={`inline-flex items-center gap-1 rounded-full border p-1 ${containerBg} ${className}`}
       role="group"
-      aria-label="Selector de idioma / Language selector"
+      aria-label={t.langSwitcherLabel}
     >
-      {showIcon && (
-        <Globe
-          size={14}
-          className={`ml-1.5 shrink-0 ${isDark ? 'text-white/60' : 'text-[var(--color-slate)]'}`}
-        />
-      )}
+      {showIcon && <Globe size={14} aria-hidden className={`ml-1.5 shrink-0 ${isDark ? 'text-white/60' : 'text-slate'}`} />}
 
-      {(['es', 'en'] as Language[]).map((lang) => {
+      {LOCALES.map((lang: Language) => {
         const isActive = language === lang;
         return (
           <button
@@ -55,14 +42,16 @@ export const LanguageSwitcher: React.FC<LanguageSwitcherProps> = ({
             type="button"
             onClick={() => setLanguage(lang)}
             aria-pressed={isActive}
-            className={`relative rounded-full px-2.5 py-0.5 text-xs font-semibold uppercase tracking-wider transition-colors duration-200 cursor-pointer ${
-              isActive ? activeTextColor : inactiveTextColor
+            aria-label={content[lang].meta.localeName}
+            lang={lang}
+            className={`relative rounded-full px-2.5 py-0.5 text-xs font-bold uppercase tracking-wider transition-colors duration-200 cursor-pointer ${
+              isActive ? activeText : inactiveText
             }`}
           >
             {isActive && (
               <motion.div
                 layoutId={`activeLangPill-${instanceId}`}
-                className={`absolute inset-0 rounded-full ${activePillBg}`}
+                className={`absolute inset-0 rounded-full ${pillBg}`}
                 transition={{ type: 'spring', stiffness: 400, damping: 28 }}
               />
             )}

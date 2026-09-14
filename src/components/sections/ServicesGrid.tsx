@@ -1,110 +1,54 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
-import { motion } from 'framer-motion';
-import { useTranslation } from '../../context/LanguageContext';
-import { Section } from '../ui/Section';
-import { Eyebrow } from '../ui/Eyebrow';
-import { SpotlightCard } from '../ui/SpotlightCard';
 import { ArrowRight } from 'lucide-react';
+import { useTranslation } from '../../context/LanguageContext';
+import { useQuote } from '../../context/QuoteContext';
+import { Section } from '../ui/Section';
+import { SectionHeader } from '../ui/SectionHeader';
+import { SpotlightCard } from '../ui/SpotlightCard';
+import { Reveal } from '../ui/Reveal';
 
+/** Bloque 4: tarjetas problema → qué hacemos → qué obtienes. */
 export const ServicesGrid: React.FC = () => {
-  const { language, t } = useTranslation('services');
+  const { t } = useTranslation('services');
+  const { requestQuote } = useQuote();
 
   return (
-    <Section tone="paper" id="servicios">
-      <motion.div
-        key={language}
-        initial={{ opacity: 0, y: 20 }}
-        whileInView={{ opacity: 1, y: 0 }}
-        viewport={{ once: true, margin: '-50px' }}
-        transition={{ duration: 0.6 }}
-        className="flex flex-col items-start mb-12 max-w-2xl"
-      >
-        <Eyebrow tone="navy" className="mb-3">
-          {t.eyebrow}
-        </Eyebrow>
-        <h2 className="text-2xl font-bold tracking-tight text-[var(--color-ink)] sm:text-3xl md:text-4xl">
-          {t.title}
-        </h2>
-        <p className="mt-4 text-base text-[var(--color-slate)] leading-relaxed">
-          {t.description}
-        </p>
-      </motion.div>
+    <Section tone="line" id="services">
+      <SectionHeader eyebrow={t.eyebrow} title={t.title} description={t.description} />
 
-      {/* Grid with SpotlightCard, imagery header, and staggered entrance */}
-      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-        {t.items.map((service, index) => (
-          <motion.div
-            key={service.slug}
-            initial={{ opacity: 0, y: 24 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true, margin: '-30px' }}
-            transition={{
-              type: 'spring',
-              stiffness: 300,
-              damping: 24,
-              delay: index * 0.08
-            }}
-          >
-            <SpotlightCard className="h-full flex flex-col justify-between group p-0 overflow-hidden">
-              <div>
-                {/* Visual Image Header */}
-                <div className="relative aspect-[16/9] w-full overflow-hidden bg-slate-100 border-b border-[var(--color-line)]">
-                  <img
-                    src={service.imageUrl}
-                    alt={service.title}
-                    className="h-full w-full object-cover grayscale contrast-125 transition-transform duration-700 group-hover:scale-108"
-                    loading="lazy"
-                    width={400}
-                    height={225}
-                  />
-                  <div className="absolute top-3 left-3 bg-[var(--color-navy)] text-white text-[0.65rem] font-bold px-2.5 py-1 rounded-[var(--radius-btn)] uppercase tracking-wider">
-                    0{index + 1}
-                  </div>
-                  <div className="absolute top-3 right-3 bg-white/90 backdrop-blur-xs text-[var(--color-navy)] text-[0.65rem] font-bold px-2 py-0.5 rounded-[var(--radius-btn)] border border-[var(--color-line)]">
-                    {service.metrics}
-                  </div>
+      <ul className="mt-12 grid grid-cols-1 gap-5 md:grid-cols-2 lg:grid-cols-3">
+        {t.items.map((s, i) => (
+          <Reveal as="li" key={s.slug} delay={i * 0.05} className="h-full">
+            <SpotlightCard className="flex h-full flex-col p-6">
+              <h3 className="text-h3 text-ink">{s.name}</h3>
+
+              <dl className="mt-5 flex-1 space-y-4 text-sm">
+                <div>
+                  <dt className="text-eyebrow font-semibold uppercase tracking-[0.08em] text-slate">{t.problemLabel}</dt>
+                  <dd className="mt-1 text-ink">{s.problem}</dd>
                 </div>
-
-                {/* Card Body */}
-                <div className="p-6">
-                  <h3 className="text-lg font-bold text-[var(--color-ink)] mb-2.5 leading-snug group-hover:text-[var(--color-navy)] transition-colors duration-200">
-                    {service.title}
-                  </h3>
-
-                  <p className="text-xs text-[var(--color-slate)] mb-5 leading-relaxed">
-                    {service.summary}
-                  </p>
-
-                  <div className="space-y-1.5 mb-2">
-                    <p className="text-[0.65rem] font-bold uppercase tracking-wider text-[var(--color-slate)]">
-                      {t.deliverablesLabel}
-                    </p>
-                    <ul className="space-y-1 text-xs text-[var(--color-ink)]">
-                      {service.deliverables.slice(0, 2).map((item, dIndex) => (
-                        <li key={dIndex} className="flex items-start gap-1.5">
-                          <span className="text-[var(--color-navy)] font-bold">—</span>
-                          <span className="line-clamp-1">{item}</span>
-                        </li>
-                      ))}
-                    </ul>
-                  </div>
+                <div>
+                  <dt className="text-eyebrow font-semibold uppercase tracking-[0.08em] text-slate">{t.whatLabel}</dt>
+                  <dd className="mt-1 text-slate leading-relaxed">{s.what}</dd>
                 </div>
-              </div>
+                <div className="rounded-[var(--radius-btn)] bg-mist p-3">
+                  <dt className="text-eyebrow font-semibold uppercase tracking-[0.08em] text-accent-hover">{t.outcomeLabel}</dt>
+                  <dd className="mt-1 font-medium text-ink">{s.outcome}</dd>
+                </div>
+              </dl>
 
-              {/* Card Footer */}
-              <div className="px-6 pb-6 pt-2 border-t border-[var(--color-line)]/50 mt-auto">
-                <Link
-                  to={`/services#${service.slug}`}
-                  className="inline-flex items-center gap-1.5 text-xs font-bold text-[var(--color-navy)] uppercase tracking-wider transition-all duration-200 group-hover:translate-x-1"
-                >
-                  {t.detailLink} <ArrowRight size={14} />
-                </Link>
-              </div>
+              <button
+                type="button"
+                onClick={() => requestQuote(s.slug)}
+                data-track={`service_${s.slug}`}
+                className="mt-6 inline-flex items-center gap-1.5 self-start text-xs font-bold uppercase tracking-wider text-navy transition-transform duration-200 hover:translate-x-1 cursor-pointer"
+              >
+                {t.quoteCta} <ArrowRight size={14} aria-hidden />
+              </button>
             </SpotlightCard>
-          </motion.div>
+          </Reveal>
         ))}
-      </div>
+      </ul>
     </Section>
   );
 };
