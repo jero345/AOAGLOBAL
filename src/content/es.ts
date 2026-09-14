@@ -1,5 +1,8 @@
 import type { SiteContent } from './types';
 
+// DATOS DE EJEMPLO: equipo, testimonios, precios y plazos son ficticios.
+// Reemplazar por los reales antes de publicar (ver docs/EDITAR-CONTENIDO.md).
+
 /**
  * ES — escrito para LATAM. No es traducción literal del inglés.
  * Ángulo: estándar internacional y respaldo de una operación con presencia en Australia.
@@ -179,13 +182,13 @@ export const es: SiteContent = {
         problem: 'Para empresas cuyo sitio no está generando consultas.',
         deliverables: [
           'Diseño orientado a conversión, mobile-first',
-          'Hasta {{FALTA: número}} páginas, formularios de contacto/cotización',
+          'Hasta 8 páginas, formularios de contacto y cotización',
           'Base técnica de SEO y analítica',
           'Capacitación para editar el contenido tú mismo'
         ],
-        priceUsd: '{{FALTA: precio desde USD — sitios web}}',
+        priceUsd: '1,800',
         priceAud: '',
-        timeline: '{{FALTA: tiempo de entrega — sitios web}}',
+        timeline: '3–4 semanas',
         featured: false
       },
       {
@@ -198,9 +201,9 @@ export const es: SiteContent = {
           'Optimización on-page y plan de contenidos',
           'Reporte mensual de posiciones y tráfico'
         ],
-        priceUsd: '{{FALTA: precio desde USD — SEO}}',
+        priceUsd: '900 / mes',
         priceAud: '',
-        timeline: '{{FALTA: tiempo de entrega — SEO}}',
+        timeline: 'Primeros resultados en 60–90 días',
         featured: false
       },
       {
@@ -213,9 +216,9 @@ export const es: SiteContent = {
           'Roles de usuario, tableros e integraciones',
           'Despliegue, documentación y entrega'
         ],
-        priceUsd: '{{FALTA: precio desde USD — software a medida}}',
+        priceUsd: '6,500',
         priceAud: '',
-        timeline: '{{FALTA: tiempo de entrega — software a medida}}',
+        timeline: '6–10 semanas',
         featured: true
       },
       {
@@ -228,9 +231,9 @@ export const es: SiteContent = {
           'Asistentes con IA donde ahorran tiempo real',
           'Monitoreo y manual de operación para tu equipo'
         ],
-        priceUsd: '{{FALTA: precio desde USD — automatización e IA}}',
+        priceUsd: '2,500',
         priceAud: '',
-        timeline: '{{FALTA: tiempo de entrega — automatización e IA}}',
+        timeline: '2–4 semanas',
         featured: false
       },
       {
@@ -243,13 +246,14 @@ export const es: SiteContent = {
           'Recomendaciones sin compromiso con proveedores',
           'Resumen ejecutivo para quien decide'
         ],
-        priceUsd: '{{FALTA: precio desde USD — consultoría}}',
+        priceUsd: '1,500',
         priceAud: '',
-        timeline: '{{FALTA: tiempo de entrega — consultoría}}',
+        timeline: '2 semanas',
         featured: false
       }
     ]
   },
+
 
   team: {
     eyebrow: 'El equipo',
@@ -263,14 +267,10 @@ export const es: SiteContent = {
         role: 'Dirección y relación con el cliente',
         members: [
           {
-            name: 'Andrea {{FALTA: apellido}}',
-            role: '{{FALTA: rol}} · {{FALTA: empresa en Australia}}',
-            location: '{{FALTA: ciudad}}, Australia',
-            skills: [
-              '{{FALTA: especialidad 1}}',
-              '{{FALTA: especialidad 2}}',
-              '{{FALTA: años de experiencia}}'
-            ],
+            name: 'Andrea Salazar',
+            role: 'Socia directora · AOA Global Services',
+            location: 'Sídney, Australia',
+            skills: ['Estrategia y dirección de proyectos', 'Transformación digital', '12+ años'],
             photo: null
           }
         ]
@@ -280,17 +280,17 @@ export const es: SiteContent = {
         role: 'Equipo de ingeniería',
         members: [
           {
-            name: '{{FALTA: nombre integrante técnico 1}}',
-            role: '{{FALTA: rol}} · {{FALTA: Markfusion / NEXXOSS}}',
-            location: '{{FALTA: ciudad}}, Colombia',
-            skills: ['{{FALTA: stack}}', '{{FALTA: especialidad}}', '{{FALTA: años}}'],
+            name: 'Julián Restrepo',
+            role: 'Líder de ingeniería full-stack · Markfusion',
+            location: 'Medellín, Colombia',
+            skills: ['React · Node · PostgreSQL', 'Cloud y DevOps', '9 años'],
             photo: null
           },
           {
-            name: '{{FALTA: nombre integrante técnico 2}}',
-            role: '{{FALTA: rol}} · {{FALTA: Markfusion / NEXXOSS}}',
-            location: '{{FALTA: ciudad}}, Colombia',
-            skills: ['{{FALTA: stack}}', '{{FALTA: especialidad}}', '{{FALTA: años}}'],
+            name: 'Camila Ortiz',
+            role: 'Ingeniera de automatización e IA · Markfusion',
+            location: 'Bogotá, Colombia',
+            skills: ['n8n · Python · LLMs', 'Integraciones y datos', '6 años'],
             photo: null
           }
         ]
@@ -298,30 +298,31 @@ export const es: SiteContent = {
     ]
   },
 
+
   socialProof: {
     eyebrow: 'Resultados',
     title: 'Lo que obtuvieron nuestros clientes — en sus palabras.',
     items: [
       {
-        quote: '{{FALTA: testimonio real 1}}',
-        author: '{{FALTA: nombre}}',
-        role: '{{FALTA: cargo}}',
-        company: '{{FALTA: empresa}}',
-        result: '{{FALTA: resultado medible, ej. "+40% de consultas en 90 días"}}'
+        quote: 'Teníamos tres proveedores y ningún resultado. En seis semanas teníamos un solo equipo, un sitio nuevo y consultas llegando todos los días.',
+        author: 'Sarah Whitfield',
+        role: 'Directora de Operaciones',
+        company: 'Coastline Freight, Brisbane',
+        result: '+38% de consultas en 90 días'
       },
       {
-        quote: '{{FALTA: testimonio real 2}}',
-        author: '{{FALTA: nombre}}',
-        role: '{{FALTA: cargo}}',
-        company: '{{FALTA: empresa}}',
-        result: '{{FALTA: resultado medible}}'
+        quote: 'La cotización llegó en dos días y la plataforma en siete semanas. Nuestro equipo por fin dejó de vivir en planillas.',
+        author: 'Daniel Moreno',
+        role: 'Gerente General',
+        company: 'Andina Distribución',
+        result: '15 horas ahorradas por semana'
       },
       {
-        quote: '{{FALTA: testimonio real 3}}',
-        author: '{{FALTA: nombre}}',
-        role: '{{FALTA: cargo}}',
-        company: '{{FALTA: empresa}}',
-        result: '{{FALTA: resultado medible}}'
+        quote: 'Nos explicaron qué haría y qué no haría el SEO antes de cobrar un peso. Seis meses después salimos primeros para nuestro servicio principal.',
+        author: 'Priya Nair',
+        role: 'Fundadora',
+        company: 'Harbour Dental Group, Melbourne',
+        result: '#1 en Google en 4 búsquedas clave'
       }
     ]
   },
@@ -344,11 +345,11 @@ export const es: SiteContent = {
       },
       {
         q: '¿Qué pasa si necesito cambios después de la entrega?',
-        a: 'Todo proyecto incluye una ventana de ajustes posterior a la entrega ({{FALTA: días de garantía/ajustes}}). Después puedes pedir cambios puntuales o un plan de soporte mensual. Nada queda amarrado a nosotros: el código y las cuentas son tuyos.'
+        a: 'Todo proyecto incluye una ventana de ajustes posterior a la entrega (30 días). Después puedes pedir cambios puntuales o un plan de soporte mensual. Nada queda amarrado a nosotros: el código y las cuentas son tuyos.'
       },
       {
         q: '¿Cómo manejan husos horarios y comunicación?',
-        a: 'El equipo de ingeniería trabaja en horario de Colombia, así que si estás en LATAM compartes casi toda la jornada. La dirección en Australia se conecta en la ventana de solape diaria: {{FALTA: ventana horaria real de solape, ej. 16:00–19:00 COT}}. Las demos y llamadas se agendan en tu horario.'
+        a: 'El equipo de ingeniería trabaja en horario de Colombia, así que si estás en LATAM compartes casi toda la jornada. La dirección en Australia se conecta en la ventana de solape diaria: 16:00–19:00 hora de Colombia. Las demos y llamadas se agendan en tu horario.'
       },
       {
         q: '¿El sitio o la plataforma queda a mi nombre?',

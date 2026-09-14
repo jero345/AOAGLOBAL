@@ -6,8 +6,8 @@ import { SectionHeader } from '../ui/SectionHeader';
 import { Reveal } from '../ui/Reveal';
 
 /**
- * Bloque 7: prueba social. El componente está listo; los datos son {{FALTA}}
- * hasta que el cliente entregue testimonios reales. Nunca se inventan.
+ * Bloque 7: prueba social. Los testimonios actuales son de ejemplo:
+ * reemplazar por reales en src/content antes de publicar.
  */
 export const SocialProof: React.FC = () => {
   const { t } = useTranslation('socialProof');

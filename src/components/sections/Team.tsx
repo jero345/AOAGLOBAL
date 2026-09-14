@@ -17,7 +17,7 @@ const initials = (name: string) =>
 
 /**
  * Bloque 6: la alianza con rostro. Dos columnas AU / CO unidas por un puente.
- * Sin misión/visión/valores. Foto real cuando exista; iniciales mientras tanto.
+ * Sin misión/visión/valores. Foto real cuando exista (photo); iniciales mientras tanto.
  */
 export const Team: React.FC = () => {
   const { t } = useTranslation('team');

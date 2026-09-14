@@ -1,5 +1,8 @@
 import type { SiteContent } from './types';
 
+// DATOS DE EJEMPLO: equipo, testimonios, precios y plazos son ficticios.
+// Reemplazar por los reales antes de publicar (ver docs/EDITAR-CONTENIDO.md).
+
 /**
  * EN — written for the Australian market.
  * Angle: access to an engineering team that ships fast, with a local point of contact.
@@ -180,13 +183,13 @@ export const en: SiteContent = {
         problem: 'For businesses whose site isn’t bringing in enquiries.',
         deliverables: [
           'Conversion-focused design, mobile-first',
-          'Up to {{FALTA: número}} pages, contact/quote forms',
+          'Up to 8 pages, contact and quote forms',
           'Technical SEO foundation and analytics',
           'Training to edit content yourself'
         ],
-        priceUsd: '{{FALTA: precio desde USD — sitios web}}',
-        priceAud: '{{FALTA: equivalente AUD}}',
-        timeline: '{{FALTA: tiempo de entrega — sitios web}}',
+        priceUsd: '1,800',
+        priceAud: '2,700',
+        timeline: '3–4 weeks',
         featured: false
       },
       {
@@ -199,9 +202,9 @@ export const en: SiteContent = {
           'On-page optimisation and content plan',
           'Monthly ranking and traffic report'
         ],
-        priceUsd: '{{FALTA: precio desde USD — SEO}}',
-        priceAud: '{{FALTA: equivalente AUD}}',
-        timeline: '{{FALTA: tiempo de entrega — SEO}}',
+        priceUsd: '900 / month',
+        priceAud: '1,350 / month',
+        timeline: 'First results in 60–90 days',
         featured: false
       },
       {
@@ -214,9 +217,9 @@ export const en: SiteContent = {
           'User roles, dashboards and integrations',
           'Deployment, documentation and handover'
         ],
-        priceUsd: '{{FALTA: precio desde USD — software a medida}}',
-        priceAud: '{{FALTA: equivalente AUD}}',
-        timeline: '{{FALTA: tiempo de entrega — software a medida}}',
+        priceUsd: '6,500',
+        priceAud: '9,800',
+        timeline: '6–10 weeks',
         featured: true
       },
       {
@@ -229,9 +232,9 @@ export const en: SiteContent = {
           'AI assistants where they save real time',
           'Monitoring and a runbook for your team'
         ],
-        priceUsd: '{{FALTA: precio desde USD — automatización e IA}}',
-        priceAud: '{{FALTA: equivalente AUD}}',
-        timeline: '{{FALTA: tiempo de entrega — automatización e IA}}',
+        priceUsd: '2,500',
+        priceAud: '3,800',
+        timeline: '2–4 weeks',
         featured: false
       },
       {
@@ -244,13 +247,14 @@ export const en: SiteContent = {
           'Vendor-neutral recommendations',
           'Executive summary for decision-makers'
         ],
-        priceUsd: '{{FALTA: precio desde USD — consultoría}}',
-        priceAud: '{{FALTA: equivalente AUD}}',
-        timeline: '{{FALTA: tiempo de entrega — consultoría}}',
+        priceUsd: '1,500',
+        priceAud: '2,300',
+        timeline: '2 weeks',
         featured: false
       }
     ]
   },
+
 
   team: {
     eyebrow: 'The team',
@@ -264,14 +268,10 @@ export const en: SiteContent = {
         role: 'Your local point of contact',
         members: [
           {
-            name: 'Andrea {{FALTA: apellido}}',
-            role: '{{FALTA: rol}} · {{FALTA: empresa en Australia}}',
-            location: '{{FALTA: ciudad}}, Australia',
-            skills: [
-              '{{FALTA: especialidad 1}}',
-              '{{FALTA: especialidad 2}}',
-              '{{FALTA: años de experiencia}}'
-            ],
+            name: 'Andrea Salazar',
+            role: 'Managing Partner · AOA Global Services',
+            location: 'Sydney, Australia',
+            skills: ['Client strategy & delivery', 'Digital transformation', '12+ years'],
             photo: null
           }
         ]
@@ -281,17 +281,17 @@ export const en: SiteContent = {
         role: 'The engineering team',
         members: [
           {
-            name: '{{FALTA: nombre integrante técnico 1}}',
-            role: '{{FALTA: rol}} · {{FALTA: Markfusion / NEXXOSS}}',
-            location: '{{FALTA: ciudad}}, Colombia',
-            skills: ['{{FALTA: stack}}', '{{FALTA: especialidad}}', '{{FALTA: años}}'],
+            name: 'Julián Restrepo',
+            role: 'Lead Full-Stack Engineer · Markfusion',
+            location: 'Medellín, Colombia',
+            skills: ['React · Node · PostgreSQL', 'Cloud & DevOps', '9 years'],
             photo: null
           },
           {
-            name: '{{FALTA: nombre integrante técnico 2}}',
-            role: '{{FALTA: rol}} · {{FALTA: Markfusion / NEXXOSS}}',
-            location: '{{FALTA: ciudad}}, Colombia',
-            skills: ['{{FALTA: stack}}', '{{FALTA: especialidad}}', '{{FALTA: años}}'],
+            name: 'Camila Ortiz',
+            role: 'Automation & AI Engineer · Markfusion',
+            location: 'Bogotá, Colombia',
+            skills: ['n8n · Python · LLMs', 'Integrations & data', '6 years'],
             photo: null
           }
         ]
@@ -299,30 +299,31 @@ export const en: SiteContent = {
     ]
   },
 
+
   socialProof: {
     eyebrow: 'Results',
     title: 'What clients got — in their words.',
     items: [
       {
-        quote: '{{FALTA: testimonio real 1}}',
-        author: '{{FALTA: nombre}}',
-        role: '{{FALTA: cargo}}',
-        company: '{{FALTA: empresa}}',
-        result: '{{FALTA: resultado medible, ej. "+40% enquiries in 90 days"}}'
+        quote: 'We had three vendors and no results. Within six weeks we had one team, a new site and enquiries coming in every day.',
+        author: 'Sarah Whitfield',
+        role: 'Operations Director',
+        company: 'Coastline Freight, Brisbane',
+        result: '+38% enquiries in 90 days'
       },
       {
-        quote: '{{FALTA: testimonio real 2}}',
-        author: '{{FALTA: nombre}}',
-        role: '{{FALTA: cargo}}',
-        company: '{{FALTA: empresa}}',
-        result: '{{FALTA: resultado medible}}'
+        quote: 'The estimate arrived in two days and the platform in seven weeks. Our team finally stopped living in spreadsheets.',
+        author: 'Daniel Moreno',
+        role: 'General Manager',
+        company: 'Andina Distribución',
+        result: '15 hours saved per week'
       },
       {
-        quote: '{{FALTA: testimonio real 3}}',
-        author: '{{FALTA: nombre}}',
-        role: '{{FALTA: cargo}}',
-        company: '{{FALTA: empresa}}',
-        result: '{{FALTA: resultado medible}}'
+        quote: 'They explained what SEO would and would not do before we paid a cent. Six months later we rank first for our main service.',
+        author: 'Priya Nair',
+        role: 'Founder',
+        company: 'Harbour Dental Group, Melbourne',
+        result: '#1 on Google for 4 key searches'
       }
     ]
   },
@@ -345,11 +346,11 @@ export const en: SiteContent = {
       },
       {
         q: 'What if I need changes after delivery?',
-        a: 'Every project includes a post-delivery adjustment window ({{FALTA: días de garantía/ajustes}}). After that you can book changes on demand or a monthly support plan. Nothing is locked behind us: the code and accounts are yours.'
+        a: 'Every project includes a post-delivery adjustment window (30 days). After that you can book changes on demand or a monthly support plan. Nothing is locked behind us: the code and accounts are yours.'
       },
       {
         q: 'How do you handle time zones and communication?',
-        a: 'Your local contact works Australian business hours. The engineering team’s day starts as yours ends, so work progresses overnight and you see results in the morning. Live overlap for calls and demos: {{FALTA: ventana horaria real de solape, ej. 7:00–10:00 AEST}}.'
+        a: 'Your local contact works Australian business hours. The engineering team’s day starts as yours ends, so work progresses overnight and you see results in the morning. Live overlap for calls and demos: 7:00–10:00 AEST, every business day.'
       },
       {
         q: 'Does the website or platform stay in my name?',

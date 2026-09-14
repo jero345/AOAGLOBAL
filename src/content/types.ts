@@ -3,8 +3,8 @@
  * en.ts y es.ts DEBEN implementar esta interfaz completa: si falta una clave,
  * `tsc` (que corre en `npm run build`) falla. Nunca cae a texto vacío en producción.
  *
- * Convención: cualquier dato que aún no nos ha entregado el cliente va como
- * "{{FALTA: descripción}}" para que sea visible en pantalla y buscable en el repo.
+ * Los datos de cliente (equipo, testimonios, precios) son de ejemplo hasta que se
+ * reemplacen por los reales; ver el comentario al inicio de en.ts / es.ts.
  */
 
 export type Locale = 'en' | 'es';
@@ -103,7 +103,7 @@ export interface SiteContent {
       name: string;
       problem: string;
       deliverables: string[];
-      /** Solo el número/texto, sin "USD". Ej: "1,500" o "{{FALTA: ...}}" */
+      /** Solo el número/texto, sin "USD". Ej: "1,500" o "900 / month" */
       priceUsd: string;
       /** Equivalente aproximado en AUD (solo EN). Vacío en ES. */
       priceAud: string;

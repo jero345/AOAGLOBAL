@@ -16,15 +16,9 @@ Los componentes solo leen de ahí. No hay texto en `src/components/`.
 3. **Comillas:** los textos van entre comillas simples `'...'`. Si el texto lleva un apóstrofo (`can't`), usa el tipográfico `’` o escápalo `\'`.
 4. Después de editar: `npm run build`. Si compila, está bien.
 
-## Datos pendientes — `{{FALTA: ...}}`
+## Datos de ejemplo
 
-Cualquier dato que aún no nos han entregado aparece como `{{FALTA: descripción}}` **y se ve en pantalla** a propósito. Para encontrarlos todos:
-
-```bash
-grep -rn "FALTA" src/content/
-```
-
-Reemplaza el marcador completo (incluidas las llaves) por el dato real.
+Equipo, testimonios, precios y plazos son **ficticios** (hay un comentario al inicio de `en.ts` y `es.ts`). Reemplázalos por los reales antes de publicar: secciones `pricing.plans`, `team`, `socialProof` y las respuestas de `faq` sobre garantía (30 días) y ventana horaria.
 
 ## Precios (`pricing.plans`)
 
