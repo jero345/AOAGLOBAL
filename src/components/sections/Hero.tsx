@@ -18,7 +18,7 @@ export const Hero: React.FC = () => {
   const reduce = useReducedMotion();
   const ref = useRef<HTMLElement>(null);
   const { scrollYProgress } = useScroll({ target: ref, offset: ['start start', 'end start'] });
-  const imgY = useTransform(scrollYProgress, [0, 1], ['0%', reduce ? '0%' : '18%']);
+  const imgY = useTransform(scrollYProgress, [0, 1], ['0%', reduce ? '0%' : '8%']);
 
   return (
     <>
@@ -64,7 +64,7 @@ export const Hero: React.FC = () => {
               initial={{ opacity: 0, scale: 0.96 }}
               animate={{ opacity: 1, scale: 1 }}
               transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1], delay: 0.15 }}
-              className="relative aspect-[16/10] overflow-hidden rounded-[var(--radius-card)] border border-line bg-line shadow-md lg:aspect-[5/4]"
+              className="relative aspect-[4/3] overflow-hidden rounded-[var(--radius-card)] border border-line bg-paper shadow-md"
             >
               <motion.img
                 src="/img/hero.webp"
@@ -72,14 +72,13 @@ export const Hero: React.FC = () => {
                 sizes="(min-width: 1024px) 45vw, 100vw"
                 alt={t.imageAlt}
                 width={1000}
-                height={800}
+                height={750}
                 loading="eager"
                 fetchPriority="high"
                 decoding="async"
                 style={{ y: imgY }}
-                className="kenburns h-[118%] w-full object-cover grayscale-[35%]"
+                className="kenburns h-[108%] w-full object-cover"
               />
-              <div aria-hidden className="absolute inset-0 bg-gradient-to-t from-navy/50 via-transparent to-transparent" />
             </motion.div>
           </div>
         </div>

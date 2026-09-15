@@ -42,7 +42,7 @@ export const es: SiteContent = {
     primaryCta: 'Explorar soluciones',
     secondaryCta: 'Iniciar un proyecto',
     note: 'Para requerimientos claramente definidos, podemos presentar una propuesta inicial en hasta 48 horas hábiles.',
-    imageAlt: 'Equipo de trabajo revisando el plan de un proyecto con portátiles',
+    imageAlt: 'Ilustración de una plataforma digital con paneles, gráficos e integraciones conectadas',
     ticker: [
       'Estrategia y transformación tecnológica',
       'Automatización y soluciones inteligentes',
