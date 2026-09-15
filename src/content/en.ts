@@ -23,7 +23,7 @@ export const en: SiteContent = {
       { label: 'FAQ', anchor: '#faq' },
       { label: 'Contact', anchor: '#contact' }
     ],
-    cta: 'Talk to AOA',
+    cta: 'Start a project',
     openMenu: 'Open menu',
     closeMenu: 'Close menu',
     mainNavLabel: 'Main navigation',
@@ -34,7 +34,7 @@ export const en: SiteContent = {
       accept: 'Ver en español',
       dismiss: 'Stay in English'
     },
-    floatingCta: 'Talk to AOA'
+    floatingCta: 'Start a project'
   },
 
   hero: {
@@ -45,7 +45,7 @@ export const en: SiteContent = {
       'From a specific need to a complete enterprise platform, we define the solution and take it through to execution.'
     ],
     primaryCta: 'Explore solutions',
-    secondaryCta: 'Talk to AOA',
+    secondaryCta: 'Request a proposal',
     noteTitle: 'Already have a defined requirement?',
     noteText: 'We can present an initial proposal within 48 business hours.',
     imageAlt: 'Earth at night seen from orbit, city lights connected across continents',
@@ -128,7 +128,7 @@ export const en: SiteContent = {
         'AOA coordinates strategy, development, automation and implementation with a clear working structure and a single point of contact.'
       ],
       highlight: 'Less fragmentation. More clarity. Greater accountability for the result.',
-      cta: 'Talk to AOA',
+      cta: 'Request a proposal',
       capabilities: [
         {
           image: '/img/strategy.webp',
@@ -156,11 +156,10 @@ export const en: SiteContent = {
     detailsLabel: 'Typical scope',
     exploreCta: 'Explore solution',
     collapseCta: 'Close',
-    talkCta: 'Talk to AOA',
     undecided: {
       title: 'Not sure which solution you need?',
       text: 'Describe the situation. We tell you what is required — and what isn’t — before defining any scope.',
-      cta: 'Talk to AOA'
+      cta: 'Tell us your challenge'
     },
     items: [
       {
@@ -175,6 +174,7 @@ export const en: SiteContent = {
           'Architecture definition and tool selection',
           'Leadership support throughout implementation'
         ],
+        cta: 'Tell us your challenge',
         image: '/img/consulting.webp',
         imageAlt: 'Team planning a roadmap with sticky notes on a wall'
       },
@@ -190,6 +190,7 @@ export const en: SiteContent = {
           'Intelligent processing of documents and requests',
           'Monitoring, control and continuous improvement of workflows'
         ],
+        cta: 'Request a proposal',
         image: '/img/automation.webp',
         imageAlt: 'Humanoid robot assistant'
       },
@@ -205,6 +206,7 @@ export const en: SiteContent = {
           'Roles, permissions, dashboards and integrations',
           'Deployment, documentation and handover'
         ],
+        cta: 'Request a proposal',
         image: '/img/software.webp',
         imageAlt: 'Source code on a developer laptop'
       },
@@ -220,6 +222,7 @@ export const en: SiteContent = {
           'Dashboards and automated reporting',
           'Alerts and indicators for leadership'
         ],
+        cta: 'Request a proposal',
         image: '/img/seo.webp',
         imageAlt: 'Laptop showing a business indicators dashboard'
       },
@@ -235,6 +238,7 @@ export const en: SiteContent = {
           'Forms, integrations and analytics',
           'Maintenance and continuous evolution'
         ],
+        cta: 'Request a proposal',
         image: '/img/web.webp',
         imageAlt: 'Designer workstation with a website layout on screen'
       }
@@ -325,7 +329,7 @@ export const en: SiteContent = {
   },
 
   contact: {
-    eyebrow: 'Contact',
+    eyebrow: 'Request a proposal',
     title: 'Tell us what you need to improve, transform or build.',
     paragraphs: [
       'It may be a specific solution, a process that needs to evolve, or a challenge for which there is no defined technology answer yet.',
@@ -383,7 +387,7 @@ export const en: SiteContent = {
       { label: 'How we work', anchor: '#how-it-works' },
       { label: 'Our work', anchor: '#results' },
       { label: 'FAQ', anchor: '#faq' },
-      { label: 'Contact', anchor: '#contact' }
+      { label: 'Request a proposal', anchor: '#contact' }
     ],
     contactTitle: 'Contact',
     rights: 'All rights reserved.'

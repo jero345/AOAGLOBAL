@@ -60,7 +60,7 @@ export const ContactForm: React.FC = () => {
     shouldFocusError: true
   });
 
-  // "Hablar con AOA" desde una tarjeta de solución → preselección del área de interés
+  // CTA dentro de una tarjeta de solución → preselección del área de interés
   useEffect(() => {
     setValue('service', service, { shouldValidate: false });
   }, [service, setValue]);

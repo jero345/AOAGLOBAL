@@ -12,7 +12,7 @@ import type { ServiceSlug } from '../../content';
 
 /**
  * Bloque 4: cinco capacidades. "Explorar solución" despliega el alcance habitual
- * dentro de la tarjeta (sin páginas extra); "Hablar con AOA" preselecciona el formulario.
+ * dentro de la tarjeta (sin páginas extra); su CTA preselecciona el área en el formulario.
  */
 export const ServicesGrid: React.FC = () => {
   const { language, t } = useTranslation('services');
@@ -90,7 +90,7 @@ export const ServicesGrid: React.FC = () => {
                             track={`service_talk_${s.slug}`}
                             className="mt-4 w-full"
                           >
-                            {t.talkCta} <ArrowRight size={16} aria-hidden />
+                            {s.cta} <ArrowRight size={16} aria-hidden />
                           </Button>
                         </div>
                       </motion.div>

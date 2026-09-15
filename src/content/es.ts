@@ -23,7 +23,7 @@ export const es: SiteContent = {
       { label: 'Preguntas', anchor: '#faq' },
       { label: 'Contacto', anchor: '#contact' }
     ],
-    cta: 'Hablar con AOA',
+    cta: 'Iniciar un proyecto',
     openMenu: 'Abrir menú',
     closeMenu: 'Cerrar menú',
     mainNavLabel: 'Navegación principal',
@@ -34,7 +34,7 @@ export const es: SiteContent = {
       accept: 'View in English',
       dismiss: 'Seguir en español'
     },
-    floatingCta: 'Hablar con AOA'
+    floatingCta: 'Iniciar un proyecto'
   },
 
   hero: {
@@ -45,7 +45,7 @@ export const es: SiteContent = {
       'Desde una necesidad específica hasta una plataforma empresarial completa, definimos la solución y la llevamos a ejecución.'
     ],
     primaryCta: 'Explorar soluciones',
-    secondaryCta: 'Hablar con AOA',
+    secondaryCta: 'Solicitar una propuesta',
     noteTitle: '¿Ya existe un requerimiento definido?',
     noteText: 'Podemos presentar una propuesta inicial en hasta 48 horas hábiles.',
     imageAlt: 'La Tierra de noche vista desde órbita, con las luces de las ciudades conectadas entre continentes',
@@ -128,7 +128,7 @@ export const es: SiteContent = {
         'AOA coordina estrategia, desarrollo, automatización e implementación con una estructura clara de trabajo y un único punto de contacto.'
       ],
       highlight: 'Menos fragmentación. Más claridad. Mayor responsabilidad sobre el resultado.',
-      cta: 'Hablar con AOA',
+      cta: 'Solicitar una propuesta',
       capabilities: [
         {
           image: '/img/strategy.webp',
@@ -156,11 +156,10 @@ export const es: SiteContent = {
     detailsLabel: 'Alcance habitual',
     exploreCta: 'Explorar solución',
     collapseCta: 'Cerrar',
-    talkCta: 'Hablar con AOA',
     undecided: {
       title: '¿Aún no sabe qué solución necesita?',
       text: 'Descríbanos la situación. Le indicamos qué es necesario — y qué no — antes de definir cualquier alcance.',
-      cta: 'Hablar con AOA'
+      cta: 'Cuéntenos su desafío'
     },
     items: [
       {
@@ -175,6 +174,7 @@ export const es: SiteContent = {
           'Definición de arquitectura y selección de herramientas',
           'Acompañamiento a la dirección durante la implementación'
         ],
+        cta: 'Cuéntenos su desafío',
         image: '/img/consulting.webp',
         imageAlt: 'Equipo planeando una hoja de ruta con notas adhesivas'
       },
@@ -190,6 +190,7 @@ export const es: SiteContent = {
           'Procesamiento inteligente de documentos y solicitudes',
           'Monitoreo, control y mejora continua de los flujos'
         ],
+        cta: 'Solicitar una propuesta',
         image: '/img/automation.webp',
         imageAlt: 'Robot asistente humanoide'
       },
@@ -205,6 +206,7 @@ export const es: SiteContent = {
           'Roles, permisos, tableros e integraciones',
           'Despliegue, documentación y transferencia'
         ],
+        cta: 'Solicitar una propuesta',
         image: '/img/software.webp',
         imageAlt: 'Código fuente en el portátil de un desarrollador'
       },
@@ -220,6 +222,7 @@ export const es: SiteContent = {
           'Tableros de control y reportes automatizados',
           'Alertas e indicadores para la dirección'
         ],
+        cta: 'Solicitar una propuesta',
         image: '/img/seo.webp',
         imageAlt: 'Portátil con un tablero de indicadores de negocio'
       },
@@ -235,6 +238,7 @@ export const es: SiteContent = {
           'Formularios, integraciones y analítica',
           'Mantenimiento y evolución continua'
         ],
+        cta: 'Solicitar una propuesta',
         image: '/img/web.webp',
         imageAlt: 'Estación de diseño con el layout de un sitio web en pantalla'
       }
@@ -325,7 +329,7 @@ export const es: SiteContent = {
   },
 
   contact: {
-    eyebrow: 'Contacto',
+    eyebrow: 'Solicitar una propuesta',
     title: 'Cuéntenos qué necesita mejorar, transformar o construir.',
     paragraphs: [
       'Puede tratarse de una solución específica, un proceso que necesita evolucionar o un desafío para el que todavía no existe una respuesta tecnológica definida.',
@@ -383,7 +387,7 @@ export const es: SiteContent = {
       { label: 'Cómo trabajamos', anchor: '#how-it-works' },
       { label: 'Nuestro trabajo', anchor: '#results' },
       { label: 'Preguntas', anchor: '#faq' },
-      { label: 'Contacto', anchor: '#contact' }
+      { label: 'Solicitar una propuesta', anchor: '#contact' }
     ],
     contactTitle: 'Contacto',
     rights: 'Todos los derechos reservados.'

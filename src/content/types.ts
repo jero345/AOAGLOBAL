@@ -84,7 +84,6 @@ export interface SiteContent {
     detailsLabel: string;
     exploreCta: string;
     collapseCta: string;
-    talkCta: string;
     undecided: { title: string; text: string; cta: string };
     items: Array<{
       slug: ServiceSlug;
@@ -94,6 +93,8 @@ export interface SiteContent {
       outcome: string;
       /** Se muestran al "Explorar solución" */
       details: string[];
+      /** CTA dentro del panel desplegado */
+      cta: string;
       image: string;
       imageAlt: string;
     }>;
