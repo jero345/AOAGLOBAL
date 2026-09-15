@@ -94,9 +94,9 @@ export const Hero: React.FC = () => {
                   fetchPriority="high"
                   decoding="async"
                   style={{ y: imgY }}
-                  className="kenburns h-[118%] w-full object-cover grayscale contrast-110"
+                  className="kenburns h-[118%] w-full object-cover"
                 />
-                <div aria-hidden className="absolute inset-0 bg-gradient-to-t from-navy/70 via-navy/10 to-transparent" />
+                <div aria-hidden className="absolute inset-0 bg-gradient-to-t from-navy/60 via-transparent to-transparent" />
               </motion.div>
 
               <motion.aside

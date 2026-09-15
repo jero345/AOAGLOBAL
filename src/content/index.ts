@@ -15,7 +15,7 @@ export const content: Record<Locale, SiteContent> = { en, es };
 /** Datos institucionales independientes del idioma */
 export const company = {
   name: 'AOA Global Services LLC',
-  email: 'contact@aoaglobalservices.com',
+  email: 'admin@aoaglobalservices.com',
   linkedin: 'https://www.linkedin.com/company/aoa-global-services'
 };
 

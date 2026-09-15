@@ -48,7 +48,7 @@ export const es: SiteContent = {
     secondaryCta: 'Hablar con AOA',
     noteTitle: '¿Ya existe un requerimiento definido?',
     noteText: 'Podemos presentar una propuesta inicial en hasta 48 horas hábiles.',
-    imageAlt: 'Torres de oficinas modernas vistas desde abajo',
+    imageAlt: 'La Tierra de noche vista desde órbita, con las luces de las ciudades conectadas entre continentes',
     ticker: [
       'Estrategia y transformación tecnológica',
       'IA y automatización',
@@ -370,7 +370,7 @@ export const es: SiteContent = {
     },
     direct: {
       title: '¿Prefiere escribir directamente?',
-      email: 'contact@aoaglobalservices.com'
+      email: 'admin@aoaglobalservices.com'
     }
   },
 
