@@ -105,7 +105,7 @@ export const es: SiteContent = {
         description: 'Optimizamos flujos de trabajo y automatizamos tareas para reducir trabajo manual y mejorar la capacidad operativa.',
         capabilities: ['Automatización', 'Workflows', 'Procesamiento documental', 'Integraciones', 'IA aplicada'],
         image: '/img/automation.webp',
-        imageAlt: 'Asistente robótico que representa procesos automatizados'
+        imageAlt: 'Diagrama de flujos de proceso conectados sobre una pared de trabajo'
       },
       {
         slug: 'platforms',

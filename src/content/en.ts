@@ -105,7 +105,7 @@ export const en: SiteContent = {
         description: 'We optimize workflows and automate tasks to reduce manual work and improve operational capacity.',
         capabilities: ['Automation', 'Workflows', 'Document Processing', 'Integrations', 'Applied AI'],
         image: '/img/automation.webp',
-        imageAlt: 'Robotic assistant representing automated processes'
+        imageAlt: 'Connected process workflow diagrams on a planning wall'
       },
       {
         slug: 'platforms',
