@@ -33,9 +33,10 @@ export const Hero: React.FC = () => {
 
   return (
     <>
-      <section ref={ref} className="relative overflow-hidden bg-paper">
-        <div aria-hidden className="dot-grid absolute inset-0 opacity-60 [mask-image:radial-gradient(ellipse_at_top_left,black,transparent_70%)]" />
-        <div aria-hidden className="blob absolute -right-32 -top-32 h-[28rem] w-[28rem] rounded-full bg-accent/15 blur-3xl" />
+      <section ref={ref} className="relative overflow-hidden bg-gradient-to-br from-navy/25 via-navy/8 to-paper">
+        <div aria-hidden className="dot-grid absolute inset-0 opacity-70 [mask-image:radial-gradient(ellipse_at_top_left,black,transparent_70%)]" />
+        <div aria-hidden className="blob absolute -right-32 -top-32 h-[30rem] w-[30rem] rounded-full bg-navy/35 blur-3xl" />
+        <div aria-hidden className="absolute -bottom-40 -left-24 h-[24rem] w-[24rem] rounded-full bg-navy/20 blur-3xl" />
 
         <div className="relative mx-auto max-w-[1200px] px-6 md:px-8 py-16 md:py-24 lg:py-28">
           <div className="grid items-center gap-12 lg:grid-cols-[6fr_6fr] lg:gap-16">
@@ -92,7 +93,7 @@ export const Hero: React.FC = () => {
                   fetchPriority="high"
                   decoding="async"
                   style={{ y: imgY }}
-                  className="kenburns h-[118%] w-full object-cover"
+                  className="kenburns h-[118%] w-full object-cover grayscale-[35%]"
                 />
                 <div aria-hidden className="absolute inset-0 bg-gradient-to-t from-navy/60 via-transparent to-transparent" />
               </motion.div>

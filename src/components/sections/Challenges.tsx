@@ -28,14 +28,16 @@ export const Challenges: React.FC = () => {
               viewport={{ once: true, amount: 0.3 }}
               transition={{ duration: 0.5, delay: (i % 3) * 0.08, ease: [0.16, 1, 0.3, 1] }}
               whileHover={reduce ? undefined : { y: -4 }}
-              className="group flex flex-col rounded-[var(--radius-card)] border border-line bg-paper p-6 transition-colors duration-200 hover:border-accent"
+              className="group flex flex-row items-start gap-4 rounded-[var(--radius-card)] border border-line bg-paper p-4 transition-colors duration-200 hover:border-accent md:flex-col md:gap-0 md:p-6"
             >
-              <span className="mb-4 inline-flex h-9 w-9 items-center justify-center rounded-[var(--radius-btn)] bg-mist text-accent-hover transition-colors duration-200 group-hover:bg-accent group-hover:text-navy">
+              <span className="inline-flex h-9 w-9 shrink-0 items-center justify-center rounded-[var(--radius-btn)] bg-mist text-accent-hover transition-colors duration-200 group-hover:bg-accent group-hover:text-navy md:mb-4">
                 <Icon size={18} aria-hidden />
               </span>
-              <h3 className="text-h3 text-ink">{item.title}</h3>
-              <p className="mt-2 text-sm leading-relaxed text-slate">{item.text}</p>
-              <span aria-hidden className="mt-5 h-0.5 w-8 bg-line transition-all duration-300 group-hover:w-full group-hover:bg-accent" />
+              <div className="flex min-w-0 flex-col">
+                <h3 className="text-base font-bold leading-snug text-ink md:text-h3">{item.title}</h3>
+                <p className="mt-1.5 text-xs leading-relaxed text-slate md:mt-2 md:text-sm">{item.text}</p>
+                <span aria-hidden className="mt-4 hidden h-0.5 w-8 bg-line transition-all duration-300 group-hover:w-full group-hover:bg-accent md:mt-5 md:block" />
+              </div>
             </motion.li>
           );
         })}
