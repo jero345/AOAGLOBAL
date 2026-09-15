@@ -13,7 +13,7 @@ export const Ticker: React.FC<TickerProps> = ({ items, className = '' }) => {
   const row = [...items, ...items];
   return (
     <div className={`overflow-hidden border-y border-line bg-navy text-white ${className}`} aria-hidden>
-      <ul className="ticker flex w-max items-center gap-10 py-3 pr-10 text-xs font-semibold uppercase tracking-[0.12em] whitespace-nowrap">
+      <ul className="ticker flex w-max items-center gap-10 py-2.5 pr-10 text-xs font-semibold uppercase tracking-[0.12em] whitespace-nowrap">
         {row.map((item, i) => (
           <li key={i} className="flex items-center gap-10">
             <span>{item}</span>

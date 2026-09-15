@@ -3,9 +3,11 @@ import { Link } from 'react-router-dom';
 import { motion } from 'framer-motion';
 
 export type ButtonVariant = 'accent' | 'primary' | 'outline' | 'inverse';
+export type ButtonSize = 'md' | 'sm';
 
 export interface ButtonProps extends React.ButtonHTMLAttributes<HTMLButtonElement> {
   variant?: ButtonVariant;
+  size?: ButtonSize;
   href?: string;
   children: React.ReactNode;
   className?: string;
@@ -15,7 +17,12 @@ export interface ButtonProps extends React.ButtonHTMLAttributes<HTMLButtonElemen
 }
 
 const baseClasses =
-  'relative inline-flex items-center justify-center gap-2 rounded-[var(--radius-btn)] px-7 py-3.5 text-sm font-semibold transition-colors duration-200 cursor-pointer text-center select-none';
+  'relative inline-flex items-center justify-center gap-2 rounded-[var(--radius-btn)] font-semibold transition-colors duration-200 cursor-pointer text-center select-none whitespace-nowrap';
+
+const sizeClasses: Record<ButtonSize, string> = {
+  md: 'px-7 py-3.5 text-sm',
+  sm: 'px-4 py-2.5 text-xs'
+};
 
 const variantClasses: Record<ButtonVariant, string> = {
   // Acento: reservado para la acción principal de cada bloque
@@ -29,6 +36,7 @@ const spring = { type: 'spring', stiffness: 400, damping: 20 } as const;
 
 export const Button: React.FC<ButtonProps> = ({
   variant = 'primary',
+  size = 'md',
   href,
   children,
   className = '',
@@ -36,7 +44,7 @@ export const Button: React.FC<ButtonProps> = ({
   track,
   ...props
 }) => {
-  const combinedClasses = `${baseClasses} ${variantClasses[variant]} ${className}`;
+  const combinedClasses = `${baseClasses} ${sizeClasses[size]} ${variantClasses[variant]} ${className}`;
 
   if (href) {
     const isAnchor = href.startsWith('#');

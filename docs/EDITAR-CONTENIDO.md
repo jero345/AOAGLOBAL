@@ -21,6 +21,7 @@ Los componentes solo leen de ahí. No hay texto en `src/components/`.
 - Principio de marca: **Estrategia · Tecnología · Ejecución**. La tecnología es un medio para mejorar cómo opera una organización.
 - **Sin geografía**: no mencionar países, ciudades, oficinas ni dónde está el equipo. Solo `AOA Global Services LLC` y, discretamente, `US-registered company` (`footer.legal`).
 - **Sin precios públicos**: nada de cifras, paquetes ni tarifas. Si hace falta hablar de inversión: "Antes de comenzar, se establecen claramente alcance, entregables, cronograma e inversión."
+- Cada idea se explica **una sola vez**: la metodología solo en `approach` (3 pasos + una línea de cierre); `challenges` son 3 tarjetas; `faq` son 5 preguntas.
 - **48 horas** solo como microcopy de baja jerarquía y solo para requerimientos claramente definidos (`hero.note`). No es la promesa de marca.
 - **IA** solo como tecnología dentro de "Automatización y soluciones inteligentes" o en capacidades concretas. Nunca en hero, claim, menú, footer ni como pregunta de FAQ.
 - **Sin testimonios ni cifras inventadas**: la sección `projects` presenta tipos de solución, no clientes.
@@ -29,7 +30,7 @@ Los componentes solo leen de ahí. No hay texto en `src/components/`.
 
 ## Capacidades (`capabilities.items`)
 
-Cinco categorías fijas, identificadas por `slug`: `strategy`, `automation`, `platforms`, `data`, `web`. El mismo slug enlaza la tarjeta con el campo "Tipo de proyecto" del formulario (`contact.form.projectType.options`). Cada tarjeta tiene `challenge` → `what` → `outcome` y `capabilities` (chips).
+Cinco categorías fijas, identificadas por `slug`: `strategy`, `automation`, `platforms`, `data`, `web`. El mismo slug enlaza la tarjeta con el campo "Tipo de proyecto" del formulario (`contact.form.projectType.options`). Cada tarjeta muestra `name` + `description` (visible) y `capabilities` (chips, dentro de "Ver detalles"). La nota final es `capabilities.note`.
 
 Si añades una categoría:
 

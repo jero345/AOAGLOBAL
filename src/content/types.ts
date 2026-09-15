@@ -5,7 +5,8 @@
  *
  * Principio de marca: ESTRATEGIA · TECNOLOGÍA · EJECUCIÓN.
  * Sin países ni ubicaciones, sin precios, sin testimonios inventados,
- * IA solo como tecnología dentro de una capacidad (nunca como claim).
+ * IA solo como capacidad secundaria dentro de automatización.
+ * Cada idea se explica una sola vez (la metodología solo en "Cómo trabajamos").
  */
 
 export type Locale = 'en' | 'es';
@@ -40,62 +41,46 @@ export interface SiteContent {
   hero: {
     eyebrow: string;
     title: string;
-    paragraphs: string[];
+    /** Un solo párrafo */
+    description: string;
     primaryCta: string;
     secondaryCta: string;
-    /** Microcopy de baja jerarquía: propuesta inicial solo para requerimientos definidos */
+    /** Microcopy secundario: propuesta inicial solo para requerimientos definidos */
     note: string;
     imageAlt: string;
     ticker: string[];
-    /** Tarjeta "De la necesidad al proyecto" */
-    card: {
-      label: string;
-      steps: Array<{ title: string; detail: string }>;
-      footer: string;
-    };
   };
 
   challenges: {
     eyebrow: string;
     title: string;
-    intro: string;
     items: Array<{ title: string; text: string }>;
-    closing: string[];
   };
 
   approach: {
     eyebrow: string;
     title: string;
-    intro: string;
     steps: Array<{ number: string; title: string; description: string }>;
-    closing: string[];
-    /** Bloque "Una dirección integrada de proyecto" */
-    model: {
-      title: string;
-      paragraphs: string[];
-      highlight: string;
-      pillars: Array<{ image: string; alt: string; label: string; text: string }>;
-    };
+    /** Una sola línea de cierre */
+    closing: string;
   };
 
   capabilities: {
     eyebrow: string;
     title: string;
-    intro: string;
-    challengeLabel: string;
-    whatLabel: string;
-    outcomeLabel: string;
+    showDetails: string;
+    hideDetails: string;
     capabilitiesLabel: string;
     /** CTA de cada tarjeta → formulario con el tipo de proyecto preseleccionado */
     cta: string;
-    /** Tarjeta "Cuando el problema está claro, pero la solución todavía no" */
-    undecided: { title: string; paragraphs: string[]; cta: string };
+    /** Nota breve al final: no es necesario tener la solución definida */
+    note: string;
     items: Array<{
       slug: ServiceSlug;
       name: string;
-      challenge: string;
-      what: string;
-      outcome: string;
+      /** Descripción visible sin hacer clic */
+      description: string;
+      /** Capacidades específicas (desplegable "Ver detalles") */
       capabilities: string[];
       image: string;
       imageAlt: string;
@@ -106,8 +91,7 @@ export interface SiteContent {
   projects: {
     eyebrow: string;
     title: string;
-    capabilitiesLabel: string;
-    items: Array<{ title: string; text: string; capabilities: string[] }>;
+    items: Array<{ title: string; text: string }>;
   };
 
   faq: {
@@ -119,7 +103,7 @@ export interface SiteContent {
   contact: {
     eyebrow: string;
     title: string;
-    paragraphs: string[];
+    intro: string;
     imageAlt: string;
     form: {
       name: { label: string; placeholder: string; required: string };

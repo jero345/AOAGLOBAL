@@ -46,7 +46,7 @@ export const Seo: React.FC = () => {
       item: {
         '@type': 'Service',
         name: s.name,
-        description: s.outcome,
+        description: s.description,
         provider: { '@type': 'Organization', name: company.name },
         url: `${canonical}#capabilities`
       }

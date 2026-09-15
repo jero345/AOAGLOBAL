@@ -11,10 +11,10 @@ export const ContactSection: React.FC = () => {
   const { t } = useTranslation('contact');
 
   return (
-    <Section tone="line" id="contact">
-      <div className="grid gap-12 lg:grid-cols-[2fr_3fr] lg:gap-16">
+    <Section tone="paper" id="contact">
+      <div className="grid gap-8 lg:grid-cols-[2fr_3fr] lg:gap-16">
         <Reveal>
-          <div className="group relative mb-8 aspect-[16/10] overflow-hidden rounded-[var(--radius-card)] border border-line bg-mist">
+          <div className="group relative mb-6 hidden aspect-[16/10] overflow-hidden rounded-[var(--radius-card)] border border-line bg-mist md:block">
             <img
               src="/img/contact.webp"
               alt={t.imageAlt}
@@ -28,23 +28,18 @@ export const ContactSection: React.FC = () => {
           </div>
           <Eyebrow tone="navy" className="mb-3">{t.eyebrow}</Eyebrow>
           <h2 className="text-3xl md:text-h2 text-ink">{t.title}</h2>
-          <div className="mt-4 space-y-3">
-            {t.paragraphs.map((p) => (
-              <p key={p} className="text-base leading-relaxed text-slate">
-                {p}
-              </p>
-            ))}
-          </div>
+          <p className="mt-3 text-base leading-relaxed text-slate">{t.intro}</p>
 
-          <div className="mt-10 rounded-[var(--radius-card)] border border-line bg-paper p-5">
-            <p className="text-eyebrow font-semibold uppercase tracking-[0.08em] text-slate">{t.direct.title}</p>
-            <a href={`mailto:${t.direct.email}`} className="mt-2 inline-flex items-center gap-2 text-sm font-semibold text-navy hover:underline">
-              <Mail size={16} aria-hidden /> {t.direct.email}
+          <p className="mt-6 flex items-center gap-2 text-sm">
+            <Mail size={16} aria-hidden className="shrink-0 text-accent-hover" />
+            <span className="text-slate">{t.direct.title}:</span>
+            <a href={`mailto:${t.direct.email}`} className="font-semibold text-navy hover:underline">
+              {t.direct.email}
             </a>
-          </div>
+          </p>
         </Reveal>
 
-        <Reveal delay={0.08} className="rounded-[var(--radius-card)] border border-line bg-paper p-6 md:p-8 shadow-sm">
+        <Reveal delay={0.08} className="rounded-[var(--radius-card)] border border-line bg-mist p-5 md:p-8">
           <ContactForm />
         </Reveal>
       </div>

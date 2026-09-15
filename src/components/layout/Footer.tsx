@@ -1,19 +1,51 @@
-import React from 'react';
-import { ArrowUpRight } from 'lucide-react';
+import React, { useState } from 'react';
+import { ArrowUpRight, ChevronDown } from 'lucide-react';
 import { useTranslation } from '../../context/LanguageContext';
 import { company } from '../../content';
 import { LanguageSwitcher } from '../ui/LanguageSwitcher';
 import { useQuote } from '../../context/QuoteContext';
 
+interface GroupProps {
+  id: string;
+  title: string;
+  open: boolean;
+  onToggle: () => void;
+  children: React.ReactNode;
+}
+
+/** En móvil el grupo es desplegable (cerrado por defecto); en escritorio siempre visible. */
+const FooterGroup: React.FC<GroupProps> = ({ id, title, open, onToggle, children }) => (
+  <div className="border-t border-white/10 sm:border-0">
+    <h2 className="text-xs font-semibold uppercase tracking-[0.08em] text-white/50 sm:mb-4">
+      <button
+        type="button"
+        onClick={onToggle}
+        aria-expanded={open}
+        aria-controls={id}
+        className="flex min-h-12 w-full items-center justify-between py-3 text-left uppercase cursor-pointer sm:hidden"
+      >
+        {title}
+        <ChevronDown size={16} aria-hidden className={`transition-transform duration-200 ${open ? 'rotate-180' : ''}`} />
+      </button>
+      <span className="hidden sm:inline">{title}</span>
+    </h2>
+    <div id={id} className={`${open ? 'block' : 'hidden'} pb-4 sm:block sm:pb-0`}>
+      {children}
+    </div>
+  </div>
+);
+
 export const Footer: React.FC = () => {
   const { t } = useTranslation('footer');
   const { requestQuote } = useQuote();
+  const [openGroup, setOpenGroup] = useState<'solutions' | 'company' | null>(null);
+  const toggle = (g: 'solutions' | 'company') => setOpenGroup((cur) => (cur === g ? null : g));
   const year = new Date().getFullYear();
 
   return (
     <footer className="bg-ink text-white">
-      <div className="mx-auto max-w-[1200px] px-6 py-16 md:px-8 md:py-20">
-        <div className="grid grid-cols-1 gap-12 sm:grid-cols-2 lg:grid-cols-4">
+      <div className="mx-auto max-w-[1200px] px-6 py-12 md:px-8 md:py-20">
+        <div className="grid grid-cols-1 gap-8 sm:grid-cols-2 sm:gap-12 lg:grid-cols-4">
           <div className="flex flex-col space-y-4">
             <div className="flex items-center gap-3">
               <div className="flex h-8 w-8 items-center justify-center bg-white text-navy font-bold text-xs rounded-[var(--radius-btn)]">
@@ -23,7 +55,7 @@ export const Footer: React.FC = () => {
             </div>
             <p className="text-sm text-white/70 leading-relaxed max-w-xs">{t.tagline}</p>
             <p className="text-xs uppercase tracking-[0.14em] text-accent">{t.brandLine}</p>
-            <div className="pt-2 flex flex-col items-start gap-3">
+            <div className="pt-1 flex flex-col items-start gap-3">
               <a
                 href={company.linkedin}
                 target="_blank"
@@ -36,8 +68,7 @@ export const Footer: React.FC = () => {
             </div>
           </div>
 
-          <div>
-            <h2 className="text-xs font-semibold uppercase tracking-[0.08em] text-white/50 mb-4">{t.solutionsTitle}</h2>
+          <FooterGroup id="footer-solutions" title={t.solutionsTitle} open={openGroup === 'solutions'} onToggle={() => toggle('solutions')}>
             <ul className="flex flex-col space-y-2.5">
               {t.solutions.map((s) => (
                 <li key={s.slug}>
@@ -51,10 +82,9 @@ export const Footer: React.FC = () => {
                 </li>
               ))}
             </ul>
-          </div>
+          </FooterGroup>
 
-          <div>
-            <h2 className="text-xs font-semibold uppercase tracking-[0.08em] text-white/50 mb-4">{t.companyTitle}</h2>
+          <FooterGroup id="footer-company" title={t.companyTitle} open={openGroup === 'company'} onToggle={() => toggle('company')}>
             <ul className="flex flex-col space-y-2.5">
               {t.companyLinks.map((link) => (
                 <li key={link.anchor}>
@@ -64,10 +94,10 @@ export const Footer: React.FC = () => {
                 </li>
               ))}
             </ul>
-          </div>
+          </FooterGroup>
 
-          <div>
-            <h2 className="text-xs font-semibold uppercase tracking-[0.08em] text-white/50 mb-4">{t.contactTitle}</h2>
+          <div className="border-t border-white/10 pt-4 sm:border-0 sm:pt-0">
+            <h2 className="text-xs font-semibold uppercase tracking-[0.08em] text-white/50 mb-2 sm:mb-4">{t.contactTitle}</h2>
             <address className="not-italic text-sm text-white/70 leading-relaxed">
               <a href={`mailto:${company.email}`} className="transition-colors hover:text-white">
                 {company.email}
@@ -76,7 +106,7 @@ export const Footer: React.FC = () => {
           </div>
         </div>
 
-        <div className="mt-16 flex flex-col gap-2 border-t border-white/10 pt-8 text-xs text-white/50 sm:flex-row sm:items-center sm:justify-between">
+        <div className="mt-10 flex flex-col gap-2 border-t border-white/10 pt-6 text-xs text-white/50 sm:mt-16 sm:flex-row sm:items-center sm:justify-between sm:pt-8">
           <p>
             © {year} {company.name}. {t.rights}
           </p>

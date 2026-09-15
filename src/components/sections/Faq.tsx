@@ -6,14 +6,14 @@ import { Section } from '../ui/Section';
 import { SectionHeader } from '../ui/SectionHeader';
 import { Reveal } from '../ui/Reveal';
 
-/** Bloque 8: objeciones. Acordeón accesible (button + aria-expanded + region). */
+/** Preguntas frecuentes: acordeón accesible, todas cerradas al inicio. */
 export const Faq: React.FC = () => {
   const { language, t } = useTranslation('faq');
-  const [open, setOpen] = useState<number | null>(0);
+  const [open, setOpen] = useState<number | null>(null);
 
   return (
     <Section tone="line" id="faq">
-      <div className="grid gap-10 lg:grid-cols-[2fr_3fr]">
+      <div className="grid gap-8 lg:grid-cols-[2fr_3fr] lg:gap-10">
         <SectionHeader eyebrow={t.eyebrow} title={t.title} />
 
         <Reveal>
@@ -30,7 +30,7 @@ export const Faq: React.FC = () => {
                       aria-expanded={isOpen}
                       aria-controls={`${id}-panel`}
                       id={`${id}-button`}
-                      className="flex w-full items-center justify-between gap-4 py-5 text-left text-base font-semibold text-ink cursor-pointer hover:text-navy"
+                      className="flex w-full items-center justify-between gap-4 py-4 text-left text-base font-semibold text-ink cursor-pointer hover:text-navy md:py-5"
                     >
                       {item.q}
                       <motion.span animate={{ rotate: isOpen ? 45 : 0 }} transition={{ duration: 0.2 }} className="shrink-0 text-accent-hover">
@@ -50,7 +50,7 @@ export const Faq: React.FC = () => {
                         transition={{ duration: 0.25 }}
                         className="overflow-hidden"
                       >
-                        <p className="pb-5 text-sm leading-relaxed text-slate max-w-2xl">{item.a}</p>
+                        <p className="pb-4 text-sm leading-relaxed text-slate max-w-2xl md:pb-5">{item.a}</p>
                       </motion.div>
                     )}
                   </AnimatePresence>
