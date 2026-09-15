@@ -1,29 +1,26 @@
 import type { SiteContent } from './types';
 
-// SAMPLE DATA: testimonials are fictional. Replace with real ones before launch.
-
 /**
- * EN — international consulting and technology firm.
- * Neutral, executive tone. No geography, no pricing.
+ * EN — final copy (editorial review). B2B technology consulting and solutions firm.
+ * Institutional tone. No geography, no pricing, no testimonials.
  */
 export const en: SiteContent = {
   meta: {
-    title: 'AOA Global Services | Strategy, technology and AI to move business forward',
+    title: 'AOA Global Services | Technology Consulting & Business Solutions',
     description:
-      'AOA Global Services combines consulting, artificial intelligence and software development to optimize processes, connect information and build solutions tailored to how each organization operates.',
-    ogImageAlt: 'AOA Global Services — technology designed to move business forward',
+      'AOA Global Services combines consulting and technology delivery to improve processes, integrate systems and build custom business solutions.',
+    ogImageAlt: 'AOA Global Services — technology to transform how organizations operate',
     localeName: 'English'
   },
 
   nav: {
     links: [
-      { label: 'Solutions', anchor: '#services' },
-      { label: 'How we work', anchor: '#how-it-works' },
-      { label: 'Our work', anchor: '#results' },
-      { label: 'FAQ', anchor: '#faq' },
-      { label: 'Contact', anchor: '#contact' }
+      { label: 'How We Work', anchor: '#approach' },
+      { label: 'Solutions', anchor: '#capabilities' },
+      { label: 'Projects', anchor: '#projects' },
+      { label: 'Questions', anchor: '#faq' }
     ],
-    cta: 'Start a project',
+    cta: 'Start a Project',
     openMenu: 'Open menu',
     closeMenu: 'Close menu',
     mainNavLabel: 'Main navigation',
@@ -34,362 +31,340 @@ export const en: SiteContent = {
       accept: 'Ver en español',
       dismiss: 'Stay in English'
     },
-    floatingCta: 'Start a project'
+    floatingCta: 'Start a Project'
   },
 
   hero: {
-    eyebrow: 'Strategy · Technology · AI · Execution',
-    title: 'Technology designed to move the business forward.',
+    eyebrow: 'Strategy · Technology · Execution',
+    title: 'Technology to transform how organizations operate.',
     paragraphs: [
-      'AOA Global Services combines consulting, artificial intelligence and software development to optimize processes, connect information and build solutions tailored to how each organization operates.',
-      'From a specific need to a complete enterprise platform, we define the solution and take it through to execution.'
+      'AOA Global Services combines consulting expertise with technology delivery to improve processes, connect information and build solutions aligned with real business needs.',
+      'From a focused initiative to a complete business platform, we connect strategy and execution within a single project.'
     ],
-    primaryCta: 'Explore solutions',
-    secondaryCta: 'Request a proposal',
-    noteTitle: 'Already have a defined requirement?',
-    noteText: 'We can present an initial proposal within 48 business hours.',
+    primaryCta: 'Explore Solutions',
+    secondaryCta: 'Start a Project',
+    note: 'For clearly defined requirements, we can provide an initial proposal within 48 business hours.',
     imageAlt: 'Earth at night seen from orbit, city lights connected across continents',
     ticker: [
-      'Strategy & technology transformation',
-      'AI & automation',
-      'Custom platforms',
-      'Data & integrations',
-      'Web & digital solutions',
-      'One point of contact'
+      'Technology strategy & transformation',
+      'Automation & intelligent solutions',
+      'Custom platforms & software',
+      'Data, integrations & reporting',
+      'Web & digital solutions'
     ],
     card: {
-      label: 'How a project moves forward with AOA',
+      label: 'From need to project',
       steps: [
-        { title: 'You share the requirement', detail: 'A specific need, or a challenge without a defined answer yet.' },
-        { title: 'We define scope and objectives', detail: 'Context, complexity and the expected outcome.' },
-        { title: 'Proposal and execution', detail: 'Clear scope, timeline, deliverables and investment before we start.' }
+        { title: 'Context', detail: 'We understand the business need, the process involved and the outcome the organization needs to achieve.' },
+        { title: 'Definition', detail: 'We establish scope, requirements, approach and an execution plan.' },
+        { title: 'Implementation', detail: 'We design, develop and integrate the solution through to implementation.' }
       ],
-      footer: 'One point of contact for the whole project.'
+      footer: 'Each project is structured around its complexity, objectives and requirements.'
     }
   },
 
-  diagnosis: {
-    eyebrow: 'Sound familiar?',
-    title: 'If any of this is happening in your organization, it already has a cost.',
-    intro: 'These are the situations we are most often asked to resolve. None of them shows up on an invoice; all of them affect the result.',
+  challenges: {
+    eyebrow: 'Business challenges',
+    title: 'As operations evolve, technology needs to evolve with them.',
+    intro:
+      'As an organization grows, so does the complexity of its processes, systems and information. What once worked can become a constraint on the ability to operate, make decisions and scale.',
     items: [
       {
-        problem: 'Manual processes consuming the team’s hours.',
-        cost: 'Every hour moving data between spreadsheets is an hour not spent on customers or decisions.'
+        title: 'Processes that no longer scale',
+        text: 'Manual workflows, repetitive tasks and operational dependencies reduce capacity and increase the risk of error.'
       },
       {
-        problem: 'A website that generates no opportunities.',
-        cost: 'It works as a brochure, not a commercial asset. Visitors arrive and leave without a trace.'
+        title: 'Fragmented information',
+        text: 'Data is distributed across systems, files and teams, making it difficult to establish a consistent view of the operation.'
       },
       {
-        problem: 'Information scattered across tools.',
-        cost: 'Without a single source of truth, decisions are made on incomplete or outdated data.'
+        title: 'Disconnected systems',
+        text: 'Individual tools may work well on their own but fail to operate as an integrated ecosystem.'
       },
       {
-        problem: 'Vendors that don’t talk to each other.',
-        cost: 'Designer, developer and agency working apart: nobody is accountable for the final result.'
+        title: 'Limited visibility',
+        text: 'Information exists, but it is not always available in a form that supports performance management, identifies issues or enables better decisions.'
       },
       {
-        problem: 'Technology initiatives that never reach implementation.',
-        cost: 'Assessments and proposals stay in documents while operations continue unchanged.'
+        title: 'Technology that no longer fits the operating model',
+        text: 'Standard solutions become less effective as organizational processes and requirements increase in complexity.'
       },
       {
-        problem: 'Generic tools that don’t fit the operation.',
-        cost: 'The team adapts its work to the software instead of the software adapting to the business.'
+        title: 'Technology initiatives without clear direction',
+        text: 'Technology investment loses impact when business needs, priorities and execution are not clearly connected.'
       }
     ],
-    transition: 'None of these problems is solved with more tools. They are solved with clear direction and the capacity to execute.'
+    closing: [
+      'The answer is not always more technology.',
+      'In many cases, it starts with improving the process, connecting information more effectively or making better use of the systems already in place.'
+    ]
   },
 
-  howItWorks: {
-    eyebrow: 'How we work',
-    title: 'From requirement to a solution in operation.',
+  approach: {
+    eyebrow: 'Our approach',
+    title: 'From strategy to implementation.',
+    intro: 'AOA brings together business analysis, solution design and technology delivery within one operating model.',
     steps: [
       {
         number: '01',
-        title: 'We understand the requirement',
-        description: 'It may be a specific need or a still-open challenge. We analyze context, objectives and complexity before proposing anything.'
+        title: 'Understand',
+        description: 'We assess the context, processes, existing systems and the outcome the organization needs to achieve.'
       },
       {
         number: '02',
-        title: 'We define the proposal',
-        description: 'Scope, timeline, deliverables and investment are clearly established before we start. For complex projects, this stage may include an analysis phase.'
+        title: 'Design',
+        description: 'We define the solution, requirements, priorities and the approach required to move into execution.'
       },
       {
         number: '03',
-        title: 'We execute and implement',
-        description: 'Strategy, development, automation and implementation within a single process, with visible progress and one point of contact.'
+        title: 'Implement',
+        description: 'We develop, configure and integrate the required components through to implementation.'
       }
     ],
+    closing: [
+      'The depth of each phase depends on the project.',
+      'A clearly defined requirement can move directly into execution. More complex challenges may require an initial analysis and design phase.'
+    ],
     model: {
-      title: 'One direction. Integrated capabilities.',
+      title: 'Integrated project direction.',
       paragraphs: [
-        'Every project combines business vision, design and technology capability within a single process.',
-        'AOA coordinates strategy, development, automation and implementation with a clear working structure and a single point of contact.'
+        'Technology initiatives often involve processes, data, systems, user experience and development.',
+        'AOA coordinates these capabilities under one project direction to maintain alignment between the business need, the solution design and its implementation.'
       ],
-      highlight: 'Less fragmentation. More clarity. Greater accountability for the result.',
-      cta: 'Request a proposal',
-      capabilities: [
+      highlight: 'One vision. Defined scope. An integrated solution.',
+      pillars: [
         {
           image: '/img/strategy.webp',
-          alt: 'Strategy working session with the team',
-          label: 'Strategy & design',
-          text: 'Business vision, solution definition and architecture.'
+          alt: 'Working session with the business team',
+          label: 'Consulting',
+          text: 'Understanding the business and defining the initiative.'
         },
         {
           image: '/img/team.webp',
           alt: 'Technical team building a solution',
-          label: 'Development & execution',
-          text: 'Build, automation, integration and implementation.'
+          label: 'Technology',
+          text: 'Solution design, development and integration.'
+        },
+        {
+          image: '/img/implementation.webp',
+          alt: 'Reviewing a solution before deployment',
+          label: 'Implementation',
+          text: 'Project delivery, validation and deployment.'
         }
       ]
     }
   },
 
-  services: {
-    eyebrow: 'Solutions',
-    title: 'Five capabilities. One process.',
-    description: 'Each solution is defined from how the organization actually operates, not from a fixed catalog.',
-    problemLabel: 'The situation',
+  capabilities: {
+    eyebrow: 'Capabilities',
+    title: 'Solutions designed to improve processes, information and operations.',
+    intro:
+      'Every initiative starts from a different business context. AOA’s capabilities can be combined within one project or applied individually depending on the needs of the organization.',
+    challengeLabel: 'The challenge',
     whatLabel: 'What we do',
-    outcomeLabel: 'What you get',
-    detailsLabel: 'Typical scope',
-    exploreCta: 'Explore solution',
-    collapseCta: 'Close',
+    outcomeLabel: 'Outcome',
+    capabilitiesLabel: 'Capabilities',
+    cta: 'Start a Project',
     undecided: {
-      title: 'Not sure which solution you need?',
-      text: 'Describe the situation. We tell you what is required — and what isn’t — before defining any scope.',
-      cta: 'Tell us your challenge'
+      title: 'When the problem is clear, but the solution isn’t.',
+      paragraphs: [
+        'A technology project does not need to begin with a technical specification.',
+        'AOA can assess the current situation and determine which combination of process improvement, integration, automation or development makes the most sense for the organization.'
+      ],
+      cta: 'Start a Project'
     },
     items: [
       {
         slug: 'strategy',
-        name: 'Strategy & Technology Transformation',
-        problem: 'Technology should be driving the business, but it isn’t clear where to start or what to prioritize.',
-        what: 'An assessment of processes, tools and data, with a prioritized, realistic roadmap.',
-        outcome: 'A clear transformation plan, aligned with business objectives and ready to execute.',
-        details: [
-          'Assessment of operations, systems and information flows',
-          'Technology roadmap prioritized by impact',
-          'Architecture definition and tool selection',
-          'Leadership support throughout implementation'
-        ],
-        cta: 'Tell us your challenge',
+        name: 'Technology Strategy & Transformation',
+        challenge: 'The organization needs to evolve its processes, systems or capabilities but lacks clarity on what should change first.',
+        what: 'We assess operations, processes, information and existing systems to identify opportunities, priorities and viable technology solutions.',
+        outcome: 'A structured initiative with clear priorities and a technology direction aligned with the business.',
+        capabilities: ['Assessment', 'Process Design', 'Technology Strategy', 'Solution Design', 'Roadmaps'],
         image: '/img/consulting.webp',
-        imageAlt: 'Team planning a roadmap with sticky notes on a wall'
+        imageAlt: 'Team defining initiative priorities on a board'
       },
       {
-        slug: 'ai',
-        name: 'Artificial Intelligence & Automation',
-        problem: 'Repetitive work consumes the time the team should spend on decisions and customers.',
-        what: 'We automate workflows and apply AI where it creates real value: intake, follow-up, documents, service and analysis.',
-        outcome: 'Processes that run without manual intervention, with fewer errors and more capacity for the team.',
-        details: [
-          'Business process mapping and automation',
-          'AI assistants and agents embedded in operations',
-          'Intelligent processing of documents and requests',
-          'Monitoring, control and continuous improvement of workflows'
-        ],
-        cta: 'Request a proposal',
+        slug: 'automation',
+        name: 'Automation & Intelligent Solutions',
+        challenge: 'Repetitive processes, high volumes of information and manual activity limit operational capacity.',
+        what: 'We design solutions that automate tasks, structure information and improve workflows using integrations, automation and intelligent technologies where they create measurable value.',
+        outcome: 'Greater operational capacity, more efficient processes and better use of information.',
+        capabilities: ['Automation', 'Workflows', 'Document Processing', 'Integrations', 'Applied AI'],
         image: '/img/automation.webp',
-        imageAlt: 'Humanoid robot assistant'
+        imageAlt: 'Robotic assistant representing automated processes'
       },
       {
         slug: 'platforms',
         name: 'Custom Platforms & Software',
-        problem: 'Generic tools don’t reflect how the organization really operates.',
-        what: 'We design and build web platforms, portals and internal tools shaped to the process, from data model to deployment.',
-        outcome: 'A system the team uses every day, with centralized information under the organization’s control.',
-        details: [
-          'Functional discovery and solution design',
-          'Web platforms, customer portals and internal tools',
-          'Roles, permissions, dashboards and integrations',
-          'Deployment, documentation and handover'
-        ],
-        cta: 'Request a proposal',
+        challenge: 'Existing solutions no longer adequately support the way the organization operates.',
+        what: 'We design and develop platforms, internal systems, portals and management tools around specific business requirements.',
+        outcome: 'Technology built around the organization’s processes, users and data.',
+        capabilities: ['Operational Platforms', 'Business Software', 'Portals', 'Dashboards', 'Internal Tools'],
         image: '/img/software.webp',
-        imageAlt: 'Source code on a developer laptop'
+        imageAlt: 'Source code of a platform under development'
       },
       {
         slug: 'data',
         name: 'Data, Integrations & Reporting',
-        problem: 'The information exists, but it is spread across systems that don’t communicate.',
-        what: 'We connect data sources, integrate systems and build reporting that shows the real state of the business.',
-        outcome: 'A single source of truth and dashboards that support decisions with reliable information.',
-        details: [
-          'Integration across ERP, CRM, e-commerce and internal tools',
-          'Unified data model and information quality',
-          'Dashboards and automated reporting',
-          'Alerts and indicators for leadership'
-        ],
-        cta: 'Request a proposal',
+        challenge: 'Information is distributed across multiple systems without a sufficiently integrated view of the operation.',
+        what: 'We connect systems, APIs and data sources to structure information flows, reporting and analytical tools.',
+        outcome: 'More consistent information, greater operational visibility and better tools for decision-making.',
+        capabilities: ['Integrations', 'APIs', 'Data Flows', 'Dashboards', 'Reporting', 'Analytics'],
         image: '/img/seo.webp',
-        imageAlt: 'Laptop showing a business indicators dashboard'
+        imageAlt: 'Operational indicators dashboard on a laptop'
       },
       {
         slug: 'web',
         name: 'Web & Digital Solutions',
-        problem: 'The digital presence doesn’t reflect the organization’s level or generate opportunities.',
-        what: 'We design and develop results-oriented websites and digital experiences, with a solid technical base and search visibility.',
-        outcome: 'A fast, measurable digital asset aligned with the commercial strategy.',
-        details: [
-          'Corporate and commercial website design and development',
-          'Content architecture and search optimization (SEO)',
-          'Forms, integrations and analytics',
-          'Maintenance and continuous evolution'
-        ],
-        cta: 'Request a proposal',
+        challenge: 'The organization’s digital presence does not fully reflect its positioning or support its commercial and operational objectives.',
+        what: 'We design and develop corporate websites, landing pages, portals and digital experiences focused on performance, visibility and conversion.',
+        outcome: 'A professional, measurable digital presence designed to evolve with the business.',
+        capabilities: ['Web Development', 'UX/UI', 'SEO', 'Analytics', 'Landing Pages', 'Portals', 'Digital Experiences'],
         image: '/img/web.webp',
-        imageAlt: 'Designer workstation with a website layout on screen'
+        imageAlt: 'Design workstation with a corporate website interface on screen'
       }
     ]
   },
 
-  investment: {
-    eyebrow: 'Investment',
-    title: 'Every project is defined by its scope, complexity and objectives.',
-    points: [
-      {
-        title: 'A proposal before we start',
-        text: 'Before beginning, scope, timeline, deliverables and investment are clearly established.'
-      },
-      {
-        title: 'A fast response for defined requirements',
-        text: 'Projects with defined requirements can receive an initial proposal within 48 business hours.'
-      },
-      {
-        title: 'Analysis first when complexity requires it',
-        text: 'For consulting, transformation, AI, integrations or complex platforms, an analysis phase may be needed first.'
-      }
-    ],
-    note: 'We never propose an investment without understanding the scope.'
-  },
-
-  socialProof: {
-    eyebrow: 'Our work',
-    title: 'What the organizations we work with achieved.',
+  projects: {
+    eyebrow: 'Projects & solutions',
+    title: 'Technology applied to real operational needs.',
+    capabilitiesLabel: 'Capabilities',
     items: [
       {
-        quote: 'We had three vendors and no results. Within weeks we had one team, a new platform and opportunities coming in every day.',
-        author: 'Sarah Whitfield',
-        role: 'Operations Director',
-        company: 'Coastline Freight',
-        result: '+38% opportunities in 90 days'
+        title: 'Operational platforms',
+        text: 'Solutions that bring planning, information, monitoring, management and reporting into a single technology layer.',
+        capabilities: ['Processes', 'Integrations', 'Data', 'Dashboards', 'Reporting', 'Automation']
       },
       {
-        quote: 'The proposal arrived with a clear scope and the platform was delivered on the agreed timeline. Our team stopped running on spreadsheets.',
-        author: 'Daniel Moreno',
-        role: 'General Manager',
-        company: 'Andina Distribución',
-        result: '15 hours recovered per week'
+        title: 'Process automation',
+        text: 'Workflows designed to reduce manual activity, structure information and improve the consistency of recurring processes.',
+        capabilities: ['Automation', 'Workflow Design', 'Integrations', 'Document Processing', 'Applied AI where appropriate']
       },
       {
-        quote: 'They explained what each decision would and would not do before we committed. Six months later we are the reference in our segment.',
-        author: 'Priya Nair',
-        role: 'Founder',
-        company: 'Harbour Dental Group',
-        result: 'First position for key searches'
+        title: 'Digital ecosystems',
+        text: 'Digital experiences connected with lead generation, content management, forms, analytics and internal processes.',
+        capabilities: ['Web', 'UX/UI', 'SEO', 'Analytics', 'Integrations']
       }
     ]
   },
 
   faq: {
-    eyebrow: 'FAQ',
-    title: 'What people usually ask before writing to us.',
+    eyebrow: 'Frequently asked questions',
+    title: 'Key considerations before starting a technology project.',
     items: [
       {
-        q: 'How is the investment for a project defined?',
-        a: 'Every project is defined by its scope, complexity and objectives. Before we start, scope, timeline, deliverables and investment are clearly set out in a proposal. We do not propose an investment without understanding the scope.'
+        q: 'What types of projects does AOA deliver?',
+        a: 'We work on projects involving technology transformation, automation, systems integration, business platforms, data and digital solutions.'
       },
       {
-        q: 'How long does it take to receive a proposal?',
-        a: 'For clearly defined requirements, we can present an initial proposal within 48 business hours. For consulting, transformation, AI, integrations or complex platforms, an analysis phase may be needed first.'
+        q: 'Do we need to have the solution defined before starting a project?',
+        a: 'No. A project can begin with a clearly defined requirement or with a business challenge that still requires analysis and structure.'
       },
       {
-        q: 'Who do I talk to during the project?',
-        a: 'A single point of contact, responsible for the project from proposal to implementation. That person coordinates strategy, development and automation, and translates business needs into technical decisions.'
+        q: 'How is project scope defined?',
+        a: 'Scope is established based on business objectives, the processes involved, existing systems, functional requirements, dependencies and the overall complexity of the project.'
       },
       {
-        q: 'How is the work coordinated across different time zones?',
-        a: 'We operate under a global delivery model: progress meetings are scheduled in your organization’s hours, and follow-up runs continuously through shared channels with documented deliveries.'
+        q: 'Can AOA work with our existing systems?',
+        a: 'Yes. We first assess the existing technology environment and tools. Where appropriate, we prioritize integration and extension of existing capabilities before recommending unnecessary replacement.'
       },
       {
-        q: 'What if I need changes after delivery?',
-        a: 'Every project includes an adjustment period after implementation. After that, the solution can evolve through new phases or a support and continuous-improvement arrangement, depending on what the organization needs.'
+        q: 'How do you determine whether a process should be automated?',
+        a: 'We assess the current process, workload, dependencies, available information and the expected outcome. Automation is recommended when it can produce a clear improvement in efficiency, consistency or operational capacity.'
       },
       {
-        q: 'Does the solution belong to my organization?',
-        a: 'Yes. Domains, infrastructure, code repositories and third-party accounts are registered to your organization from the start. The solution is yours, with no dependency on AOA.'
+        q: 'How are projects managed?',
+        a: 'Each project is structured around defined scope, responsibilities, deliverables, milestones and governance appropriate to its level of complexity.'
       },
       {
-        q: 'Do I need to hire anyone else to make this work?',
-        a: 'No. Strategy, design, development, automation and implementation are coordinated within a single process. If a project requires an additional specific capability, AOA brings it in and remains accountable for the result.'
+        q: 'How do you evaluate the outcome of an implementation?',
+        a: 'Success criteria are defined according to the objectives of the project and may include efficiency, reduced manual work, information quality, operational visibility, management capability, adoption or digital performance.'
+      },
+      {
+        q: 'What happens after implementation?',
+        a: 'Solutions can be maintained, optimized or expanded through additional functionality, integrations or automation as the organization’s needs evolve.'
       }
     ]
   },
 
   contact: {
-    eyebrow: 'Request a proposal',
-    title: 'Tell us what you need to improve, transform or build.',
+    eyebrow: 'New projects',
+    title: 'Tell us about your project or business challenge.',
     paragraphs: [
-      'It may be a specific solution, a process that needs to evolve, or a challenge for which there is no defined technology answer yet.',
-      'If the requirement is sufficiently defined, we can present an initial proposal within 48 business hours.'
+      'Share a defined initiative, a process that needs to evolve or a challenge for which the right technology solution has not yet been determined.',
+      'We will review the context and identify the most appropriate next step.'
     ],
-    reassurance: ['Proposal with defined scope, timeline and investment', 'No commitment until the proposal is approved', 'Information handled in confidence'],
-    imageAlt: 'Two professionals reviewing a requirement together',
+    imageAlt: 'Two professionals reviewing the context of a project',
     form: {
-      name: { label: 'Name', placeholder: 'e.g. Sarah Mitchell', required: 'Please enter your name' },
-      company: { label: 'Organization', placeholder: 'e.g. Mitchell & Co Logistics', required: 'Please enter your organization' },
+      name: { label: 'Name', placeholder: 'First and last name', required: 'Please enter your name.' },
+      company: { label: 'Organization', placeholder: 'Organization name', required: 'Please enter the organization name.' },
       email: {
         label: 'Work email',
-        placeholder: 'e.g. sarah@company.com',
-        required: 'Please enter your email',
-        invalid: 'Please enter a valid email address'
+        placeholder: 'name@organization.com',
+        required: 'Please enter a work email.',
+        invalid: 'The email format is not valid.'
       },
-      service: {
-        label: 'Area of interest',
+      projectType: {
+        label: 'Project type',
         placeholder: 'Select an option',
-        required: 'Please select an area of interest',
-        generalOption: 'Not defined yet — I need guidance'
+        required: 'Please select a project type.',
+        options: [
+          { value: 'strategy', label: 'Technology Strategy & Transformation' },
+          { value: 'automation', label: 'Automation & Intelligent Solutions' },
+          { value: 'platforms', label: 'Custom Platform or Software' },
+          { value: 'data', label: 'Data & Integrations' },
+          { value: 'web', label: 'Web & Digital Solutions' },
+          { value: 'general', label: 'To Be Defined' }
+        ]
       },
       message: {
-        label: 'Describe the requirement',
-        placeholder: 'What is the current situation, what result do you expect, and in what timeframe?',
-        required: 'Please describe briefly what you need',
-        minLength: 'A little more context lets us respond precisely (min. 20 characters)'
+        label: 'Project context',
+        placeholder: 'Briefly describe the current situation, the objective of the project, the processes or systems involved and any relevant timeframe.',
+        required: 'Please describe the project context briefly.',
+        minLength: 'Please expand the context so we can assess the request (minimum 20 characters).'
       },
-      submit: 'Send requirement',
+      submit: 'Submit Requirement',
       submitting: 'Sending…',
       success: {
-        title: 'Requirement received.',
-        text: 'We will review it and reply with next steps. If it is sufficiently defined, you will receive an initial proposal within 48 business hours.'
+        title: 'Thank you. We have received your project information.',
+        text: 'Our team will review the requirement and contact you to define the appropriate next step.'
       },
       error: {
-        title: 'It could not be sent.',
+        title: 'The request could not be sent.',
         text: 'Please try again or email us directly.'
       },
-      missingKey: 'The form is not configured yet. Please email us directly.',
-      privacy: 'Your details are used only to respond to this request.',
-      subjectPrefix: 'New requirement'
+      missingKey: 'The form is not enabled yet. Please email us directly.',
+      privacy: 'The information provided will be used solely to assess and respond to this enquiry.',
+      subjectPrefix: 'New project'
     },
     direct: {
-      title: 'Prefer to write directly?',
+      title: 'Direct contact',
       email: 'admin@aoaglobalservices.com'
     }
   },
 
   footer: {
-    tagline: 'Strategy, technology and artificial intelligence to transform how organizations operate.',
-    legalLine: 'US-registered · Global delivery',
-    servicesTitle: 'Services',
-    companyTitle: 'AOA',
+    tagline: 'Technology consulting and solutions designed to improve processes, information and operational capability.',
+    brandLine: 'Strategy · Technology · Execution',
+    solutionsTitle: 'Solutions',
+    solutions: [
+      { slug: 'strategy', label: 'Technology Strategy & Transformation' },
+      { slug: 'automation', label: 'Automation & Intelligent Solutions' },
+      { slug: 'platforms', label: 'Custom Platforms' },
+      { slug: 'data', label: 'Data & Integrations' },
+      { slug: 'web', label: 'Web & Digital Solutions' }
+    ],
+    companyTitle: 'Company',
     companyLinks: [
-      { label: 'How we work', anchor: '#how-it-works' },
-      { label: 'Our work', anchor: '#results' },
-      { label: 'FAQ', anchor: '#faq' },
-      { label: 'Request a proposal', anchor: '#contact' }
+      { label: 'How We Work', anchor: '#approach' },
+      { label: 'Projects', anchor: '#projects' },
+      { label: 'Frequently Asked Questions', anchor: '#faq' },
+      { label: 'Contact', anchor: '#contact' }
     ],
     contactTitle: 'Contact',
+    legal: 'US-registered company',
     rights: 'All rights reserved.'
   }
 };

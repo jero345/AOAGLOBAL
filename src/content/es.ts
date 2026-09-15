@@ -1,27 +1,24 @@
 import type { SiteContent } from './types';
 
-// DATOS DE EJEMPLO: los testimonios son ficticios. Reemplazar por reales antes de publicar.
-
 /**
- * ES — firma internacional de consultoría y soluciones tecnológicas.
- * Tratamiento de usted, tono ejecutivo. Sin geografía, sin precios.
+ * ES — copy final (revisión editorial). Firma B2B de consultoría y soluciones tecnológicas.
+ * Redacción institucional (sin tuteo). Sin geografía, sin precios, sin testimonios.
  */
 export const es: SiteContent = {
   meta: {
-    title: 'AOA Global Services | Estrategia, tecnología e IA para hacer avanzar el negocio',
+    title: 'AOA Global Services | Consultoría y Soluciones Tecnológicas',
     description:
-      'AOA Global Services combina consultoría, inteligencia artificial y desarrollo tecnológico para optimizar procesos, conectar información y construir soluciones adaptadas a la operación de cada organización.',
-    ogImageAlt: 'AOA Global Services — tecnología diseñada para hacer avanzar el negocio',
+      'AOA Global Services combina consultoría y capacidad tecnológica para mejorar procesos, integrar sistemas y desarrollar soluciones empresariales a medida.',
+    ogImageAlt: 'AOA Global Services — tecnología para transformar cómo opera una organización',
     localeName: 'Español'
   },
 
   nav: {
     links: [
-      { label: 'Soluciones', anchor: '#services' },
-      { label: 'Cómo trabajamos', anchor: '#how-it-works' },
-      { label: 'Nuestro trabajo', anchor: '#results' },
-      { label: 'Preguntas', anchor: '#faq' },
-      { label: 'Contacto', anchor: '#contact' }
+      { label: 'Cómo trabajamos', anchor: '#approach' },
+      { label: 'Soluciones', anchor: '#capabilities' },
+      { label: 'Proyectos', anchor: '#projects' },
+      { label: 'Preguntas', anchor: '#faq' }
     ],
     cta: 'Iniciar un proyecto',
     openMenu: 'Abrir menú',
@@ -38,358 +35,336 @@ export const es: SiteContent = {
   },
 
   hero: {
-    eyebrow: 'Estrategia · Tecnología · IA · Ejecución',
-    title: 'Tecnología diseñada para hacer avanzar el negocio.',
+    eyebrow: 'Estrategia · Tecnología · Ejecución',
+    title: 'Tecnología para transformar cómo opera una organización.',
     paragraphs: [
-      'AOA Global Services combina consultoría, inteligencia artificial y desarrollo tecnológico para optimizar procesos, conectar información y construir soluciones adaptadas a la operación de cada organización.',
-      'Desde una necesidad específica hasta una plataforma empresarial completa, definimos la solución y la llevamos a ejecución.'
+      'AOA Global Services combina consultoría y capacidad tecnológica para mejorar procesos, conectar información y construir soluciones alineadas con las necesidades reales del negocio.',
+      'Desde una iniciativa específica hasta una plataforma empresarial completa, conectamos estrategia y ejecución dentro de un mismo proyecto.'
     ],
     primaryCta: 'Explorar soluciones',
-    secondaryCta: 'Solicitar una propuesta',
-    noteTitle: '¿Ya existe un requerimiento definido?',
-    noteText: 'Podemos presentar una propuesta inicial en hasta 48 horas hábiles.',
+    secondaryCta: 'Iniciar un proyecto',
+    note: 'Para requerimientos claramente definidos, podemos presentar una propuesta inicial en hasta 48 horas hábiles.',
     imageAlt: 'La Tierra de noche vista desde órbita, con las luces de las ciudades conectadas entre continentes',
     ticker: [
       'Estrategia y transformación tecnológica',
-      'IA y automatización',
-      'Plataformas a medida',
-      'Datos e integraciones',
-      'Web y soluciones digitales',
-      'Un único punto de contacto'
+      'Automatización y soluciones inteligentes',
+      'Plataformas y software a medida',
+      'Datos, integraciones y reporting',
+      'Web y soluciones digitales'
     ],
     card: {
-      label: 'Cómo avanza un proyecto con AOA',
+      label: 'De la necesidad al proyecto',
       steps: [
-        { title: 'Nos cuenta el requerimiento', detail: 'Una necesidad concreta o un desafío aún sin respuesta definida.' },
-        { title: 'Definimos alcance y objetivos', detail: 'Análisis del contexto, la complejidad y el resultado esperado.' },
-        { title: 'Propuesta y ejecución', detail: 'Alcance, tiempos, entregables e inversión claros antes de comenzar.' }
+        { title: 'Contexto', detail: 'Comprendemos la necesidad, el proceso involucrado y el resultado que la organización necesita alcanzar.' },
+        { title: 'Definición', detail: 'Establecemos alcance, requerimientos, enfoque y plan de ejecución.' },
+        { title: 'Implementación', detail: 'Diseñamos, desarrollamos e integramos la solución hasta su puesta en funcionamiento.' }
       ],
-      footer: 'Un único punto de contacto durante todo el proyecto.'
+      footer: 'Cada proyecto se estructura de acuerdo con su complejidad, objetivos y requerimientos.'
     }
   },
 
-  diagnosis: {
-    eyebrow: '¿Le resulta familiar?',
-    title: 'Si algo de esto ocurre en su organización, ya está teniendo un costo.',
-    intro: 'Son las situaciones que con más frecuencia nos piden resolver. Ninguna aparece en una factura, pero todas afectan el resultado.',
+  challenges: {
+    eyebrow: 'Desafíos de negocio',
+    title: 'Cuando la operación evoluciona, la tecnología debe evolucionar con ella.',
+    intro:
+      'A medida que una organización crece, también aumenta la complejidad de sus procesos, sistemas e información. Lo que antes funcionaba puede convertirse en una limitación para operar, decidir y escalar.',
     items: [
       {
-        problem: 'Procesos manuales que consumen horas del equipo.',
-        cost: 'Cada hora trasladando datos entre planillas es una hora que no se dedica a clientes ni a decisiones.'
+        title: 'Procesos que ya no escalan',
+        text: 'Flujos manuales, tareas repetitivas y dependencias operativas reducen capacidad y aumentan el riesgo de error.'
       },
       {
-        problem: 'Un sitio web que no genera oportunidades.',
-        cost: 'Funciona como folleto, no como activo comercial. Los visitantes llegan y se van sin dejar rastro.'
+        title: 'Información fragmentada',
+        text: 'Los datos están distribuidos entre sistemas, archivos y equipos, dificultando obtener una visión consistente de la operación.'
       },
       {
-        problem: 'Información dispersa en múltiples herramientas.',
-        cost: 'Sin una única fuente de verdad, las decisiones se toman con datos incompletos o desactualizados.'
+        title: 'Sistemas desconectados',
+        text: 'Las herramientas funcionan individualmente, pero no como un ecosistema integrado.'
       },
       {
-        problem: 'Proveedores desconectados entre sí.',
-        cost: 'Diseñador, desarrollador y agencia por separado: nadie responde por el resultado final.'
+        title: 'Visibilidad limitada',
+        text: 'La información existe, pero no siempre está disponible de forma útil para controlar desempeño, identificar desviaciones o tomar decisiones.'
       },
       {
-        problem: 'Iniciativas tecnológicas que no llegan a implementarse.',
-        cost: 'Diagnósticos y propuestas que se quedan en documentos mientras la operación sigue igual.'
+        title: 'Tecnología que no responde al modelo operativo',
+        text: 'Las soluciones estándar dejan de ser suficientes cuando los procesos y requerimientos de la organización aumentan en complejidad.'
       },
       {
-        problem: 'Herramientas genéricas que no se ajustan a la operación.',
-        cost: 'El equipo adapta su trabajo al software en lugar de que el software se adapte al negocio.'
+        title: 'Iniciativas tecnológicas sin una dirección clara',
+        text: 'La inversión pierde impacto cuando no existe una relación clara entre necesidades de negocio, prioridades y ejecución.'
       }
     ],
-    transition: 'Ninguno de estos problemas se resuelve con más herramientas. Se resuelve con una dirección clara y capacidad de ejecución.'
+    closing: [
+      'La solución no siempre consiste en incorporar más tecnología.',
+      'En muchos casos, comienza por mejorar el proceso, integrar mejor la información o utilizar de forma más inteligente los sistemas existentes.'
+    ]
   },
 
-  howItWorks: {
-    eyebrow: 'Cómo trabajamos',
-    title: 'Del requerimiento a la solución en operación.',
+  approach: {
+    eyebrow: 'Nuestro enfoque',
+    title: 'De la estrategia a la implementación.',
+    intro: 'AOA integra análisis de negocio, diseño de soluciones y capacidad tecnológica dentro de un mismo modelo de trabajo.',
     steps: [
       {
         number: '01',
-        title: 'Entendemos el requerimiento',
-        description: 'Puede ser una necesidad específica o un desafío todavía abierto. Analizamos el contexto, los objetivos y la complejidad antes de proponer.'
+        title: 'Comprender',
+        description: 'Analizamos el contexto, los procesos, los sistemas existentes y el resultado que la organización necesita alcanzar.'
       },
       {
         number: '02',
-        title: 'Definimos la propuesta',
-        description: 'Antes de comenzar se establecen claramente alcance, tiempos, entregables e inversión. En proyectos complejos, esta etapa puede incluir una fase de análisis.'
+        title: 'Diseñar',
+        description: 'Definimos la solución, sus requerimientos, prioridades y el enfoque necesario para llevarla a ejecución.'
       },
       {
         number: '03',
-        title: 'Ejecutamos e implementamos',
-        description: 'Estrategia, desarrollo, automatización e implementación dentro de un mismo proceso, con avances visibles y un único punto de contacto.'
+        title: 'Implementar',
+        description: 'Desarrollamos, configuramos e integramos los componentes definidos hasta la puesta en funcionamiento de la solución.'
       }
     ],
+    closing: [
+      'La profundidad de cada fase depende del proyecto.',
+      'Una necesidad claramente definida puede avanzar directamente a ejecución. Un desafío de mayor complejidad puede requerir primero una fase de análisis y diseño.'
+    ],
     model: {
-      title: 'Una sola dirección. Capacidades integradas.',
+      title: 'Una dirección integrada de proyecto.',
       paragraphs: [
-        'Cada proyecto combina visión de negocio, diseño y capacidad tecnológica dentro de un mismo proceso.',
-        'AOA coordina estrategia, desarrollo, automatización e implementación con una estructura clara de trabajo y un único punto de contacto.'
+        'Las iniciativas tecnológicas suelen involucrar procesos, datos, sistemas, experiencia y desarrollo.',
+        'AOA coordina estas capacidades bajo una misma dirección para mantener coherencia entre la necesidad del negocio, la solución diseñada y su implementación.'
       ],
-      highlight: 'Menos fragmentación. Más claridad. Mayor responsabilidad sobre el resultado.',
-      cta: 'Solicitar una propuesta',
-      capabilities: [
+      highlight: 'Una visión. Un alcance definido. Una solución integrada.',
+      pillars: [
         {
           image: '/img/strategy.webp',
-          alt: 'Sesión de trabajo estratégico con el equipo',
-          label: 'Estrategia y diseño',
-          text: 'Visión de negocio, definición de la solución y arquitectura.'
+          alt: 'Sesión de trabajo con el equipo de negocio',
+          label: 'Consultoría',
+          text: 'Comprensión del negocio y definición de la iniciativa.'
         },
         {
           image: '/img/team.webp',
           alt: 'Equipo técnico desarrollando una solución',
-          label: 'Desarrollo y ejecución',
-          text: 'Construcción, automatización, integración e implementación.'
+          label: 'Tecnología',
+          text: 'Diseño, desarrollo e integración de soluciones.'
+        },
+        {
+          image: '/img/implementation.webp',
+          alt: 'Revisión de una solución antes de su puesta en funcionamiento',
+          label: 'Implementación',
+          text: 'Gestión, validación y puesta en funcionamiento.'
         }
       ]
     }
   },
 
-  services: {
-    eyebrow: 'Soluciones',
-    title: 'Cinco capacidades. Un mismo proceso.',
-    description: 'Cada solución se define a partir de la operación real de la organización, no de un catálogo cerrado.',
-    problemLabel: 'La situación',
+  capabilities: {
+    eyebrow: 'Capacidades',
+    title: 'Soluciones para transformar procesos, información y operación.',
+    intro:
+      'Cada iniciativa parte de un contexto diferente. Las capacidades de AOA pueden integrarse dentro de un mismo proyecto o aplicarse de forma específica según las necesidades de la organización.',
+    challengeLabel: 'El desafío',
     whatLabel: 'Qué hacemos',
-    outcomeLabel: 'Qué obtiene',
-    detailsLabel: 'Alcance habitual',
-    exploreCta: 'Explorar solución',
-    collapseCta: 'Cerrar',
+    outcomeLabel: 'Resultado',
+    capabilitiesLabel: 'Capacidades',
+    cta: 'Iniciar un proyecto',
     undecided: {
-      title: '¿Aún no sabe qué solución necesita?',
-      text: 'Descríbanos la situación. Le indicamos qué es necesario — y qué no — antes de definir cualquier alcance.',
-      cta: 'Cuéntenos su desafío'
+      title: 'Cuando el problema está claro, pero la solución todavía no.',
+      paragraphs: [
+        'No es necesario comenzar con una especificación tecnológica.',
+        'AOA puede analizar la situación actual y determinar qué combinación de procesos, integración, automatización o desarrollo tiene mayor sentido para la organización.'
+      ],
+      cta: 'Iniciar un proyecto'
     },
     items: [
       {
         slug: 'strategy',
         name: 'Estrategia y Transformación Tecnológica',
-        problem: 'La tecnología debería impulsar el negocio, pero no está claro por dónde empezar ni qué priorizar.',
-        what: 'Diagnóstico de procesos, herramientas y datos, con una hoja de ruta priorizada y viable.',
-        outcome: 'Un plan de transformación claro, alineado con los objetivos del negocio y listo para ejecutarse.',
-        details: [
-          'Diagnóstico de operación, sistemas y flujos de información',
-          'Hoja de ruta tecnológica priorizada por impacto',
-          'Definición de arquitectura y selección de herramientas',
-          'Acompañamiento a la dirección durante la implementación'
-        ],
-        cta: 'Cuéntenos su desafío',
+        challenge: 'La organización necesita evolucionar procesos, sistemas o capacidades, pero no existe claridad sobre qué transformar primero.',
+        what: 'Analizamos la operación, los procesos, la información y los sistemas existentes para definir oportunidades, prioridades y soluciones tecnológicas viables.',
+        outcome: 'Una iniciativa estructurada, con prioridades claras y una dirección tecnológica alineada con el negocio.',
+        capabilities: ['Diagnóstico', 'Procesos', 'Estrategia tecnológica', 'Diseño de soluciones', 'Roadmaps'],
         image: '/img/consulting.webp',
-        imageAlt: 'Equipo planeando una hoja de ruta con notas adhesivas'
+        imageAlt: 'Equipo definiendo prioridades de una iniciativa sobre un tablero'
       },
       {
-        slug: 'ai',
-        name: 'Inteligencia Artificial y Automatización',
-        problem: 'El trabajo repetitivo consume el tiempo que el equipo debería dedicar a decisiones y clientes.',
-        what: 'Automatizamos flujos de trabajo e incorporamos IA donde genera valor real: captación, seguimiento, documentos, atención y análisis.',
-        outcome: 'Procesos que operan sin intervención manual, con menos errores y más capacidad para el equipo.',
-        details: [
-          'Mapeo y automatización de procesos de negocio',
-          'Asistentes y agentes de IA integrados en la operación',
-          'Procesamiento inteligente de documentos y solicitudes',
-          'Monitoreo, control y mejora continua de los flujos'
-        ],
-        cta: 'Solicitar una propuesta',
+        slug: 'automation',
+        name: 'Automatización y Soluciones Inteligentes',
+        challenge: 'Procesos repetitivos, grandes volúmenes de información y actividades manuales limitan la capacidad operativa.',
+        what: 'Diseñamos soluciones que automatizan tareas, estructuran información y mejoran flujos de trabajo mediante integración, automatización y tecnologías inteligentes cuando aportan valor real al proceso.',
+        outcome: 'Mayor capacidad operativa, procesos más eficientes y mejor aprovechamiento de la información.',
+        capabilities: ['Automatización', 'Workflows', 'Procesamiento documental', 'Integraciones', 'IA aplicada'],
         image: '/img/automation.webp',
-        imageAlt: 'Robot asistente humanoide'
+        imageAlt: 'Asistente robótico que representa procesos automatizados'
       },
       {
         slug: 'platforms',
         name: 'Plataformas y Software a Medida',
-        problem: 'Las herramientas genéricas no reflejan cómo opera realmente la organización.',
-        what: 'Diseñamos y construimos plataformas web, portales y herramientas internas ajustadas al proceso, del modelo de datos al despliegue.',
-        outcome: 'Un sistema que el equipo utiliza a diario, con la información centralizada y bajo control de la organización.',
-        details: [
-          'Levantamiento funcional y diseño de la solución',
-          'Plataformas web, portales de clientes y herramientas internas',
-          'Roles, permisos, tableros e integraciones',
-          'Despliegue, documentación y transferencia'
-        ],
-        cta: 'Solicitar una propuesta',
+        challenge: 'Las soluciones existentes ya no responden adecuadamente a la forma en que opera la organización.',
+        what: 'Diseñamos y desarrollamos plataformas, sistemas internos, portales y herramientas de gestión adaptadas a requerimientos específicos.',
+        outcome: 'Tecnología construida alrededor de los procesos, usuarios y datos de la organización.',
+        capabilities: ['Plataformas operativas', 'Software empresarial', 'Portales', 'Dashboards', 'Herramientas internas'],
         image: '/img/software.webp',
-        imageAlt: 'Código fuente en el portátil de un desarrollador'
+        imageAlt: 'Código fuente de una plataforma en desarrollo'
       },
       {
         slug: 'data',
         name: 'Datos, Integraciones y Reporting',
-        problem: 'La información existe, pero está repartida entre sistemas que no se comunican.',
-        what: 'Conectamos las fuentes de datos, integramos sistemas y construimos reportes que muestran el estado real del negocio.',
-        outcome: 'Una única fuente de verdad y tableros que permiten decidir con información confiable.',
-        details: [
-          'Integración entre ERP, CRM, comercio electrónico y herramientas internas',
-          'Modelo de datos unificado y calidad de la información',
-          'Tableros de control y reportes automatizados',
-          'Alertas e indicadores para la dirección'
-        ],
-        cta: 'Solicitar una propuesta',
+        challenge: 'La información está distribuida entre diferentes sistemas y no existe una visión suficientemente integrada de la operación.',
+        what: 'Conectamos sistemas, APIs y fuentes de datos para estructurar flujos de información, reporting y herramientas de análisis.',
+        outcome: 'Información más consistente, mayor visibilidad operativa y mejores herramientas para la toma de decisiones.',
+        capabilities: ['Integraciones', 'APIs', 'Data flows', 'Dashboards', 'Reporting', 'Analítica'],
         image: '/img/seo.webp',
-        imageAlt: 'Portátil con un tablero de indicadores de negocio'
+        imageAlt: 'Tablero de indicadores operativos en un portátil'
       },
       {
         slug: 'web',
         name: 'Web y Soluciones Digitales',
-        problem: 'La presencia digital no refleja el nivel de la organización ni genera oportunidades.',
-        what: 'Diseñamos y desarrollamos sitios y experiencias digitales orientadas a resultados, con base técnica sólida y posicionamiento en buscadores.',
-        outcome: 'Un activo digital rápido, medible y alineado con la estrategia comercial.',
-        details: [
-          'Diseño y desarrollo de sitios corporativos y comerciales',
-          'Arquitectura de contenidos y posicionamiento (SEO)',
-          'Formularios, integraciones y analítica',
-          'Mantenimiento y evolución continua'
-        ],
-        cta: 'Solicitar una propuesta',
+        challenge: 'La presencia digital no refleja adecuadamente el posicionamiento de la organización o no cumple sus objetivos comerciales y operativos.',
+        what: 'Diseñamos y desarrollamos sitios corporativos, landing pages, portales y experiencias digitales orientadas a rendimiento, posicionamiento y conversión.',
+        outcome: 'Una presencia digital profesional, medible y preparada para evolucionar con el negocio.',
+        capabilities: ['Web Development', 'UX/UI', 'SEO', 'Analytics', 'Landing Pages', 'Portales', 'Experiencias digitales'],
         image: '/img/web.webp',
-        imageAlt: 'Estación de diseño con el layout de un sitio web en pantalla'
+        imageAlt: 'Estación de diseño con la interfaz de un sitio corporativo en pantalla'
       }
     ]
   },
 
-  investment: {
-    eyebrow: 'Inversión',
-    title: 'Cada proyecto se define de acuerdo con su alcance, complejidad y objetivos.',
-    points: [
-      {
-        title: 'Propuesta antes de comenzar',
-        text: 'Antes de iniciar, se establecen claramente alcance, tiempos, entregables e inversión.'
-      },
-      {
-        title: 'Respuesta ágil para requerimientos definidos',
-        text: 'Los proyectos con requerimientos definidos pueden recibir una propuesta inicial en hasta 48 horas hábiles.'
-      },
-      {
-        title: 'Análisis previo cuando la complejidad lo exige',
-        text: 'En consultoría, transformación, IA, integraciones o plataformas complejas, primero puede ser necesaria una fase de análisis.'
-      }
-    ],
-    note: 'Nunca proponemos una inversión sin comprender el alcance.'
-  },
-
-  socialProof: {
-    eyebrow: 'Nuestro trabajo',
-    title: 'Lo que obtuvieron las organizaciones con las que trabajamos.',
+  projects: {
+    eyebrow: 'Proyectos y soluciones',
+    title: 'Tecnología aplicada a necesidades reales de operación.',
+    capabilitiesLabel: 'Capacidades',
     items: [
       {
-        quote: 'Teníamos tres proveedores y ningún resultado. En pocas semanas contábamos con un solo equipo, una plataforma nueva y oportunidades llegando cada día.',
-        author: 'Sarah Whitfield',
-        role: 'Directora de Operaciones',
-        company: 'Coastline Freight',
-        result: '+38% de oportunidades en 90 días'
+        title: 'Plataformas operativas',
+        text: 'Soluciones que integran planificación, información, seguimiento, gestión y reporting dentro de una misma capa tecnológica.',
+        capabilities: ['Procesos', 'Integraciones', 'Datos', 'Dashboards', 'Reporting', 'Automatización']
       },
       {
-        quote: 'La propuesta llegó con el alcance claro y la plataforma se implementó en el plazo acordado. Nuestro equipo dejó de operar sobre planillas.',
-        author: 'Daniel Moreno',
-        role: 'Gerente General',
-        company: 'Andina Distribución',
-        result: '15 horas semanales recuperadas'
+        title: 'Automatización de procesos',
+        text: 'Diseño de flujos que reducen actividades manuales, estructuran información y mejoran la consistencia de procesos recurrentes.',
+        capabilities: ['Automation', 'Workflow Design', 'Integraciones', 'Document Processing', 'IA aplicada cuando corresponda']
       },
       {
-        quote: 'Nos explicaron qué haría y qué no haría cada decisión antes de comprometernos. Seis meses después somos referencia en nuestro segmento.',
-        author: 'Priya Nair',
-        role: 'Fundadora',
-        company: 'Harbour Dental Group',
-        result: 'Primer lugar en las búsquedas clave'
+        title: 'Ecosistemas digitales',
+        text: 'Diseño de experiencias digitales conectadas con captación, contenidos, formularios, analytics y procesos internos.',
+        capabilities: ['Web', 'UX/UI', 'SEO', 'Analytics', 'Integraciones']
       }
     ]
   },
 
   faq: {
     eyebrow: 'Preguntas frecuentes',
-    title: 'Lo que suelen preguntarnos antes de escribir.',
+    title: 'Aspectos clave antes de iniciar un proyecto tecnológico.',
     items: [
       {
-        q: '¿Cómo se define la inversión de un proyecto?',
-        a: 'Cada proyecto se define de acuerdo con su alcance, complejidad y objetivos. Antes de comenzar, se establecen claramente alcance, tiempos, entregables e inversión en una propuesta. No proponemos una inversión sin comprender el alcance.'
+        q: '¿Qué tipo de proyectos desarrolla AOA?',
+        a: 'Trabajamos en proyectos relacionados con transformación tecnológica, automatización, integración de sistemas, plataformas empresariales, datos y soluciones digitales.'
       },
       {
-        q: '¿Cuánto tarda en llegar una propuesta?',
-        a: 'Para requerimientos claramente definidos, podemos presentar una propuesta inicial en hasta 48 horas hábiles. En proyectos de consultoría, transformación, IA, integraciones o plataformas complejas, primero puede ser necesaria una fase de análisis.'
+        q: '¿Es necesario tener definida la solución antes de iniciar un proyecto?',
+        a: 'No. Un proyecto puede comenzar con un requerimiento claramente definido o con un desafío de negocio que todavía necesita análisis y estructuración.'
       },
       {
-        q: '¿Con quién hablo durante el proyecto?',
-        a: 'Con un único punto de contacto, responsable del proyecto desde la propuesta hasta la implementación. Esa persona coordina estrategia, desarrollo y automatización, y traduce las necesidades del negocio en decisiones técnicas.'
+        q: '¿Cómo se define el alcance?',
+        a: 'El alcance se establece a partir de los objetivos, procesos involucrados, sistemas existentes, requerimientos funcionales, dependencias y nivel de complejidad del proyecto.'
       },
       {
-        q: '¿Cómo se coordina el trabajo con equipos en distintos horarios?',
-        a: 'Operamos bajo un modelo global: las reuniones de avance se agendan en el horario de su organización y el seguimiento se realiza de forma continua a través de canales compartidos, con entregas documentadas.'
+        q: '¿AOA puede trabajar con sistemas existentes?',
+        a: 'Sí. Evaluamos primero la infraestructura y las herramientas actuales. Cuando es viable, priorizamos integrar o ampliar sus capacidades antes de recomendar reemplazos innecesarios.'
       },
       {
-        q: '¿Qué ocurre si necesito cambios después de la entrega?',
-        a: 'Todo proyecto incluye un periodo de ajustes posterior a la implementación. Después, la solución puede evolucionar mediante nuevas fases o un esquema de soporte y mejora continua, según lo que la organización necesite.'
+        q: '¿Cómo se determina si un proceso debe automatizarse?',
+        a: 'Evaluamos el proceso actual, el volumen de trabajo, las dependencias, la información disponible y el resultado esperado. La automatización se recomienda cuando genera una mejora clara en eficiencia, consistencia o capacidad operativa.'
       },
       {
-        q: '¿La solución queda a nombre de mi organización?',
-        a: 'Sí. Dominios, infraestructura, repositorios de código y cuentas de terceros se registran a nombre de su organización desde el inicio. La solución es suya, sin dependencia de AOA.'
+        q: '¿Cómo se gestiona un proyecto?',
+        a: 'Cada proyecto se estructura con alcance, responsables, entregables, hitos y mecanismos de seguimiento acordes con su complejidad.'
       },
       {
-        q: '¿Necesito contratar a alguien más para que esto funcione?',
-        a: 'No. Estrategia, diseño, desarrollo, automatización e implementación se coordinan dentro de un mismo proceso. Si un proyecto requiere una capacidad específica adicional, AOA la integra y mantiene la responsabilidad sobre el resultado.'
+        q: '¿Cómo se evalúa el resultado de una implementación?',
+        a: 'Los criterios se definen según el objetivo del proyecto y pueden incluir eficiencia, reducción de trabajo manual, calidad de información, visibilidad operativa, capacidad de gestión, adopción o desempeño digital.'
+      },
+      {
+        q: '¿Qué ocurre después de la implementación?',
+        a: 'Las soluciones pueden mantenerse, optimizarse o evolucionar mediante nuevas funcionalidades, integraciones o automatizaciones conforme cambian las necesidades de la organización.'
       }
     ]
   },
 
   contact: {
-    eyebrow: 'Solicitar una propuesta',
-    title: 'Cuéntenos qué necesita mejorar, transformar o construir.',
+    eyebrow: 'Nuevos proyectos',
+    title: 'Presente su proyecto o desafío.',
     paragraphs: [
-      'Puede tratarse de una solución específica, un proceso que necesita evolucionar o un desafío para el que todavía no existe una respuesta tecnológica definida.',
-      'Si el requerimiento está suficientemente definido, podemos presentar una propuesta inicial en hasta 48 horas hábiles.'
+      'Comparta una iniciativa definida, un proceso que necesita evolucionar o un desafío para el que todavía no existe una solución tecnológica clara.',
+      'Revisaremos el contexto para identificar el siguiente paso más adecuado.'
     ],
-    reassurance: ['Propuesta con alcance, tiempos e inversión definidos', 'Sin compromiso hasta aprobar la propuesta', 'Información tratada con confidencialidad'],
-    imageAlt: 'Dos profesionales revisando un requerimiento juntos',
+    imageAlt: 'Dos profesionales revisando el contexto de un proyecto',
     form: {
-      name: { label: 'Nombre', placeholder: 'Ej. Carolina Restrepo', required: 'Indique su nombre' },
-      company: { label: 'Organización', placeholder: 'Ej. Restrepo Logística S.A.S.', required: 'Indique el nombre de su organización' },
+      name: { label: 'Nombre', placeholder: 'Nombre y apellido', required: 'Indique su nombre.' },
+      company: { label: 'Organización', placeholder: 'Nombre de la organización', required: 'Indique el nombre de la organización.' },
       email: {
-        label: 'Correo corporativo',
-        placeholder: 'Ej. carolina@empresa.com',
-        required: 'Indique su correo',
-        invalid: 'Indique un correo válido'
+        label: 'Correo de trabajo',
+        placeholder: 'nombre@organizacion.com',
+        required: 'Indique un correo de trabajo.',
+        invalid: 'El formato del correo no es válido.'
       },
-      service: {
-        label: 'Área de interés',
+      projectType: {
+        label: 'Tipo de proyecto',
         placeholder: 'Seleccione una opción',
-        required: 'Seleccione un área de interés',
-        generalOption: 'Aún no está definido — necesito orientación'
+        required: 'Seleccione el tipo de proyecto.',
+        options: [
+          { value: 'strategy', label: 'Estrategia y transformación tecnológica' },
+          { value: 'automation', label: 'Automatización y soluciones inteligentes' },
+          { value: 'platforms', label: 'Plataforma o software a medida' },
+          { value: 'data', label: 'Datos e integraciones' },
+          { value: 'web', label: 'Web y soluciones digitales' },
+          { value: 'general', label: 'Por definir' }
+        ]
       },
       message: {
-        label: 'Describa el requerimiento',
-        placeholder: '¿Cuál es la situación actual, qué resultado espera y en qué plazo?',
-        required: 'Describa brevemente lo que necesita',
-        minLength: 'Un poco más de contexto nos permite responder con precisión (mín. 20 caracteres)'
+        label: 'Contexto del proyecto',
+        placeholder: 'Describa brevemente la situación actual, el objetivo del proyecto, los procesos o sistemas involucrados y cualquier plazo relevante.',
+        required: 'Describa brevemente el contexto del proyecto.',
+        minLength: 'Amplíe el contexto para poder evaluar la solicitud (mínimo 20 caracteres).'
       },
       submit: 'Enviar requerimiento',
       submitting: 'Enviando…',
       success: {
-        title: 'Requerimiento recibido.',
-        text: 'Lo revisaremos y responderemos con los siguientes pasos. Si está suficientemente definido, recibirá una propuesta inicial en hasta 48 horas hábiles.'
+        title: 'Gracias. Hemos recibido la información del proyecto.',
+        text: 'Nuestro equipo revisará el requerimiento y se pondrá en contacto para definir el siguiente paso.'
       },
       error: {
-        title: 'No se pudo enviar.',
-        text: 'Intente de nuevo o escríbanos directamente al correo.'
+        title: 'No fue posible enviar la solicitud.',
+        text: 'Intente nuevamente o escríbanos directamente al correo.'
       },
-      missingKey: 'El formulario aún no está configurado. Escríbanos directamente al correo.',
-      privacy: 'Sus datos se utilizan únicamente para responder a esta solicitud.',
-      subjectPrefix: 'Nuevo requerimiento'
+      missingKey: 'El formulario aún no está habilitado. Escríbanos directamente al correo.',
+      privacy: 'La información compartida será utilizada exclusivamente para evaluar y responder a esta solicitud.',
+      subjectPrefix: 'Nuevo proyecto'
     },
     direct: {
-      title: '¿Prefiere escribir directamente?',
+      title: 'Contacto directo',
       email: 'admin@aoaglobalservices.com'
     }
   },
 
   footer: {
-    tagline: 'Estrategia, tecnología e inteligencia artificial para transformar cómo operan las organizaciones.',
-    legalLine: 'US-registered · Global delivery',
-    servicesTitle: 'Servicios',
-    companyTitle: 'AOA',
+    tagline: 'Consultoría y soluciones tecnológicas para transformar procesos, información y capacidad operativa.',
+    brandLine: 'Strategy · Technology · Execution',
+    solutionsTitle: 'Soluciones',
+    solutions: [
+      { slug: 'strategy', label: 'Estrategia y transformación tecnológica' },
+      { slug: 'automation', label: 'Automatización y soluciones inteligentes' },
+      { slug: 'platforms', label: 'Plataformas a medida' },
+      { slug: 'data', label: 'Datos e integraciones' },
+      { slug: 'web', label: 'Web y soluciones digitales' }
+    ],
+    companyTitle: 'Empresa',
     companyLinks: [
-      { label: 'Cómo trabajamos', anchor: '#how-it-works' },
-      { label: 'Nuestro trabajo', anchor: '#results' },
-      { label: 'Preguntas', anchor: '#faq' },
-      { label: 'Solicitar una propuesta', anchor: '#contact' }
+      { label: 'Cómo trabajamos', anchor: '#approach' },
+      { label: 'Proyectos', anchor: '#projects' },
+      { label: 'Preguntas frecuentes', anchor: '#faq' },
+      { label: 'Contacto', anchor: '#contact' }
     ],
     contactTitle: 'Contacto',
+    legal: 'US-registered company',
     rights: 'Todos los derechos reservados.'
   }
 };

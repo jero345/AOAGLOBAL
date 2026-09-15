@@ -3,14 +3,17 @@
  * en.ts y es.ts DEBEN implementar esta interfaz completa: si falta una clave,
  * `tsc` (que corre en `npm run build`) falla. Nunca cae a texto vacío en producción.
  *
- * Reglas de posicionamiento (brief): sin países, ciudades ni ubicación del equipo;
- * sin precios públicos; la inversión se define por propuesta. Los testimonios
- * actuales son de ejemplo hasta que se reemplacen por reales.
+ * Principio de marca: ESTRATEGIA · TECNOLOGÍA · EJECUCIÓN.
+ * Sin países ni ubicaciones, sin precios, sin testimonios inventados,
+ * IA solo como tecnología dentro de una capacidad (nunca como claim).
  */
 
 export type Locale = 'en' | 'es';
 
-export type ServiceSlug = 'strategy' | 'ai' | 'platforms' | 'data' | 'web';
+export type ServiceSlug = 'strategy' | 'automation' | 'platforms' | 'data' | 'web';
+
+/** Valor del tipo de proyecto en el formulario: una capacidad o "por definir" */
+export type ProjectType = ServiceSlug | 'general';
 
 export interface SiteContent {
   meta: {
@@ -40,11 +43,11 @@ export interface SiteContent {
     paragraphs: string[];
     primaryCta: string;
     secondaryCta: string;
-    /** Microcopy bajo los CTAs: propuesta inicial para requerimientos definidos */
-    noteTitle: string;
-    noteText: string;
+    /** Microcopy de baja jerarquía: propuesta inicial solo para requerimientos definidos */
+    note: string;
     imageAlt: string;
     ticker: string[];
+    /** Tarjeta "De la necesidad al proyecto" */
     card: {
       label: string;
       steps: Array<{ title: string; detail: string }>;
@@ -52,66 +55,59 @@ export interface SiteContent {
     };
   };
 
-  diagnosis: {
+  challenges: {
     eyebrow: string;
     title: string;
     intro: string;
-    items: Array<{ problem: string; cost: string }>;
-    transition: string;
+    items: Array<{ title: string; text: string }>;
+    closing: string[];
   };
 
-  howItWorks: {
+  approach: {
     eyebrow: string;
     title: string;
+    intro: string;
     steps: Array<{ number: string; title: string; description: string }>;
-    /** Bloque "Una sola dirección. Capacidades integradas." */
+    closing: string[];
+    /** Bloque "Una dirección integrada de proyecto" */
     model: {
       title: string;
       paragraphs: string[];
       highlight: string;
-      cta: string;
-      capabilities: Array<{ image: string; alt: string; label: string; text: string }>;
+      pillars: Array<{ image: string; alt: string; label: string; text: string }>;
     };
   };
 
-  services: {
+  capabilities: {
     eyebrow: string;
     title: string;
-    description: string;
-    problemLabel: string;
+    intro: string;
+    challengeLabel: string;
     whatLabel: string;
     outcomeLabel: string;
-    detailsLabel: string;
-    exploreCta: string;
-    collapseCta: string;
-    undecided: { title: string; text: string; cta: string };
+    capabilitiesLabel: string;
+    /** CTA de cada tarjeta → formulario con el tipo de proyecto preseleccionado */
+    cta: string;
+    /** Tarjeta "Cuando el problema está claro, pero la solución todavía no" */
+    undecided: { title: string; paragraphs: string[]; cta: string };
     items: Array<{
       slug: ServiceSlug;
       name: string;
-      problem: string;
+      challenge: string;
       what: string;
       outcome: string;
-      /** Se muestran al "Explorar solución" */
-      details: string[];
-      /** CTA dentro del panel desplegado */
-      cta: string;
+      capabilities: string[];
       image: string;
       imageAlt: string;
     }>;
   };
 
-  /** Cómo se define la inversión: sin cifras, por propuesta */
-  investment: {
+  /** Tipos de solución (no clientes concretos) */
+  projects: {
     eyebrow: string;
     title: string;
-    points: Array<{ title: string; text: string }>;
-    note: string;
-  };
-
-  socialProof: {
-    eyebrow: string;
-    title: string;
-    items: Array<{ quote: string; author: string; role: string; company: string; result: string }>;
+    capabilitiesLabel: string;
+    items: Array<{ title: string; text: string; capabilities: string[] }>;
   };
 
   faq: {
@@ -124,13 +120,17 @@ export interface SiteContent {
     eyebrow: string;
     title: string;
     paragraphs: string[];
-    reassurance: string[];
     imageAlt: string;
     form: {
       name: { label: string; placeholder: string; required: string };
       company: { label: string; placeholder: string; required: string };
       email: { label: string; placeholder: string; required: string; invalid: string };
-      service: { label: string; placeholder: string; required: string; generalOption: string };
+      projectType: {
+        label: string;
+        placeholder: string;
+        required: string;
+        options: Array<{ value: ProjectType; label: string }>;
+      };
       message: { label: string; placeholder: string; required: string; minLength: string };
       submit: string;
       submitting: string;
@@ -145,12 +145,15 @@ export interface SiteContent {
 
   footer: {
     tagline: string;
-    /** Discreto: "US-registered · Global delivery" */
-    legalLine: string;
-    servicesTitle: string;
+    /** Línea de marca: Strategy · Technology · Execution */
+    brandLine: string;
+    solutionsTitle: string;
+    solutions: Array<{ slug: ServiceSlug; label: string }>;
     companyTitle: string;
     companyLinks: Array<{ label: string; anchor: string }>;
     contactTitle: string;
+    /** Discreto, junto al copyright */
+    legal: string;
     rights: string;
   };
 }

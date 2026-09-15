@@ -1,12 +1,12 @@
 import React from 'react';
-import { Check, Mail } from 'lucide-react';
+import { Mail } from 'lucide-react';
 import { useTranslation } from '../../context/LanguageContext';
 import { Section } from '../ui/Section';
 import { Eyebrow } from '../ui/Eyebrow';
 import { Reveal } from '../ui/Reveal';
 import { ContactForm } from './ContactForm';
 
-/** Bloque final: principal mecanismo comercial. Sin precios. */
+/** Nuevos proyectos: principal mecanismo de inicio de un proyecto. */
 export const ContactSection: React.FC = () => {
   const { t } = useTranslation('contact');
 
@@ -35,15 +35,6 @@ export const ContactSection: React.FC = () => {
               </p>
             ))}
           </div>
-
-          <ul className="mt-8 space-y-3">
-            {t.reassurance.map((line) => (
-              <li key={line} className="flex items-center gap-2.5 text-sm text-ink">
-                <Check size={16} aria-hidden className="shrink-0 text-accent-hover" />
-                {line}
-              </li>
-            ))}
-          </ul>
 
           <div className="mt-10 rounded-[var(--radius-card)] border border-line bg-paper p-5">
             <p className="text-eyebrow font-semibold uppercase tracking-[0.08em] text-slate">{t.direct.title}</p>

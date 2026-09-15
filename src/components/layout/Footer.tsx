@@ -7,7 +7,6 @@ import { useQuote } from '../../context/QuoteContext';
 
 export const Footer: React.FC = () => {
   const { t } = useTranslation('footer');
-  const { t: services } = useTranslation('services');
   const { requestQuote } = useQuote();
   const year = new Date().getFullYear();
 
@@ -23,7 +22,7 @@ export const Footer: React.FC = () => {
               <span className="text-base font-bold tracking-tight text-white">{company.name}</span>
             </div>
             <p className="text-sm text-white/70 leading-relaxed max-w-xs">{t.tagline}</p>
-            <p className="text-xs uppercase tracking-[0.12em] text-white/45">{t.legalLine}</p>
+            <p className="text-xs uppercase tracking-[0.14em] text-accent">{t.brandLine}</p>
             <div className="pt-2 flex flex-col items-start gap-3">
               <a
                 href={company.linkedin}
@@ -38,16 +37,16 @@ export const Footer: React.FC = () => {
           </div>
 
           <div>
-            <h2 className="text-xs font-semibold uppercase tracking-[0.08em] text-white/50 mb-4">{t.servicesTitle}</h2>
+            <h2 className="text-xs font-semibold uppercase tracking-[0.08em] text-white/50 mb-4">{t.solutionsTitle}</h2>
             <ul className="flex flex-col space-y-2.5">
-              {services.items.map((s) => (
+              {t.solutions.map((s) => (
                 <li key={s.slug}>
                   <button
                     type="button"
                     onClick={() => requestQuote(s.slug)}
                     className="text-left text-sm text-white/70 transition-colors duration-200 hover:text-white cursor-pointer"
                   >
-                    {s.name}
+                    {s.label}
                   </button>
                 </li>
               ))}
@@ -77,10 +76,11 @@ export const Footer: React.FC = () => {
           </div>
         </div>
 
-        <div className="mt-16 border-t border-white/10 pt-8 text-xs text-white/50">
+        <div className="mt-16 flex flex-col gap-2 border-t border-white/10 pt-8 text-xs text-white/50 sm:flex-row sm:items-center sm:justify-between">
           <p>
             © {year} {company.name}. {t.rights}
           </p>
+          <p className="text-white/55">{t.legal}</p>
         </div>
       </div>
     </footer>

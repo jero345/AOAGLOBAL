@@ -1,9 +1,9 @@
-import React, { useEffect, useState } from 'react';
+import React, { useEffect, useRef, useState } from 'react';
 import { useForm } from 'react-hook-form';
 import { motion, AnimatePresence } from 'framer-motion';
 import { CheckCircle2, AlertCircle, ArrowRight } from 'lucide-react';
 import { useTranslation } from '../../context/LanguageContext';
-import { useQuote, GENERAL_SERVICE, type QuoteService } from '../../context/QuoteContext';
+import { useQuote, type QuoteService } from '../../context/QuoteContext';
 import { company } from '../../content';
 import { Button } from '../ui/Button';
 import { track } from '../../lib/analytics';
@@ -11,6 +11,7 @@ import { track } from '../../lib/analytics';
 const WEB3FORMS_ENDPOINT = 'https://api.web3forms.com/submit';
 const ACCESS_KEY = import.meta.env.VITE_WEB3FORMS_KEY as string | undefined;
 const UTM_KEY = 'aoa_utm_source';
+const DRAFT_KEY = 'aoa_form_draft';
 
 interface FormData {
   name: string;
@@ -23,6 +24,8 @@ interface FormData {
 }
 
 type Status = 'idle' | 'sending' | 'success' | 'error';
+
+const EMPTY: FormData = { name: '', company: '', email: '', service: '', message: '' };
 
 /** utm_source de la URL de entrada; se conserva en sessionStorage si el usuario cambia de idioma/ancla. */
 const readUtmSource = (): string => {
@@ -38,15 +41,38 @@ const readUtmSource = (): string => {
   }
 };
 
+/** Borrador: cambiar de idioma remonta la página; lo escrito no debe perderse. */
+const readDraft = (): Partial<FormData> => {
+  try {
+    return JSON.parse(sessionStorage.getItem(DRAFT_KEY) ?? '{}');
+  } catch {
+    return {};
+  }
+};
+const writeDraft = (data: Partial<FormData>) => {
+  try {
+    sessionStorage.setItem(DRAFT_KEY, JSON.stringify(data));
+  } catch {
+    /* sin storage: no persiste */
+  }
+};
+const clearDraft = () => {
+  try {
+    sessionStorage.removeItem(DRAFT_KEY);
+  } catch {
+    /* noop */
+  }
+};
+
 const fieldClass =
   'w-full rounded-[var(--radius-btn)] border border-line bg-paper px-4 py-3 text-base text-ink placeholder:text-slate/70 transition-colors duration-200 focus:border-navy focus:outline-none aria-[invalid=true]:border-red-600';
 const labelClass = 'text-eyebrow font-semibold uppercase tracking-[0.08em] text-slate';
 
 export const ContactForm: React.FC = () => {
   const { language, t } = useTranslation('contact');
-  const { t: services } = useTranslation('services');
   const { service, setService } = useQuote();
   const [status, setStatus] = useState<Status>('idle');
+  const sending = useRef(false);
   const f = t.form;
 
   const {
@@ -54,24 +80,33 @@ export const ContactForm: React.FC = () => {
     handleSubmit,
     setValue,
     reset,
+    watch,
     formState: { errors }
   } = useForm<FormData>({
-    defaultValues: { name: '', company: '', email: '', service, message: '' },
+    defaultValues: { ...EMPTY, ...readDraft(), service: service || readDraft().service || '' },
     shouldFocusError: true
   });
 
-  // CTA dentro de una tarjeta de solución → preselección del área de interés
+  // CTA "Iniciar un proyecto" desde una capacidad → tipo de proyecto preseleccionado
   useEffect(() => {
-    setValue('service', service, { shouldValidate: false });
+    if (service) setValue('service', service, { shouldValidate: false });
   }, [service, setValue]);
 
-  const serviceName = (slug: QuoteService) =>
-    slug === GENERAL_SERVICE ? f.service.generalOption : services.items.find((s) => s.slug === slug)?.name ?? slug;
+  // Guardar borrador mientras se escribe
+  useEffect(() => {
+    const sub = watch((values) => {
+      const { botcheck: _b, ...rest } = values as FormData;
+      writeDraft(rest);
+    });
+    return () => sub.unsubscribe();
+  }, [watch]);
+
+  const optionLabel = (value: QuoteService) => f.projectType.options.find((o) => o.value === value)?.label ?? String(value);
 
   const onSubmit = async (data: FormData) => {
+    if (sending.current) return; // evita doble envío
     if (data.botcheck) {
-      // Bot: fingimos éxito sin enviar nada
-      setStatus('success');
+      setStatus('success'); // bot: fingimos éxito sin enviar
       return;
     }
     if (!ACCESS_KEY) {
@@ -80,19 +115,20 @@ export const ContactForm: React.FC = () => {
       return;
     }
 
+    sending.current = true;
     setStatus('sending');
     track('form_submit', { service: data.service, locale: language });
 
     const payload = {
       access_key: ACCESS_KEY,
-      subject: `${f.subjectPrefix} — ${serviceName(data.service)} [${language.toUpperCase()}]`,
+      subject: `${f.subjectPrefix} — ${optionLabel(data.service)} [${language.toUpperCase()}]`,
       from_name: `${data.name} · ${data.company}`,
       name: data.name,
-      company: data.company,
+      organization: data.company,
       email: data.email,
-      service: serviceName(data.service),
-      service_slug: data.service,
-      message: data.message,
+      project_type: optionLabel(data.service),
+      project_type_id: data.service,
+      context: data.message,
       locale: language,
       utm_source: readUtmSource(),
       page: window.location.href,
@@ -110,17 +146,19 @@ export const ContactForm: React.FC = () => {
 
       setStatus('success');
       track('form_success', { service: data.service, locale: language });
-      reset({ name: '', company: '', email: '', service: '', message: '' });
+      reset(EMPTY);
+      clearDraft();
       setService('');
     } catch (err) {
       setStatus('error');
       track('form_error', { service: data.service, locale: language, reason: (err as Error).message });
+    } finally {
+      sending.current = false;
     }
   };
 
   return (
     <form onSubmit={handleSubmit(onSubmit)} noValidate className="space-y-6" aria-describedby="form-status">
-      {/* Honeypot Web3Forms: oculto para humanos, tentador para bots */}
       <input type="checkbox" tabIndex={-1} autoComplete="off" aria-hidden="true" className="hidden" {...register('botcheck')} />
 
       <div className="grid gap-6 sm:grid-cols-2">
@@ -175,23 +213,21 @@ export const ContactForm: React.FC = () => {
       </div>
 
       <div className="flex flex-col gap-2">
-        <label htmlFor="service" className={labelClass}>{f.service.label}</label>
+        <label htmlFor="service" className={labelClass}>{f.projectType.label}</label>
         <select
           id="service"
           aria-invalid={!!errors.service}
           aria-describedby={errors.service ? 'service-error' : undefined}
           className={`${fieldClass} cursor-pointer`}
           {...register('service', {
-            required: f.service.required,
-            // Cambio manual del select → el contexto también se entera
+            required: f.projectType.required,
             onChange: (e) => setService(e.target.value as QuoteService)
           })}
         >
-          <option value="">{f.service.placeholder}</option>
-          {services.items.map((s) => (
-            <option key={s.slug} value={s.slug}>{s.name}</option>
+          <option value="">{f.projectType.placeholder}</option>
+          {f.projectType.options.map((o) => (
+            <option key={o.value} value={o.value}>{o.label}</option>
           ))}
-          <option value={GENERAL_SERVICE}>{f.service.generalOption}</option>
         </select>
         {errors.service && <span id="service-error" className="text-xs font-medium text-red-700">{errors.service.message}</span>}
       </div>
@@ -213,7 +249,6 @@ export const ContactForm: React.FC = () => {
         {errors.message && <span id="message-error" className="text-xs font-medium text-red-700">{errors.message.message}</span>}
       </div>
 
-      {/* Estado: anunciado a lectores de pantalla */}
       <div id="form-status" aria-live="polite" aria-atomic="true">
         <AnimatePresence mode="wait">
           {status === 'success' && (
@@ -257,7 +292,7 @@ export const ContactForm: React.FC = () => {
           {status === 'sending' ? f.submitting : f.submit}
           {status !== 'sending' && <ArrowRight size={16} aria-hidden />}
         </Button>
-        <p className="text-xs text-slate">{f.privacy}</p>
+        <p className="text-xs text-slate sm:max-w-xs">{f.privacy}</p>
       </div>
     </form>
   );

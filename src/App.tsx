@@ -5,8 +5,8 @@ import { Home } from './pages/Home';
 
 /** Rutas antiguas del sitio anterior → ancla equivalente en la one-page */
 const LEGACY_REDIRECTS: Record<string, string> = {
-  services: '#services',
-  about: '#how-it-works',
+  services: '#capabilities',
+  about: '#approach',
   contact: '#contact'
 };
 

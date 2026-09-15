@@ -8,14 +8,14 @@ export type QuoteService = ServiceSlug | typeof GENERAL_SERVICE | '';
 
 interface QuoteContextType {
   service: QuoteService;
-  /** Preselecciona el servicio y lleva al formulario ("Cotizar este servicio"). */
+  /** Preselecciona el tipo de proyecto y lleva al formulario ("Iniciar un proyecto"). */
   requestQuote: (service: QuoteService) => void;
   setService: (service: QuoteService) => void;
 }
 
 const QuoteContext = createContext<QuoteContextType | undefined>(undefined);
 
-const VALID: QuoteService[] = ['strategy', 'ai', 'platforms', 'data', 'web', GENERAL_SERVICE];
+const VALID: QuoteService[] = ['strategy', 'automation', 'platforms', 'data', 'web', GENERAL_SERVICE];
 
 export const QuoteProvider: React.FC<{ children: React.ReactNode }> = ({ children }) => {
   const location = useLocation();

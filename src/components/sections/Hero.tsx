@@ -1,6 +1,6 @@
 import React, { useRef, useEffect, useState } from 'react';
 import { motion, useScroll, useTransform, useReducedMotion } from 'framer-motion';
-import { ArrowRight, Check, Clock } from 'lucide-react';
+import { ArrowRight } from 'lucide-react';
 import { useTranslation } from '../../context/LanguageContext';
 import { Eyebrow } from '../ui/Eyebrow';
 import { Button } from '../ui/Button';
@@ -9,9 +9,10 @@ import { TextReveal } from '../ui/TextReveal';
 import { Ticker } from '../ui/Ticker';
 
 /**
- * Hero: posicionamiento → 2 CTAs → microcopy de propuesta inicial (solo para
- * requerimientos definidos). Sin precios ni ubicaciones. Imagen local WebP
- * (eager, preload en index.html) con parallax suave y tarjeta de proceso superpuesta.
+ * Hero: posicionamiento → 2 CTAs (Explorar soluciones / Iniciar un proyecto).
+ * La referencia a 48 h va como microcopy de baja jerarquía, no como promesa.
+ * Imagen local WebP (eager, preload en index.html) con parallax suave y la
+ * tarjeta "De la necesidad al proyecto" superpuesta.
  */
 export const Hero: React.FC = () => {
   const { language, t } = useTranslation('hero');
@@ -60,19 +61,16 @@ export const Hero: React.FC = () => {
               </Reveal>
 
               <Reveal immediate delay={0.45} className="mt-8 flex w-full flex-col gap-3 sm:w-auto sm:flex-row">
-                <Button variant="outline" href="#services" track="hero_explore">
-                  {t.primaryCta}
+                <Button variant="accent" href="#capabilities" track="hero_explore">
+                  {t.primaryCta} <ArrowRight size={16} aria-hidden />
                 </Button>
-                <Button variant="accent" href="#contact" track="hero_talk">
-                  {t.secondaryCta} <ArrowRight size={16} aria-hidden />
+                <Button variant="outline" href="#contact" track="hero_start">
+                  {t.secondaryCta}
                 </Button>
               </Reveal>
 
-              <Reveal immediate delay={0.55} className="mt-6 flex items-start gap-2.5 text-sm">
-                <Clock size={16} aria-hidden className="mt-0.5 shrink-0 text-accent-hover" />
-                <p className="text-slate">
-                  <span className="font-semibold text-ink">{t.noteTitle}</span> {t.noteText}
-                </p>
+              <Reveal immediate delay={0.55} className="mt-5">
+                <p className="text-xs text-slate max-w-md">{t.note}</p>
               </Reveal>
             </div>
 
@@ -105,7 +103,7 @@ export const Hero: React.FC = () => {
                 initial={{ opacity: 0, y: 24 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.6, delay: 0.55, ease: [0.16, 1, 0.3, 1] }}
-                className="relative -mt-16 mx-4 rounded-[var(--radius-card)] border border-line bg-paper p-5 shadow-lg md:p-6 lg:absolute lg:-bottom-10 lg:-left-6 lg:mx-0 lg:mt-0 lg:w-[22rem]"
+                className="relative -mt-16 mx-4 rounded-[var(--radius-card)] border border-line bg-paper p-5 shadow-lg md:p-6 lg:absolute lg:-bottom-10 lg:-left-6 lg:mx-0 lg:mt-0 lg:w-[23rem]"
               >
                 <p className="text-eyebrow font-semibold uppercase tracking-[0.08em] text-slate">{t.card.label}</p>
                 <ol className="mt-4 space-y-4">
@@ -118,19 +116,16 @@ export const Hero: React.FC = () => {
                       className="flex gap-3"
                     >
                       <span className="flex h-7 w-7 shrink-0 items-center justify-center rounded-full bg-navy text-[0.7rem] font-bold text-white">
-                        {i + 1}
+                        0{i + 1}
                       </span>
                       <div>
-                        <p className="text-sm font-semibold text-ink leading-snug">{step.title}</p>
-                        <p className="mt-0.5 text-xs text-slate">{step.detail}</p>
+                        <p className="text-sm font-semibold uppercase tracking-[0.06em] text-ink leading-snug">{step.title}</p>
+                        <p className="mt-0.5 text-xs leading-relaxed text-slate">{step.detail}</p>
                       </div>
                     </motion.li>
                   ))}
                 </ol>
-                <p className="mt-4 flex items-center gap-2 border-t border-line pt-3 text-xs text-ink">
-                  <Check size={14} aria-hidden className="text-accent-hover" />
-                  {t.card.footer}
-                </p>
+                <p className="mt-4 border-t border-line pt-3 text-xs text-slate">{t.card.footer}</p>
               </motion.aside>
             </div>
           </div>

@@ -40,7 +40,7 @@ export const Seo: React.FC = () => {
   const services = {
     '@context': 'https://schema.org',
     '@type': 'ItemList',
-    itemListElement: t.services.items.map((s, i) => ({
+    itemListElement: t.capabilities.items.map((s, i) => ({
       '@type': 'ListItem',
       position: i + 1,
       item: {
@@ -48,7 +48,7 @@ export const Seo: React.FC = () => {
         name: s.name,
         description: s.outcome,
         provider: { '@type': 'Organization', name: company.name },
-        url: `${canonical}#services`
+        url: `${canonical}#capabilities`
       }
     }))
   };

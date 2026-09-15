@@ -18,24 +18,26 @@ Los componentes solo leen de ahí. No hay texto en `src/components/`.
 
 ## Reglas de posicionamiento (no romperlas al editar)
 
-- **Sin geografía**: no mencionar países, ciudades, oficinas ni dónde está cada área del equipo. Solo `AOA Global Services LLC` y, de forma discreta, `US-registered · Global delivery` (`footer.legalLine`).
-- **Sin precios públicos**: nada de cifras, paquetes, tarifas ni "desde". La inversión se define por propuesta (`investment`).
-- **48 horas** solo para requerimientos claramente definidos ("propuesta inicial en hasta 48 horas hábiles"). Nunca prometer precio sin comprender el alcance.
-- Evitar lenguaje defensivo: "sin sorpresas", "antes de gastar", "barato", "competitivo".
+- Principio de marca: **Estrategia · Tecnología · Ejecución**. La tecnología es un medio para mejorar cómo opera una organización.
+- **Sin geografía**: no mencionar países, ciudades, oficinas ni dónde está el equipo. Solo `AOA Global Services LLC` y, discretamente, `US-registered company` (`footer.legal`).
+- **Sin precios públicos**: nada de cifras, paquetes ni tarifas. Si hace falta hablar de inversión: "Antes de comenzar, se establecen claramente alcance, entregables, cronograma e inversión."
+- **48 horas** solo como microcopy de baja jerarquía y solo para requerimientos claramente definidos (`hero.note`). No es la promesa de marca.
+- **IA** solo como tecnología dentro de "Automatización y soluciones inteligentes" o en capacidades concretas. Nunca en hero, claim, menú, footer ni como pregunta de FAQ.
+- **Sin testimonios ni cifras inventadas**: la sección `projects` presenta tipos de solución, no clientes.
+- **Voz**: institucional, sin tutear (la organización, la operación, el proyecto…). Sin lenguaje de agencia rápida ni de precio.
+- **CTAs permitidos**: Explorar soluciones · Iniciar un proyecto · Enviar requerimiento. No inventar otros.
 
-## Datos de ejemplo
+## Capacidades (`capabilities.items`)
 
-Los testimonios (`socialProof.items`) son **ficticios** — hay un comentario al inicio de `en.ts` y `es.ts`. Reemplázalos por reales antes de publicar, o elimina `<SocialProof />` de `src/pages/Home.tsx` hasta tenerlos.
-
-## Soluciones (`services.items`)
-
-Cinco categorías fijas, identificadas por `slug`: `strategy`, `ai`, `platforms`, `data`, `web`. El mismo slug enlaza la tarjeta con el `<select>` del formulario. Cada tarjeta tiene `problem` → `what` → `outcome`, y `details` (lo que se despliega con "Explorar solución").
+Cinco categorías fijas, identificadas por `slug`: `strategy`, `automation`, `platforms`, `data`, `web`. El mismo slug enlaza la tarjeta con el campo "Tipo de proyecto" del formulario (`contact.form.projectType.options`). Cada tarjeta tiene `challenge` → `what` → `outcome` y `capabilities` (chips).
 
 Si añades una categoría:
 
 1. Añade el slug a `ServiceSlug` en `src/content/types.ts`.
-2. Añádela a `services.items` en **ambos** idiomas.
+2. Añádela a `capabilities.items`, `contact.form.projectType.options` y `footer.solutions` en **ambos** idiomas.
 3. Añádela a `VALID` en `src/context/QuoteContext.tsx`.
+
+La sección `projects` (Proyectos y soluciones) describe **tipos de solución**; no afirmar que corresponden a clientes concretos.
 
 ## Imágenes
 

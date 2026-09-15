@@ -2,7 +2,7 @@ import { en } from './en';
 import { es } from './es';
 import type { Locale, SiteContent } from './types';
 
-export type { Locale, SiteContent, ServiceSlug } from './types';
+export type { Locale, SiteContent, ServiceSlug, ProjectType } from './types';
 
 export const DEFAULT_LOCALE: Locale = 'en';
 export const LOCALES: Locale[] = ['en', 'es'];

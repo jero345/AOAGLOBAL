@@ -1,23 +1,23 @@
 import React from 'react';
 import { motion, useReducedMotion } from 'framer-motion';
-import { ArrowRight, Layers } from 'lucide-react';
+import { Layers } from 'lucide-react';
 import { useTranslation } from '../../context/LanguageContext';
 import { Section } from '../ui/Section';
 import { SectionHeader } from '../ui/SectionHeader';
 import { Reveal } from '../ui/Reveal';
-import { Button } from '../ui/Button';
 
 /**
- * Bloque 3: requerimiento → propuesta → ejecución, y el modelo de trabajo
- * "Una sola dirección. Capacidades integradas." (sin países ni ubicaciones).
+ * Nuestro enfoque: comprender → diseñar → implementar, con cierre sobre la
+ * profundidad de cada fase; y el bloque "Una dirección integrada de proyecto"
+ * con sus tres pilares (consultoría, tecnología, implementación).
  */
-export const HowItWorks: React.FC = () => {
-  const { t } = useTranslation('howItWorks');
+export const Approach: React.FC = () => {
+  const { t } = useTranslation('approach');
   const reduce = useReducedMotion();
 
   return (
-    <Section tone="paper" id="how-it-works">
-      <SectionHeader eyebrow={t.eyebrow} title={t.title} />
+    <Section tone="paper" id="approach">
+      <SectionHeader eyebrow={t.eyebrow} title={t.title} description={t.intro} />
 
       <div className="relative mt-12">
         <motion.div
@@ -41,14 +41,23 @@ export const HowItWorks: React.FC = () => {
                 aria-hidden
               />
               <span className="text-3xl font-bold text-accent-hover tabular-nums">{step.number}</span>
-              <h3 className="mt-3 text-h3 text-ink">{step.title}</h3>
+              <h3 className="mt-3 text-h3 uppercase tracking-[0.04em] text-ink">{step.title}</h3>
               <p className="mt-2 text-sm leading-relaxed text-slate">{step.description}</p>
             </Reveal>
           ))}
         </ol>
       </div>
 
-      {/* Modelo de trabajo: capacidades integradas bajo una sola dirección */}
+      <Reveal className="mt-10 max-w-3xl">
+        <p className="text-base font-semibold text-ink">{t.closing[0]}</p>
+        {t.closing.slice(1).map((p) => (
+          <p key={p} className="mt-2 text-sm leading-relaxed text-slate">
+            {p}
+          </p>
+        ))}
+      </Reveal>
+
+      {/* Dirección integrada de proyecto */}
       <Reveal className="mt-14 overflow-hidden rounded-[var(--radius-card)] bg-navy text-white">
         <div className="grid lg:grid-cols-[3fr_2fr]">
           <div className="flex flex-col justify-center gap-6 p-8 md:p-10">
@@ -64,34 +73,31 @@ export const HowItWorks: React.FC = () => {
               ))}
             </div>
             <p className="border-l-2 border-accent pl-4 text-base font-semibold text-white">{t.model.highlight}</p>
-            <Button variant="accent" href="#contact" track="model_cta" className="self-start">
-              {t.model.cta} <ArrowRight size={16} aria-hidden />
-            </Button>
           </div>
 
-          <ul className="grid grid-cols-2 gap-2 p-2 lg:grid-cols-1">
-            {t.model.capabilities.map((cap, i) => (
+          <ul className="grid grid-cols-1 gap-2 p-2 sm:grid-cols-3 lg:grid-cols-1">
+            {t.model.pillars.map((pillar, i) => (
               <motion.li
-                key={cap.label}
+                key={pillar.label}
                 initial={reduce ? false : { opacity: 0, scale: 0.94 }}
                 whileInView={{ opacity: 1, scale: 1 }}
                 viewport={{ once: true, amount: 0.4 }}
-                transition={{ duration: 0.6, delay: 0.15 + i * 0.15, ease: [0.16, 1, 0.3, 1] }}
-                className="group relative aspect-[4/3] overflow-hidden rounded-[var(--radius-btn)] lg:aspect-[16/7]"
+                transition={{ duration: 0.6, delay: 0.15 + i * 0.12, ease: [0.16, 1, 0.3, 1] }}
+                className="group relative aspect-[16/9] overflow-hidden rounded-[var(--radius-btn)] sm:aspect-[4/3] lg:aspect-[16/6]"
               >
                 <img
-                  src={cap.image}
-                  alt={cap.alt}
+                  src={pillar.image}
+                  alt={pillar.alt}
                   width={800}
                   height={600}
                   loading="lazy"
                   decoding="async"
                   className="h-full w-full object-cover grayscale transition-all duration-700 ease-out group-hover:scale-105 group-hover:grayscale-0"
                 />
-                <div aria-hidden className="absolute inset-0 bg-gradient-to-t from-navy/85 to-transparent" />
+                <div aria-hidden className="absolute inset-0 bg-gradient-to-t from-navy/90 via-navy/30 to-transparent" />
                 <div className="absolute bottom-3 left-3 right-3">
-                  <p className="text-[0.65rem] font-bold uppercase tracking-[0.12em] text-accent">{cap.label}</p>
-                  <p className="text-xs font-medium text-white">{cap.text}</p>
+                  <p className="text-[0.65rem] font-bold uppercase tracking-[0.12em] text-accent">{pillar.label}</p>
+                  <p className="text-xs font-medium leading-snug text-white">{pillar.text}</p>
                 </div>
               </motion.li>
             ))}
