@@ -1,13 +1,16 @@
 import React from 'react';
 import { motion, useReducedMotion } from 'framer-motion';
-import { ArrowRight, UserCheck, MapPin } from 'lucide-react';
+import { ArrowRight, Layers } from 'lucide-react';
 import { useTranslation } from '../../context/LanguageContext';
 import { Section } from '../ui/Section';
 import { SectionHeader } from '../ui/SectionHeader';
 import { Reveal } from '../ui/Reveal';
 import { Button } from '../ui/Button';
 
-/** Bloque 3: requerimiento → cotización → solución. Un solo interlocutor, con rostro de lugar. */
+/**
+ * Bloque 3: requerimiento → propuesta → ejecución, y el modelo de trabajo
+ * "Una sola dirección. Capacidades integradas." (sin países ni ubicaciones).
+ */
 export const HowItWorks: React.FC = () => {
   const { t } = useTranslation('howItWorks');
   const reduce = useReducedMotion();
@@ -17,7 +20,6 @@ export const HowItWorks: React.FC = () => {
       <SectionHeader eyebrow={t.eyebrow} title={t.title} />
 
       <div className="relative mt-12">
-        {/* Línea de progreso que se dibuja al entrar en pantalla (solo desktop) */}
         <motion.div
           aria-hidden
           initial={reduce ? false : { scaleX: 0 }}
@@ -46,26 +48,31 @@ export const HowItWorks: React.FC = () => {
         </ol>
       </div>
 
-      {/* Banda: un solo interlocutor + dos fotos que muestran la alianza */}
+      {/* Modelo de trabajo: capacidades integradas bajo una sola dirección */}
       <Reveal className="mt-14 overflow-hidden rounded-[var(--radius-card)] bg-navy text-white">
         <div className="grid lg:grid-cols-[3fr_2fr]">
           <div className="flex flex-col justify-center gap-6 p-8 md:p-10">
             <span className="inline-flex h-12 w-12 items-center justify-center rounded-full bg-white/10">
-              <UserCheck size={22} aria-hidden />
+              <Layers size={22} aria-hidden />
             </span>
-            <div>
-              <h3 className="text-h3 text-white">{t.highlightTitle}</h3>
-              <p className="mt-2 text-sm leading-relaxed text-white/75 max-w-2xl">{t.highlightText}</p>
+            <div className="space-y-3">
+              <h3 className="text-h3 text-white">{t.model.title}</h3>
+              {t.model.paragraphs.map((p) => (
+                <p key={p} className="text-sm leading-relaxed text-white/75 max-w-2xl">
+                  {p}
+                </p>
+              ))}
             </div>
-            <Button variant="accent" href="#contact" track="howitworks_cta" className="self-start">
-              {t.cta} <ArrowRight size={16} aria-hidden />
+            <p className="border-l-2 border-accent pl-4 text-base font-semibold text-white">{t.model.highlight}</p>
+            <Button variant="accent" href="#contact" track="model_cta" className="self-start">
+              {t.model.cta} <ArrowRight size={16} aria-hidden />
             </Button>
           </div>
 
           <ul className="grid grid-cols-2 gap-2 p-2 lg:grid-cols-1">
-            {t.places.map((place, i) => (
+            {t.model.capabilities.map((cap, i) => (
               <motion.li
-                key={place.region}
+                key={cap.label}
                 initial={reduce ? false : { opacity: 0, scale: 0.94 }}
                 whileInView={{ opacity: 1, scale: 1 }}
                 viewport={{ once: true, amount: 0.4 }}
@@ -73,8 +80,8 @@ export const HowItWorks: React.FC = () => {
                 className="group relative aspect-[4/3] overflow-hidden rounded-[var(--radius-btn)] lg:aspect-[16/7]"
               >
                 <img
-                  src={place.image}
-                  alt={place.alt}
+                  src={cap.image}
+                  alt={cap.alt}
                   width={800}
                   height={600}
                   loading="lazy"
@@ -83,10 +90,8 @@ export const HowItWorks: React.FC = () => {
                 />
                 <div aria-hidden className="absolute inset-0 bg-gradient-to-t from-navy/85 to-transparent" />
                 <div className="absolute bottom-3 left-3 right-3">
-                  <p className="flex items-center gap-1 text-[0.65rem] font-bold uppercase tracking-[0.12em] text-accent">
-                    <MapPin size={12} aria-hidden /> {place.region}
-                  </p>
-                  <p className="text-xs font-semibold text-white">{place.role}</p>
+                  <p className="text-[0.65rem] font-bold uppercase tracking-[0.12em] text-accent">{cap.label}</p>
+                  <p className="text-xs font-medium text-white">{cap.text}</p>
                 </div>
               </motion.li>
             ))}

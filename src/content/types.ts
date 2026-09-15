@@ -3,21 +3,21 @@
  * en.ts y es.ts DEBEN implementar esta interfaz completa: si falta una clave,
  * `tsc` (que corre en `npm run build`) falla. Nunca cae a texto vacío en producción.
  *
- * Los datos de cliente (testimonios, precios) son de ejemplo hasta que se
- * reemplacen por los reales; ver el comentario al inicio de en.ts / es.ts.
+ * Reglas de posicionamiento (brief): sin países, ciudades ni ubicación del equipo;
+ * sin precios públicos; la inversión se define por propuesta. Los testimonios
+ * actuales son de ejemplo hasta que se reemplacen por reales.
  */
 
 export type Locale = 'en' | 'es';
 
-export type ServiceSlug = 'web' | 'seo' | 'software' | 'automation' | 'consulting';
+export type ServiceSlug = 'strategy' | 'ai' | 'platforms' | 'data' | 'web';
 
 export interface SiteContent {
   meta: {
-    /** <title> de la página */
     title: string;
     description: string;
     ogImageAlt: string;
-    /** Nombre legible del idioma para hreflang/selector */
+    /** Nombre legible del idioma para el selector */
     localeName: string;
   };
 
@@ -30,24 +30,21 @@ export interface SiteContent {
     mobileNavLabel: string;
     langSwitcherLabel: string;
     /** Banner discreto de sugerencia de idioma (nunca redirige) */
-    langSuggest: {
-      text: string;
-      accept: string;
-      dismiss: string;
-    };
+    langSuggest: { text: string; accept: string; dismiss: string };
     floatingCta: string;
   };
 
   hero: {
     eyebrow: string;
     title: string;
-    subtitle: string;
+    paragraphs: string[];
     primaryCta: string;
     secondaryCta: string;
+    /** Microcopy bajo los CTAs: propuesta inicial para requerimientos definidos */
+    noteTitle: string;
+    noteText: string;
     imageAlt: string;
-    /** Frases del ticker bajo el hero */
     ticker: string[];
-    /** Tarjeta visual que ilustra la promesa requerimiento → estimado → entrega */
     card: {
       label: string;
       steps: Array<{ title: string; detail: string }>;
@@ -67,11 +64,14 @@ export interface SiteContent {
     eyebrow: string;
     title: string;
     steps: Array<{ number: string; title: string; description: string }>;
-    highlightTitle: string;
-    highlightText: string;
-    cta: string;
-    /** Dos fotos que representan la alianza AU / CO */
-    places: Array<{ image: string; alt: string; region: string; role: string }>;
+    /** Bloque "Una sola dirección. Capacidades integradas." */
+    model: {
+      title: string;
+      paragraphs: string[];
+      highlight: string;
+      cta: string;
+      capabilities: Array<{ image: string; alt: string; label: string; text: string }>;
+    };
   };
 
   services: {
@@ -81,8 +81,10 @@ export interface SiteContent {
     problemLabel: string;
     whatLabel: string;
     outcomeLabel: string;
-    quoteCta: string;
-    /** Tarjeta final: para quien no sabe qué servicio necesita */
+    detailsLabel: string;
+    exploreCta: string;
+    collapseCta: string;
+    talkCta: string;
     undecided: { title: string; text: string; cta: string };
     items: Array<{
       slug: ServiceSlug;
@@ -90,47 +92,25 @@ export interface SiteContent {
       problem: string;
       what: string;
       outcome: string;
+      /** Se muestran al "Explorar solución" */
+      details: string[];
       image: string;
       imageAlt: string;
     }>;
   };
 
-  pricing: {
+  /** Cómo se define la inversión: sin cifras, por propuesta */
+  investment: {
     eyebrow: string;
     title: string;
-    subtitle: string;
-    fromLabel: string;
-    /** Prefijo de la línea secundaria (solo EN muestra AUD). Vacío = no mostrar. */
-    secondaryCurrencyNote: string;
-    timelineLabel: string;
-    deliverableLabel: string;
-    featuredBadge: string;
-    disclaimer: string;
-    cta: string;
-    plans: Array<{
-      slug: ServiceSlug;
-      name: string;
-      problem: string;
-      deliverables: string[];
-      /** Solo el número/texto, sin "USD". Ej: "1,500" o "900 / month" */
-      priceUsd: string;
-      /** Equivalente aproximado en AUD (solo EN). Vacío en ES. */
-      priceAud: string;
-      timeline: string;
-      featured: boolean;
-    }>;
+    points: Array<{ title: string; text: string }>;
+    note: string;
   };
 
   socialProof: {
     eyebrow: string;
     title: string;
-    items: Array<{
-      quote: string;
-      author: string;
-      role: string;
-      company: string;
-      result: string;
-    }>;
+    items: Array<{ quote: string; author: string; role: string; company: string; result: string }>;
   };
 
   faq: {
@@ -142,7 +122,7 @@ export interface SiteContent {
   contact: {
     eyebrow: string;
     title: string;
-    subtitle: string;
+    paragraphs: string[];
     reassurance: string[];
     imageAlt: string;
     form: {
@@ -157,17 +137,15 @@ export interface SiteContent {
       error: { title: string; text: string };
       missingKey: string;
       privacy: string;
-      /** Prefijo del asunto del correo que recibe el equipo */
       subjectPrefix: string;
     };
-    direct: {
-      title: string;
-      email: string;
-    };
+    direct: { title: string; email: string };
   };
 
   footer: {
     tagline: string;
+    /** Discreto: "US-registered · Global delivery" */
+    legalLine: string;
     servicesTitle: string;
     companyTitle: string;
     companyLinks: Array<{ label: string; anchor: string }>;

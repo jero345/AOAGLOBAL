@@ -19,7 +19,7 @@ export const Seo: React.FC = () => {
   const { language } = useLanguage();
   const t = content[language];
   const canonical = SITE_URL + localePath(language);
-  const ogLocale = language === 'es' ? 'es_CO' : 'en_AU';
+  const ogLocale = language === 'es' ? 'es_ES' : 'en_US';
 
   const organization = {
     '@context': 'https://schema.org',
@@ -29,7 +29,6 @@ export const Seo: React.FC = () => {
     logo: `${SITE_URL}/favicon.svg`,
     email: company.email,
     sameAs: [company.linkedin],
-    areaServed: company.regions.map((name) => ({ '@type': 'Country', name })),
     contactPoint: {
       '@type': 'ContactPoint',
       contactType: 'sales',
@@ -49,7 +48,6 @@ export const Seo: React.FC = () => {
         name: s.name,
         description: s.outcome,
         provider: { '@type': 'Organization', name: company.name },
-        areaServed: company.regions,
         url: `${canonical}#services`
       }
     }))
@@ -76,7 +74,7 @@ export const Seo: React.FC = () => {
       <link rel="canonical" href={canonical} />
 
       {LOCALES.map((l) => (
-        <link key={l} rel="alternate" hrefLang={l === 'en' ? 'en-AU' : 'es'} href={SITE_URL + localePath(l)} />
+        <link key={l} rel="alternate" hrefLang={l} href={SITE_URL + localePath(l)} />
       ))}
       <link rel="alternate" hrefLang="x-default" href={SITE_URL + localePath(DEFAULT_LOCALE)} />
 

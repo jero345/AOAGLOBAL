@@ -4,14 +4,14 @@ import { Hero } from '../components/sections/Hero';
 import { Diagnosis } from '../components/sections/Diagnosis';
 import { HowItWorks } from '../components/sections/HowItWorks';
 import { ServicesGrid } from '../components/sections/ServicesGrid';
-import { Pricing } from '../components/sections/Pricing';
+import { Investment } from '../components/sections/Investment';
 import { SocialProof } from '../components/sections/SocialProof';
 import { Faq } from '../components/sections/Faq';
 import { ContactSection } from '../components/sections/ContactSection';
 
 /**
  * One-page de conversión. Orden obligatorio (brief §4):
- * problema → cómo funciona → servicios → precios → prueba → objeciones → formulario.
+ * problema → cómo trabajamos → soluciones → inversión → prueba → objeciones → formulario.
  */
 export const Home: React.FC = () => (
   <>
@@ -20,7 +20,7 @@ export const Home: React.FC = () => (
     <Diagnosis />
     <HowItWorks />
     <ServicesGrid />
-    <Pricing />
+    <Investment />
     <SocialProof />
     <Faq />
     <ContactSection />

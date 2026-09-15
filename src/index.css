@@ -99,28 +99,6 @@
 }
 .kenburns { animation: kenburns 1.6s cubic-bezier(0.16, 1, 0.3, 1) both; }
 
-/* Borde luminoso giratorio para la tarjeta destacada de precios */
-@property --glow-angle {
-  syntax: '<angle>';
-  inherits: false;
-  initial-value: 0deg;
-}
-@keyframes glow-spin { to { --glow-angle: 360deg; } }
-.glow-border { position: relative; }
-.glow-border::before {
-  content: '';
-  position: absolute;
-  inset: -1px;
-  border-radius: inherit;
-  padding: 1.5px;
-  background: conic-gradient(from var(--glow-angle), transparent 0 60%, var(--color-accent) 80%, transparent 100%);
-  -webkit-mask: linear-gradient(#000 0 0) content-box, linear-gradient(#000 0 0);
-  mask: linear-gradient(#000 0 0) content-box, linear-gradient(#000 0 0);
-  -webkit-mask-composite: xor;
-  mask-composite: exclude;
-  animation: glow-spin 5s linear infinite;
-  pointer-events: none;
-}
 
 /* Fondo de puntos sutil para el hero */
 .dot-grid {
@@ -129,5 +107,5 @@
 }
 
 @media (prefers-reduced-motion: reduce) {
-  .ticker, .blob, .kenburns, .glow-border::before { animation: none !important; }
+  .ticker, .blob, .kenburns { animation: none !important; }
 }

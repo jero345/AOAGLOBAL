@@ -1,30 +1,29 @@
 import type { SiteContent } from './types';
 
-// DATOS DE EJEMPLO: testimonios, precios y plazos son ficticios.
-// Reemplazar por los reales antes de publicar (ver docs/EDITAR-CONTENIDO.md).
+// SAMPLE DATA: testimonials are fictional. Replace with real ones before launch.
 
 /**
- * EN — written for the Australian market.
- * Angle: access to an engineering team that ships fast, with a local point of contact.
- * Australian spelling (optimise, organisation, specialise). Second person "you".
+ * EN — international consulting and technology firm.
+ * Neutral, executive tone. No geography, no pricing.
  */
 export const en: SiteContent = {
   meta: {
-    title: 'AOA Global Services | Business technology, quoted and delivered fast',
+    title: 'AOA Global Services | Strategy, technology and AI to move business forward',
     description:
-      'Tell us what your business needs. Get an estimate within 48 hours and have it built by a full-stack team — one local point of contact in Australia, no vendor juggling.',
-    ogImageAlt: 'AOA Global Services — business technology, quoted and delivered fast',
+      'AOA Global Services combines consulting, artificial intelligence and software development to optimize processes, connect information and build solutions tailored to how each organization operates.',
+    ogImageAlt: 'AOA Global Services — technology designed to move business forward',
     localeName: 'English'
   },
 
   nav: {
     links: [
-      { label: 'How it works', anchor: '#how-it-works' },
-      { label: 'Services', anchor: '#services' },
-      { label: 'Pricing', anchor: '#pricing' },
-      { label: 'FAQ', anchor: '#faq' }
+      { label: 'Solutions', anchor: '#services' },
+      { label: 'How we work', anchor: '#how-it-works' },
+      { label: 'Our work', anchor: '#results' },
+      { label: 'FAQ', anchor: '#faq' },
+      { label: 'Contact', anchor: '#contact' }
     ],
-    cta: 'Get an estimate',
+    cta: 'Talk to AOA',
     openMenu: 'Open menu',
     closeMenu: 'Close menu',
     mainNavLabel: 'Main navigation',
@@ -35,365 +34,356 @@ export const en: SiteContent = {
       accept: 'Ver en español',
       dismiss: 'Stay in English'
     },
-    floatingCta: 'Get an estimate'
+    floatingCta: 'Talk to AOA'
   },
 
   hero: {
-    eyebrow: 'Technology for businesses that can’t wait',
-    title: 'Your business is moving faster than your technology.',
-    subtitle:
-      'Tell us what you need. You get an estimate within 48 hours and a team that builds it — website, platform, automation or SEO — with one local contact in Australia.',
-    primaryCta: 'Tell us your requirement',
-    secondaryCta: 'See services & pricing',
+    eyebrow: 'Strategy · Technology · AI · Execution',
+    title: 'Technology designed to move the business forward.',
+    paragraphs: [
+      'AOA Global Services combines consulting, artificial intelligence and software development to optimize processes, connect information and build solutions tailored to how each organization operates.',
+      'From a specific need to a complete enterprise platform, we define the solution and take it through to execution.'
+    ],
+    primaryCta: 'Explore solutions',
+    secondaryCta: 'Talk to AOA',
+    noteTitle: 'Already have a defined requirement?',
+    noteText: 'We can present an initial proposal within 48 business hours.',
     imageAlt: 'Modern office towers seen from below',
-    ticker: ['Estimate within 48 hours', 'One local point of contact', 'Websites', 'SEO', 'Custom platforms', 'Automation & AI', 'Digital transformation', 'Everything stays in your name'],
+    ticker: [
+      'Strategy & technology transformation',
+      'AI & automation',
+      'Custom platforms',
+      'Data & integrations',
+      'Web & digital solutions',
+      'One point of contact'
+    ],
     card: {
-      label: 'What happens after you write to us',
+      label: 'How a project moves forward with AOA',
       steps: [
-        { title: 'You describe the requirement', detail: '5 fields. No calls required.' },
-        { title: 'You get an estimate', detail: 'Scope, price range and timeline within 48 h.' },
-        { title: 'We build it online', detail: 'Weekly demos. One point of contact.' }
+        { title: 'You share the requirement', detail: 'A specific need, or a challenge without a defined answer yet.' },
+        { title: 'We define scope and objectives', detail: 'Context, complexity and the expected outcome.' },
+        { title: 'Proposal and execution', detail: 'Clear scope, timeline, deliverables and investment before we start.' }
       ],
-      footer: 'No commitment until you approve the proposal.'
+      footer: 'One point of contact for the whole project.'
     }
   },
 
   diagnosis: {
-    eyebrow: 'Does this sound familiar?',
-    title: 'If any of these is true, it’s already costing you money.',
-    intro: 'These are the six problems we get asked to solve most often. Each one has a price tag.',
+    eyebrow: 'Sound familiar?',
+    title: 'If any of this is happening in your organization, it already has a cost.',
+    intro: 'These are the situations we are most often asked to resolve. None of them shows up on an invoice; all of them affect the result.',
     items: [
       {
-        problem: 'Your team spends hours on manual processes.',
-        cost: 'Every hour re-typing data into spreadsheets is an hour not spent selling or serving customers.'
+        problem: 'Manual processes consuming the team’s hours.',
+        cost: 'Every hour moving data between spreadsheets is an hour not spent on customers or decisions.'
       },
       {
-        problem: 'Your website doesn’t generate a single lead.',
-        cost: 'It’s a brochure, not an asset. Visitors leave and buy from whoever made it easy.'
+        problem: 'A website that generates no opportunities.',
+        cost: 'It works as a brochure, not a commercial asset. Visitors arrive and leave without a trace.'
       },
       {
-        problem: 'You’re invisible on Google.',
-        cost: 'Your competitor shows up first for the searches your customers actually type.'
+        problem: 'Information scattered across tools.',
+        cost: 'Without a single source of truth, decisions are made on incomplete or outdated data.'
       },
       {
-        problem: 'Your data lives in scattered spreadsheets.',
-        cost: 'No single source of truth means decisions get made on gut feel — or not at all.'
+        problem: 'Vendors that don’t talk to each other.',
+        cost: 'Designer, developer and agency working apart: nobody is accountable for the final result.'
       },
       {
-        problem: 'You juggle a designer, a developer and an agency.',
-        cost: 'Three vendors, three invoices, and nobody accountable for the final result.'
+        problem: 'Technology initiatives that never reach implementation.',
+        cost: 'Assessments and proposals stay in documents while operations continue unchanged.'
       },
       {
-        problem: 'Tech projects get quoted in weeks and delivered in months.',
-        cost: 'While you wait, the problem the project was meant to fix keeps compounding.'
+        problem: 'Generic tools that don’t fit the operation.',
+        cost: 'The team adapts its work to the software instead of the software adapting to the business.'
       }
     ],
-    transition: 'None of this needs a big IT department. It needs one team that quotes fast and delivers.'
+    transition: 'None of these problems is solved with more tools. They are solved with clear direction and the capacity to execute.'
   },
 
   howItWorks: {
-    eyebrow: 'How it works',
-    title: 'From requirement to working solution in three steps.',
+    eyebrow: 'How we work',
+    title: 'From requirement to a solution in operation.',
     steps: [
       {
         number: '01',
-        title: 'Tell us your requirement',
-        description: 'Fill in the form below in plain language. If a short call helps, your local contact books it at a time that suits you.'
+        title: 'We understand the requirement',
+        description: 'It may be a specific need or a still-open challenge. We analyze context, objectives and complexity before proposing anything.'
       },
       {
         number: '02',
-        title: 'Receive an estimate and proposal',
-        description: 'Within 48 hours you get a scope, a price range and a timeline. You decide whether to proceed — no pressure, no lock-in.'
+        title: 'We define the proposal',
+        description: 'Scope, timeline, deliverables and investment are clearly established before we start. For complex projects, this stage may include an analysis phase.'
       },
       {
         number: '03',
-        title: 'We build and deliver it online',
-        description: 'The engineering team builds while you get weekly demos. You approve, we hand over, and everything stays in your name.'
+        title: 'We execute and implement',
+        description: 'Strategy, development, automation and implementation within a single process, with visible progress and one point of contact.'
       }
     ],
-    highlightTitle: 'One point of contact. No chain of vendors.',
-    highlightText:
-      'You deal with one person in Australia who understands your business. Behind them sits a full-stack team in Colombia that designs, builds and supports the solution. Nobody else to hire.',
-    cta: 'Start with your requirement',
-    places: [
-      { image: '/img/sydney.webp', alt: 'Sydney harbour and skyline', region: 'Australia', role: 'Your local point of contact' },
-      { image: '/img/team.webp', alt: 'Engineering team working on laptops', region: 'Colombia', role: 'The engineering team' }
-    ]
+    model: {
+      title: 'One direction. Integrated capabilities.',
+      paragraphs: [
+        'Every project combines business vision, design and technology capability within a single process.',
+        'AOA coordinates strategy, development, automation and implementation with a clear working structure and a single point of contact.'
+      ],
+      highlight: 'Less fragmentation. More clarity. Greater accountability for the result.',
+      cta: 'Talk to AOA',
+      capabilities: [
+        {
+          image: '/img/strategy.webp',
+          alt: 'Strategy working session with the team',
+          label: 'Strategy & design',
+          text: 'Business vision, solution definition and architecture.'
+        },
+        {
+          image: '/img/team.webp',
+          alt: 'Technical team building a solution',
+          label: 'Development & execution',
+          text: 'Build, automation, integration and implementation.'
+        }
+      ]
+    }
   },
 
   services: {
-    eyebrow: 'Services',
-    title: 'What we solve — and what you get.',
-    description: 'Five services, each scoped around a business outcome rather than a deliverable list.',
-    problemLabel: 'The problem',
+    eyebrow: 'Solutions',
+    title: 'Five capabilities. One process.',
+    description: 'Each solution is defined from how the organization actually operates, not from a fixed catalog.',
+    problemLabel: 'The situation',
     whatLabel: 'What we do',
     outcomeLabel: 'What you get',
-    quoteCta: 'Quote this service',
+    detailsLabel: 'Typical scope',
+    exploreCta: 'Explore solution',
+    collapseCta: 'Close',
+    talkCta: 'Talk to AOA',
     undecided: {
-      title: 'Not sure which one you need?',
-      text: 'Describe the problem in plain language. We tell you what it takes — and what it doesn’t — before you spend anything.',
-      cta: 'Help me decide'
+      title: 'Not sure which solution you need?',
+      text: 'Describe the situation. We tell you what is required — and what isn’t — before defining any scope.',
+      cta: 'Talk to AOA'
     },
     items: [
       {
-        slug: 'web',
-        name: 'Website design & development',
-        problem: 'Your site looks fine but nobody enquires through it.',
-        what: 'We design and build a fast, mobile-first website around one job: turning visitors into enquiries.',
-        outcome: 'A site that loads in under two seconds, ranks, and sends qualified leads to your inbox.',
-        image: '/img/web.webp',
-        imageAlt: 'Designer workstation with a website layout on screen'
+        slug: 'strategy',
+        name: 'Strategy & Technology Transformation',
+        problem: 'Technology should be driving the business, but it isn’t clear where to start or what to prioritize.',
+        what: 'An assessment of processes, tools and data, with a prioritized, realistic roadmap.',
+        outcome: 'A clear transformation plan, aligned with business objectives and ready to execute.',
+        details: [
+          'Assessment of operations, systems and information flows',
+          'Technology roadmap prioritized by impact',
+          'Architecture definition and tool selection',
+          'Leadership support throughout implementation'
+        ],
+        image: '/img/consulting.webp',
+        imageAlt: 'Team planning a roadmap with sticky notes on a wall'
       },
       {
-        slug: 'seo',
-        name: 'SEO & search visibility',
-        problem: 'Customers search for what you do and find someone else.',
-        what: 'Technical fixes, on-page optimisation and content targeted at the searches that bring buyers.',
-        outcome: 'Measurable growth in qualified organic traffic, reported monthly.',
-        image: '/img/seo.webp',
-        imageAlt: 'Laptop showing a search traffic analytics dashboard'
-      },
-      {
-        slug: 'software',
-        name: 'Custom platforms & software',
-        problem: 'Off-the-shelf tools don’t fit how your business actually runs.',
-        what: 'We build web platforms, portals and internal tools tailored to your process — from data model to deployment.',
-        outcome: 'One system your team actually uses, with your data in one place.',
-        image: '/img/software.webp',
-        imageAlt: 'Source code on a developer laptop'
-      },
-      {
-        slug: 'automation',
-        name: 'Automation & applied AI',
-        problem: 'Repetitive work eats the hours your team should spend on customers.',
-        what: 'We connect your tools and automate the workflow: intake, follow-ups, reporting, document handling, AI assistants.',
-        outcome: 'Hours back every week, fewer errors, and processes that run without chasing anyone.',
+        slug: 'ai',
+        name: 'Artificial Intelligence & Automation',
+        problem: 'Repetitive work consumes the time the team should spend on decisions and customers.',
+        what: 'We automate workflows and apply AI where it creates real value: intake, follow-up, documents, service and analysis.',
+        outcome: 'Processes that run without manual intervention, with fewer errors and more capacity for the team.',
+        details: [
+          'Business process mapping and automation',
+          'AI assistants and agents embedded in operations',
+          'Intelligent processing of documents and requests',
+          'Monitoring, control and continuous improvement of workflows'
+        ],
         image: '/img/automation.webp',
         imageAlt: 'Humanoid robot assistant'
       },
       {
-        slug: 'consulting',
-        name: 'Digital transformation consulting',
-        problem: 'You know technology should help, but not where to start or what it should cost.',
-        what: 'A short, structured diagnostic of your operation with a prioritised roadmap and realistic budgets.',
-        outcome: 'A clear plan you can execute — with us or with anyone else.',
-        image: '/img/consulting.webp',
-        imageAlt: 'Team planning a roadmap with sticky notes on a wall'
-      }
-    ]
-  },
-
-  pricing: {
-    eyebrow: 'Pricing',
-    title: 'Transparent starting prices. No surprises.',
-    subtitle:
-      'Every project is quoted on scope, but we never start from zero with you. These are the real starting points.',
-    fromLabel: 'From USD',
-    secondaryCurrencyNote: '≈ AUD',
-    timelineLabel: 'Typical delivery',
-    deliverableLabel: 'What’s included',
-    featuredBadge: 'Most requested',
-    disclaimer:
-      'Prices in USD. AUD figures are indicative only and vary with the exchange rate. Your estimate is fixed before we start.',
-    cta: 'Quote this service',
-    plans: [
-      {
-        slug: 'web',
-        name: 'Website design & development',
-        problem: 'For businesses whose site isn’t bringing in enquiries.',
-        deliverables: [
-          'Conversion-focused design, mobile-first',
-          'Up to 8 pages, contact and quote forms',
-          'Technical SEO foundation and analytics',
-          'Training to edit content yourself'
-        ],
-        priceUsd: '1,800',
-        priceAud: '2,700',
-        timeline: '3–4 weeks',
-        featured: false
-      },
-      {
-        slug: 'seo',
-        name: 'SEO & search visibility',
-        problem: 'For businesses that competitors outrank on Google.',
-        deliverables: [
-          'Technical audit and fixes',
-          'Keyword strategy for buyer searches',
-          'On-page optimisation and content plan',
-          'Monthly ranking and traffic report'
-        ],
-        priceUsd: '900 / month',
-        priceAud: '1,350 / month',
-        timeline: 'First results in 60–90 days',
-        featured: false
-      },
-      {
-        slug: 'software',
-        name: 'Custom platforms & software',
-        problem: 'For operations that have outgrown spreadsheets and generic tools.',
-        deliverables: [
-          'Discovery and functional specification',
-          'Web platform or internal tool, built to spec',
-          'User roles, dashboards and integrations',
+        slug: 'platforms',
+        name: 'Custom Platforms & Software',
+        problem: 'Generic tools don’t reflect how the organization really operates.',
+        what: 'We design and build web platforms, portals and internal tools shaped to the process, from data model to deployment.',
+        outcome: 'A system the team uses every day, with centralized information under the organization’s control.',
+        details: [
+          'Functional discovery and solution design',
+          'Web platforms, customer portals and internal tools',
+          'Roles, permissions, dashboards and integrations',
           'Deployment, documentation and handover'
         ],
-        priceUsd: '6,500',
-        priceAud: '9,800',
-        timeline: '6–10 weeks',
-        featured: true
+        image: '/img/software.webp',
+        imageAlt: 'Source code on a developer laptop'
       },
       {
-        slug: 'automation',
-        name: 'Automation & applied AI',
-        problem: 'For teams losing hours to repetitive manual work.',
-        deliverables: [
-          'Process mapping of the workflow to automate',
-          'Integrations between your existing tools',
-          'AI assistants where they save real time',
-          'Monitoring and a runbook for your team'
+        slug: 'data',
+        name: 'Data, Integrations & Reporting',
+        problem: 'The information exists, but it is spread across systems that don’t communicate.',
+        what: 'We connect data sources, integrate systems and build reporting that shows the real state of the business.',
+        outcome: 'A single source of truth and dashboards that support decisions with reliable information.',
+        details: [
+          'Integration across ERP, CRM, e-commerce and internal tools',
+          'Unified data model and information quality',
+          'Dashboards and automated reporting',
+          'Alerts and indicators for leadership'
         ],
-        priceUsd: '2,500',
-        priceAud: '3,800',
-        timeline: '2–4 weeks',
-        featured: false
+        image: '/img/seo.webp',
+        imageAlt: 'Laptop showing a business indicators dashboard'
       },
       {
-        slug: 'consulting',
-        name: 'Digital transformation consulting',
-        problem: 'For leaders who need a plan before they spend.',
-        deliverables: [
-          'Diagnostic of processes, tools and data',
-          'Prioritised roadmap with budgets',
-          'Vendor-neutral recommendations',
-          'Executive summary for decision-makers'
+        slug: 'web',
+        name: 'Web & Digital Solutions',
+        problem: 'The digital presence doesn’t reflect the organization’s level or generate opportunities.',
+        what: 'We design and develop results-oriented websites and digital experiences, with a solid technical base and search visibility.',
+        outcome: 'A fast, measurable digital asset aligned with the commercial strategy.',
+        details: [
+          'Corporate and commercial website design and development',
+          'Content architecture and search optimization (SEO)',
+          'Forms, integrations and analytics',
+          'Maintenance and continuous evolution'
         ],
-        priceUsd: '1,500',
-        priceAud: '2,300',
-        timeline: '2 weeks',
-        featured: false
+        image: '/img/web.webp',
+        imageAlt: 'Designer workstation with a website layout on screen'
       }
     ]
   },
 
-
-  socialProof: {
-    eyebrow: 'Results',
-    title: 'What clients got — in their words.',
-    items: [
+  investment: {
+    eyebrow: 'Investment',
+    title: 'Every project is defined by its scope, complexity and objectives.',
+    points: [
       {
-        quote: 'We had three vendors and no results. Within six weeks we had one team, a new site and enquiries coming in every day.',
-        author: 'Sarah Whitfield',
-        role: 'Operations Director',
-        company: 'Coastline Freight, Brisbane',
-        result: '+38% enquiries in 90 days'
+        title: 'A proposal before we start',
+        text: 'Before beginning, scope, timeline, deliverables and investment are clearly established.'
       },
       {
-        quote: 'The estimate arrived in two days and the platform in seven weeks. Our team finally stopped living in spreadsheets.',
+        title: 'A fast response for defined requirements',
+        text: 'Projects with defined requirements can receive an initial proposal within 48 business hours.'
+      },
+      {
+        title: 'Analysis first when complexity requires it',
+        text: 'For consulting, transformation, AI, integrations or complex platforms, an analysis phase may be needed first.'
+      }
+    ],
+    note: 'We never propose an investment without understanding the scope.'
+  },
+
+  socialProof: {
+    eyebrow: 'Our work',
+    title: 'What the organizations we work with achieved.',
+    items: [
+      {
+        quote: 'We had three vendors and no results. Within weeks we had one team, a new platform and opportunities coming in every day.',
+        author: 'Sarah Whitfield',
+        role: 'Operations Director',
+        company: 'Coastline Freight',
+        result: '+38% opportunities in 90 days'
+      },
+      {
+        quote: 'The proposal arrived with a clear scope and the platform was delivered on the agreed timeline. Our team stopped running on spreadsheets.',
         author: 'Daniel Moreno',
         role: 'General Manager',
         company: 'Andina Distribución',
-        result: '15 hours saved per week'
+        result: '15 hours recovered per week'
       },
       {
-        quote: 'They explained what SEO would and would not do before we paid a cent. Six months later we rank first for our main service.',
+        quote: 'They explained what each decision would and would not do before we committed. Six months later we are the reference in our segment.',
         author: 'Priya Nair',
         role: 'Founder',
-        company: 'Harbour Dental Group, Melbourne',
-        result: '#1 on Google for 4 key searches'
+        company: 'Harbour Dental Group',
+        result: 'First position for key searches'
       }
     ]
   },
 
   faq: {
     eyebrow: 'FAQ',
-    title: 'The questions people ask before they write to us.',
+    title: 'What people usually ask before writing to us.',
     items: [
       {
-        q: 'Why are your prices more competitive than a local agency?',
-        a: 'Because the engineering happens in Colombia, where a senior full-stack team costs less to run than in Sydney or Melbourne — without cutting seniority. You still get a local contact in Australia. The saving is structural, not a discount.'
+        q: 'How is the investment for a project defined?',
+        a: 'Every project is defined by its scope, complexity and objectives. Before we start, scope, timeline, deliverables and investment are clearly set out in a proposal. We do not propose an investment without understanding the scope.'
       },
       {
-        q: 'Who do I actually talk to during the project?',
-        a: 'One person: your local contact in Australia. They own your project from estimate to handover, join the weekly demos and translate business needs into technical decisions. You never have to chase a developer.'
+        q: 'How long does it take to receive a proposal?',
+        a: 'For clearly defined requirements, we can present an initial proposal within 48 business hours. For consulting, transformation, AI, integrations or complex platforms, an analysis phase may be needed first.'
       },
       {
-        q: 'How long does it really take?',
-        a: 'You get an estimate within 48 hours of your requirement. Delivery depends on scope — typical ranges are listed on each pricing card — and the timeline is agreed in writing before we start. We don’t quote in weeks and deliver in months.'
+        q: 'Who do I talk to during the project?',
+        a: 'A single point of contact, responsible for the project from proposal to implementation. That person coordinates strategy, development and automation, and translates business needs into technical decisions.'
+      },
+      {
+        q: 'How is the work coordinated across different time zones?',
+        a: 'We operate under a global delivery model: progress meetings are scheduled in your organization’s hours, and follow-up runs continuously through shared channels with documented deliveries.'
       },
       {
         q: 'What if I need changes after delivery?',
-        a: 'Every project includes a post-delivery adjustment window (30 days). After that you can book changes on demand or a monthly support plan. Nothing is locked behind us: the code and accounts are yours.'
+        a: 'Every project includes an adjustment period after implementation. After that, the solution can evolve through new phases or a support and continuous-improvement arrangement, depending on what the organization needs.'
       },
       {
-        q: 'How do you handle time zones and communication?',
-        a: 'Your local contact works Australian business hours. The engineering team’s day starts as yours ends, so work progresses overnight and you see results in the morning. Live overlap for calls and demos: 7:00–10:00 AEST, every business day.'
-      },
-      {
-        q: 'Does the website or platform stay in my name?',
-        a: 'Yes. Domain, hosting, code repository and any third-party accounts are registered to your business from day one. If you ever want to move to another provider, you can — with everything you paid for.'
+        q: 'Does the solution belong to my organization?',
+        a: 'Yes. Domains, infrastructure, code repositories and third-party accounts are registered to your organization from the start. The solution is yours, with no dependency on AOA.'
       },
       {
         q: 'Do I need to hire anyone else to make this work?',
-        a: 'No. Design, development, deployment and support are all covered by the team. If your project needs a specialist we don’t have, we bring them in and remain accountable for the result.'
+        a: 'No. Strategy, design, development, automation and implementation are coordinated within a single process. If a project requires an additional specific capability, AOA brings it in and remains accountable for the result.'
       }
     ]
   },
 
   contact: {
-    eyebrow: 'Get an estimate',
-    title: 'Tell us your requirement. Estimate within 48 hours.',
-    subtitle: 'Five fields. No sales call unless you want one.',
-    reassurance: ['Reply within 48 business hours', 'No commitment until you approve', 'Your data stays confidential'],
-    imageAlt: 'Two engineers reviewing a requirement together',
+    eyebrow: 'Contact',
+    title: 'Tell us what you need to improve, transform or build.',
+    paragraphs: [
+      'It may be a specific solution, a process that needs to evolve, or a challenge for which there is no defined technology answer yet.',
+      'If the requirement is sufficiently defined, we can present an initial proposal within 48 business hours.'
+    ],
+    reassurance: ['Proposal with defined scope, timeline and investment', 'No commitment until the proposal is approved', 'Information handled in confidence'],
+    imageAlt: 'Two professionals reviewing a requirement together',
     form: {
-      name: { label: 'Your name', placeholder: 'e.g. Sarah Mitchell', required: 'Please enter your name' },
-      company: { label: 'Company', placeholder: 'e.g. Mitchell & Co Logistics', required: 'Please enter your company' },
+      name: { label: 'Name', placeholder: 'e.g. Sarah Mitchell', required: 'Please enter your name' },
+      company: { label: 'Organization', placeholder: 'e.g. Mitchell & Co Logistics', required: 'Please enter your organization' },
       email: {
         label: 'Work email',
-        placeholder: 'e.g. sarah@company.com.au',
+        placeholder: 'e.g. sarah@company.com',
         required: 'Please enter your email',
         invalid: 'Please enter a valid email address'
       },
       service: {
-        label: 'What do you need?',
-        placeholder: 'Select a service',
-        required: 'Please select a service',
-        generalOption: 'Not sure yet — help me decide'
+        label: 'Area of interest',
+        placeholder: 'Select an option',
+        required: 'Please select an area of interest',
+        generalOption: 'Not defined yet — I need guidance'
       },
       message: {
         label: 'Describe the requirement',
-        placeholder: 'What’s the problem, what would “solved” look like, and when do you need it?',
-        required: 'Please describe what you need',
-        minLength: 'A few more details help us quote accurately (min. 20 characters)'
+        placeholder: 'What is the current situation, what result do you expect, and in what timeframe?',
+        required: 'Please describe briefly what you need',
+        minLength: 'A little more context lets us respond precisely (min. 20 characters)'
       },
-      submit: 'Send my requirement',
+      submit: 'Send requirement',
       submitting: 'Sending…',
       success: {
-        title: 'Received. Thank you.',
-        text: 'Your local contact will reply with an estimate within 48 business hours. Check your inbox (and spam folder, just in case).'
+        title: 'Requirement received.',
+        text: 'We will review it and reply with next steps. If it is sufficiently defined, you will receive an initial proposal within 48 business hours.'
       },
       error: {
-        title: 'Something went wrong.',
-        text: 'Your message wasn’t sent. Please try again or email us directly.'
+        title: 'It could not be sent.',
+        text: 'Please try again or email us directly.'
       },
-      missingKey: 'The form is not configured yet (missing Web3Forms key). Please email us directly.',
-      privacy: 'We only use your details to reply to this request.',
-      subjectPrefix: 'New estimate request'
+      missingKey: 'The form is not configured yet. Please email us directly.',
+      privacy: 'Your details are used only to respond to this request.',
+      subjectPrefix: 'New requirement'
     },
     direct: {
-      title: 'Prefer email?',
+      title: 'Prefer to write directly?',
       email: 'contact@aoaglobalservices.com'
     }
   },
 
   footer: {
-    tagline: 'Business technology, quoted in 48 hours and delivered online. Local contact in Australia, engineering team in Colombia.',
+    tagline: 'Strategy, technology and artificial intelligence to transform how organizations operate.',
+    legalLine: 'US-registered · Global delivery',
     servicesTitle: 'Services',
-    companyTitle: 'Company',
+    companyTitle: 'AOA',
     companyLinks: [
-      { label: 'How it works', anchor: '#how-it-works' },
+      { label: 'How we work', anchor: '#how-it-works' },
+      { label: 'Our work', anchor: '#results' },
       { label: 'FAQ', anchor: '#faq' },
-      { label: 'Get an estimate', anchor: '#contact' }
+      { label: 'Contact', anchor: '#contact' }
     ],
     contactTitle: 'Contact',
     rights: 'All rights reserved.'

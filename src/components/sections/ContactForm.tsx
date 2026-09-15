@@ -60,7 +60,7 @@ export const ContactForm: React.FC = () => {
     shouldFocusError: true
   });
 
-  // "Cotizar este servicio" → preselección desde tarjetas de servicios/precios
+  // "Hablar con AOA" desde una tarjeta de solución → preselección del área de interés
   useEffect(() => {
     setValue('service', service, { shouldValidate: false });
   }, [service, setValue]);

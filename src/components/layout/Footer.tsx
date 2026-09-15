@@ -20,9 +20,10 @@ export const Footer: React.FC = () => {
               <div className="flex h-8 w-8 items-center justify-center bg-white text-navy font-bold text-xs rounded-[var(--radius-btn)]">
                 AOA
               </div>
-              <span className="text-base font-bold tracking-tight text-white">AOA GLOBAL SERVICES</span>
+              <span className="text-base font-bold tracking-tight text-white">{company.name}</span>
             </div>
             <p className="text-sm text-white/70 leading-relaxed max-w-xs">{t.tagline}</p>
+            <p className="text-xs uppercase tracking-[0.12em] text-white/45">{t.legalLine}</p>
             <div className="pt-2 flex flex-col items-start gap-3">
               <a
                 href={company.linkedin}
@@ -68,13 +69,10 @@ export const Footer: React.FC = () => {
 
           <div>
             <h2 className="text-xs font-semibold uppercase tracking-[0.08em] text-white/50 mb-4">{t.contactTitle}</h2>
-            <address className="not-italic text-sm text-white/70 space-y-2 leading-relaxed">
-              <p>
-                <a href={`mailto:${company.email}`} className="transition-colors hover:text-white">
-                  {company.email}
-                </a>
-              </p>
-              <p>{company.regions.join(' · ')}</p>
+            <address className="not-italic text-sm text-white/70 leading-relaxed">
+              <a href={`mailto:${company.email}`} className="transition-colors hover:text-white">
+                {company.email}
+              </a>
             </address>
           </div>
         </div>

@@ -16,8 +16,7 @@ export const content: Record<Locale, SiteContent> = { en, es };
 export const company = {
   name: 'AOA Global Services LLC',
   email: 'contact@aoaglobalservices.com',
-  linkedin: 'https://www.linkedin.com/company/aoa-global-services',
-  regions: ['Australia', 'Colombia']
+  linkedin: 'https://www.linkedin.com/company/aoa-global-services'
 };
 
 /** Prefijo de ruta por idioma: EN en raíz, ES bajo /es */

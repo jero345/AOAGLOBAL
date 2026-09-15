@@ -15,7 +15,7 @@ interface QuoteContextType {
 
 const QuoteContext = createContext<QuoteContextType | undefined>(undefined);
 
-const VALID: QuoteService[] = ['web', 'seo', 'software', 'automation', 'consulting', GENERAL_SERVICE];
+const VALID: QuoteService[] = ['strategy', 'ai', 'platforms', 'data', 'web', GENERAL_SERVICE];
 
 export const QuoteProvider: React.FC<{ children: React.ReactNode }> = ({ children }) => {
   const location = useLocation();

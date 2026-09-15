@@ -1,30 +1,29 @@
 import type { SiteContent } from './types';
 
-// DATOS DE EJEMPLO: testimonios, precios y plazos son ficticios.
-// Reemplazar por los reales antes de publicar (ver docs/EDITAR-CONTENIDO.md).
+// DATOS DE EJEMPLO: los testimonios son ficticios. Reemplazar por reales antes de publicar.
 
 /**
- * ES — escrito para LATAM. No es traducción literal del inglés.
- * Ángulo: estándar internacional y respaldo de una operación con presencia en Australia.
- * Tuteo, tono cercano pero ejecutivo.
+ * ES — firma internacional de consultoría y soluciones tecnológicas.
+ * Tratamiento de usted, tono ejecutivo. Sin geografía, sin precios.
  */
 export const es: SiteContent = {
   meta: {
-    title: 'AOA Global Services | Tecnología para tu empresa, cotizada y entregada rápido',
+    title: 'AOA Global Services | Estrategia, tecnología e IA para hacer avanzar el negocio',
     description:
-      'Cuéntanos qué necesita tu empresa. Recibe una cotización en 48 horas y un equipo full-stack que lo construye con estándar internacional. Un solo interlocutor, sin contratar a nadie más.',
-    ogImageAlt: 'AOA Global Services — tecnología para tu empresa, cotizada y entregada rápido',
+      'AOA Global Services combina consultoría, inteligencia artificial y desarrollo tecnológico para optimizar procesos, conectar información y construir soluciones adaptadas a la operación de cada organización.',
+    ogImageAlt: 'AOA Global Services — tecnología diseñada para hacer avanzar el negocio',
     localeName: 'Español'
   },
 
   nav: {
     links: [
-      { label: 'Cómo funciona', anchor: '#how-it-works' },
-      { label: 'Servicios', anchor: '#services' },
-      { label: 'Precios', anchor: '#pricing' },
-      { label: 'Preguntas', anchor: '#faq' }
+      { label: 'Soluciones', anchor: '#services' },
+      { label: 'Cómo trabajamos', anchor: '#how-it-works' },
+      { label: 'Nuestro trabajo', anchor: '#results' },
+      { label: 'Preguntas', anchor: '#faq' },
+      { label: 'Contacto', anchor: '#contact' }
     ],
-    cta: 'Pedir cotización',
+    cta: 'Hablar con AOA',
     openMenu: 'Abrir menú',
     closeMenu: 'Cerrar menú',
     mainNavLabel: 'Navegación principal',
@@ -35,364 +34,356 @@ export const es: SiteContent = {
       accept: 'View in English',
       dismiss: 'Seguir en español'
     },
-    floatingCta: 'Pedir cotización'
+    floatingCta: 'Hablar con AOA'
   },
 
   hero: {
-    eyebrow: 'Tecnología para empresas que no pueden esperar',
-    title: 'Tu empresa crece más rápido que su tecnología.',
-    subtitle:
-      'Cuéntanos qué necesitas. Recibes una cotización en 48 horas y un equipo que lo construye — sitio web, plataforma, automatización o SEO — con estándar internacional y un solo interlocutor.',
-    primaryCta: 'Cuéntanos tu requerimiento',
-    secondaryCta: 'Ver servicios y precios',
+    eyebrow: 'Estrategia · Tecnología · IA · Ejecución',
+    title: 'Tecnología diseñada para hacer avanzar el negocio.',
+    paragraphs: [
+      'AOA Global Services combina consultoría, inteligencia artificial y desarrollo tecnológico para optimizar procesos, conectar información y construir soluciones adaptadas a la operación de cada organización.',
+      'Desde una necesidad específica hasta una plataforma empresarial completa, definimos la solución y la llevamos a ejecución.'
+    ],
+    primaryCta: 'Explorar soluciones',
+    secondaryCta: 'Hablar con AOA',
+    noteTitle: '¿Ya existe un requerimiento definido?',
+    noteText: 'Podemos presentar una propuesta inicial en hasta 48 horas hábiles.',
     imageAlt: 'Torres de oficinas modernas vistas desde abajo',
-    ticker: ['Cotización en 48 horas', 'Un solo interlocutor', 'Sitios web', 'SEO', 'Plataformas a medida', 'Automatización e IA', 'Transformación digital', 'Todo queda a tu nombre'],
+    ticker: [
+      'Estrategia y transformación tecnológica',
+      'IA y automatización',
+      'Plataformas a medida',
+      'Datos e integraciones',
+      'Web y soluciones digitales',
+      'Un único punto de contacto'
+    ],
     card: {
-      label: 'Qué pasa después de escribirnos',
+      label: 'Cómo avanza un proyecto con AOA',
       steps: [
-        { title: 'Describes el requerimiento', detail: '5 campos. Sin llamadas obligatorias.' },
-        { title: 'Recibes la cotización', detail: 'Alcance, rango de precio y plazo en 48 h.' },
-        { title: 'Lo construimos en línea', detail: 'Demos semanales. Un solo interlocutor.' }
+        { title: 'Nos cuenta el requerimiento', detail: 'Una necesidad concreta o un desafío aún sin respuesta definida.' },
+        { title: 'Definimos alcance y objetivos', detail: 'Análisis del contexto, la complejidad y el resultado esperado.' },
+        { title: 'Propuesta y ejecución', detail: 'Alcance, tiempos, entregables e inversión claros antes de comenzar.' }
       ],
-      footer: 'Sin compromiso hasta que apruebes la propuesta.'
+      footer: 'Un único punto de contacto durante todo el proyecto.'
     }
   },
 
   diagnosis: {
-    eyebrow: '¿Te suena?',
-    title: 'Si algo de esto te pasa, ya te está costando dinero.',
-    intro: 'Son los seis problemas que más nos piden resolver. Cada uno tiene un costo, aunque no aparezca en ninguna factura.',
+    eyebrow: '¿Le resulta familiar?',
+    title: 'Si algo de esto ocurre en su organización, ya está teniendo un costo.',
+    intro: 'Son las situaciones que con más frecuencia nos piden resolver. Ninguna aparece en una factura, pero todas afectan el resultado.',
     items: [
       {
-        problem: 'Tu equipo pierde horas en procesos manuales.',
-        cost: 'Cada hora pasando datos entre planillas es una hora que no se dedica a vender ni a atender clientes.'
+        problem: 'Procesos manuales que consumen horas del equipo.',
+        cost: 'Cada hora trasladando datos entre planillas es una hora que no se dedica a clientes ni a decisiones.'
       },
       {
-        problem: 'Tu sitio web no genera ni un solo lead.',
-        cost: 'Es un folleto, no un activo. Los visitantes se van y compran a quien se lo puso fácil.'
+        problem: 'Un sitio web que no genera oportunidades.',
+        cost: 'Funciona como folleto, no como activo comercial. Los visitantes llegan y se van sin dejar rastro.'
       },
       {
-        problem: 'En Google no apareces.',
-        cost: 'Tu competencia sale primero en las búsquedas que hacen tus clientes.'
+        problem: 'Información dispersa en múltiples herramientas.',
+        cost: 'Sin una única fuente de verdad, las decisiones se toman con datos incompletos o desactualizados.'
       },
       {
-        problem: 'Tus datos viven en planillas regadas.',
-        cost: 'Sin una sola fuente de verdad, las decisiones se toman por intuición — o no se toman.'
+        problem: 'Proveedores desconectados entre sí.',
+        cost: 'Diseñador, desarrollador y agencia por separado: nadie responde por el resultado final.'
       },
       {
-        problem: 'Tienes diseñador, programador y agencia por separado.',
-        cost: 'Tres proveedores, tres facturas y nadie que responda por el resultado final.'
+        problem: 'Iniciativas tecnológicas que no llegan a implementarse.',
+        cost: 'Diagnósticos y propuestas que se quedan en documentos mientras la operación sigue igual.'
       },
       {
-        problem: 'Los proyectos se cotizan en semanas y se entregan en meses.',
-        cost: 'Mientras esperas, el problema que el proyecto iba a resolver sigue creciendo.'
+        problem: 'Herramientas genéricas que no se ajustan a la operación.',
+        cost: 'El equipo adapta su trabajo al software en lugar de que el software se adapte al negocio.'
       }
     ],
-    transition: 'Nada de esto necesita un departamento de TI. Necesita un equipo que cotice rápido y entregue.'
+    transition: 'Ninguno de estos problemas se resuelve con más herramientas. Se resuelve con una dirección clara y capacidad de ejecución.'
   },
 
   howItWorks: {
-    eyebrow: 'Cómo funciona',
-    title: 'Del requerimiento a la solución funcionando en tres pasos.',
+    eyebrow: 'Cómo trabajamos',
+    title: 'Del requerimiento a la solución en operación.',
     steps: [
       {
         number: '01',
-        title: 'Nos cuentas tu requerimiento',
-        description: 'Llenas el formulario en lenguaje simple. Si una llamada corta ayuda, la agendamos cuando te convenga.'
+        title: 'Entendemos el requerimiento',
+        description: 'Puede ser una necesidad específica o un desafío todavía abierto. Analizamos el contexto, los objetivos y la complejidad antes de proponer.'
       },
       {
         number: '02',
-        title: 'Recibes cotización y propuesta',
-        description: 'En 48 horas tienes alcance, rango de precio y plazo. Tú decides si avanzar — sin presión ni permanencia.'
+        title: 'Definimos la propuesta',
+        description: 'Antes de comenzar se establecen claramente alcance, tiempos, entregables e inversión. En proyectos complejos, esta etapa puede incluir una fase de análisis.'
       },
       {
         number: '03',
-        title: 'Lo construimos y entregamos en línea',
-        description: 'El equipo construye mientras ves demos semanales. Apruebas, entregamos, y todo queda a tu nombre.'
+        title: 'Ejecutamos e implementamos',
+        description: 'Estrategia, desarrollo, automatización e implementación dentro de un mismo proceso, con avances visibles y un único punto de contacto.'
       }
     ],
-    highlightTitle: 'Un solo interlocutor. Sin cadena de proveedores.',
-    highlightText:
-      'Hablas con una sola persona que entiende tu negocio. Detrás hay un equipo full-stack que diseña, construye y da soporte con el mismo estándar con el que atendemos clientes en Australia. No tienes que contratar a nadie más.',
-    cta: 'Empezar con tu requerimiento',
-    places: [
-      { image: '/img/sydney.webp', alt: 'Bahía y skyline de Sídney', region: 'Australia', role: 'Dirección y relación con el cliente' },
-      { image: '/img/team.webp', alt: 'Equipo de ingeniería trabajando en portátiles', region: 'Colombia', role: 'Equipo de ingeniería' }
-    ]
+    model: {
+      title: 'Una sola dirección. Capacidades integradas.',
+      paragraphs: [
+        'Cada proyecto combina visión de negocio, diseño y capacidad tecnológica dentro de un mismo proceso.',
+        'AOA coordina estrategia, desarrollo, automatización e implementación con una estructura clara de trabajo y un único punto de contacto.'
+      ],
+      highlight: 'Menos fragmentación. Más claridad. Mayor responsabilidad sobre el resultado.',
+      cta: 'Hablar con AOA',
+      capabilities: [
+        {
+          image: '/img/strategy.webp',
+          alt: 'Sesión de trabajo estratégico con el equipo',
+          label: 'Estrategia y diseño',
+          text: 'Visión de negocio, definición de la solución y arquitectura.'
+        },
+        {
+          image: '/img/team.webp',
+          alt: 'Equipo técnico desarrollando una solución',
+          label: 'Desarrollo y ejecución',
+          text: 'Construcción, automatización, integración e implementación.'
+        }
+      ]
+    }
   },
 
   services: {
-    eyebrow: 'Servicios',
-    title: 'Qué resolvemos — y qué obtienes.',
-    description: 'Cinco servicios, cada uno definido por un resultado de negocio y no por una lista de entregables.',
-    problemLabel: 'El problema',
+    eyebrow: 'Soluciones',
+    title: 'Cinco capacidades. Un mismo proceso.',
+    description: 'Cada solución se define a partir de la operación real de la organización, no de un catálogo cerrado.',
+    problemLabel: 'La situación',
     whatLabel: 'Qué hacemos',
-    outcomeLabel: 'Qué obtienes',
-    quoteCta: 'Cotizar este servicio',
+    outcomeLabel: 'Qué obtiene',
+    detailsLabel: 'Alcance habitual',
+    exploreCta: 'Explorar solución',
+    collapseCta: 'Cerrar',
+    talkCta: 'Hablar con AOA',
     undecided: {
-      title: '¿No sabes cuál necesitas?',
-      text: 'Descríbenos el problema en lenguaje simple. Te decimos qué hace falta — y qué no — antes de que gastes un peso.',
-      cta: 'Ayúdenme a decidir'
+      title: '¿Aún no sabe qué solución necesita?',
+      text: 'Descríbanos la situación. Le indicamos qué es necesario — y qué no — antes de definir cualquier alcance.',
+      cta: 'Hablar con AOA'
     },
     items: [
       {
-        slug: 'web',
-        name: 'Diseño y desarrollo de sitios web',
-        problem: 'Tu sitio se ve bien, pero nadie te escribe por ahí.',
-        what: 'Diseñamos y construimos un sitio rápido y mobile-first con un solo objetivo: convertir visitas en consultas.',
-        outcome: 'Un sitio que carga en menos de dos segundos, posiciona y te envía leads calificados al correo.',
-        image: '/img/web.webp',
-        imageAlt: 'Estación de diseño con el layout de un sitio web en pantalla'
+        slug: 'strategy',
+        name: 'Estrategia y Transformación Tecnológica',
+        problem: 'La tecnología debería impulsar el negocio, pero no está claro por dónde empezar ni qué priorizar.',
+        what: 'Diagnóstico de procesos, herramientas y datos, con una hoja de ruta priorizada y viable.',
+        outcome: 'Un plan de transformación claro, alineado con los objetivos del negocio y listo para ejecutarse.',
+        details: [
+          'Diagnóstico de operación, sistemas y flujos de información',
+          'Hoja de ruta tecnológica priorizada por impacto',
+          'Definición de arquitectura y selección de herramientas',
+          'Acompañamiento a la dirección durante la implementación'
+        ],
+        image: '/img/consulting.webp',
+        imageAlt: 'Equipo planeando una hoja de ruta con notas adhesivas'
       },
       {
-        slug: 'seo',
-        name: 'SEO y posicionamiento',
-        problem: 'Tus clientes buscan lo que haces y encuentran a otro.',
-        what: 'Correcciones técnicas, optimización on-page y contenido enfocado en las búsquedas que traen compradores.',
-        outcome: 'Crecimiento medible del tráfico orgánico calificado, con reporte mensual.',
-        image: '/img/seo.webp',
-        imageAlt: 'Portátil con un tablero de analítica de tráfico de búsqueda'
-      },
-      {
-        slug: 'software',
-        name: 'Plataformas digitales y software a medida',
-        problem: 'Las herramientas genéricas no encajan con cómo opera tu empresa.',
-        what: 'Construimos plataformas web, portales y herramientas internas a la medida de tu proceso — del modelo de datos al despliegue.',
-        outcome: 'Un sistema que tu equipo sí usa, con tus datos en un solo lugar.',
-        image: '/img/software.webp',
-        imageAlt: 'Código fuente en el portátil de un desarrollador'
-      },
-      {
-        slug: 'automation',
-        name: 'Automatización e IA aplicada',
-        problem: 'El trabajo repetitivo se come las horas que tu equipo debería dedicar a clientes.',
-        what: 'Conectamos tus herramientas y automatizamos el flujo: captación, seguimientos, reportes, documentos, asistentes con IA.',
-        outcome: 'Horas recuperadas cada semana, menos errores y procesos que corren sin perseguir a nadie.',
+        slug: 'ai',
+        name: 'Inteligencia Artificial y Automatización',
+        problem: 'El trabajo repetitivo consume el tiempo que el equipo debería dedicar a decisiones y clientes.',
+        what: 'Automatizamos flujos de trabajo e incorporamos IA donde genera valor real: captación, seguimiento, documentos, atención y análisis.',
+        outcome: 'Procesos que operan sin intervención manual, con menos errores y más capacidad para el equipo.',
+        details: [
+          'Mapeo y automatización de procesos de negocio',
+          'Asistentes y agentes de IA integrados en la operación',
+          'Procesamiento inteligente de documentos y solicitudes',
+          'Monitoreo, control y mejora continua de los flujos'
+        ],
         image: '/img/automation.webp',
         imageAlt: 'Robot asistente humanoide'
       },
       {
-        slug: 'consulting',
-        name: 'Consultoría de transformación digital',
-        problem: 'Sabes que la tecnología debería ayudar, pero no por dónde empezar ni cuánto debería costar.',
-        what: 'Un diagnóstico corto y estructurado de tu operación con hoja de ruta priorizada y presupuestos realistas.',
-        outcome: 'Un plan claro que puedes ejecutar — con nosotros o con quien quieras.',
-        image: '/img/consulting.webp',
-        imageAlt: 'Equipo planeando una hoja de ruta con notas adhesivas'
-      }
-    ]
-  },
-
-  pricing: {
-    eyebrow: 'Precios',
-    title: 'Precios de partida transparentes. Sin sorpresas.',
-    subtitle:
-      'Cada proyecto se cotiza según su alcance, pero contigo nunca empezamos desde cero. Estos son los puntos de partida reales.',
-    fromLabel: 'Desde USD',
-    secondaryCurrencyNote: '',
-    timelineLabel: 'Entrega típica',
-    deliverableLabel: 'Qué incluye',
-    featuredBadge: 'El más solicitado',
-    disclaimer: 'Precios en dólares (USD). Tu cotización queda fija antes de empezar.',
-    cta: 'Cotizar este servicio',
-    plans: [
+        slug: 'platforms',
+        name: 'Plataformas y Software a Medida',
+        problem: 'Las herramientas genéricas no reflejan cómo opera realmente la organización.',
+        what: 'Diseñamos y construimos plataformas web, portales y herramientas internas ajustadas al proceso, del modelo de datos al despliegue.',
+        outcome: 'Un sistema que el equipo utiliza a diario, con la información centralizada y bajo control de la organización.',
+        details: [
+          'Levantamiento funcional y diseño de la solución',
+          'Plataformas web, portales de clientes y herramientas internas',
+          'Roles, permisos, tableros e integraciones',
+          'Despliegue, documentación y transferencia'
+        ],
+        image: '/img/software.webp',
+        imageAlt: 'Código fuente en el portátil de un desarrollador'
+      },
+      {
+        slug: 'data',
+        name: 'Datos, Integraciones y Reporting',
+        problem: 'La información existe, pero está repartida entre sistemas que no se comunican.',
+        what: 'Conectamos las fuentes de datos, integramos sistemas y construimos reportes que muestran el estado real del negocio.',
+        outcome: 'Una única fuente de verdad y tableros que permiten decidir con información confiable.',
+        details: [
+          'Integración entre ERP, CRM, comercio electrónico y herramientas internas',
+          'Modelo de datos unificado y calidad de la información',
+          'Tableros de control y reportes automatizados',
+          'Alertas e indicadores para la dirección'
+        ],
+        image: '/img/seo.webp',
+        imageAlt: 'Portátil con un tablero de indicadores de negocio'
+      },
       {
         slug: 'web',
-        name: 'Diseño y desarrollo de sitios web',
-        problem: 'Para empresas cuyo sitio no está generando consultas.',
-        deliverables: [
-          'Diseño orientado a conversión, mobile-first',
-          'Hasta 8 páginas, formularios de contacto y cotización',
-          'Base técnica de SEO y analítica',
-          'Capacitación para editar el contenido tú mismo'
+        name: 'Web y Soluciones Digitales',
+        problem: 'La presencia digital no refleja el nivel de la organización ni genera oportunidades.',
+        what: 'Diseñamos y desarrollamos sitios y experiencias digitales orientadas a resultados, con base técnica sólida y posicionamiento en buscadores.',
+        outcome: 'Un activo digital rápido, medible y alineado con la estrategia comercial.',
+        details: [
+          'Diseño y desarrollo de sitios corporativos y comerciales',
+          'Arquitectura de contenidos y posicionamiento (SEO)',
+          'Formularios, integraciones y analítica',
+          'Mantenimiento y evolución continua'
         ],
-        priceUsd: '1,800',
-        priceAud: '',
-        timeline: '3–4 semanas',
-        featured: false
-      },
-      {
-        slug: 'seo',
-        name: 'SEO y posicionamiento',
-        problem: 'Para empresas a las que la competencia les gana en Google.',
-        deliverables: [
-          'Auditoría técnica y correcciones',
-          'Estrategia de palabras clave con intención de compra',
-          'Optimización on-page y plan de contenidos',
-          'Reporte mensual de posiciones y tráfico'
-        ],
-        priceUsd: '900 / mes',
-        priceAud: '',
-        timeline: 'Primeros resultados en 60–90 días',
-        featured: false
-      },
-      {
-        slug: 'software',
-        name: 'Plataformas y software a medida',
-        problem: 'Para operaciones que ya no caben en planillas ni herramientas genéricas.',
-        deliverables: [
-          'Levantamiento y especificación funcional',
-          'Plataforma web o herramienta interna a medida',
-          'Roles de usuario, tableros e integraciones',
-          'Despliegue, documentación y entrega'
-        ],
-        priceUsd: '6,500',
-        priceAud: '',
-        timeline: '6–10 semanas',
-        featured: true
-      },
-      {
-        slug: 'automation',
-        name: 'Automatización e IA aplicada',
-        problem: 'Para equipos que pierden horas en trabajo manual repetitivo.',
-        deliverables: [
-          'Mapeo del proceso a automatizar',
-          'Integraciones entre tus herramientas actuales',
-          'Asistentes con IA donde ahorran tiempo real',
-          'Monitoreo y manual de operación para tu equipo'
-        ],
-        priceUsd: '2,500',
-        priceAud: '',
-        timeline: '2–4 semanas',
-        featured: false
-      },
-      {
-        slug: 'consulting',
-        name: 'Consultoría de transformación digital',
-        problem: 'Para líderes que necesitan un plan antes de invertir.',
-        deliverables: [
-          'Diagnóstico de procesos, herramientas y datos',
-          'Hoja de ruta priorizada con presupuestos',
-          'Recomendaciones sin compromiso con proveedores',
-          'Resumen ejecutivo para quien decide'
-        ],
-        priceUsd: '1,500',
-        priceAud: '',
-        timeline: '2 semanas',
-        featured: false
+        image: '/img/web.webp',
+        imageAlt: 'Estación de diseño con el layout de un sitio web en pantalla'
       }
     ]
   },
 
-
-  socialProof: {
-    eyebrow: 'Resultados',
-    title: 'Lo que obtuvieron nuestros clientes — en sus palabras.',
-    items: [
+  investment: {
+    eyebrow: 'Inversión',
+    title: 'Cada proyecto se define de acuerdo con su alcance, complejidad y objetivos.',
+    points: [
       {
-        quote: 'Teníamos tres proveedores y ningún resultado. En seis semanas teníamos un solo equipo, un sitio nuevo y consultas llegando todos los días.',
-        author: 'Sarah Whitfield',
-        role: 'Directora de Operaciones',
-        company: 'Coastline Freight, Brisbane',
-        result: '+38% de consultas en 90 días'
+        title: 'Propuesta antes de comenzar',
+        text: 'Antes de iniciar, se establecen claramente alcance, tiempos, entregables e inversión.'
       },
       {
-        quote: 'La cotización llegó en dos días y la plataforma en siete semanas. Nuestro equipo por fin dejó de vivir en planillas.',
+        title: 'Respuesta ágil para requerimientos definidos',
+        text: 'Los proyectos con requerimientos definidos pueden recibir una propuesta inicial en hasta 48 horas hábiles.'
+      },
+      {
+        title: 'Análisis previo cuando la complejidad lo exige',
+        text: 'En consultoría, transformación, IA, integraciones o plataformas complejas, primero puede ser necesaria una fase de análisis.'
+      }
+    ],
+    note: 'Nunca proponemos una inversión sin comprender el alcance.'
+  },
+
+  socialProof: {
+    eyebrow: 'Nuestro trabajo',
+    title: 'Lo que obtuvieron las organizaciones con las que trabajamos.',
+    items: [
+      {
+        quote: 'Teníamos tres proveedores y ningún resultado. En pocas semanas contábamos con un solo equipo, una plataforma nueva y oportunidades llegando cada día.',
+        author: 'Sarah Whitfield',
+        role: 'Directora de Operaciones',
+        company: 'Coastline Freight',
+        result: '+38% de oportunidades en 90 días'
+      },
+      {
+        quote: 'La propuesta llegó con el alcance claro y la plataforma se implementó en el plazo acordado. Nuestro equipo dejó de operar sobre planillas.',
         author: 'Daniel Moreno',
         role: 'Gerente General',
         company: 'Andina Distribución',
-        result: '15 horas ahorradas por semana'
+        result: '15 horas semanales recuperadas'
       },
       {
-        quote: 'Nos explicaron qué haría y qué no haría el SEO antes de cobrar un peso. Seis meses después salimos primeros para nuestro servicio principal.',
+        quote: 'Nos explicaron qué haría y qué no haría cada decisión antes de comprometernos. Seis meses después somos referencia en nuestro segmento.',
         author: 'Priya Nair',
         role: 'Fundadora',
-        company: 'Harbour Dental Group, Melbourne',
-        result: '#1 en Google en 4 búsquedas clave'
+        company: 'Harbour Dental Group',
+        result: 'Primer lugar en las búsquedas clave'
       }
     ]
   },
 
   faq: {
     eyebrow: 'Preguntas frecuentes',
-    title: 'Lo que la gente pregunta antes de escribirnos.',
+    title: 'Lo que suelen preguntarnos antes de escribir.',
     items: [
       {
-        q: '¿Por qué trabajar con ustedes y no con una agencia local?',
-        a: 'Porque obtienes el mismo equipo y el mismo estándar con el que atendemos empresas en Australia, con precios de partida claros y un interlocutor que responde por el resultado. No es una agencia más: es una operación internacional que cotiza en 48 horas.'
+        q: '¿Cómo se define la inversión de un proyecto?',
+        a: 'Cada proyecto se define de acuerdo con su alcance, complejidad y objetivos. Antes de comenzar, se establecen claramente alcance, tiempos, entregables e inversión en una propuesta. No proponemos una inversión sin comprender el alcance.'
+      },
+      {
+        q: '¿Cuánto tarda en llegar una propuesta?',
+        a: 'Para requerimientos claramente definidos, podemos presentar una propuesta inicial en hasta 48 horas hábiles. En proyectos de consultoría, transformación, IA, integraciones o plataformas complejas, primero puede ser necesaria una fase de análisis.'
       },
       {
         q: '¿Con quién hablo durante el proyecto?',
-        a: 'Con una sola persona. Es responsable de tu proyecto desde la cotización hasta la entrega, participa en las demos semanales y traduce lo que necesita tu negocio en decisiones técnicas. Nunca tienes que perseguir a un programador.'
+        a: 'Con un único punto de contacto, responsable del proyecto desde la propuesta hasta la implementación. Esa persona coordina estrategia, desarrollo y automatización, y traduce las necesidades del negocio en decisiones técnicas.'
       },
       {
-        q: '¿Cuánto se demoran de verdad?',
-        a: 'La cotización llega en 48 horas. La entrega depende del alcance — los rangos típicos están en cada tarjeta de precios — y el plazo queda acordado por escrito antes de empezar. No cotizamos en semanas para entregar en meses.'
+        q: '¿Cómo se coordina el trabajo con equipos en distintos horarios?',
+        a: 'Operamos bajo un modelo global: las reuniones de avance se agendan en el horario de su organización y el seguimiento se realiza de forma continua a través de canales compartidos, con entregas documentadas.'
       },
       {
-        q: '¿Qué pasa si necesito cambios después de la entrega?',
-        a: 'Todo proyecto incluye una ventana de ajustes posterior a la entrega (30 días). Después puedes pedir cambios puntuales o un plan de soporte mensual. Nada queda amarrado a nosotros: el código y las cuentas son tuyos.'
+        q: '¿Qué ocurre si necesito cambios después de la entrega?',
+        a: 'Todo proyecto incluye un periodo de ajustes posterior a la implementación. Después, la solución puede evolucionar mediante nuevas fases o un esquema de soporte y mejora continua, según lo que la organización necesite.'
       },
       {
-        q: '¿Cómo manejan husos horarios y comunicación?',
-        a: 'El equipo de ingeniería trabaja en horario de Colombia, así que si estás en LATAM compartes casi toda la jornada. La dirección en Australia se conecta en la ventana de solape diaria: 16:00–19:00 hora de Colombia. Las demos y llamadas se agendan en tu horario.'
-      },
-      {
-        q: '¿El sitio o la plataforma queda a mi nombre?',
-        a: 'Sí. Dominio, hosting, repositorio de código y cualquier cuenta de terceros se registran a nombre de tu empresa desde el primer día. Si algún día quieres cambiar de proveedor, puedes hacerlo con todo lo que pagaste.'
+        q: '¿La solución queda a nombre de mi organización?',
+        a: 'Sí. Dominios, infraestructura, repositorios de código y cuentas de terceros se registran a nombre de su organización desde el inicio. La solución es suya, sin dependencia de AOA.'
       },
       {
         q: '¿Necesito contratar a alguien más para que esto funcione?',
-        a: 'No. Diseño, desarrollo, despliegue y soporte los cubre el equipo. Si tu proyecto necesita un especialista que no tenemos, lo integramos nosotros y seguimos respondiendo por el resultado.'
+        a: 'No. Estrategia, diseño, desarrollo, automatización e implementación se coordinan dentro de un mismo proceso. Si un proyecto requiere una capacidad específica adicional, AOA la integra y mantiene la responsabilidad sobre el resultado.'
       }
     ]
   },
 
   contact: {
-    eyebrow: 'Pide tu cotización',
-    title: 'Cuéntanos tu requerimiento. Cotización en 48 horas.',
-    subtitle: 'Cinco campos. Sin llamada comercial, a menos que tú la quieras.',
-    reassurance: ['Respuesta en 48 horas hábiles', 'Sin compromiso hasta que apruebes', 'Tus datos son confidenciales'],
-    imageAlt: 'Dos ingenieros revisando un requerimiento juntos',
+    eyebrow: 'Contacto',
+    title: 'Cuéntenos qué necesita mejorar, transformar o construir.',
+    paragraphs: [
+      'Puede tratarse de una solución específica, un proceso que necesita evolucionar o un desafío para el que todavía no existe una respuesta tecnológica definida.',
+      'Si el requerimiento está suficientemente definido, podemos presentar una propuesta inicial en hasta 48 horas hábiles.'
+    ],
+    reassurance: ['Propuesta con alcance, tiempos e inversión definidos', 'Sin compromiso hasta aprobar la propuesta', 'Información tratada con confidencialidad'],
+    imageAlt: 'Dos profesionales revisando un requerimiento juntos',
     form: {
-      name: { label: 'Tu nombre', placeholder: 'Ej. Carolina Restrepo', required: 'Escribe tu nombre' },
-      company: { label: 'Empresa', placeholder: 'Ej. Restrepo Logística S.A.S.', required: 'Escribe el nombre de tu empresa' },
+      name: { label: 'Nombre', placeholder: 'Ej. Carolina Restrepo', required: 'Indique su nombre' },
+      company: { label: 'Organización', placeholder: 'Ej. Restrepo Logística S.A.S.', required: 'Indique el nombre de su organización' },
       email: {
-        label: 'Correo de trabajo',
+        label: 'Correo corporativo',
         placeholder: 'Ej. carolina@empresa.com',
-        required: 'Escribe tu correo',
-        invalid: 'Escribe un correo válido'
+        required: 'Indique su correo',
+        invalid: 'Indique un correo válido'
       },
       service: {
-        label: '¿Qué necesitas?',
-        placeholder: 'Selecciona un servicio',
-        required: 'Selecciona un servicio',
-        generalOption: 'Aún no lo sé — ayúdenme a decidir'
+        label: 'Área de interés',
+        placeholder: 'Seleccione una opción',
+        required: 'Seleccione un área de interés',
+        generalOption: 'Aún no está definido — necesito orientación'
       },
       message: {
-        label: 'Describe el requerimiento',
-        placeholder: '¿Cuál es el problema, cómo se vería “resuelto” y para cuándo lo necesitas?',
-        required: 'Cuéntanos qué necesitas',
-        minLength: 'Unos detalles más nos ayudan a cotizar bien (mín. 20 caracteres)'
+        label: 'Describa el requerimiento',
+        placeholder: '¿Cuál es la situación actual, qué resultado espera y en qué plazo?',
+        required: 'Describa brevemente lo que necesita',
+        minLength: 'Un poco más de contexto nos permite responder con precisión (mín. 20 caracteres)'
       },
-      submit: 'Enviar mi requerimiento',
+      submit: 'Enviar requerimiento',
       submitting: 'Enviando…',
       success: {
-        title: 'Recibido. Gracias.',
-        text: 'Te respondemos con una cotización en menos de 48 horas hábiles. Revisa tu bandeja de entrada (y la carpeta de spam, por si acaso).'
+        title: 'Requerimiento recibido.',
+        text: 'Lo revisaremos y responderemos con los siguientes pasos. Si está suficientemente definido, recibirá una propuesta inicial en hasta 48 horas hábiles.'
       },
       error: {
-        title: 'Algo salió mal.',
-        text: 'Tu mensaje no se envió. Intenta de nuevo o escríbenos directamente al correo.'
+        title: 'No se pudo enviar.',
+        text: 'Intente de nuevo o escríbanos directamente al correo.'
       },
-      missingKey: 'El formulario aún no está configurado (falta la clave de Web3Forms). Escríbenos directamente al correo.',
-      privacy: 'Usamos tus datos únicamente para responder a esta solicitud.',
-      subjectPrefix: 'Nueva solicitud de cotización'
+      missingKey: 'El formulario aún no está configurado. Escríbanos directamente al correo.',
+      privacy: 'Sus datos se utilizan únicamente para responder a esta solicitud.',
+      subjectPrefix: 'Nuevo requerimiento'
     },
     direct: {
-      title: '¿Prefieres escribir directo?',
+      title: '¿Prefiere escribir directamente?',
       email: 'contact@aoaglobalservices.com'
     }
   },
 
   footer: {
-    tagline: 'Tecnología para tu empresa, cotizada en 48 horas y entregada en línea. Presencia en Australia, equipo de ingeniería en Colombia.',
+    tagline: 'Estrategia, tecnología e inteligencia artificial para transformar cómo operan las organizaciones.',
+    legalLine: 'US-registered · Global delivery',
     servicesTitle: 'Servicios',
-    companyTitle: 'Empresa',
+    companyTitle: 'AOA',
     companyLinks: [
-      { label: 'Cómo funciona', anchor: '#how-it-works' },
-      { label: 'Preguntas frecuentes', anchor: '#faq' },
-      { label: 'Pedir cotización', anchor: '#contact' }
+      { label: 'Cómo trabajamos', anchor: '#how-it-works' },
+      { label: 'Nuestro trabajo', anchor: '#results' },
+      { label: 'Preguntas', anchor: '#faq' },
+      { label: 'Contacto', anchor: '#contact' }
     ],
     contactTitle: 'Contacto',
     rights: 'Todos los derechos reservados.'

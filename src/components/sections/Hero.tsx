@@ -1,6 +1,6 @@
 import React, { useRef, useEffect, useState } from 'react';
 import { motion, useScroll, useTransform, useReducedMotion } from 'framer-motion';
-import { ArrowRight, Check } from 'lucide-react';
+import { ArrowRight, Check, Clock } from 'lucide-react';
 import { useTranslation } from '../../context/LanguageContext';
 import { Eyebrow } from '../ui/Eyebrow';
 import { Button } from '../ui/Button';
@@ -9,9 +9,9 @@ import { TextReveal } from '../ui/TextReveal';
 import { Ticker } from '../ui/Ticker';
 
 /**
- * Hero: problema → promesa → 2 CTAs. Imagen local (WebP, eager, fetchpriority high)
- * con parallax suave al hacer scroll y la tarjeta de proceso superpuesta.
- * Sin bloque de credibilidad: no hay cifras reales confirmadas.
+ * Hero: posicionamiento → 2 CTAs → microcopy de propuesta inicial (solo para
+ * requerimientos definidos). Sin precios ni ubicaciones. Imagen local WebP
+ * (eager, preload en index.html) con parallax suave y tarjeta de proceso superpuesta.
  */
 export const Hero: React.FC = () => {
   const { language, t } = useTranslation('hero');
@@ -33,7 +33,6 @@ export const Hero: React.FC = () => {
   return (
     <>
       <section ref={ref} className="relative overflow-hidden bg-paper">
-        {/* Fondo: rejilla de puntos + mancha ámbar flotante (muy baja opacidad) */}
         <div aria-hidden className="dot-grid absolute inset-0 opacity-60 [mask-image:radial-gradient(ellipse_at_top_left,black,transparent_70%)]" />
         <div aria-hidden className="blob absolute -right-32 -top-32 h-[28rem] w-[28rem] rounded-full bg-accent/15 blur-3xl" />
 
@@ -49,24 +48,34 @@ export const Hero: React.FC = () => {
                 text={t.title}
                 immediate
                 delay={0.1}
-                className="mt-5 text-4xl sm:text-5xl lg:text-display text-ink max-w-[14ch]"
+                className="mt-5 text-4xl sm:text-5xl lg:text-display text-ink max-w-[16ch]"
               />
 
-              <Reveal immediate delay={0.35} className="mt-6">
-                <p className="text-base md:text-lg leading-relaxed text-slate max-w-xl">{t.subtitle}</p>
+              <Reveal immediate delay={0.35} className="mt-6 space-y-4">
+                {t.paragraphs.map((p) => (
+                  <p key={p} className="text-base md:text-lg leading-relaxed text-slate max-w-xl">
+                    {p}
+                  </p>
+                ))}
               </Reveal>
 
               <Reveal immediate delay={0.45} className="mt-8 flex w-full flex-col gap-3 sm:w-auto sm:flex-row">
-                <Button variant="accent" href="#contact" track="hero_primary">
-                  {t.primaryCta} <ArrowRight size={16} aria-hidden />
+                <Button variant="outline" href="#services" track="hero_explore">
+                  {t.primaryCta}
                 </Button>
-                <Button variant="outline" href="#pricing" track="hero_secondary">
-                  {t.secondaryCta}
+                <Button variant="accent" href="#contact" track="hero_talk">
+                  {t.secondaryCta} <ArrowRight size={16} aria-hidden />
                 </Button>
+              </Reveal>
+
+              <Reveal immediate delay={0.55} className="mt-6 flex items-start gap-2.5 text-sm">
+                <Clock size={16} aria-hidden className="mt-0.5 shrink-0 text-accent-hover" />
+                <p className="text-slate">
+                  <span className="font-semibold text-ink">{t.noteTitle}</span> {t.noteText}
+                </p>
               </Reveal>
             </div>
 
-            {/* Imagen + tarjeta de proceso superpuesta */}
             <div className="relative lg:pl-6">
               <motion.div
                 initial={{ opacity: 0, scale: 0.96 }}
