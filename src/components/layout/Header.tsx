@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react';
+import { createPortal } from 'react-dom';
 import { Link, useLocation } from 'react-router-dom';
 import { motion, AnimatePresence } from 'framer-motion';
 import { Menu, X } from 'lucide-react';
@@ -71,6 +72,8 @@ export const Header: React.FC = () => {
         </div>
       </div>
 
+      {/* Portal: el backdrop-blur del header crearía un contenedor para el panel fixed y lo dejaría sin fondo */}
+      {createPortal(
       <AnimatePresence>
         {mobileMenuOpen && (
           <motion.div
@@ -105,7 +108,9 @@ export const Header: React.FC = () => {
             </div>
           </motion.div>
         )}
-      </AnimatePresence>
+      </AnimatePresence>,
+      document.body
+      )}
     </header>
   );
 };
