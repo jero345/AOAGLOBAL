@@ -48,7 +48,7 @@ export const Hero: React.FC = () => {
           <div className="grid items-center gap-10 lg:grid-cols-[6fr_5fr] lg:gap-16">
             <div key={language} className="flex flex-col items-start">
               <Reveal immediate>
-                <Eyebrow tone="navy" className="max-lg:text-accent">
+                <Eyebrow tone="navy" className="max-lg:text-white/80">
                   {t.eyebrow}
                 </Eyebrow>
               </Reveal>
@@ -66,7 +66,7 @@ export const Hero: React.FC = () => {
               </Reveal>
 
               <Reveal immediate delay={0.45} className="mt-7 flex w-full flex-col items-start gap-4 sm:w-auto sm:flex-row sm:items-center sm:gap-6">
-                <Button variant="accent" href="#contact" track="hero_start" className="w-full sm:w-auto">
+                <Button variant="accent" href="#contact" track="hero_start" className="w-full sm:w-auto max-lg:border max-lg:border-white/40 max-lg:bg-navy max-lg:text-white max-lg:hover:bg-ink">
                   {t.primaryCta}
                 </Button>
                 <a
