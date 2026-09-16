@@ -9,7 +9,7 @@ export const en: SiteContent = {
     title: 'AOA Global Services | Technology Consulting & Business Solutions',
     description:
       'AOA Global Services combines consulting and technology delivery to improve processes, integrate systems and build custom business solutions.',
-    ogImageAlt: 'AOA Global Services — technology to transform how organizations operate',
+    ogImageAlt: 'AOA Global Services — technology that transforms how organizations operate',
     localeName: 'English'
   },
 
@@ -36,11 +36,11 @@ export const en: SiteContent = {
 
   hero: {
     eyebrow: 'Strategy · Technology · Execution',
-    title: 'Technology to transform how organizations operate.',
+    title: 'Technology that transforms how organizations operate.',
     description:
       'AOA Global Services combines consulting and technology development to improve processes, integrate systems and build business solutions, from analysis through to implementation.',
-    primaryCta: 'Explore Solutions',
-    secondaryCta: 'Start a Project',
+    primaryCta: 'Start a Project',
+    secondaryCta: 'Explore Solutions',
     note: 'For clearly defined requirements, we can provide an initial proposal within 48 business hours.',
     imageAlt: 'Illustration of a digital platform with dashboards, charts and connected integrations',
     ticker: [

@@ -46,13 +46,18 @@ export const Hero: React.FC = () => {
                 <p className="text-base md:text-lg leading-relaxed text-slate max-w-xl">{t.description}</p>
               </Reveal>
 
-              <Reveal immediate delay={0.45} className="mt-7 flex w-full flex-col gap-3 sm:w-auto sm:flex-row">
-                <Button variant="accent" href="#capabilities" track="hero_explore">
-                  {t.primaryCta} <ArrowRight size={16} aria-hidden />
+              {/* Un solo CTA sólido; "Explorar soluciones" como enlace simple al lado */}
+              <Reveal immediate delay={0.45} className="mt-7 flex w-full flex-col items-start gap-4 sm:w-auto sm:flex-row sm:items-center sm:gap-6">
+                <Button variant="accent" href="#contact" track="hero_start" className="w-full sm:w-auto">
+                  {t.primaryCta}
                 </Button>
-                <Button variant="outline" href="#contact" track="hero_start">
-                  {t.secondaryCta}
-                </Button>
+                <a
+                  href="#capabilities"
+                  data-track="hero_explore"
+                  className="inline-flex min-h-10 items-center gap-1.5 text-sm font-semibold text-navy underline-offset-4 transition-colors hover:underline"
+                >
+                  {t.secondaryCta} <ArrowRight size={16} aria-hidden />
+                </a>
               </Reveal>
 
               <Reveal immediate delay={0.55} className="mt-4">

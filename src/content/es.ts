@@ -39,8 +39,8 @@ export const es: SiteContent = {
     title: 'Tecnología para transformar cómo opera una organización.',
     description:
       'AOA Global Services combina consultoría y desarrollo tecnológico para mejorar procesos, integrar sistemas y construir soluciones empresariales, desde el análisis hasta la implementación.',
-    primaryCta: 'Explorar soluciones',
-    secondaryCta: 'Iniciar un proyecto',
+    primaryCta: 'Iniciar un proyecto',
+    secondaryCta: 'Explorar soluciones',
     note: 'Para requerimientos claramente definidos, podemos presentar una propuesta inicial en hasta 48 horas hábiles.',
     imageAlt: 'Ilustración de una plataforma digital con paneles, gráficos e integraciones conectadas',
     ticker: [
