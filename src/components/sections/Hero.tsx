@@ -23,7 +23,7 @@ export const Hero: React.FC = () => {
 
   return (
     <>
-      <section ref={ref} className="relative overflow-hidden bg-navy lg:bg-gradient-to-br lg:from-navy/14 lg:via-navy/4 lg:to-paper">
+      <section ref={ref} className="relative overflow-hidden bg-navy text-white lg:bg-gradient-to-br lg:from-paper lg:from-40% lg:to-navy lg:to-100% lg:text-ink">
         {/* Móvil/tablet: imagen de fondo + capa navy translúcida */}
         <div aria-hidden className="absolute inset-0 lg:hidden">
           <img
@@ -41,10 +41,8 @@ export const Hero: React.FC = () => {
           <div className="absolute inset-0 bg-gradient-to-b from-navy/70 via-navy/60 to-navy/85" />
         </div>
 
-        {/* Escritorio: fondo claro con rejilla y manchas suaves */}
-        <div aria-hidden className="dot-grid absolute inset-0 hidden opacity-70 [mask-image:radial-gradient(ellipse_at_top_left,black,transparent_70%)] lg:block" />
-        <div aria-hidden className="blob absolute -right-32 -top-32 hidden h-[30rem] w-[30rem] rounded-full bg-navy/22 blur-3xl lg:block" />
-        <div aria-hidden className="absolute -bottom-40 -left-24 hidden h-[24rem] w-[24rem] rounded-full bg-navy/12 blur-3xl lg:block" />
+        {/* Escritorio: degradado blanco → navy con rejilla de puntos sutil en el lado claro */}
+        <div aria-hidden className="dot-grid absolute inset-0 hidden opacity-60 [mask-image:radial-gradient(ellipse_at_top_left,black,transparent_55%)] lg:block" />
 
         <div className="relative mx-auto max-w-[1200px] px-6 py-14 md:px-8 md:py-20 lg:py-24">
           <div className="grid items-center gap-10 lg:grid-cols-[6fr_5fr] lg:gap-16">
@@ -90,7 +88,7 @@ export const Hero: React.FC = () => {
               initial={{ opacity: 0, scale: 0.96 }}
               animate={{ opacity: 1, scale: 1 }}
               transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1], delay: 0.15 }}
-              className="relative hidden aspect-[4/3] overflow-hidden rounded-[var(--radius-card)] border border-line bg-paper shadow-md lg:block"
+              className="relative hidden aspect-[4/3] overflow-hidden rounded-[var(--radius-card)] border border-white/15 bg-paper shadow-xl lg:block"
             >
               <motion.img
                 src="/img/hero.webp"
