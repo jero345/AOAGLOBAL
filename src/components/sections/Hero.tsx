@@ -88,8 +88,12 @@ export const Hero: React.FC = () => {
               initial={{ opacity: 0, scale: 0.96 }}
               animate={{ opacity: 1, scale: 1 }}
               transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1], delay: 0.15 }}
-              className="relative hidden aspect-[4/3] overflow-hidden rounded-[var(--radius-card)] border border-white/15 bg-paper shadow-xl lg:block"
+              className="float-card relative hidden lg:block"
             >
+              {/* Marco flotante: borde claro, sombra amplia y una segunda capa desplazada detrás */}
+              <div aria-hidden className="absolute -inset-3 rounded-lg bg-white/10 backdrop-blur-sm" />
+              <div aria-hidden className="absolute -bottom-4 -right-4 h-full w-full rounded-lg border border-accent/40" />
+              <div className="relative aspect-[4/3] overflow-hidden rounded-md border-[6px] border-white bg-paper shadow-[0_30px_60px_-15px_rgba(11,29,58,0.55)]">
               <motion.img
                 src="/img/hero.webp"
                 srcSet="/img/hero-640.webp 640w, /img/hero.webp 1000w"
@@ -103,6 +107,7 @@ export const Hero: React.FC = () => {
                 style={{ y: imgY }}
                 className="kenburns h-[108%] w-full object-cover"
               />
+              </div>
             </motion.div>
           </div>
         </div>

@@ -99,6 +99,13 @@
 }
 .kenburns { animation: kenburns 1.6s cubic-bezier(0.16, 1, 0.3, 1) both; }
 
+/* Tarjeta flotante del hero: leve vaivén vertical */
+@keyframes float-card {
+  0%, 100% { transform: translateY(0); }
+  50%      { transform: translateY(-10px); }
+}
+.float-card { animation: float-card 6s ease-in-out infinite; }
+
 
 /* Fondo de puntos sutil para el hero */
 .dot-grid {
@@ -107,5 +114,5 @@
 }
 
 @media (prefers-reduced-motion: reduce) {
-  .ticker, .blob, .kenburns { animation: none !important; }
+  .ticker, .blob, .kenburns, .float-card { animation: none !important; }
 }
