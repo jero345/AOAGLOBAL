@@ -23,8 +23,8 @@ export const Hero: React.FC = () => {
 
   return (
     <>
-      <section ref={ref} className="relative overflow-hidden bg-navy text-white lg:bg-gradient-to-br lg:from-paper lg:from-40% lg:to-navy lg:to-100% lg:text-ink">
-        {/* Móvil/tablet: imagen de fondo + capa navy translúcida */}
+      <section ref={ref} className="relative overflow-hidden bg-paper text-ink lg:bg-gradient-to-br lg:from-paper lg:from-40% lg:to-navy lg:to-100% lg:text-ink">
+        {/* Móvil/tablet: imagen de fondo + capa blanca translúcida (domina el blanco) */}
         <div aria-hidden className="absolute inset-0 lg:hidden">
           <img
             src="/img/hero.webp"
@@ -38,7 +38,7 @@ export const Hero: React.FC = () => {
             decoding="async"
             className="h-full w-full object-cover object-center"
           />
-          <div className="absolute inset-0 bg-gradient-to-b from-navy/70 via-navy/60 to-navy/85" />
+          <div className="absolute inset-0 bg-gradient-to-b from-white/75 via-white/65 to-white/85" />
         </div>
 
         {/* Escritorio: degradado blanco → navy con rejilla de puntos sutil en el lado claro */}
@@ -48,7 +48,7 @@ export const Hero: React.FC = () => {
           <div className="grid items-center gap-10 lg:grid-cols-[6fr_5fr] lg:gap-16">
             <div key={language} className="flex flex-col items-start">
               <Reveal immediate>
-                <Eyebrow tone="navy" className="max-lg:text-accent">
+                <Eyebrow tone="navy">
                   {t.eyebrow}
                 </Eyebrow>
               </Reveal>
@@ -58,28 +58,28 @@ export const Hero: React.FC = () => {
                 text={t.title}
                 immediate
                 delay={0.1}
-                className="mt-4 text-4xl text-white sm:text-5xl lg:max-w-[16ch] lg:text-display lg:text-ink"
+                className="mt-4 text-4xl text-ink sm:text-5xl lg:max-w-[16ch] lg:text-display"
               />
 
               <Reveal immediate delay={0.35} className="mt-5">
-                <p className="max-w-xl text-base leading-relaxed text-white/85 md:text-lg lg:text-slate">{t.description}</p>
+                <p className="max-w-xl text-base leading-relaxed text-ink/80 md:text-lg lg:text-slate">{t.description}</p>
               </Reveal>
 
               <Reveal immediate delay={0.45} className="mt-7 flex w-full flex-col items-start gap-4 sm:w-auto sm:flex-row sm:items-center sm:gap-6">
-                <Button variant="accent" href="#contact" track="hero_start" className="w-full sm:w-auto">
+                <Button variant="accent" href="#contact" track="hero_start" className="w-full sm:w-auto max-lg:bg-navy max-lg:text-white max-lg:hover:bg-ink">
                   {t.primaryCta}
                 </Button>
                 <a
                   href="#capabilities"
                   data-track="hero_explore"
-                  className="inline-flex min-h-10 items-center gap-1.5 text-sm font-semibold text-white underline-offset-4 transition-colors hover:underline lg:text-navy"
+                  className="inline-flex min-h-10 items-center gap-1.5 text-sm font-semibold text-navy underline-offset-4 transition-colors hover:underline"
                 >
                   {t.secondaryCta} <ArrowRight size={16} aria-hidden />
                 </a>
               </Reveal>
 
               <Reveal immediate delay={0.55} className="mt-4">
-                <p className="max-w-md text-xs text-white/70 lg:text-slate">{t.note}</p>
+                <p className="max-w-md text-xs text-slate">{t.note}</p>
               </Reveal>
             </div>
 
