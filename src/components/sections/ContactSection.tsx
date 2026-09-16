@@ -29,20 +29,21 @@ export const ContactSection: React.FC = () => {
           <Eyebrow tone="navy" className="mb-3">{t.eyebrow}</Eyebrow>
           <h2 className="text-3xl md:text-h2 text-ink">{t.title}</h2>
           <p className="mt-3 text-base leading-relaxed text-slate">{t.intro}</p>
-
-          <p className="mt-6 flex items-center gap-2 text-sm">
-            <Mail size={16} aria-hidden className="shrink-0 text-accent-hover" />
-            <span className="text-slate">{t.direct.title}:</span>
-            <a href={`mailto:${t.direct.email}`} className="font-semibold text-navy hover:underline">
-              {t.direct.email}
-            </a>
-          </p>
         </Reveal>
 
         <Reveal delay={0.08} className="rounded-[var(--radius-card)] border border-line bg-mist p-5 md:p-8">
           <ContactForm />
         </Reveal>
       </div>
+
+      {/* Contacto directo: al final del bloque, después del formulario */}
+      <Reveal className="mt-8 flex flex-wrap items-center gap-2 border-t border-line pt-6 text-sm">
+        <Mail size={16} aria-hidden className="shrink-0 text-accent-hover" />
+        <span className="text-slate">{t.direct.title}:</span>
+        <a href={`mailto:${t.direct.email}`} className="font-semibold text-navy hover:underline">
+          {t.direct.email}
+        </a>
+      </Reveal>
     </Section>
   );
 };

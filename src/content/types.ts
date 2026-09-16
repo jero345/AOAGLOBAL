@@ -73,8 +73,6 @@ export interface SiteContent {
     capabilitiesLabel: string;
     /** CTA de cada tarjeta → formulario con el tipo de proyecto preseleccionado */
     cta: string;
-    /** Nota breve al final: no es necesario tener la solución definida */
-    note: string;
     items: Array<{
       slug: ServiceSlug;
       name: string;

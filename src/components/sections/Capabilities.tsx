@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
-import { ArrowRight, ChevronDown, Info } from 'lucide-react';
+import { ArrowRight, ChevronDown } from 'lucide-react';
 import { useTranslation } from '../../context/LanguageContext';
 import { useQuote } from '../../context/QuoteContext';
 import { Button } from '../ui/Button';
@@ -13,7 +13,7 @@ import type { ServiceSlug } from '../../content';
 /**
  * Soluciones: cinco capacidades. Cada tarjeta muestra nombre + descripción breve;
  * "Ver detalles" despliega las capacidades específicas. El CTA lleva al formulario
- * con el tipo de proyecto preseleccionado. Cierra con una nota breve (sin CTA).
+ * con el tipo de proyecto preseleccionado.
  */
 export const Capabilities: React.FC = () => {
   const { language, t } = useTranslation('capabilities');
@@ -101,12 +101,6 @@ export const Capabilities: React.FC = () => {
             </Reveal>
           );
         })}
-
-        {/* Nota breve: no hace falta tener la solución definida */}
-        <Reveal as="li" delay={0.16} className="flex items-start gap-3 rounded-[var(--radius-card)] border border-dashed border-navy/40 p-5 text-sm text-slate md:p-6">
-          <Info size={18} aria-hidden className="mt-0.5 shrink-0 text-accent-hover" />
-          <p className="leading-relaxed">{t.note}</p>
-        </Reveal>
       </ul>
     </Section>
   );

@@ -89,7 +89,6 @@ export const es: SiteContent = {
     hideDetails: 'Ocultar detalles',
     capabilitiesLabel: 'Capacidades',
     cta: 'Iniciar un proyecto',
-    note: 'No es necesario tener una solución definida. AOA puede comenzar por el análisis del problema.',
     items: [
       {
         slug: 'strategy',
