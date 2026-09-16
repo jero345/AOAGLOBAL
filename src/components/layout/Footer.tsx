@@ -45,8 +45,8 @@ export const Footer: React.FC = () => {
   return (
     <footer className="bg-ink text-white">
       <div className="mx-auto max-w-[1200px] px-6 py-12 md:px-8 md:py-20">
-        <div className="grid grid-cols-1 gap-8 sm:grid-cols-2 sm:gap-12 lg:grid-cols-4">
-          <div className="flex flex-col space-y-4">
+        <div className="grid grid-cols-1 gap-8 sm:grid-cols-3 sm:gap-x-8 sm:gap-y-10 lg:grid-cols-4 lg:gap-12">
+          <div className="flex flex-col space-y-4 sm:col-span-3 lg:col-span-1">
             <div className="flex items-center gap-3">
               <div className="flex h-8 w-8 items-center justify-center bg-white text-navy font-bold text-xs rounded-[var(--radius-btn)]">
                 AOA
