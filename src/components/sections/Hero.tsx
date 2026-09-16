@@ -48,7 +48,7 @@ export const Hero: React.FC = () => {
           <div className="grid items-center gap-10 lg:grid-cols-[6fr_5fr] lg:gap-16">
             <div key={language} className="flex flex-col items-start">
               <Reveal immediate>
-                <Eyebrow tone="navy" className="max-lg:text-white/80">
+                <Eyebrow tone="navy" className="max-lg:text-accent">
                   {t.eyebrow}
                 </Eyebrow>
               </Reveal>
