@@ -36,9 +36,12 @@ export const LanguageProvider: React.FC<{ children: React.ReactNode }> = ({ chil
         /* modo privado / storage bloqueado: sin persistencia, sin error */
       }
       if (lang === language) return;
-      navigate(localePath(lang, location.hash), { replace: false });
+      // La URL ya no conserva el hash: localizamos la sección visible para volver a ella en el otro idioma
+      const sections = Array.from(document.querySelectorAll<HTMLElement>('main section[id]'));
+      const current = sections.filter((el) => el.getBoundingClientRect().top <= window.innerHeight * 0.5).pop();
+      navigate(localePath(lang, current ? `#${current.id}` : ''), { replace: false });
     },
-    [language, location.hash, navigate]
+    [language, navigate]
   );
 
   const value = useMemo(() => ({ language, setLanguage }), [language, setLanguage]);

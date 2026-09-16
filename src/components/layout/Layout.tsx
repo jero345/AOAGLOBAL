@@ -7,22 +7,56 @@ import { FloatingContactPill } from '../ui/FloatingContactPill';
 import { LangSuggestBanner } from '../ui/LangSuggestBanner';
 
 /**
- * Al cambiar de idioma la URL cambia de pathname conservando el hash:
- * volvemos a la misma sección. Sin hash → arriba.
+ * Comportamiento de scroll de la one-page:
+ * - Los enlaces #ancla desplazan suavemente y NO dejan el hash en la URL:
+ *   así una recarga vuelve arriba en lugar de saltar al formulario/footer.
+ * - Si se llega con un hash (enlace compartido), se desplaza a esa sección
+ *   una vez y se limpia la URL.
+ * - Al cambiar de idioma (cambia el pathname) se vuelve arriba.
  */
 function ScrollSync() {
   const { pathname, hash } = useLocation();
 
   useEffect(() => {
-    if (hash) {
-      const el = document.getElementById(hash.slice(1));
-      if (el) {
-        el.scrollIntoView({ block: 'start' });
-        return;
-      }
+    if ('scrollRestoration' in window.history) window.history.scrollRestoration = 'manual';
+  }, []);
+
+  useEffect(() => {
+    // Salto instantáneo (sin scroll-behavior: smooth): un desplazamiento suave
+    // se interrumpe durante el remontaje de la página al cambiar de ruta.
+    const root = document.documentElement;
+    const jump = (top: number) => {
+      const prev = root.style.scrollBehavior;
+      root.style.scrollBehavior = 'auto';
+      window.scrollTo({ top, behavior: 'auto' });
+      root.style.scrollBehavior = prev;
+    };
+    const el = hash ? document.getElementById(hash.slice(1)) : null;
+    if (el) {
+      const offset = parseFloat(getComputedStyle(root).scrollPaddingTop) || 0;
+      const run = () => jump(el.getBoundingClientRect().top + window.scrollY - offset);
+      run();
+      requestAnimationFrame(run);
+      window.history.replaceState(null, '', pathname + window.location.search);
+      return;
     }
-    window.scrollTo(0, 0);
+    jump(0);
   }, [pathname, hash]);
+
+  useEffect(() => {
+    const onClick = (e: MouseEvent) => {
+      if (e.defaultPrevented || e.button !== 0 || e.metaKey || e.ctrlKey || e.shiftKey || e.altKey) return;
+      const a = (e.target as HTMLElement | null)?.closest<HTMLAnchorElement>('a[href^="#"]');
+      if (!a) return;
+      const id = a.getAttribute('href')!.slice(1);
+      const el = id ? document.getElementById(id) : null;
+      if (!el) return;
+      e.preventDefault();
+      el.scrollIntoView({ behavior: 'smooth', block: 'start' });
+    };
+    document.addEventListener('click', onClick);
+    return () => document.removeEventListener('click', onClick);
+  }, []);
 
   return null;
 }
