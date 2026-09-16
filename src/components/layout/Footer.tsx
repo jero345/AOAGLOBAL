@@ -43,7 +43,7 @@ export const Footer: React.FC = () => {
   const year = new Date().getFullYear();
 
   return (
-    <footer className="bg-navy text-white">
+    <footer className="bg-deep text-white">
       <div className="mx-auto max-w-[1200px] px-6 py-12 md:px-8 md:py-20">
         <div className="grid grid-cols-1 gap-8 sm:grid-cols-3 sm:gap-x-8 sm:gap-y-10 lg:grid-cols-4 lg:gap-12">
           <div className="flex flex-col space-y-4 sm:col-span-3 lg:col-span-1">
