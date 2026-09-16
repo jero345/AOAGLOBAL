@@ -41,8 +41,6 @@ export const Hero: React.FC = () => {
           <div className="absolute inset-0 bg-gradient-to-b from-navy/80 via-navy/72 to-navy/90" />
         </div>
 
-        {/* Escritorio: degradado blanco → navy con rejilla de puntos sutil en el lado claro */}
-        <div aria-hidden className="dot-grid absolute inset-0 hidden opacity-60 [mask-image:radial-gradient(ellipse_at_top_left,black,transparent_55%)] lg:block" />
 
         <div className="relative mx-auto max-w-[1200px] px-6 py-14 md:px-8 md:py-20 lg:py-24">
           <div className="grid items-center gap-10 lg:grid-cols-[6fr_5fr] lg:gap-16">

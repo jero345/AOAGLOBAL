@@ -108,11 +108,6 @@
 .float-card { animation: float-card 6s ease-in-out infinite; }
 
 
-/* Fondo de puntos sutil para el hero */
-.dot-grid {
-  background-image: radial-gradient(var(--color-line) 1px, transparent 1px);
-  background-size: 22px 22px;
-}
 
 @media (prefers-reduced-motion: reduce) {
   .ticker, .blob, .kenburns, .float-card { animation: none !important; }
