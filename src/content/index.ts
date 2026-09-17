@@ -21,7 +21,8 @@ export const company = {
 
 /** Páginas secundarias: ruta por idioma (con barra final, igual que Vercel trailingSlash) */
 export const pages = {
-  ai: { en: '/ai-consulting/', es: '/es/consultoria-inteligencia-artificial/' }
+  ai: { en: '/ai-consulting/', es: '/es/consultoria-inteligencia-artificial/' },
+  aiMarket: { en: '/ai-consulting-australia/', es: '/es/consultoria-ia-latinoamerica/' }
 } as const satisfies Record<string, Record<Locale, string>>;
 
 /** Prefijo de ruta por idioma: EN en raíz, ES bajo /es */

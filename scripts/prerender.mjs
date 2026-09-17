@@ -22,7 +22,9 @@ const ROUTES = [
   ['/', 'index.html'],
   ['/es/', 'es/index.html'],
   ['/ai-consulting', 'ai-consulting/index.html'],
-  ['/es/consultoria-inteligencia-artificial', 'es/consultoria-inteligencia-artificial/index.html']
+  ['/ai-consulting-australia', 'ai-consulting-australia/index.html'],
+  ['/es/consultoria-inteligencia-artificial', 'es/consultoria-inteligencia-artificial/index.html'],
+  ['/es/consultoria-ia-latinoamerica', 'es/consultoria-ia-latinoamerica/index.html']
 ];
 
 const template = readFileSync(resolve(dist, 'index.html'), 'utf8');

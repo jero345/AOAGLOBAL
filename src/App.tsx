@@ -18,6 +18,7 @@ export const App: React.FC = () => {
       <Route path="/" element={<Layout />}>
         <Route index element={<Home />} />
         <Route path="ai-consulting" element={<AiConsulting />} />
+        <Route path="ai-consulting-australia" element={<AiConsulting variant="market" />} />
         {Object.entries(LEGACY_REDIRECTS).map(([from, hash]) => (
           <Route key={from} path={from} element={<Navigate to={{ pathname: '/', hash }} replace />} />
         ))}
@@ -27,6 +28,7 @@ export const App: React.FC = () => {
       <Route path="/es" element={<Layout />}>
         <Route index element={<Home />} />
         <Route path="consultoria-inteligencia-artificial" element={<AiConsulting />} />
+        <Route path="consultoria-ia-latinoamerica" element={<AiConsulting variant="market" />} />
         {Object.entries(LEGACY_REDIRECTS).map(([from, hash]) => (
           <Route key={from} path={from} element={<Navigate to={{ pathname: '/es/', hash }} replace />} />
         ))}

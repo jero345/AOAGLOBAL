@@ -18,13 +18,15 @@ interface SeoProps {
   schemas?: object[];
   /** Incluir el FAQPage de la home (solo en la home) */
   homeFaq?: boolean;
+  /** Código hreflang por idioma cuando no es el genérico (p. ej. en-AU) */
+  langCodes?: Partial<Record<Locale, string>>;
 }
 
 /**
  * Meta, canonical, hreflang recíproco + x-default, Open Graph y JSON-LD.
  * Organization va en todas las páginas; el resto lo decide cada página.
  */
-export const Seo: React.FC<SeoProps> = ({ title, description, paths, schemas = [], homeFaq = false }) => {
+export const Seo: React.FC<SeoProps> = ({ title, description, paths, schemas = [], homeFaq = false, langCodes = {} }) => {
   const { language } = useLanguage();
   const t = content[language];
   const pathFor = (l: Locale) => paths?.[l] ?? localePath(l);
@@ -65,7 +67,7 @@ export const Seo: React.FC<SeoProps> = ({ title, description, paths, schemas = [
       <link rel="canonical" href={canonical} />
 
       {LOCALES.map((l) => (
-        <link key={l} rel="alternate" hrefLang={l} href={SITE_URL + pathFor(l)} />
+        <link key={l} rel="alternate" hrefLang={langCodes[l] ?? l} href={SITE_URL + pathFor(l)} />
       ))}
       <link rel="alternate" hrefLang="x-default" href={SITE_URL + pathFor(DEFAULT_LOCALE)} />
 

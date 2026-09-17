@@ -140,6 +140,9 @@ export interface SiteContent {
     cta: { title: string; text: string; button: string; secondary: string };
   };
 
+  /** Página SEO por mercado: EN → Australia, ES → Latinoamérica (par hreflang en-AU / es-419) */
+  aiMarketPage: SiteContent['aiPage'] & { serviceArea: string[]; industries: { eyebrow: string; title: string; items: string[] } };
+
   footer: {
     tagline: string;
     /** Línea de marca: Strategy · Technology · Execution */
@@ -148,6 +151,8 @@ export interface SiteContent {
     solutions: Array<{ slug: ServiceSlug; label: string }>;
     /** Enlace a la página de consultoría de IA */
     aiPageLink: string;
+    /** Enlace a la página de IA por mercado (Australia / Latinoamérica) */
+    aiMarketPageLink: string;
     companyTitle: string;
     companyLinks: Array<{ label: string; anchor: string }>;
     contactTitle: string;

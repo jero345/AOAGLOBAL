@@ -88,6 +88,11 @@ export const Footer: React.FC = () => {
                   {t.aiPageLink}
                 </Link>
               </li>
+              <li>
+                <Link to={pages.aiMarket[language]} className="text-sm font-semibold text-white/85 transition-colors duration-200 hover:text-white">
+                  {t.aiMarketPageLink}
+                </Link>
+              </li>
             </ul>
           </FooterGroup>
 

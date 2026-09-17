@@ -302,6 +302,82 @@ export const en: SiteContent = {
     }
   },
 
+  aiMarketPage: {
+    meta: {
+      title: 'AI Consulting Australia | AI Solutions for Australian Businesses | AOA Global Services',
+      description:
+        'AI consulting for Australian businesses. AOA Global Services helps organisations across Australia identify where artificial intelligence improves a process, then designs and implements the solution integrated with existing systems.'
+    },
+    breadcrumb: 'AI Consulting Australia',
+    eyebrow: 'AI consulting · Australia',
+    title: 'AI consulting for Australian businesses.',
+    intro: [
+      'AOA Global Services provides AI consulting and implementation services to organisations across Australia — from Sydney, Melbourne and Brisbane to Perth, Adelaide and regional businesses.',
+      'We help Australian companies move from “we should be using AI” to a working solution: assessing the operation, identifying the use cases with real return, and designing, building and integrating the solution with the systems the business already runs on.'
+    ],
+    principle: {
+      title: 'AI where it improves the business — not because it is fashionable.',
+      text: 'Many Australian organisations are under pressure to “do something with AI”. Our approach is the opposite of hype: we start from the process, the information available and the outcome you need. Where automation or systems integration solves the problem, we recommend that first. Where AI genuinely adds value, we design and implement it with clear success criteria.'
+    },
+    includes: {
+      eyebrow: 'What is included',
+      title: 'AI consulting services for organisations in Australia.',
+      items: [
+        { title: 'AI opportunity assessment', text: 'A structured review of processes, data and systems to identify where AI delivers a measurable improvement for your organisation.' },
+        { title: 'AI strategy and roadmap', text: 'Prioritised use cases, required data, architecture, risks and a realistic implementation plan aligned with business objectives.' },
+        { title: 'AI-powered automation', text: 'Workflows that combine rules, integrations and language models to reduce manual work in operations, finance and customer service.' },
+        { title: 'AI agents and assistants', text: 'Assistants connected to your organisation’s information for customer enquiries, internal support and request handling.' },
+        { title: 'Intelligent document processing', text: 'Extraction, classification and validation of information from invoices, contracts, forms and emails.' },
+        { title: 'Integration with existing systems', text: 'Connection with ERP, CRM, accounting platforms and internal tools so AI operates inside the real process.' }
+      ]
+    },
+    useCases: {
+      eyebrow: 'Use cases',
+      title: 'Where AI adds value for Australian organisations.',
+      intro: 'Use cases are prioritised by operational impact and by the information already available in the business.',
+      items: [
+        { title: 'Customer enquiries and service', text: 'Automatic classification, assisted responses and routing to the right team.' },
+        { title: 'Operations and back office', text: 'Data capture, reconciliations, validations and document generation.' },
+        { title: 'Sales and follow-up', text: 'Lead qualification, interaction summaries and automated follow-up.' },
+        { title: 'Reporting and decision support', text: 'Natural-language queries over business data and automatically generated reports.' }
+      ]
+    },
+    industries: {
+      eyebrow: 'Industries',
+      title: 'Sectors we work with in Australia.',
+      items: ['Professional services', 'Logistics and distribution', 'Construction and trades', 'Healthcare and allied health', 'Retail and e-commerce', 'Property and real estate', 'Education and training', 'Manufacturing']
+    },
+    process: {
+      eyebrow: 'How we work',
+      title: 'From opportunity to a solution in operation.',
+      steps: [
+        { title: 'Understand', text: 'We assess the process, the available data and the expected outcome.' },
+        { title: 'Design', text: 'We define the use case, the solution, the scope and the evaluation criteria.' },
+        { title: 'Implement', text: 'We develop, integrate and validate the solution with the team that will use it.' }
+      ],
+      note: 'For clearly defined requirements, we can provide an initial proposal within 48 business hours. More complex projects begin with an analysis phase.'
+    },
+    faq: {
+      eyebrow: 'Frequently asked questions',
+      title: 'AI consulting in Australia — common questions.',
+      items: [
+        { q: 'Do you work with businesses across Australia?', a: 'Yes. We work with organisations in every state and territory. Projects are delivered online, with meetings scheduled in Australian business hours and clear milestones agreed in writing.' },
+        { q: 'Is our business too small for AI consulting?', a: 'No. Many of the highest-return use cases are in small and mid-sized businesses with repetitive, information-heavy processes. The assessment tells you quickly whether a project is worthwhile.' },
+        { q: 'How do you handle data privacy and the Australian Privacy Principles?', a: 'Solutions are designed with data minimisation, access controls and clear limits on how information is used, so your organisation can meet its obligations under the Privacy Act 1988 and the Australian Privacy Principles.' },
+        { q: 'Can AI integrate with the systems we already use?', a: 'Yes. We integrate with ERP, CRM, accounting and industry platforms commonly used in Australia through APIs and integrations, without replacing what already works.' },
+        { q: 'How is a project defined and priced?', a: 'Scope, deliverables, timeline and investment are set out in a proposal before we start. Defined requirements can receive an initial proposal within 48 business hours; complex initiatives start with an analysis phase.' },
+        { q: 'What happens after implementation?', a: 'Post-implementation support is defined according to the agreed scope and may include maintenance, optimisation, new functionality or integrations as the business evolves.' }
+      ]
+    },
+    cta: {
+      title: 'Tell us about your project or business challenge.',
+      text: 'Share the process you need to improve. We will review the context and tell you whether artificial intelligence is the right answer for your organisation — and which combination of solutions makes the most sense.',
+      button: 'Start a Project',
+      secondary: 'See all solutions'
+    },
+    serviceArea: ['Australia', 'Sydney', 'Melbourne', 'Brisbane', 'Perth', 'Adelaide', 'Canberra', 'Gold Coast']
+  },
+
   footer: {
     tagline: 'Technology consulting and solutions designed to improve processes, information and operational capability.',
     brandLine: 'Strategy · Technology · Execution',
@@ -314,6 +390,7 @@ export const en: SiteContent = {
       { slug: 'web', label: 'Web & Digital Solutions' }
     ],
     aiPageLink: 'AI consulting',
+    aiMarketPageLink: 'AI consulting in Australia',
     companyTitle: 'Company',
     companyLinks: [
       { label: 'How We Work', anchor: '#approach' },

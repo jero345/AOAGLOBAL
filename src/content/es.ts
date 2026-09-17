@@ -302,6 +302,82 @@ export const es: SiteContent = {
     }
   },
 
+  aiMarketPage: {
+    meta: {
+      title: 'Consultoría de IA en Latinoamérica | Inteligencia Artificial para Empresas | AOA Global Services',
+      description:
+        'Consultoría de inteligencia artificial para empresas en Latinoamérica. AOA Global Services ayuda a organizaciones de Colombia, México, Chile, Perú, Argentina y la región a identificar dónde la IA mejora un proceso, diseñar la solución e implementarla integrada con sus sistemas.'
+    },
+    breadcrumb: 'Consultoría de IA en Latinoamérica',
+    eyebrow: 'Consultoría de IA · Latinoamérica',
+    title: 'Consultoría de inteligencia artificial para empresas en Latinoamérica.',
+    intro: [
+      'AOA Global Services presta servicios de consultoría e implementación de inteligencia artificial a organizaciones de toda Latinoamérica: Colombia, México, Chile, Perú, Argentina, Ecuador, Panamá y el resto de la región.',
+      'Ayudamos a las empresas latinoamericanas a pasar de “deberíamos usar IA” a una solución en operación: analizamos la operación, identificamos los casos de uso con retorno real y diseñamos, construimos e integramos la solución con los sistemas que la organización ya utiliza, con estándar internacional.'
+    ],
+    principle: {
+      title: 'IA donde mejora el negocio, no por moda.',
+      text: 'Muchas organizaciones en la región sienten la presión de “hacer algo con IA”. Nuestro enfoque es el contrario al ruido: partimos del proceso, de la información disponible y del resultado que se necesita. Cuando la automatización o la integración de sistemas resuelven el problema, lo recomendamos primero. Cuando la IA aporta valor real, la diseñamos e implementamos con criterios de éxito claros.'
+    },
+    includes: {
+      eyebrow: 'Qué incluye',
+      title: 'Servicios de consultoría de IA para organizaciones en Latinoamérica.',
+      items: [
+        { title: 'Diagnóstico de oportunidades de IA', text: 'Revisión estructurada de procesos, datos y sistemas para identificar dónde la IA genera una mejora medible en su organización.' },
+        { title: 'Estrategia y hoja de ruta de IA', text: 'Casos de uso priorizados, datos requeridos, arquitectura, riesgos y un plan de implementación realista alineado con los objetivos del negocio.' },
+        { title: 'Automatización con IA', text: 'Flujos de trabajo que combinan reglas, integraciones y modelos de lenguaje para reducir trabajo manual en operaciones, finanzas y atención.' },
+        { title: 'Agentes y asistentes de IA', text: 'Asistentes conectados a la información de la organización para atención de clientes, soporte interno y gestión de solicitudes.' },
+        { title: 'Procesamiento inteligente de documentos', text: 'Extracción, clasificación y validación de información en facturas, contratos, formularios y correos.' },
+        { title: 'Integración con sistemas existentes', text: 'Conexión con ERP, CRM, plataformas contables y herramientas internas para que la IA opere dentro del proceso real.' }
+      ]
+    },
+    useCases: {
+      eyebrow: 'Casos de uso',
+      title: 'Dónde aporta valor la IA en las organizaciones de la región.',
+      intro: 'Los casos de uso se priorizan por impacto en la operación y por la información que ya existe en la empresa.',
+      items: [
+        { title: 'Atención y gestión de solicitudes', text: 'Clasificación automática, respuestas asistidas y derivación al equipo correcto.' },
+        { title: 'Operaciones y back office', text: 'Captura de datos, conciliaciones, validaciones y generación de documentos.' },
+        { title: 'Ventas y seguimiento comercial', text: 'Calificación de oportunidades, resúmenes de interacciones y seguimiento automatizado.' },
+        { title: 'Reporting y soporte a decisiones', text: 'Consultas en lenguaje natural sobre datos del negocio y reportes generados automáticamente.' }
+      ]
+    },
+    industries: {
+      eyebrow: 'Sectores',
+      title: 'Sectores con los que trabajamos en Latinoamérica.',
+      items: ['Servicios profesionales', 'Logística y distribución', 'Construcción e ingeniería', 'Salud', 'Retail y comercio electrónico', 'Inmobiliario', 'Educación', 'Manufactura']
+    },
+    process: {
+      eyebrow: 'Cómo trabajamos',
+      title: 'De la oportunidad a la solución en operación.',
+      steps: [
+        { title: 'Comprender', text: 'Analizamos el proceso, los datos disponibles y el resultado esperado.' },
+        { title: 'Diseñar', text: 'Definimos el caso de uso, la solución, el alcance y los criterios de evaluación.' },
+        { title: 'Implementar', text: 'Desarrollamos, integramos y validamos la solución con el equipo que la utilizará.' }
+      ],
+      note: 'Para requerimientos claramente definidos, podemos presentar una propuesta inicial en hasta 48 horas hábiles. Los proyectos de mayor complejidad comienzan con una fase de análisis.'
+    },
+    faq: {
+      eyebrow: 'Preguntas frecuentes',
+      title: 'Consultoría de IA en Latinoamérica — preguntas habituales.',
+      items: [
+        { q: '¿Trabajan con empresas de cualquier país de Latinoamérica?', a: 'Sí. Atendemos organizaciones de toda la región. Los proyectos se ejecutan en línea, con reuniones en el horario de su organización e hitos acordados por escrito.' },
+        { q: '¿Mi empresa es demasiado pequeña para una consultoría de IA?', a: 'No. Muchos de los casos de uso con mayor retorno están en pequeñas y medianas empresas con procesos repetitivos e intensivos en información. El diagnóstico indica rápidamente si un proyecto vale la pena.' },
+        { q: '¿Cómo manejan la privacidad y la protección de datos personales?', a: 'Las soluciones se diseñan con minimización de datos, controles de acceso y límites claros sobre el uso de la información, para que su organización cumpla la normativa de protección de datos de su país.' },
+        { q: '¿La IA puede integrarse con los sistemas que ya usamos?', a: 'Sí. Nos integramos con ERP, CRM, plataformas contables y sistemas del sector mediante APIs e integraciones, sin reemplazar lo que ya funciona.' },
+        { q: '¿Cómo se define y se cotiza un proyecto?', a: 'Alcance, entregables, cronograma e inversión se establecen en una propuesta antes de comenzar. Los requerimientos definidos pueden recibir una propuesta inicial en hasta 48 horas hábiles; las iniciativas complejas inician con una fase de análisis.' },
+        { q: '¿Qué ocurre después de la implementación?', a: 'El acompañamiento posterior se define según el alcance acordado y puede incluir mantenimiento, optimización, nuevas funcionalidades o integraciones conforme evoluciona el negocio.' }
+      ]
+    },
+    cta: {
+      title: 'Presente su proyecto o desafío.',
+      text: 'Comparta el proceso que necesita mejorar. Revisaremos el contexto y le indicaremos si la inteligencia artificial es la respuesta adecuada para su organización — y qué combinación de soluciones tiene mayor sentido.',
+      button: 'Iniciar un proyecto',
+      secondary: 'Ver todas las soluciones'
+    },
+    serviceArea: ['Latinoamérica', 'Colombia', 'México', 'Chile', 'Perú', 'Argentina', 'Ecuador', 'Panamá']
+  },
+
   footer: {
     tagline: 'Consultoría y soluciones tecnológicas para transformar procesos, información y capacidad operativa.',
     brandLine: 'Strategy · Technology · Execution',
@@ -314,6 +390,7 @@ export const es: SiteContent = {
       { slug: 'web', label: 'Web y soluciones digitales' }
     ],
     aiPageLink: 'Consultoría de inteligencia artificial',
+    aiMarketPageLink: 'Consultoría de IA en Latinoamérica',
     companyTitle: 'Empresa',
     companyLinks: [
       { label: 'Cómo trabajamos', anchor: '#approach' },

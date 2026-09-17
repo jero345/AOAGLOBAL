@@ -18,10 +18,25 @@ import { Faq } from '../components/sections/Faq';
  * la IA se presenta subordinada a un proceso de negocio (principio de marca).
  * Sus CTAs llevan al formulario de la home con el tipo de proyecto preseleccionado.
  */
-export const AiConsulting: React.FC = () => {
-  const { language, t } = useTranslation('aiPage');
+interface AiConsultingProps {
+  /** 'market' = versión por mercado: Australia en inglés, Latinoamérica en español */
+  variant?: 'global' | 'market';
+}
+
+export const AiConsulting: React.FC<AiConsultingProps> = ({ variant = 'global' }) => {
+  const { language, t: globalPage } = useTranslation('aiPage');
+  const { t: marketPage } = useTranslation('aiMarketPage');
   const { t: nav } = useTranslation('nav');
+  const { t: footer } = useTranslation('footer');
   const home = localePath(language);
+  const isMarket = variant === 'market';
+  const t = isMarket ? marketPage : globalPage;
+  const pagePaths = isMarket ? pages.aiMarket : pages.ai;
+  // Australia → país + ciudades; Latinoamérica → región + países
+  const areaServed = isMarket
+    ? marketPage.serviceArea.map((name, i) => ({ '@type': i === 0 ? (language === 'en' ? 'Country' : 'Place') : language === 'en' ? 'City' : 'Country', name }))
+    : undefined;
+  const langCodes = isMarket ? { en: 'en-AU', es: 'es-419' } : undefined;
 
   const schemas = [
     {
@@ -31,7 +46,8 @@ export const AiConsulting: React.FC = () => {
       serviceType: language === 'es' ? 'Consultoría de inteligencia artificial' : 'AI consulting',
       description: t.meta.description,
       provider: { '@type': 'Organization', name: company.name, url: SITE_URL },
-      url: SITE_URL + pages.ai[language],
+      ...(areaServed ? { areaServed } : {}),
+      url: SITE_URL + pagePaths[language],
       hasOfferCatalog: {
         '@type': 'OfferCatalog',
         name: t.includes.title,
@@ -48,14 +64,14 @@ export const AiConsulting: React.FC = () => {
       '@type': 'BreadcrumbList',
       itemListElement: [
         { '@type': 'ListItem', position: 1, name: 'AOA Global Services', item: SITE_URL + home },
-        { '@type': 'ListItem', position: 2, name: t.breadcrumb, item: SITE_URL + pages.ai[language] }
+        { '@type': 'ListItem', position: 2, name: t.breadcrumb, item: SITE_URL + pagePaths[language] }
       ]
     }
   ];
 
   return (
     <>
-      <Seo title={t.meta.title} description={t.meta.description} paths={pages.ai} schemas={schemas} />
+      <Seo title={t.meta.title} description={t.meta.description} paths={pagePaths} schemas={schemas} langCodes={langCodes} />
 
       {/* Cabecera */}
       <section className="bg-navy text-white lg:bg-gradient-to-br lg:from-paper lg:from-40% lg:to-navy lg:text-ink">
@@ -76,6 +92,9 @@ export const AiConsulting: React.FC = () => {
           </Reveal>
           <Reveal immediate delay={0.4} className="mt-7 flex flex-col items-start gap-4 sm:flex-row sm:items-center sm:gap-6">
             <Button variant="accent" href="#ai-contact" track="ai_hero_start">{t.cta.button}</Button>
+            <Link to={isMarket ? pages.ai[language] : pages.aiMarket[language]} className="inline-flex items-center gap-1.5 text-sm font-semibold text-white hover:underline lg:text-navy">
+              {isMarket ? globalPage.breadcrumb : footer.aiMarketPageLink} <ArrowRight size={16} aria-hidden />
+            </Link>
             <Link to={{ pathname: home, hash: '#capabilities' }} className="inline-flex items-center gap-1.5 text-sm font-semibold text-white hover:underline lg:text-navy">
               {t.cta.secondary} <ArrowRight size={16} aria-hidden />
             </Link>
@@ -124,6 +143,19 @@ export const AiConsulting: React.FC = () => {
           ))}
         </ul>
       </Section>
+
+      {isMarket && (
+        <Section tone="paper" id="ai-industries">
+          <SectionHeader eyebrow={marketPage.industries.eyebrow} title={marketPage.industries.title} />
+          <ul className="mt-8 flex flex-wrap gap-2">
+            {marketPage.industries.items.map((item) => (
+              <li key={item} className="rounded-[var(--radius-btn)] border border-line bg-mist px-3 py-1.5 text-sm font-medium text-ink">
+                {item}
+              </li>
+            ))}
+          </ul>
+        </Section>
+      )}
 
       {/* Proceso */}
       <Section tone="line" id="ai-process">
