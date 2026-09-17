@@ -26,3 +26,7 @@ dist-ssr
 # Variables de entorno locales
 .env
 .env.local
+
+# Paquete de subida manual a Hostinger
+aoa-dist/
+aoa-dist.zip
