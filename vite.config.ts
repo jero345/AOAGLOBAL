@@ -8,4 +8,9 @@ export default defineConfig({
     react(),
     tailwindcss(),
   ],
+  // Prerender (vite build --ssr): react-helmet-async es CommonJS; se empaqueta para evitar
+  // problemas de interop al importarlo desde Node en scripts/prerender.mjs
+  ssr: {
+    noExternal: ['react-helmet-async'],
+  },
 });

@@ -2,6 +2,7 @@ import React from 'react';
 import { Routes, Route, Navigate } from 'react-router-dom';
 import { Layout } from './components/layout/Layout';
 import { Home } from './pages/Home';
+import { AiConsulting } from './pages/AiConsulting';
 
 /** Rutas antiguas del sitio anterior → ancla equivalente en la one-page */
 const LEGACY_REDIRECTS: Record<string, string> = {
@@ -16,6 +17,7 @@ export const App: React.FC = () => {
       {/* Inglés (idioma por defecto) en la raíz */}
       <Route path="/" element={<Layout />}>
         <Route index element={<Home />} />
+        <Route path="ai-consulting" element={<AiConsulting />} />
         {Object.entries(LEGACY_REDIRECTS).map(([from, hash]) => (
           <Route key={from} path={from} element={<Navigate to={{ pathname: '/', hash }} replace />} />
         ))}
@@ -24,6 +26,7 @@ export const App: React.FC = () => {
       {/* Español bajo /es */}
       <Route path="/es" element={<Layout />}>
         <Route index element={<Home />} />
+        <Route path="consultoria-inteligencia-artificial" element={<AiConsulting />} />
         {Object.entries(LEGACY_REDIRECTS).map(([from, hash]) => (
           <Route key={from} path={from} element={<Navigate to={{ pathname: '/es/', hash }} replace />} />
         ))}

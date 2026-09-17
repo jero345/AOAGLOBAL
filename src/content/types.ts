@@ -125,12 +125,29 @@ export interface SiteContent {
     direct: { title: string; email: string };
   };
 
+  /** Página SEO: consultoría de inteligencia artificial (IA aplicada al negocio) */
+  aiPage: {
+    meta: { title: string; description: string };
+    breadcrumb: string;
+    eyebrow: string;
+    title: string;
+    intro: string[];
+    principle: { title: string; text: string };
+    includes: { eyebrow: string; title: string; items: Array<{ title: string; text: string }> };
+    useCases: { eyebrow: string; title: string; intro: string; items: Array<{ title: string; text: string }> };
+    process: { eyebrow: string; title: string; steps: Array<{ title: string; text: string }>; note: string };
+    faq: { eyebrow: string; title: string; items: Array<{ q: string; a: string }> };
+    cta: { title: string; text: string; button: string; secondary: string };
+  };
+
   footer: {
     tagline: string;
     /** Línea de marca: Strategy · Technology · Execution */
     brandLine: string;
     solutionsTitle: string;
     solutions: Array<{ slug: ServiceSlug; label: string }>;
+    /** Enlace a la página de consultoría de IA */
+    aiPageLink: string;
     companyTitle: string;
     companyLinks: Array<{ label: string; anchor: string }>;
     contactTitle: string;

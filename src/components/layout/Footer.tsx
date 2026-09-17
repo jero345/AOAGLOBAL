@@ -1,7 +1,8 @@
 import React, { useState } from 'react';
 import { ArrowUpRight, ChevronDown } from 'lucide-react';
+import { Link } from 'react-router-dom';
 import { useTranslation } from '../../context/LanguageContext';
-import { company } from '../../content';
+import { company, localePath, pages } from '../../content';
 import { LanguageSwitcher } from '../ui/LanguageSwitcher';
 import { useQuote } from '../../context/QuoteContext';
 
@@ -36,8 +37,9 @@ const FooterGroup: React.FC<GroupProps> = ({ id, title, open, onToggle, children
 );
 
 export const Footer: React.FC = () => {
-  const { t } = useTranslation('footer');
+  const { language, t } = useTranslation('footer');
   const { requestQuote } = useQuote();
+  const home = localePath(language);
   const [openGroup, setOpenGroup] = useState<'solutions' | 'company' | null>(null);
   const toggle = (g: 'solutions' | 'company') => setOpenGroup((cur) => (cur === g ? null : g));
   const year = new Date().getFullYear();
@@ -72,15 +74,20 @@ export const Footer: React.FC = () => {
             <ul className="flex flex-col space-y-2.5">
               {t.solutions.map((s) => (
                 <li key={s.slug}>
-                  <button
-                    type="button"
+                  <Link
+                    to={{ pathname: home, search: `?service=${s.slug}`, hash: '#contact' }}
                     onClick={() => requestQuote(s.slug)}
-                    className="text-left text-sm text-white/70 transition-colors duration-200 hover:text-white cursor-pointer"
+                    className="text-left text-sm text-white/70 transition-colors duration-200 hover:text-white"
                   >
                     {s.label}
-                  </button>
+                  </Link>
                 </li>
               ))}
+              <li>
+                <Link to={pages.ai[language]} className="text-sm font-semibold text-white/85 transition-colors duration-200 hover:text-white">
+                  {t.aiPageLink}
+                </Link>
+              </li>
             </ul>
           </FooterGroup>
 

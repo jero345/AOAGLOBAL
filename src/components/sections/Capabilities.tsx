@@ -8,7 +8,8 @@ import { Section } from '../ui/Section';
 import { SectionHeader } from '../ui/SectionHeader';
 import { SpotlightCard } from '../ui/SpotlightCard';
 import { Reveal } from '../ui/Reveal';
-import type { ServiceSlug } from '../../content';
+import { Link } from 'react-router-dom';
+import { pages, type ServiceSlug } from '../../content';
 
 /**
  * Soluciones: cinco capacidades. Cada tarjeta muestra nombre + descripción breve;
@@ -17,6 +18,7 @@ import type { ServiceSlug } from '../../content';
  */
 export const Capabilities: React.FC = () => {
   const { language, t } = useTranslation('capabilities');
+  const { t: footer } = useTranslation('footer');
   const { requestQuote } = useQuote();
   const [open, setOpen] = useState<ServiceSlug | null>(null);
 
@@ -69,6 +71,11 @@ export const Capabilities: React.FC = () => {
                               </li>
                             ))}
                           </ul>
+                          {s.slug === 'automation' && (
+                            <Link to={pages.ai[language]} className="mt-3 inline-flex items-center gap-1 text-xs font-semibold text-navy hover:underline">
+                              {footer.aiPageLink} <ArrowRight size={12} aria-hidden />
+                            </Link>
+                          )}
                         </div>
                       </motion.div>
                     )}

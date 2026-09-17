@@ -232,6 +232,76 @@ export const es: SiteContent = {
     }
   },
 
+  aiPage: {
+    meta: {
+      title: 'Consultoría de Inteligencia Artificial para Empresas | AOA Global Services',
+      description:
+        'Consultoría de IA para empresas: identificamos dónde la inteligencia artificial mejora un proceso, diseñamos la solución y la implementamos integrada con sus sistemas. Automatización, agentes de IA y procesamiento de información.'
+    },
+    breadcrumb: 'Consultoría de IA',
+    eyebrow: 'Consultoría de inteligencia artificial',
+    title: 'Consultoría de inteligencia artificial para empresas.',
+    intro: [
+      'AOA Global Services ayuda a las organizaciones a incorporar inteligencia artificial donde genera un resultado concreto: procesos más eficientes, información mejor estructurada y decisiones con mejor soporte.',
+      'Nuestra consultoría de IA parte del negocio, no de la tecnología. Analizamos la operación, identificamos los casos de uso con retorno real y diseñamos e implementamos la solución integrada con los sistemas existentes.'
+    ],
+    principle: {
+      title: 'IA cuando mejora un proceso, no por moda.',
+      text: 'No aplicamos inteligencia artificial porque esté de moda. La utilizamos cuando mejora de forma concreta un proceso, una decisión o una capacidad del negocio. En muchos casos, la mejor solución combina automatización, integración de datos y solo el componente de IA que realmente aporta valor.'
+    },
+    includes: {
+      eyebrow: 'Qué incluye',
+      title: 'Servicios de consultoría e implementación de IA.',
+      items: [
+        { title: 'Diagnóstico de oportunidades de IA', text: 'Revisión de procesos, información disponible y sistemas para identificar dónde la inteligencia artificial aporta una mejora medible.' },
+        { title: 'Diseño de la solución', text: 'Definición del caso de uso, los datos necesarios, la arquitectura, los riesgos y los criterios de éxito antes de desarrollar.' },
+        { title: 'Automatización con IA', text: 'Flujos de trabajo que combinan reglas, integraciones y modelos de lenguaje para reducir trabajo manual.' },
+        { title: 'Agentes y asistentes de IA', text: 'Asistentes conectados a la información de la organización para atención, soporte interno, gestión de solicitudes o consultas operativas.' },
+        { title: 'Procesamiento inteligente de documentos', text: 'Extracción, clasificación y validación de información en facturas, contratos, formularios y correos.' },
+        { title: 'Integración con sistemas existentes', text: 'Conexión con ERP, CRM, bases de datos y herramientas internas para que la IA opere dentro del proceso real, no aislada.' }
+      ]
+    },
+    useCases: {
+      eyebrow: 'Casos de uso',
+      title: 'Dónde suele aportar valor la IA en una organización.',
+      intro: 'Los casos de uso se priorizan por impacto en la operación y viabilidad con la información disponible.',
+      items: [
+        { title: 'Atención y gestión de solicitudes', text: 'Clasificación automática, respuestas asistidas y derivación al equipo correcto.' },
+        { title: 'Operaciones y back office', text: 'Captura de datos, conciliaciones, validaciones y generación de documentos.' },
+        { title: 'Ventas y seguimiento comercial', text: 'Calificación de oportunidades, resúmenes de interacciones y seguimiento automatizado.' },
+        { title: 'Información y reporting', text: 'Consultas en lenguaje natural sobre datos del negocio y reportes generados automáticamente.' }
+      ]
+    },
+    process: {
+      eyebrow: 'Cómo trabajamos',
+      title: 'De la oportunidad a la solución en operación.',
+      steps: [
+        { title: 'Comprender', text: 'Analizamos el proceso, los datos disponibles y el resultado esperado.' },
+        { title: 'Diseñar', text: 'Definimos el caso de uso, la solución, el alcance y los criterios de evaluación.' },
+        { title: 'Implementar', text: 'Desarrollamos, integramos y validamos la solución con el equipo que la utilizará.' }
+      ],
+      note: 'Para requerimientos claramente definidos, podemos presentar una propuesta inicial en hasta 48 horas hábiles. Los proyectos de mayor complejidad comienzan con una fase de análisis.'
+    },
+    faq: {
+      eyebrow: 'Preguntas frecuentes',
+      title: 'Preguntas habituales sobre consultoría de IA.',
+      items: [
+        { q: '¿Qué hace una consultoría de inteligencia artificial?', a: 'Identifica en qué procesos la IA puede generar una mejora real, define la solución adecuada (datos, modelo, integraciones, riesgos) y acompaña su implementación hasta que opera dentro del negocio.' },
+        { q: '¿Mi empresa necesita IA?', a: 'No siempre. Evaluamos primero el proceso y la información disponible. Si la mejora se logra con automatización o integración de sistemas, lo recomendamos antes que incorporar IA innecesariamente.' },
+        { q: '¿Qué datos se necesitan para un proyecto de IA?', a: 'Depende del caso de uso. Muchos proyectos funcionan con la información que ya existe en documentos, correos y sistemas; parte del diagnóstico es determinar si esa información es suficiente y cómo estructurarla.' },
+        { q: '¿La IA puede integrarse con nuestros sistemas actuales?', a: 'Sí. Diseñamos la solución para que se conecte con ERP, CRM, bases de datos y herramientas internas mediante integraciones y APIs, sin reemplazar lo que ya funciona.' },
+        { q: '¿Cómo se controla la calidad y la seguridad de una solución con IA?', a: 'Definimos criterios de evaluación, validación humana donde corresponde, límites de uso de la información y monitoreo continuo del comportamiento de la solución.' },
+        { q: '¿Cuánto tarda un proyecto de consultoría de IA?', a: 'Un diagnóstico inicial suele tomar pocas semanas. La implementación depende del alcance; se acuerda por escrito junto con entregables e hitos antes de comenzar.' }
+      ]
+    },
+    cta: {
+      title: 'Presente su proyecto o desafío.',
+      text: 'Comparta el proceso que necesita mejorar. Revisaremos el contexto y le indicaremos si la inteligencia artificial es la respuesta adecuada — y qué combinación de soluciones tiene mayor sentido.',
+      button: 'Iniciar un proyecto',
+      secondary: 'Ver todas las soluciones'
+    }
+  },
+
   footer: {
     tagline: 'Consultoría y soluciones tecnológicas para transformar procesos, información y capacidad operativa.',
     brandLine: 'Strategy · Technology · Execution',
@@ -243,6 +313,7 @@ export const es: SiteContent = {
       { slug: 'data', label: 'Datos e integraciones' },
       { slug: 'web', label: 'Web y soluciones digitales' }
     ],
+    aiPageLink: 'Consultoría de inteligencia artificial',
     companyTitle: 'Empresa',
     companyLinks: [
       { label: 'Cómo trabajamos', anchor: '#approach' },

@@ -1,5 +1,5 @@
 import React from 'react';
-import ReactDOM from 'react-dom/client';
+import { createRoot, hydrateRoot } from 'react-dom/client';
 import { BrowserRouter } from 'react-router-dom';
 import { HelmetProvider } from 'react-helmet-async';
 import { LanguageProvider } from './context/LanguageContext';
@@ -13,7 +13,7 @@ initAnalytics();
 const rootElement = document.getElementById('root');
 
 if (rootElement) {
-  ReactDOM.createRoot(rootElement).render(
+  const app = (
     <React.StrictMode>
       <HelmetProvider>
         <BrowserRouter>
@@ -26,4 +26,8 @@ if (rootElement) {
       </HelmetProvider>
     </React.StrictMode>
   );
+  // Las rutas se prerenderizan en build (scripts/prerender.mjs): si el HTML ya trae
+  // contenido, hidratamos; si no (dev), montamos desde cero.
+  if (rootElement.hasChildNodes()) hydrateRoot(rootElement, app);
+  else createRoot(rootElement).render(app);
 }

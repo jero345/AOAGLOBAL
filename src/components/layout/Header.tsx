@@ -73,7 +73,7 @@ export const Header: React.FC = () => {
       </div>
 
       {/* Portal: el backdrop-blur del header crearía un contenedor para el panel fixed y lo dejaría sin fondo */}
-      {createPortal(
+      {typeof document !== 'undefined' && createPortal(
       <AnimatePresence>
         {mobileMenuOpen && (
           <motion.div

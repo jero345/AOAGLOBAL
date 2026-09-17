@@ -1,6 +1,6 @@
 import React, { createContext, useContext, useEffect, useMemo, useCallback } from 'react';
 import { useLocation, useNavigate } from 'react-router-dom';
-import { content, localeFromPath, localePath, type Locale, type SiteContent } from '../content';
+import { content, localeFromPath, localePath, pages, type Locale, type SiteContent } from '../content';
 
 export type Language = Locale;
 
@@ -36,12 +36,19 @@ export const LanguageProvider: React.FC<{ children: React.ReactNode }> = ({ chil
         /* modo privado / storage bloqueado: sin persistencia, sin error */
       }
       if (lang === language) return;
+      // Página secundaria (p. ej. consultoría de IA): ir a su equivalente en el otro idioma
+      const current = location.pathname.endsWith('/') ? location.pathname : location.pathname + '/';
+      const page = Object.values(pages).find((p) => p[language] === current);
+      if (page) {
+        navigate(page[lang]);
+        return;
+      }
       // La URL ya no conserva el hash: localizamos la sección visible para volver a ella en el otro idioma
       const sections = Array.from(document.querySelectorAll<HTMLElement>('main section[id]'));
-      const current = sections.filter((el) => el.getBoundingClientRect().top <= window.innerHeight * 0.5).pop();
-      navigate(localePath(lang, current ? `#${current.id}` : ''), { replace: false });
+      const visible = sections.filter((el) => el.getBoundingClientRect().top <= window.innerHeight * 0.5).pop();
+      navigate(localePath(lang, visible ? `#${visible.id}` : ''), { replace: false });
     },
-    [language, navigate]
+    [language, location.pathname, navigate]
   );
 
   const value = useMemo(() => ({ language, setLanguage }), [language, setLanguage]);

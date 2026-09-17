@@ -232,6 +232,76 @@ export const en: SiteContent = {
     }
   },
 
+  aiPage: {
+    meta: {
+      title: 'AI Consulting for Businesses | AOA Global Services',
+      description:
+        'AI consulting services for businesses: we identify where artificial intelligence improves a process, design the solution and implement it integrated with your systems. Automation, AI agents and intelligent document processing.'
+    },
+    breadcrumb: 'AI Consulting',
+    eyebrow: 'AI consulting',
+    title: 'AI consulting for businesses.',
+    intro: [
+      'AOA Global Services helps organizations adopt artificial intelligence where it produces a concrete result: more efficient processes, better-structured information and better-supported decisions.',
+      'Our AI consulting starts from the business, not the technology. We assess the operation, identify the use cases with real return, and design and implement the solution integrated with existing systems.'
+    ],
+    principle: {
+      title: 'AI when it improves a process — not because it is fashionable.',
+      text: 'We do not apply artificial intelligence because it is in fashion. We use it when it concretely improves a process, a decision or a business capability. In many cases the best solution combines automation, data integration and only the AI component that genuinely adds value.'
+    },
+    includes: {
+      eyebrow: 'What is included',
+      title: 'AI consulting and implementation services.',
+      items: [
+        { title: 'AI opportunity assessment', text: 'Review of processes, available information and systems to identify where artificial intelligence delivers a measurable improvement.' },
+        { title: 'Solution design', text: 'Definition of the use case, required data, architecture, risks and success criteria before any development.' },
+        { title: 'AI-powered automation', text: 'Workflows that combine rules, integrations and language models to reduce manual work.' },
+        { title: 'AI agents and assistants', text: 'Assistants connected to the organization’s information for customer service, internal support, request handling or operational queries.' },
+        { title: 'Intelligent document processing', text: 'Extraction, classification and validation of information from invoices, contracts, forms and emails.' },
+        { title: 'Integration with existing systems', text: 'Connection with ERP, CRM, databases and internal tools so AI operates inside the real process, not in isolation.' }
+      ]
+    },
+    useCases: {
+      eyebrow: 'Use cases',
+      title: 'Where AI usually adds value in an organization.',
+      intro: 'Use cases are prioritized by operational impact and feasibility with the information available.',
+      items: [
+        { title: 'Customer service and request handling', text: 'Automatic classification, assisted responses and routing to the right team.' },
+        { title: 'Operations and back office', text: 'Data capture, reconciliations, validations and document generation.' },
+        { title: 'Sales and follow-up', text: 'Opportunity qualification, interaction summaries and automated follow-up.' },
+        { title: 'Information and reporting', text: 'Natural-language queries over business data and automatically generated reports.' }
+      ]
+    },
+    process: {
+      eyebrow: 'How we work',
+      title: 'From opportunity to a solution in operation.',
+      steps: [
+        { title: 'Understand', text: 'We assess the process, the available data and the expected outcome.' },
+        { title: 'Design', text: 'We define the use case, the solution, the scope and the evaluation criteria.' },
+        { title: 'Implement', text: 'We develop, integrate and validate the solution with the team that will use it.' }
+      ],
+      note: 'For clearly defined requirements, we can provide an initial proposal within 48 business hours. More complex projects begin with an analysis phase.'
+    },
+    faq: {
+      eyebrow: 'Frequently asked questions',
+      title: 'Common questions about AI consulting.',
+      items: [
+        { q: 'What does an AI consultancy do?', a: 'It identifies which processes AI can genuinely improve, defines the right solution (data, model, integrations, risks) and supports implementation until it operates inside the business.' },
+        { q: 'Does my company need AI?', a: 'Not always. We assess the process and the available information first. If the improvement can be achieved with automation or systems integration, we recommend that before adding AI unnecessarily.' },
+        { q: 'What data is needed for an AI project?', a: 'It depends on the use case. Many projects work with the information that already exists in documents, emails and systems; part of the assessment is determining whether it is sufficient and how to structure it.' },
+        { q: 'Can AI integrate with our current systems?', a: 'Yes. We design the solution to connect with ERP, CRM, databases and internal tools through integrations and APIs, without replacing what already works.' },
+        { q: 'How do you control quality and security in an AI solution?', a: 'We define evaluation criteria, human validation where appropriate, limits on how information is used, and continuous monitoring of the solution’s behavior.' },
+        { q: 'How long does an AI consulting project take?', a: 'An initial assessment usually takes a few weeks. Implementation depends on scope; it is agreed in writing together with deliverables and milestones before starting.' }
+      ]
+    },
+    cta: {
+      title: 'Tell us about your project or business challenge.',
+      text: 'Share the process you need to improve. We will review the context and tell you whether artificial intelligence is the right answer — and which combination of solutions makes the most sense.',
+      button: 'Start a Project',
+      secondary: 'See all solutions'
+    }
+  },
+
   footer: {
     tagline: 'Technology consulting and solutions designed to improve processes, information and operational capability.',
     brandLine: 'Strategy · Technology · Execution',
@@ -243,6 +313,7 @@ export const en: SiteContent = {
       { slug: 'data', label: 'Data & Integrations' },
       { slug: 'web', label: 'Web & Digital Solutions' }
     ],
+    aiPageLink: 'AI consulting',
     companyTitle: 'Company',
     companyLinks: [
       { label: 'How We Work', anchor: '#approach' },

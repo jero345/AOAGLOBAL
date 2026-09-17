@@ -19,6 +19,11 @@ export const company = {
   linkedin: 'https://www.linkedin.com/company/aoa-global-services'
 };
 
+/** Páginas secundarias: ruta por idioma (con barra final, igual que Vercel trailingSlash) */
+export const pages = {
+  ai: { en: '/ai-consulting/', es: '/es/consultoria-inteligencia-artificial/' }
+} as const satisfies Record<string, Record<Locale, string>>;
+
 /** Prefijo de ruta por idioma: EN en raíz, ES bajo /es */
 export const localePath = (locale: Locale, hash = ''): string =>
   (locale === DEFAULT_LOCALE ? '/' : `/${locale}/`) + hash;
