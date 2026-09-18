@@ -1,6 +1,5 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import { motion } from 'framer-motion';
 
 export type ButtonVariant = 'accent' | 'primary' | 'outline' | 'inverse';
 export type ButtonSize = 'md' | 'sm';
@@ -16,8 +15,15 @@ export interface ButtonProps extends React.ButtonHTMLAttributes<HTMLButtonElemen
   track?: string;
 }
 
+/**
+ * Transiciones CSS (no JS): color en 200 ms, pulsación a scale(0.97) en 160 ms.
+ * El icono de flecha (si lo hay) se desplaza 2px al pasar el cursor.
+ */
 const baseClasses =
-  'relative inline-flex items-center justify-center gap-2 rounded-[var(--radius-btn)] font-semibold transition-colors duration-200 cursor-pointer text-center select-none whitespace-nowrap';
+  'group/btn relative inline-flex items-center justify-center gap-2 rounded-[var(--radius-btn)] font-semibold cursor-pointer text-center select-none whitespace-nowrap ' +
+  'transition-[background-color,color,border-color,transform] duration-200 ease-[var(--ease-out-quart)] active:scale-[0.97] active:duration-100 ' +
+  'disabled:cursor-not-allowed disabled:opacity-60 disabled:active:scale-100 ' +
+  '[&>svg]:transition-transform [&>svg]:duration-200 [&>svg]:ease-[var(--ease-out-quart)] hover:[&>svg]:translate-x-0.5';
 
 const sizeClasses: Record<ButtonSize, string> = {
   md: 'px-7 py-3.5 text-sm',
@@ -31,8 +37,6 @@ const variantClasses: Record<ButtonVariant, string> = {
   outline: 'border border-navy text-navy hover:bg-navy hover:text-white focus-visible:outline-accent',
   inverse: 'bg-white text-navy hover:bg-line focus-visible:outline-accent'
 };
-
-const spring = { type: 'spring', stiffness: 400, damping: 20 } as const;
 
 export const Button: React.FC<ButtonProps> = ({
   variant = 'primary',
@@ -52,40 +56,28 @@ export const Button: React.FC<ButtonProps> = ({
 
     if (isAnchor || isOutbound) {
       return (
-        <motion.a
+        <a
           href={href}
           target={isExternal ? '_blank' : undefined}
           rel={isExternal ? 'noopener noreferrer' : undefined}
           className={combinedClasses}
           data-track={track}
-          whileHover={{ scale: 1.02 }}
-          whileTap={{ scale: 0.98 }}
-          transition={spring}
         >
           {children}
-        </motion.a>
+        </a>
       );
     }
 
     return (
-      <motion.div whileHover={{ scale: 1.02 }} whileTap={{ scale: 0.98 }} transition={spring} className="inline-block">
-        <Link to={href} className={combinedClasses} data-track={track}>
-          {children}
-        </Link>
-      </motion.div>
+      <Link to={href} className={combinedClasses} data-track={track}>
+        {children}
+      </Link>
     );
   }
 
   return (
-    <motion.button
-      className={combinedClasses}
-      data-track={track}
-      whileHover={{ scale: 1.02 }}
-      whileTap={{ scale: 0.98 }}
-      transition={spring}
-      {...(props as any)}
-    >
+    <button type="button" className={combinedClasses} data-track={track} {...props}>
       {children}
-    </motion.button>
+    </button>
   );
 };

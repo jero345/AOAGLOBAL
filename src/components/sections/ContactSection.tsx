@@ -22,7 +22,7 @@ export const ContactSection: React.FC = () => {
               height={700}
               loading="lazy"
               decoding="async"
-              className="h-full w-full object-cover grayscale transition-all duration-700 ease-out group-hover:scale-105 group-hover:grayscale-0"
+              className="h-full w-full object-cover grayscale transition-[transform,filter] duration-700 ease-[var(--ease-out-expo)] group-hover:scale-105 group-hover:grayscale-0"
             />
             <div aria-hidden className="absolute inset-0 bg-gradient-to-t from-navy/60 to-transparent" />
           </div>

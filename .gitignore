@@ -30,3 +30,8 @@ dist-ssr
 # Paquete de subida manual a Hostinger
 aoa-dist/
 aoa-dist.zip
+
+# Skills de agentes (npx skills add / impeccable): los symlinks son locales y el binario se descarga solo
+.claude/skills/
+.claude/settings.local.json
+.agents/skills/impeccable/scripts/bin/

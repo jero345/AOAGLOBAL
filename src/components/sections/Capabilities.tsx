@@ -24,7 +24,7 @@ export const Capabilities: React.FC = () => {
 
   return (
     <Section tone="line" id="capabilities">
-      <SectionHeader eyebrow={t.eyebrow} title={t.title} />
+      <SectionHeader eyebrow={t.eyebrow} title={t.title} description={t.intro} />
 
       <ul className={`mt-8 grid grid-cols-1 gap-4 md:mt-12 md:grid-cols-2 md:gap-5 lg:grid-cols-3 ${open ? 'md:items-start' : ''}`} key={language}>
         {t.items.map((s, i) => {
@@ -41,7 +41,7 @@ export const Capabilities: React.FC = () => {
                     height={560}
                     loading="lazy"
                     decoding="async"
-                    className="h-full w-full object-cover grayscale transition-all duration-700 ease-out group-hover:scale-105 group-hover:grayscale-0"
+                    className="h-full w-full object-cover grayscale transition-[transform,filter] duration-700 ease-[var(--ease-out-expo)] group-hover:scale-105 group-hover:grayscale-0"
                   />
                   <span className="absolute left-3 top-3 rounded-[var(--radius-btn)] bg-navy px-2.5 py-1 text-[0.65rem] font-bold tracking-wider text-white">
                     0{i + 1}
@@ -71,9 +71,10 @@ export const Capabilities: React.FC = () => {
                               </li>
                             ))}
                           </ul>
+                          {s.note && <p className="mt-3 text-xs leading-relaxed text-slate">{s.note}</p>}
                           {s.slug === 'automation' && (
-                            <Link to={pages.ai[language]} className="mt-3 inline-flex items-center gap-1 text-xs font-semibold text-navy hover:underline">
-                              {footer.aiPageLink} <ArrowRight size={12} aria-hidden />
+                            <Link to={pages.ai[language]} className="group/link mt-3 inline-flex items-center gap-1 text-xs font-semibold text-navy hover:underline">
+                              {footer.aiPageLink} <ArrowRight size={12} aria-hidden className="transition-transform duration-200 ease-[var(--ease-out-quart)] group-hover/link:translate-x-0.5" />
                             </Link>
                           )}
                         </div>
@@ -87,10 +88,10 @@ export const Capabilities: React.FC = () => {
                       onClick={() => setOpen(isOpen ? null : s.slug)}
                       aria-expanded={isOpen}
                       aria-controls={panelId}
-                      className="inline-flex min-h-10 items-center gap-1 whitespace-nowrap text-xs font-bold uppercase tracking-wider text-navy cursor-pointer"
+                      className="inline-flex min-h-10 items-center gap-1 whitespace-nowrap text-xs font-bold uppercase tracking-wider text-navy cursor-pointer transition-colors duration-200 hover:text-ink"
                     >
                       {isOpen ? t.hideDetails : t.showDetails}
-                      <motion.span animate={{ rotate: isOpen ? 180 : 0 }} transition={{ duration: 0.2 }} className="flex">
+                      <motion.span animate={{ rotate: isOpen ? 180 : 0 }} transition={{ duration: 0.2, ease: [0.23, 1, 0.32, 1] }} className="flex">
                         <ChevronDown size={14} aria-hidden />
                       </motion.span>
                     </button>
@@ -109,6 +110,11 @@ export const Capabilities: React.FC = () => {
           );
         })}
       </ul>
+
+      {/* Nota al cierre de Soluciones (sin CTA) */}
+      <Reveal className="mt-8">
+        <p className="max-w-3xl text-sm text-slate">{t.note}</p>
+      </Reveal>
     </Section>
   );
 };

@@ -65,7 +65,7 @@ const clearDraft = () => {
 };
 
 const fieldClass =
-  'w-full rounded-[var(--radius-btn)] border border-line bg-paper px-4 py-3 text-base text-ink placeholder:text-slate/70 transition-colors duration-200 focus:border-navy focus:outline-none aria-[invalid=true]:border-red-600';
+  'w-full rounded-[var(--radius-btn)] border border-line bg-paper px-4 py-3 text-base text-ink placeholder:text-slate/70 transition-[border-color,box-shadow] duration-200 focus:border-navy focus:outline-none focus:ring-4 focus:ring-navy/10 aria-[invalid=true]:border-red-600 aria-[invalid=true]:focus:ring-red-600/10';
 const labelClass = 'text-eyebrow font-semibold uppercase tracking-[0.08em] text-slate';
 
 export const ContactForm: React.FC = () => {

@@ -34,7 +34,7 @@ export const Hero: React.FC = () => {
             width={1000}
             height={750}
             loading="eager"
-            fetchPriority="high"
+            {...{ fetchpriority: "high" }}
             decoding="async"
             className="h-full w-full object-cover object-center"
           />
@@ -70,9 +70,10 @@ export const Hero: React.FC = () => {
                 <a
                   href="#capabilities"
                   data-track="hero_explore"
-                  className="inline-flex min-h-10 items-center gap-1.5 text-sm font-semibold text-white underline-offset-4 transition-colors hover:underline lg:text-navy"
+                  className="group/link inline-flex min-h-10 items-center gap-1.5 text-sm font-semibold text-white underline-offset-4 transition-colors hover:underline lg:text-navy"
                 >
-                  {t.secondaryCta} <ArrowRight size={16} aria-hidden />
+                  {t.secondaryCta}{" "}
+                  <ArrowRight size={16} aria-hidden className="transition-transform duration-200 ease-[var(--ease-out-quart)] group-hover/link:translate-x-0.5" />
                 </a>
               </Reveal>
 
@@ -100,7 +101,7 @@ export const Hero: React.FC = () => {
                 width={1000}
                 height={750}
                 loading="eager"
-                fetchPriority="high"
+                {...{ fetchpriority: "high" }}
                 decoding="async"
                 style={{ y: imgY }}
                 className="kenburns h-[108%] w-full object-cover"

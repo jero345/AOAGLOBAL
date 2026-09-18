@@ -39,10 +39,10 @@ export const Faq: React.FC<FaqProps> = ({ eyebrow, title, items, id = 'faq', ton
                       aria-expanded={isOpen}
                       aria-controls={`${key}-panel`}
                       id={`${key}-button`}
-                      className="flex w-full items-center justify-between gap-4 py-4 text-left text-base font-semibold text-ink cursor-pointer hover:text-navy md:py-5"
+                      className="flex w-full items-center justify-between gap-4 py-4 text-left text-base font-semibold text-ink cursor-pointer transition-colors duration-200 hover:text-navy md:py-5"
                     >
                       {item.q}
-                      <motion.span animate={{ rotate: isOpen ? 45 : 0 }} transition={{ duration: 0.2 }} className="shrink-0 text-accent-hover">
+                      <motion.span animate={{ rotate: isOpen ? 45 : 0 }} transition={{ duration: 0.2, ease: [0.23, 1, 0.32, 1] }} className="shrink-0 text-accent-hover">
                         <Plus size={20} aria-hidden />
                       </motion.span>
                     </button>
@@ -56,7 +56,7 @@ export const Faq: React.FC<FaqProps> = ({ eyebrow, title, items, id = 'faq', ton
                         initial={{ height: 0, opacity: 0 }}
                         animate={{ height: 'auto', opacity: 1 }}
                         exit={{ height: 0, opacity: 0 }}
-                        transition={{ duration: 0.25 }}
+                        transition={{ duration: 0.28, ease: [0.16, 1, 0.3, 1] }}
                         className="overflow-hidden"
                       >
                         <p className="pb-4 text-sm leading-relaxed text-slate max-w-2xl md:pb-5">{item.a}</p>

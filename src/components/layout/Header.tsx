@@ -7,16 +7,31 @@ import { useTranslation } from '../../context/LanguageContext';
 import { localePath, company } from '../../content';
 import { Button } from '../ui/Button';
 import { LanguageSwitcher } from '../ui/LanguageSwitcher';
+import { useActiveSection } from '../../lib/useActiveSection';
 
 export const Header: React.FC = () => {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
+  const [scrolled, setScrolled] = useState(false);
   const location = useLocation();
   const { language, t } = useTranslation('nav');
   const home = localePath(language);
+  const isHome = location.pathname.replace(/\/$/, '') === home.replace(/\/$/, '');
+  const active = useActiveSection(
+    t.links.map((l) => l.anchor.replace(/^#/, '')),
+    isHome
+  );
 
   useEffect(() => {
     setMobileMenuOpen(false);
   }, [location]);
+
+  // Sombra solo cuando hay contenido debajo del header (al inicio queda plano sobre el hero)
+  useEffect(() => {
+    const onScroll = () => setScrolled(window.scrollY > 8);
+    onScroll();
+    window.addEventListener('scroll', onScroll, { passive: true });
+    return () => window.removeEventListener('scroll', onScroll);
+  }, []);
 
   useEffect(() => {
     document.body.style.overflow = mobileMenuOpen ? 'hidden' : '';
@@ -26,7 +41,11 @@ export const Header: React.FC = () => {
   }, [mobileMenuOpen]);
 
   return (
-    <header className="sticky top-0 z-50 h-20 border-b border-line bg-paper/95 backdrop-blur-md">
+    <header
+      className={`sticky top-0 z-50 h-20 border-b border-line bg-paper/95 backdrop-blur-md transition-shadow duration-300 ${
+        scrolled ? 'shadow-[0_10px_30px_-18px_rgba(11,29,58,0.35)]' : 'shadow-none'
+      }`}
+    >
       <div className="mx-auto flex h-full max-w-[1200px] items-center justify-between px-6 md:px-8">
         <Link to={home} className="flex items-center gap-3 group">
           <div className="flex h-9 w-9 items-center justify-center bg-navy text-white font-bold text-sm rounded-[var(--radius-btn)]">
@@ -39,15 +58,22 @@ export const Header: React.FC = () => {
         </Link>
 
         <nav className="hidden items-center gap-7 lg:flex" aria-label={t.mainNavLabel}>
-          {t.links.map((link) => (
-            <a
-              key={link.anchor}
-              href={link.anchor}
-              className="text-sm font-medium text-slate transition-colors duration-200 hover:text-ink py-1"
-            >
-              {link.label}
-            </a>
-          ))}
+          {t.links.map((link) => {
+            const isActive = active === link.anchor.replace(/^#/, '');
+            return (
+              <a
+                key={link.anchor}
+                href={link.anchor}
+                aria-current={isActive ? 'true' : undefined}
+                className={`relative py-1 text-sm font-medium transition-colors duration-200 hover:text-ink
+                  after:absolute after:inset-x-0 after:-bottom-0.5 after:h-px after:origin-left after:bg-navy
+                  after:transition-transform after:duration-300 after:ease-[var(--ease-out-expo)]
+                  ${isActive ? 'text-ink after:scale-x-100' : 'text-slate after:scale-x-0 hover:after:scale-x-100'}`}
+              >
+                {link.label}
+              </a>
+            );
+          })}
         </nav>
 
         <div className="hidden lg:flex items-center gap-4">

@@ -6,10 +6,10 @@ import type { SiteContent } from './types';
  */
 export const es: SiteContent = {
   meta: {
-    title: 'AOA Global Services | Consultoría y Soluciones Tecnológicas',
+    title: 'AOA Global Services | Consultoría estratégica y procesos',
     description:
-      'AOA Global Services combina consultoría y capacidad tecnológica para mejorar procesos, integrar sistemas y desarrollar soluciones empresariales a medida.',
-    ogImageAlt: 'AOA Global Services — tecnología para transformar cómo opera una organización',
+      'Consultoría estratégica para mejorar el desempeño de los negocios. AOA integra optimización de procesos, gestión de proyectos e implementación de soluciones.',
+    ogImageAlt: 'AOA Global Services — consultoría estratégica para mejorar el desempeño de los negocios',
     localeName: 'Español'
   },
 
@@ -18,7 +18,7 @@ export const es: SiteContent = {
       { label: 'Cómo trabajamos', anchor: '#approach' },
       { label: 'Soluciones', anchor: '#capabilities' },
       { label: 'Proyectos', anchor: '#projects' },
-      { label: 'Preguntas', anchor: '#faq' }
+      { label: 'Preguntas frecuentes', anchor: '#faq' }
     ],
     cta: 'Iniciar un proyecto',
     openMenu: 'Abrir menú',
@@ -35,16 +35,16 @@ export const es: SiteContent = {
   },
 
   hero: {
-    eyebrow: 'Estrategia · Tecnología · Ejecución',
-    title: 'Tecnología para transformar cómo opera una organización.',
+    eyebrow: 'Estrategia · Procesos · Ejecución',
+    title: 'Consultoría estratégica para mejorar el desempeño de los negocios.',
     description:
-      'AOA Global Services combina consultoría y desarrollo tecnológico para mejorar procesos, integrar sistemas y construir soluciones empresariales, desde el análisis hasta la implementación.',
+      'AOA Global Services integra análisis de negocio, optimización de procesos y gestión de proyectos para convertir prioridades estratégicas en mejoras operativas. Definimos qué debe cambiar y cómo implementarlo, con prácticas de gestión y soluciones digitales al servicio del negocio.',
     primaryCta: 'Iniciar un proyecto',
     secondaryCta: 'Explorar soluciones',
     note: 'Para requerimientos claramente definidos, podemos presentar una propuesta inicial en hasta 48 horas hábiles.',
-    imageAlt: 'Ilustración de una plataforma digital con paneles, gráficos e integraciones conectadas',
+    imageAlt: 'Ilustración de una plataforma de gestión con paneles, indicadores e integraciones conectadas',
     ticker: [
-      'Estrategia y transformación tecnológica',
+      'Consultoría estratégica y optimización de procesos',
       'Automatización y soluciones inteligentes',
       'Plataformas y software a medida',
       'Datos, integraciones y reporting',
@@ -52,129 +52,138 @@ export const es: SiteContent = {
     ]
   },
 
+
   challenges: {
     eyebrow: 'Desafíos de negocio',
-    title: 'Cuando la operación evoluciona, la tecnología debe evolucionar con ella.',
+    title: 'Cuando la operación limita los objetivos del negocio.',
     items: [
       {
-        title: 'Procesos que limitan la operación',
-        text: 'Tareas manuales y herramientas poco adaptadas dificultan la gestión y reducen la capacidad de los equipos.'
+        title: 'Procesos que consumen capacidad',
+        text: 'Duplicidades, tareas manuales y responsabilidades poco claras dificultan la coordinación y el aprovechamiento de los recursos.'
       },
       {
-        title: 'Sistemas e información desconectados',
-        text: 'Datos dispersos dificultan el seguimiento del desempeño, los presupuestos y el avance de los proyectos.'
+        title: 'Información sin una visión de conjunto',
+        text: 'Datos dispersos y criterios de seguimiento distintos dificultan evaluar proyectos, presupuestos y desempeño.'
       },
       {
-        title: 'Iniciativas tecnológicas sin una dirección clara',
-        text: 'La organización necesita definir qué mejorar, qué integrar y dónde invertir antes de desarrollar una solución.'
+        title: 'Iniciativas sin una ruta de ejecución',
+        text: 'Las oportunidades de mejora no se convierten en avances cuando faltan prioridades, responsables y un plan de implementación.'
       }
     ]
   },
 
+
   approach: {
     eyebrow: 'Nuestro enfoque',
-    title: 'De la estrategia a la implementación.',
+    title: 'Criterio para priorizar. Capacidad para implementar.',
     steps: [
-      { number: '01', title: 'Comprender', description: 'Analizamos el negocio, sus procesos y el resultado esperado.' },
-      { number: '02', title: 'Diseñar', description: 'Definimos la solución, los requerimientos y el alcance.' },
-      { number: '03', title: 'Implementar', description: 'Desarrollamos, integramos y validamos la solución.' }
+      { number: '01', title: 'Comprender', description: 'Analizamos objetivos, procesos, responsabilidades e información para identificar las causas del problema y las oportunidades de mejora.' },
+      { number: '02', title: 'Diseñar', description: 'Priorizamos mejoras por impacto y viabilidad. Definimos procesos, responsables, indicadores y un plan de implementación.' },
+      { number: '03', title: 'Implementar', description: 'Coordinamos la puesta en práctica y evaluamos los avances. Integramos o desarrollamos herramientas cuando el alcance lo requiere.' }
     ],
-    closing: 'Consultoría, desarrollo e implementación coordinados dentro de un mismo proyecto.'
+    closing: 'El análisis no se limita a indicar qué cambiar: define cómo hacerlo y con qué evaluarlo.'
   },
+
 
   capabilities: {
     eyebrow: 'Soluciones',
-    title: 'Cinco capacidades para transformar procesos, información y operación.',
+    title: 'Soluciones para la gestión y el desempeño empresarial.',
+    intro: 'Las capacidades de AOA pueden contratarse de forma específica o integrarse en un proyecto de mejora, según los objetivos y el alcance.',
     showDetails: 'Ver detalles',
     hideDetails: 'Ocultar detalles',
     capabilitiesLabel: 'Capacidades',
     cta: 'Iniciar un proyecto',
+    note: 'No es necesario tener una solución definida. El proyecto puede comenzar por el análisis de una necesidad de negocio.',
     items: [
       {
         slug: 'strategy',
-        name: 'Estrategia y Transformación Tecnológica',
-        description: 'Analizamos procesos y sistemas para definir prioridades, requerimientos y una hoja de ruta de implementación.',
-        capabilities: ['Diagnóstico', 'Procesos', 'Estrategia tecnológica', 'Diseño de soluciones', 'Roadmaps'],
+        name: 'Consultoría estratégica y optimización de procesos',
+        description: 'Evaluamos la operación y convertimos los objetivos del negocio en prioridades, procesos y planes de mejora, con alcance, responsables e indicadores definidos.',
+        capabilities: ['Diagnóstico operativo', 'Análisis y rediseño de procesos', 'Priorización de iniciativas', 'Indicadores de gestión', 'Planes de implementación'],
+        note: 'La intervención puede centrarse en prácticas de gestión y procesos, sin requerir nuevos desarrollos tecnológicos.',
         image: '/img/consulting.webp',
         imageAlt: 'Equipo definiendo prioridades de una iniciativa sobre un tablero'
       },
       {
         slug: 'automation',
-        name: 'Automatización y Soluciones Inteligentes',
-        description: 'Optimizamos flujos de trabajo y automatizamos tareas para reducir trabajo manual y mejorar la capacidad operativa.',
-        capabilities: ['Automatización', 'Workflows', 'Procesamiento documental', 'Integraciones', 'IA aplicada'],
+        name: 'Automatización y soluciones inteligentes',
+        description: 'Rediseñamos flujos de trabajo y automatizamos tareas para reducir reprocesos, fortalecer la trazabilidad y liberar capacidad del equipo.',
+        capabilities: ['Flujos de trabajo', 'Gestión de aprobaciones', 'Procesamiento documental', 'Integración de herramientas', 'Inteligencia artificial aplicada'],
+        note: 'La aplicación de inteligencia artificial se evalúa según el proceso, la calidad de la información, los riesgos y la supervisión necesaria.',
         image: '/img/automation.webp',
         imageAlt: 'Diagrama de flujos de proceso conectados sobre una pared de trabajo'
       },
       {
         slug: 'platforms',
-        name: 'Plataformas y Software a Medida',
-        description: 'Diseñamos plataformas internas y herramientas de gestión adaptadas a los procesos, usuarios y datos de cada organización.',
-        capabilities: ['Plataformas operativas', 'Software empresarial', 'Portales', 'Dashboards', 'Herramientas internas'],
+        name: 'Plataformas y software a medida',
+        description: 'Diseñamos y desarrollamos plataformas de planificación, control y gestión cuando la operación requiere capacidades que los sistemas actuales no ofrecen.',
+        capabilities: ['Plataformas operativas', 'Herramientas internas', 'Portales', 'Planificación y seguimiento', 'Accesos según responsabilidades'],
         image: '/img/software.webp',
         imageAlt: 'Código fuente de una plataforma en desarrollo'
       },
       {
         slug: 'data',
-        name: 'Datos, Integraciones y Reporting',
-        description: 'Integramos sistemas y datos para facilitar el seguimiento de la operación, el desempeño y los resultados.',
-        capabilities: ['Integraciones', 'APIs', 'Data flows', 'Dashboards', 'Reporting', 'Analítica'],
+        name: 'Datos, integraciones y reporting',
+        description: 'Conectamos información de distintas fuentes y definimos reportes e indicadores para evaluar proyectos, presupuestos y desempeño con criterios consistentes.',
+        capabilities: ['Integración de sistemas', 'Consolidación de información', 'Tableros de gestión', 'Reportes operativos', 'Seguimiento de indicadores'],
         image: '/img/seo.webp',
         imageAlt: 'Tablero de indicadores operativos en un portátil'
       },
       {
         slug: 'web',
-        name: 'Web y Soluciones Digitales',
-        description: 'Desarrollamos sitios corporativos y experiencias digitales alineados con los objetivos comerciales y operativos de la empresa.',
-        capabilities: ['Web Development', 'UX/UI', 'SEO', 'Analytics', 'Landing Pages', 'Portales', 'Experiencias digitales'],
+        name: 'Web y soluciones digitales',
+        description: 'Integramos posicionamiento, diseño y desarrollo para crear sitios corporativos y experiencias digitales que respalden los objetivos comerciales y operativos de la empresa.',
+        capabilities: ['Estrategia digital', 'Diseño y desarrollo web', 'Experiencia de usuario', 'Formularios e integraciones', 'SEO', 'Analítica'],
         image: '/img/web.webp',
         imageAlt: 'Estación de diseño con la interfaz de un sitio corporativo en pantalla'
       }
     ]
   },
 
+
   projects: {
-    eyebrow: 'Proyectos y soluciones',
-    title: 'Tecnología aplicada a necesidades reales de operación.',
+    eyebrow: 'Ejemplos de soluciones',
+    title: 'Aplicaciones concretas en la operación.',
     items: [
       {
-        title: 'Plataformas operativas',
-        text: 'Soluciones que integran planificación, información, seguimiento, gestión y reporting dentro de una misma capa tecnológica.'
+        title: 'Planificación y control de proyectos',
+        text: 'Estructuración de etapas, presupuestos y responsabilidades para conocer el avance, identificar desviaciones y sustentar decisiones de gestión.'
       },
       {
-        title: 'Automatización de procesos',
-        text: 'Diseño de flujos que reducen actividades manuales, estructuran información y mejoran la consistencia de procesos recurrentes.'
+        title: 'Optimización de procesos internos',
+        text: 'Rediseño de actividades, controles y aprobaciones para reducir duplicidades y mejorar la coordinación entre áreas.'
       },
       {
-        title: 'Ecosistemas digitales',
-        text: 'Diseño de experiencias digitales conectadas con captación, contenidos, formularios, analytics y procesos internos.'
+        title: 'Mejora de la presencia digital',
+        text: 'Desarrollo de sitios y puntos de contacto digitales coherentes con la propuesta de valor, la experiencia del cliente y los objetivos comerciales.'
       }
     ]
   },
 
+
   faq: {
     eyebrow: 'Preguntas frecuentes',
-    title: 'Aspectos clave antes de iniciar un proyecto tecnológico.',
+    title: 'Aspectos clave para iniciar un proyecto.',
     items: [
       {
-        q: '¿Cómo se define y gestiona un proyecto?',
-        a: 'El proyecto puede comenzar con un requerimiento definido o con el análisis de una necesidad de negocio. A partir de ese contexto se acuerdan alcance, responsables, entregables e hitos de seguimiento.'
+        q: '¿Es necesario tener definida la solución?',
+        a: 'No. Una necesidad de negocio, un proceso que requiere revisión o un objetivo de mejora permiten iniciar el análisis. A partir de ese contexto se definen el alcance y las alternativas de intervención.'
       },
       {
-        q: '¿AOA puede trabajar con sistemas existentes?',
-        a: 'Sí. Evaluamos las herramientas actuales y las posibilidades de integración antes de recomendar nuevos desarrollos o reemplazos.'
+        q: '¿Todo proyecto requiere incorporar tecnología?',
+        a: 'No. La solución puede centrarse en procesos, responsabilidades, controles o indicadores. Las herramientas digitales se incorporan cuando facilitan la implementación y responden a una necesidad definida.'
       },
       {
-        q: '¿Cómo se determina qué procesos automatizar?',
-        a: 'Analizamos el flujo de trabajo, las dependencias, los datos disponibles y el resultado esperado para identificar dónde la automatización puede aportar una mejora concreta.'
+        q: '¿Cómo se definen las prioridades y el alcance?',
+        a: 'Se valoran el impacto esperado, la viabilidad y las dependencias. La propuesta establece objetivos, entregables, responsabilidades e hitos para delimitar la intervención y organizar su seguimiento.'
       },
       {
-        q: '¿Cómo se evalúan los resultados?',
-        a: 'Los criterios se acuerdan según el objetivo del proyecto y pueden incluir eficiencia, calidad de información, visibilidad operativa, adopción o desempeño digital.'
+        q: '¿Cómo se evalúan las mejoras?',
+        a: 'Los criterios se acuerdan antes de implementar. Según el proyecto, se revisan tiempos, reprocesos, calidad de información, adopción o desempeño digital, comparándolos con la situación inicial cuando existen datos suficientes.'
       },
       {
-        q: '¿Qué ocurre después de la implementación?',
-        a: 'El acompañamiento posterior se define según el alcance acordado y puede incluir mantenimiento, optimización, nuevas funcionalidades o integraciones.'
+        q: '¿AOA puede implementar la solución recomendada?',
+        a: 'Sí. AOA integra la definición de la solución con su ejecución: cambios de proceso, automatización, integraciones o desarrollo digital. La implementación y el soporte posterior se delimitan en el alcance contratado.'
       }
     ]
   },
@@ -182,7 +191,7 @@ export const es: SiteContent = {
   contact: {
     eyebrow: 'Nuevos proyectos',
     title: 'Presente su proyecto o desafío.',
-    intro: 'Comparta el objetivo del proyecto o el proceso que necesita mejorar. Revisaremos el contexto para definir el siguiente paso.',
+    intro: 'Indique el objetivo de negocio, la situación actual y el resultado esperado. Esta información permitirá orientar la evaluación inicial del proyecto.',
     imageAlt: 'Dos profesionales revisando el contexto de un proyecto',
     form: {
       name: { label: 'Nombre', placeholder: 'Nombre y apellido', required: 'Indique su nombre.' },
@@ -198,7 +207,7 @@ export const es: SiteContent = {
         placeholder: 'Seleccione una opción',
         required: 'Seleccione el tipo de proyecto.',
         options: [
-          { value: 'strategy', label: 'Estrategia y transformación tecnológica' },
+          { value: 'strategy', label: 'Consultoría estratégica y optimización de procesos' },
           { value: 'automation', label: 'Automatización y soluciones inteligentes' },
           { value: 'platforms', label: 'Plataforma o software a medida' },
           { value: 'data', label: 'Datos e integraciones' },
@@ -208,7 +217,7 @@ export const es: SiteContent = {
       },
       message: {
         label: 'Contexto del proyecto',
-        placeholder: 'Describa brevemente la situación actual, el objetivo del proyecto, los procesos o sistemas involucrados y cualquier plazo relevante.',
+        placeholder: 'Describa la situación actual, el proceso o área involucrada, el resultado esperado y cualquier plazo relevante.',
         required: 'Describa brevemente el contexto del proyecto.',
         minLength: 'Amplíe el contexto para poder evaluar la solicitud (mínimo 20 caracteres).'
       },
@@ -379,11 +388,11 @@ export const es: SiteContent = {
   },
 
   footer: {
-    tagline: 'Consultoría y soluciones tecnológicas para transformar procesos, información y capacidad operativa.',
-    brandLine: 'Strategy · Technology · Execution',
+    tagline: 'Consultoría estratégica, optimización de procesos e implementación de soluciones empresariales.',
+    brandLine: 'Estrategia · Procesos · Ejecución',
     solutionsTitle: 'Soluciones',
     solutions: [
-      { slug: 'strategy', label: 'Estrategia y transformación tecnológica' },
+      { slug: 'strategy', label: 'Consultoría estratégica y optimización de procesos' },
       { slug: 'automation', label: 'Automatización y soluciones inteligentes' },
       { slug: 'platforms', label: 'Plataformas a medida' },
       { slug: 'data', label: 'Datos e integraciones' },

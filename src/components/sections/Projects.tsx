@@ -26,7 +26,7 @@ export const Projects: React.FC = () => {
               as="li"
               key={item.title}
               delay={i * 0.08}
-              className="flex flex-row items-start gap-4 rounded-[var(--radius-card)] border border-line bg-paper p-4 transition-all duration-300 hover:-translate-y-1 hover:border-navy hover:shadow-md md:flex-col md:gap-0 md:p-6"
+              className="flex flex-row items-start gap-4 rounded-[var(--radius-card)] border border-line bg-paper p-4 transition-[transform,border-color,box-shadow] duration-300 ease-[var(--ease-out-quart)] hover:-translate-y-1 hover:border-navy hover:shadow-[0_12px_24px_-12px_rgba(11,29,58,0.25)] md:flex-col md:gap-0 md:p-6"
             >
               <span className="inline-flex h-10 w-10 shrink-0 items-center justify-center rounded-[var(--radius-btn)] bg-navy text-white">
                 <Icon size={20} aria-hidden />

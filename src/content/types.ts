@@ -68,11 +68,14 @@ export interface SiteContent {
   capabilities: {
     eyebrow: string;
     title: string;
+    intro: string;
     showDetails: string;
     hideDetails: string;
     capabilitiesLabel: string;
     /** CTA de cada tarjeta → formulario con el tipo de proyecto preseleccionado */
     cta: string;
+    /** Nota breve al cierre de Soluciones */
+    note: string;
     items: Array<{
       slug: ServiceSlug;
       name: string;
@@ -80,6 +83,8 @@ export interface SiteContent {
       description: string;
       /** Capacidades específicas (desplegable "Ver detalles") */
       capabilities: string[];
+      /** Texto complementario dentro del detalle (opcional) */
+      note?: string;
       image: string;
       imageAlt: string;
     }>;
