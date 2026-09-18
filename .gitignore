@@ -35,3 +35,7 @@ aoa-dist.zip
 .claude/skills/
 .claude/settings.local.json
 .agents/skills/impeccable/scripts/bin/
+
+# Impeccable: capturas de revisión y caché son locales; el brief de superficie sí se versiona
+.impeccable/review/
+.impeccable/hook.cache.json

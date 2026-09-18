@@ -6,7 +6,6 @@ import { Eyebrow } from '../ui/Eyebrow';
 import { Button } from '../ui/Button';
 import { Reveal } from '../ui/Reveal';
 import { TextReveal } from '../ui/TextReveal';
-import { Ticker } from '../ui/Ticker';
 
 /**
  * Hero: eyebrow → H1 → un solo párrafo → CTA sólido + enlace simple → microcopy.
@@ -22,17 +21,16 @@ export const Hero: React.FC = () => {
   const imgY = useTransform(scrollYProgress, [0, 1], ['0%', reduce ? '0%' : '8%']);
 
   return (
-    <>
-      <section ref={ref} className="relative overflow-hidden bg-navy text-white lg:bg-gradient-to-br lg:from-paper lg:from-40% lg:to-navy lg:to-100% lg:text-ink">
+    <section ref={ref} className="relative overflow-hidden bg-navy text-white lg:bg-gradient-to-br lg:from-paper lg:from-40% lg:to-navy lg:to-100% lg:text-ink">
         {/* Móvil/tablet: imagen de fondo + capa navy translúcida (versión aprobada, un punto más azul) */}
         <div aria-hidden className="absolute inset-0 lg:hidden">
           <img
             src="/img/hero.webp"
-            srcSet="/img/hero-640.webp 640w, /img/hero.webp 1000w"
+            srcSet="/img/hero-640.webp 640w, /img/hero.webp 1400w"
             sizes="100vw"
             alt=""
-            width={1000}
-            height={750}
+            width={1400}
+            height={1050}
             loading="eager"
             {...{ fetchpriority: "high" }}
             decoding="async"
@@ -42,8 +40,8 @@ export const Hero: React.FC = () => {
         </div>
 
 
-        <div className="relative mx-auto max-w-[1200px] px-6 py-14 md:px-8 md:py-20 lg:py-24">
-          <div className="grid items-center gap-10 lg:grid-cols-[6fr_5fr] lg:gap-16">
+        <div className="relative mx-auto max-w-[1200px] px-6 py-14 md:px-8 md:py-20 lg:py-20">
+          <div className="grid items-center gap-10 lg:grid-cols-[10fr_9fr] lg:gap-14 xl:gap-20">
             <div key={language} className="flex flex-col items-start">
               <Reveal immediate>
                 <Eyebrow tone="navy" className="max-lg:text-accent">
@@ -56,7 +54,7 @@ export const Hero: React.FC = () => {
                 text={t.title}
                 immediate
                 delay={0.1}
-                className="mt-4 text-4xl text-white sm:text-5xl lg:max-w-[16ch] lg:text-display lg:text-ink"
+                className="mt-4 text-4xl text-white sm:text-5xl lg:max-w-[16ch] lg:text-display lg:text-ink xl:text-[4rem] xl:leading-[1.03]"
               />
 
               <Reveal immediate delay={0.35} className="mt-5">
@@ -82,24 +80,25 @@ export const Hero: React.FC = () => {
               </Reveal>
             </div>
 
-            {/* Escritorio: ilustración a la derecha */}
+            {/* Escritorio: ilustración a la derecha. Se revela de abajo hacia arriba y luego flota. */}
             <motion.div
-              initial={{ opacity: 0, scale: 0.96 }}
-              animate={{ opacity: 1, scale: 1 }}
-              transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1], delay: 0.15 }}
-              className="float-card relative hidden lg:block"
+              initial={reduce ? false : { opacity: 0, clipPath: 'inset(100% 0 0 0)' }}
+              animate={{ opacity: 1, clipPath: 'inset(0% 0 0 0)' }}
+              transition={{ duration: 1, ease: [0.16, 1, 0.3, 1], delay: 0.25 }}
+              className="hidden lg:block"
             >
+            <div className="float-card relative">
               {/* Marco flotante: borde claro, sombra amplia y una segunda capa desplazada detrás */}
               <div aria-hidden className="absolute -inset-3 rounded-lg bg-white/10 backdrop-blur-sm" />
               <div aria-hidden className="absolute -bottom-4 -right-4 h-full w-full rounded-lg border border-accent/40" />
               <div className="relative aspect-[4/3] overflow-hidden rounded-md border-[6px] border-white bg-paper shadow-[0_30px_60px_-15px_rgba(11,29,58,0.55)]">
               <motion.img
                 src="/img/hero.webp"
-                srcSet="/img/hero-640.webp 640w, /img/hero.webp 1000w"
+                srcSet="/img/hero-640.webp 640w, /img/hero.webp 1400w"
                 sizes="(min-width: 1024px) 45vw, 100vw"
                 alt={t.imageAlt}
-                width={1000}
-                height={750}
+                width={1400}
+                height={1050}
                 loading="eager"
                 {...{ fetchpriority: "high" }}
                 decoding="async"
@@ -107,12 +106,10 @@ export const Hero: React.FC = () => {
                 className="kenburns h-[108%] w-full object-cover"
               />
               </div>
+            </div>
             </motion.div>
           </div>
         </div>
       </section>
-
-      <Ticker items={t.ticker} />
-    </>
   );
 };

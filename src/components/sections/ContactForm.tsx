@@ -1,7 +1,7 @@
 import React, { useEffect, useRef, useState } from 'react';
 import { useForm } from 'react-hook-form';
 import { motion, AnimatePresence } from 'framer-motion';
-import { CheckCircle2, AlertCircle, ArrowRight } from 'lucide-react';
+import { CheckCircle2, AlertCircle, ArrowRight, ChevronDown } from 'lucide-react';
 import { useTranslation } from '../../context/LanguageContext';
 import { useQuote, type QuoteService } from '../../context/QuoteContext';
 import { company } from '../../content';
@@ -214,21 +214,25 @@ export const ContactForm: React.FC = () => {
 
       <div className="flex flex-col gap-2">
         <label htmlFor="service" className={labelClass}>{f.projectType.label}</label>
-        <select
-          id="service"
-          aria-invalid={!!errors.service}
-          aria-describedby={errors.service ? 'service-error' : undefined}
-          className={`${fieldClass} cursor-pointer`}
-          {...register('service', {
-            required: f.projectType.required,
-            onChange: (e) => setService(e.target.value as QuoteService)
-          })}
-        >
-          <option value="">{f.projectType.placeholder}</option>
-          {f.projectType.options.map((o) => (
-            <option key={o.value} value={o.value}>{o.label}</option>
-          ))}
-        </select>
+        {/* Chevron propio: el nativo es el único control que no llevaba la paleta */}
+        <div className="relative">
+          <select
+            id="service"
+            aria-invalid={!!errors.service}
+            aria-describedby={errors.service ? 'service-error' : undefined}
+            className={`${fieldClass} cursor-pointer appearance-none pr-11`}
+            {...register('service', {
+              required: f.projectType.required,
+              onChange: (e) => setService(e.target.value as QuoteService)
+            })}
+          >
+            <option value="">{f.projectType.placeholder}</option>
+            {f.projectType.options.map((o) => (
+              <option key={o.value} value={o.value}>{o.label}</option>
+            ))}
+          </select>
+          <ChevronDown size={18} aria-hidden className="pointer-events-none absolute right-4 top-1/2 -translate-y-1/2 text-navy" />
+        </div>
         {errors.service && <span id="service-error" className="text-xs font-medium text-red-700">{errors.service.message}</span>}
       </div>
 

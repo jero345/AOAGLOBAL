@@ -1,10 +1,9 @@
-import React, { useState } from 'react';
-import { motion, AnimatePresence } from 'framer-motion';
-import { Plus } from 'lucide-react';
+import React from 'react';
 import { useTranslation } from '../../context/LanguageContext';
 import { Section } from '../ui/Section';
 import { SectionHeader } from '../ui/SectionHeader';
 import { Reveal } from '../ui/Reveal';
+import { FaqList } from './FaqList';
 
 interface FaqProps {
   eyebrow?: string;
@@ -14,59 +13,17 @@ interface FaqProps {
   tone?: 'paper' | 'line';
 }
 
-/** Preguntas frecuentes: acordeón accesible, todas cerradas al inicio. Reutilizable con items propios. */
+/** Preguntas frecuentes (páginas secundarias): cabecera estándar + acordeón. */
 export const Faq: React.FC<FaqProps> = ({ eyebrow, title, items, id = 'faq', tone = 'line' }) => {
   const { language, t } = useTranslation('faq');
-  const [open, setOpen] = useState<number | null>(null);
   const list = items ?? t.items;
 
   return (
     <Section tone={tone} id={id}>
       <div className="grid gap-8 lg:grid-cols-[2fr_3fr] lg:gap-10">
         <SectionHeader eyebrow={eyebrow ?? t.eyebrow} title={title ?? t.title} />
-
         <Reveal>
-          <ul className="divide-y divide-line border-y border-line" key={language}>
-            {list.map((item, i) => {
-              const isOpen = open === i;
-              const key = `${id}-${i}`;
-              return (
-                <li key={item.q}>
-                  <h3>
-                    <button
-                      type="button"
-                      onClick={() => setOpen(isOpen ? null : i)}
-                      aria-expanded={isOpen}
-                      aria-controls={`${key}-panel`}
-                      id={`${key}-button`}
-                      className="flex w-full items-center justify-between gap-4 py-4 text-left text-base font-semibold text-ink cursor-pointer transition-colors duration-200 hover:text-navy md:py-5"
-                    >
-                      {item.q}
-                      <motion.span animate={{ rotate: isOpen ? 45 : 0 }} transition={{ duration: 0.2, ease: [0.23, 1, 0.32, 1] }} className="shrink-0 text-accent-hover">
-                        <Plus size={20} aria-hidden />
-                      </motion.span>
-                    </button>
-                  </h3>
-                  <AnimatePresence initial={false}>
-                    {isOpen && (
-                      <motion.div
-                        id={`${key}-panel`}
-                        role="region"
-                        aria-labelledby={`${key}-button`}
-                        initial={{ height: 0, opacity: 0 }}
-                        animate={{ height: 'auto', opacity: 1 }}
-                        exit={{ height: 0, opacity: 0 }}
-                        transition={{ duration: 0.28, ease: [0.16, 1, 0.3, 1] }}
-                        className="overflow-hidden"
-                      >
-                        <p className="pb-4 text-sm leading-relaxed text-slate max-w-2xl md:pb-5">{item.a}</p>
-                      </motion.div>
-                    )}
-                  </AnimatePresence>
-                </li>
-              );
-            })}
-          </ul>
+          <FaqList key={language} items={list} id={id} />
         </Reveal>
       </div>
     </Section>

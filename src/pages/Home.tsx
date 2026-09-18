@@ -3,20 +3,26 @@ import { Seo } from '../components/layout/Seo';
 import { useTranslation } from '../context/LanguageContext';
 import { company, SITE_URL, localePath } from '../content';
 import { Hero } from '../components/sections/Hero';
-import { Challenges } from '../components/sections/Challenges';
-import { Approach } from '../components/sections/Approach';
-import { Capabilities } from '../components/sections/Capabilities';
-import { Projects } from '../components/sections/Projects';
-import { Faq } from '../components/sections/Faq';
-import { ContactSection } from '../components/sections/ContactSection';
+import { Ticker } from '../components/ui/Ticker';
+import { ChapterIndex } from '../components/home/ChapterIndex';
+import { useChapters } from '../components/home/chapters';
+import { ChallengesChapter } from '../components/home/ChallengesChapter';
+import { ApproachChapter } from '../components/home/ApproachChapter';
+import { CapabilitiesChapter } from '../components/home/CapabilitiesChapter';
+import { ProjectsChapter } from '../components/home/ProjectsChapter';
+import { FaqChapter } from '../components/home/FaqChapter';
+import { ContactChapter } from '../components/home/ContactChapter';
 
 /**
- * One-page. Orden: hero (+ de la necesidad al proyecto) → desafíos de negocio →
- * nuestro enfoque (+ dirección integrada) → capacidades → proyectos y soluciones →
- * preguntas frecuentes → nuevos proyectos (formulario).
+ * One-page leída como una propuesta: portada (hero) → índice → seis capítulos numerados:
+ * 01 desafíos de negocio → 02 nuestro enfoque → 03 soluciones → 04 ejemplos →
+ * 05 preguntas frecuentes → 06 nuevos proyectos (formulario).
+ * Los ids de sección y las anclas del menú no cambian.
  */
 export const Home: React.FC = () => {
   const { language, t } = useTranslation('capabilities');
+  const { t: hero } = useTranslation('hero');
+  const [challenges, approach, capabilities, projects, faq, contact] = useChapters();
   const services = {
     '@context': 'https://schema.org',
     '@type': 'ItemList',
@@ -34,15 +40,17 @@ export const Home: React.FC = () => {
   };
 
   return (
-  <>
-    <Seo homeFaq schemas={[services]} />
-    <Hero />
-    <Challenges />
-    <Approach />
-    <Capabilities />
-    <Projects />
-    <Faq />
-    <ContactSection />
-  </>
+    <>
+      <Seo homeFaq schemas={[services]} />
+      <Hero />
+      <ChapterIndex />
+      <Ticker items={hero.ticker} />
+      <ChallengesChapter number={challenges.number} label={challenges.label} />
+      <ApproachChapter number={approach.number} label={approach.label} />
+      <CapabilitiesChapter number={capabilities.number} label={capabilities.label} />
+      <ProjectsChapter number={projects.number} label={projects.label} />
+      <FaqChapter number={faq.number} label={faq.label} />
+      <ContactChapter number={contact.number} label={contact.label} />
+    </>
   );
 };

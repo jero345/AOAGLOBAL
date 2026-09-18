@@ -42,7 +42,7 @@ export const es: SiteContent = {
     primaryCta: 'Iniciar un proyecto',
     secondaryCta: 'Explorar soluciones',
     note: 'Para requerimientos claramente definidos, podemos presentar una propuesta inicial en hasta 48 horas hábiles.',
-    imageAlt: 'Ilustración de una plataforma de gestión con paneles, indicadores e integraciones conectadas',
+    imageAlt: 'Profesionales revisando un mapa de procesos y una hoja de ruta sobre una mesa de trabajo',
     ticker: [
       'Consultoría estratégica y optimización de procesos',
       'Automatización y soluciones inteligentes',
