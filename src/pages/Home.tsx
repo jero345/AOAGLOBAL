@@ -5,6 +5,7 @@ import { company, SITE_URL, localePath } from '../content';
 import { Hero } from '../components/sections/Hero';
 import { Ticker } from '../components/ui/Ticker';
 import { ChapterIndex } from '../components/home/ChapterIndex';
+import { IntroOverlay } from '../components/home/IntroOverlay';
 import { useChapters } from '../components/home/chapters';
 import { ChallengesChapter } from '../components/home/ChallengesChapter';
 import { ApproachChapter } from '../components/home/ApproachChapter';
@@ -42,6 +43,7 @@ export const Home: React.FC = () => {
   return (
     <>
       <Seo homeFaq schemas={[services]} />
+      <IntroOverlay />
       <Hero />
       <ChapterIndex />
       <Ticker items={hero.ticker} />

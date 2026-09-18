@@ -5,6 +5,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
     <meta name="theme-color" content="#0B1D3A" />
+    <!-- Cortina de entrada: si ya se vio en esta sesión, se oculta antes de pintar -->
+    <script>try{if(sessionStorage.getItem("aoa_intro"))document.documentElement.setAttribute("data-intro","done")}catch(e){}</script>
     <!-- Imagen LCP del hero: se descubre antes de ejecutar JS -->
     <link rel="preload" as="image" href="/img/hero.webp" imagesrcset="/img/hero-640.webp 640w, /img/hero.webp 1400w" imagesizes="(min-width: 1024px) 50vw, 100vw" />
     <!-- Solo el título como fallback: meta, canonical, hreflang, OG y JSON-LD los genera Seo.tsx por idioma -->

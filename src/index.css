@@ -143,6 +143,86 @@
 
 
 
+/* ---------- Cortina de entrada (home, una vez por sesión) ---------- */
+.intro {
+  position: fixed;
+  inset: 0;
+  z-index: 100;
+  display: grid;
+  place-items: center;
+  background-color: var(--color-navy);
+  color: var(--color-paper);
+  animation: intro-lift 0.75s var(--ease-out-expo) 1.15s both;
+}
+.intro-inner {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1.25rem;
+  padding: 0 1.5rem;
+  text-align: center;
+}
+.intro-mark {
+  display: grid;
+  place-items: center;
+  width: 3.25rem;
+  height: 3.25rem;
+  border-radius: var(--radius-btn);
+  background-color: var(--color-paper);
+  color: var(--color-navy);
+  font-size: 0.95rem;
+  font-weight: 700;
+  letter-spacing: -0.02em;
+  animation: intro-pop 0.6s var(--ease-out-expo) 0.05s both;
+}
+.intro-words {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: center;
+  gap: 0.75rem 0.9rem;
+  margin: 0;
+  font-size: 1rem;
+  font-weight: 600;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  line-height: 1.2;
+}
+/* Móvil: una palabra por línea (sin puntos); escritorio: en una sola línea con puntos dorados */
+@media (max-width: 767px) {
+  .intro-words { flex-direction: column; gap: 0.5rem; }
+  .intro-dot { display: none; }
+}
+@media (min-width: 768px) {
+  .intro-words { font-size: 1.375rem; gap: 1rem 1.25rem; }
+  .intro-mark { width: 3.75rem; height: 3.75rem; font-size: 1.1rem; }
+}
+.intro-word {
+  display: inline-block;
+  animation: intro-rise 0.55s var(--ease-out-expo) both;
+}
+.intro-dot {
+  width: 0.375rem;
+  height: 0.375rem;
+  border-radius: 999px;
+  background-color: var(--color-accent);
+  animation: intro-pop 0.4s var(--ease-out-expo) both;
+}
+.intro-rule {
+  width: 3.5rem;
+  height: 2px;
+  background-color: var(--color-accent);
+  transform-origin: left;
+  animation: intro-draw 0.6s var(--ease-out-expo) 0.95s both;
+}
+@keyframes intro-pop  { from { opacity: 0; transform: scale(0.9); } to { opacity: 1; transform: scale(1); } }
+@keyframes intro-rise { from { opacity: 0; transform: translateY(0.6em); } to { opacity: 1; transform: translateY(0); } }
+@keyframes intro-draw { from { transform: scaleX(0); } to { transform: scaleX(1); } }
+@keyframes intro-lift { from { clip-path: inset(0 0 0 0); } to { clip-path: inset(0 0 100% 0); } }
+/* Ya vista en esta sesión (script en index.html) o movimiento reducido: no se muestra */
+html[data-intro="done"] .intro { display: none; }
+
 @media (prefers-reduced-motion: reduce) {
   .ticker, .blob, .kenburns, .float-card { animation: none !important; }
+  .intro { display: none; }
 }
