@@ -8,13 +8,15 @@ interface TextRevealProps {
   /** true = al montar (hero). false = al entrar en viewport. */
   immediate?: boolean;
   delay?: number;
+  /** Entrada con desenfoque (más cinematográfica): solo para el H1 del hero */
+  blur?: boolean;
 }
 
 /**
  * Revela un titular palabra por palabra (deslizamiento + fade).
  * El texto completo queda en el DOM en orden: lectores de pantalla y SEO no se enteran del truco.
  */
-export const TextReveal: React.FC<TextRevealProps> = ({ text, as = 'h2', className = '', immediate = false, delay = 0 }) => {
+export const TextReveal: React.FC<TextRevealProps> = ({ text, as = 'h2', className = '', immediate = false, delay = 0, blur = false }) => {
   const reduce = useReducedMotion();
   const Tag = as;
   const words = text.split(' ');
@@ -38,8 +40,8 @@ export const TextReveal: React.FC<TextRevealProps> = ({ text, as = 'h2', classNa
           <motion.span
             className="inline-block"
             variants={{
-              hidden: { y: '100%', opacity: 0 },
-              visible: { y: 0, opacity: 1, transition: { duration: 0.5, ease: [0.16, 1, 0.3, 1] } }
+              hidden: { y: '100%', opacity: 0, ...(blur ? { filter: 'blur(8px)' } : {}) },
+              visible: { y: 0, opacity: 1, ...(blur ? { filter: 'blur(0px)' } : {}), transition: { duration: blur ? 0.7 : 0.5, ease: [0.16, 1, 0.3, 1] } }
             }}
           >
             {word}

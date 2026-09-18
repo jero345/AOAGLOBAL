@@ -143,6 +143,81 @@
 
 
 
+/* ---------- Hero: "el plan cobra vida" ---------- */
+/* Línea dorada que se dibuja (pathLength=1), nodos que se encienden y pulso en bucle */
+.flow-path {
+  fill: none;
+  stroke: var(--color-accent);
+  stroke-width: 2.5;
+  stroke-linecap: round;
+  vector-effect: non-scaling-stroke;
+  stroke-dasharray: 1;
+  stroke-dashoffset: 1;
+  animation: flow-draw 1.6s var(--ease-out-expo) var(--flow-delay, 0s) forwards;
+}
+.flow-path--glow { stroke-width: 10; opacity: 0.45; }
+.flow-pulse {
+  fill: none;
+  stroke: #fff;
+  stroke-width: 3;
+  stroke-linecap: round;
+  vector-effect: non-scaling-stroke;
+  stroke-dasharray: 0.08 0.92;
+  stroke-dashoffset: 1;
+  opacity: 0;
+  animation: flow-travel 3.2s linear calc(var(--flow-delay, 0s) + 1.8s) infinite;
+}
+.flow-node { opacity: 0; transform-box: fill-box; transform-origin: center; animation: flow-node-in 0.5s var(--ease-out-expo) forwards; }
+.flow-node__ring { fill: none; stroke: var(--color-accent); stroke-width: 1.5; opacity: 0; }
+.flow-node__core { fill: var(--color-accent); opacity: 0.35; }
+.flow-node__dot  { fill: #fff; stroke: var(--color-accent); stroke-width: 3; }
+@keyframes flow-draw    { to { stroke-dashoffset: 0; } }
+@keyframes flow-travel  { 0% { stroke-dashoffset: 1; opacity: 0; } 8% { opacity: 0.9; } 92% { opacity: 0.9; } 100% { stroke-dashoffset: 0; opacity: 0; } }
+@keyframes flow-node-in { from { opacity: 0; transform: scale(0.4); } to { opacity: 1; transform: scale(1); } }
+
+/* Brillo que cruza el cristal del marco al pasar el cursor */
+.hero-sweep {
+  background: linear-gradient(115deg, transparent 35%, rgba(255, 255, 255, 0.35) 50%, transparent 65%);
+  transform: translateX(-120%);
+  opacity: 0;
+}
+@media (hover: hover) and (pointer: fine) {
+  .group/frame:hover .hero-sweep { animation: hero-sweep 1.1s var(--ease-out-quart) forwards; }
+}
+@keyframes hero-sweep { 0% { transform: translateX(-120%); opacity: 0; } 15% { opacity: 1; } 100% { transform: translateX(120%); opacity: 0; } }
+
+/* Aurora: dos manchas difusas que derivan despacio detrás del contenido */
+.aurora {
+  position: absolute;
+  border-radius: 999px;
+  filter: blur(70px);
+  will-change: transform;
+  pointer-events: none;
+  animation: float-blob 16s ease-in-out infinite;
+}
+/* Luz dorada que sigue al cursor (solo puntero fino) */
+.hero-glow {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  opacity: 0;
+  transition: opacity 0.6s ease;
+  background: radial-gradient(520px circle at var(--mx, 50%) var(--my, 50%), rgba(245, 166, 35, 0.16), transparent 62%);
+}
+@media (hover: hover) and (pointer: fine) {
+  section:hover > .hero-glow { opacity: 1; }
+}
+/* Móvil: la línea se dibuja una vez; sin pulso ni anillos en bucle (ahorro de CPU/batería) */
+@media (max-width: 1023px) {
+  .flow-pulse, .flow-node__ring { display: none; }
+}
+@media (prefers-reduced-motion: reduce) {
+  .flow-path { stroke-dashoffset: 0; }
+  .flow-pulse, .flow-node__ring { display: none; }
+  .flow-node { opacity: 1; }
+  .aurora, .hero-sweep { animation: none !important; }
+}
+
 /* ---------- Cortina de entrada (home, una vez por sesión) ---------- */
 .intro {
   position: fixed;
