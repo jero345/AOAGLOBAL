@@ -44,7 +44,7 @@ export const FloatingContactPill: React.FC = () => {
           <a
             href="#contact"
             data-track="floating_cta"
-            className="flex items-center gap-2.5 rounded-full bg-accent px-5 py-3 text-xs font-bold text-navy shadow-lg transition-transform duration-200 hover:scale-105 hover:bg-accent-hover"
+            className="flex items-center gap-2.5 rounded-full bg-accent px-5 py-3 text-xs font-bold text-white shadow-lg transition-transform duration-200 hover:scale-105 hover:bg-accent-hover"
           >
             <MessageSquare size={16} aria-hidden />
             <span>{t.floatingCta}</span>

@@ -29,7 +29,7 @@ export const FaqList: React.FC<FaqListProps> = ({ items, id, tone = 'light' }) =
                 aria-controls={`${key}-panel`}
                 id={`${key}-button`}
                 className={`flex w-full cursor-pointer items-center justify-between gap-4 py-4 text-left text-base font-semibold transition-colors duration-200 md:py-5 ${
-                  dark ? 'text-white hover:text-accent' : 'text-ink hover:text-navy'
+                  dark ? 'text-white hover:text-accent-light' : 'text-ink hover:text-navy'
                 }`}
               >
                 {item.q}

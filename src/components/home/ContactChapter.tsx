@@ -40,7 +40,7 @@ export const ContactChapter: React.FC<{ label: string }> = ({ label }) => {
 
       {/* Contacto directo: al final del bloque, después del formulario */}
       <Reveal className="mt-8 flex flex-wrap items-center gap-2 border-t border-white/15 pt-6 text-sm">
-        <Mail size={16} aria-hidden className="shrink-0 text-accent" />
+        <Mail size={16} aria-hidden className="shrink-0 text-accent-light" />
         <span className="text-white/75">{t.direct.title}:</span>
         <a href={`mailto:${t.direct.email}`} className="font-semibold text-white hover:underline">
           {t.direct.email}

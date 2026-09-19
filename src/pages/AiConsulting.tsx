@@ -82,7 +82,7 @@ export const AiConsulting: React.FC<AiConsultingProps> = ({ variant = 'global' }
             <span className="font-semibold text-white lg:text-ink">{t.breadcrumb}</span>
           </nav>
           <Reveal immediate>
-            <Eyebrow tone="navy" className="max-lg:text-accent">{t.eyebrow}</Eyebrow>
+            <Eyebrow tone="navy" className="max-lg:text-accent-light">{t.eyebrow}</Eyebrow>
           </Reveal>
           <TextReveal as="h1" text={t.title} immediate delay={0.1} className="mt-4 max-w-[20ch] text-4xl text-white sm:text-5xl lg:text-display lg:text-ink" />
           <Reveal immediate delay={0.3} className="mt-6 max-w-2xl space-y-3">
@@ -105,7 +105,7 @@ export const AiConsulting: React.FC<AiConsultingProps> = ({ variant = 'global' }
       {/* Principio */}
       <Section tone="paper" id="ai-principle">
         <Reveal className="grid gap-6 rounded-[var(--radius-card)] border border-line bg-mist p-6 md:grid-cols-[auto_1fr] md:items-start md:p-8">
-          <span className="inline-flex h-11 w-11 items-center justify-center rounded-full bg-accent text-navy">
+          <span className="inline-flex h-11 w-11 items-center justify-center rounded-full bg-accent text-white">
             <Lightbulb size={22} aria-hidden />
           </span>
           <div>

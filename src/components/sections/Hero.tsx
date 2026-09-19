@@ -71,8 +71,8 @@ export const Hero: React.FC = () => {
 
       {/* Escritorio: aurora navy/dorado y luz que sigue al cursor */}
       <div aria-hidden className="pointer-events-none absolute inset-0 hidden lg:block">
-        <div className="aurora -left-24 top-10 h-[28rem] w-[28rem] bg-accent/25" />
-        <div className="aurora -bottom-32 right-[18%] h-[32rem] w-[32rem] bg-accent/20" style={{ animationDuration: '20s', animationDelay: '-7s', animationDirection: 'reverse' }} />
+        <div className="aurora -left-24 top-10 h-[28rem] w-[28rem] bg-navy/10" />
+        <div className="aurora -bottom-32 right-[18%] h-[32rem] w-[32rem] bg-white/10" style={{ animationDuration: '20s', animationDelay: '-7s', animationDirection: 'reverse' }} />
         <div className="aurora left-[38%] -top-40 h-[26rem] w-[26rem] bg-navy/15" style={{ animationDuration: '24s', animationDelay: '-12s' }} />
       </div>
       <div aria-hidden className="hero-glow hidden lg:block" />
@@ -81,7 +81,7 @@ export const Hero: React.FC = () => {
         <div className="grid items-center gap-10 lg:grid-cols-[10fr_9fr] lg:gap-14 xl:gap-20">
           <div key={language} className="flex flex-col items-start">
             <Reveal immediate delay={d}>
-              <Eyebrow tone="navy" className="max-lg:text-steel">
+              <Eyebrow tone="navy" className="max-lg:text-accent">
                 {t.eyebrow}
               </Eyebrow>
             </Reveal>

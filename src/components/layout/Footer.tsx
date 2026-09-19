@@ -56,7 +56,7 @@ export const Footer: React.FC = () => {
               <span className="text-base font-bold tracking-tight text-white">{company.name}</span>
             </div>
             <p className="text-sm text-white/70 leading-relaxed max-w-xs">{t.tagline}</p>
-            <p className="text-xs uppercase tracking-[0.14em] text-accent">{t.brandLine}</p>
+            <p className="text-xs uppercase tracking-[0.14em] text-accent-light">{t.brandLine}</p>
             <div className="pt-1 flex flex-col items-start gap-3">
               <a
                 href={company.linkedin}

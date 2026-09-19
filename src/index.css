@@ -19,16 +19,17 @@
   --color-navy: #0B1D3A;
   --color-deep: #06111F;    /* navy muy oscuro (footer, último bloque) */
   --color-onyx: #090808;    /* casi negro pedido por Andrea para el hero (degradado escritorio y capa móvil) */
-  --color-steel: #515151;   /* gris pedido por Andrea para el eyebrow del hero móvil */
   --color-ink: #111111;
   --color-slate: #6A6A6A;   /* 4.97:1 sobre mist, 5.5:1 sobre blanco (AA en texto pequeño) */
   --color-line: #D9D9D9;
   --color-paper: #FFFFFF;
   --color-mist: #F4F5F7;
 
-  /* Acento: SOLO CTAs y microacentos. Nunca fondos grandes ni texto de párrafo. */
-  --color-accent: #F5A623;
-  --color-accent-hover: #E0961A;
+  /* Acento: SOLO CTAs y microacentos. Nunca fondos grandes ni texto de párrafo.
+     Andrea (2026-09-18): nada de amarillo en la página → el acento es el gris #515151. */
+  --color-accent: #515151;
+  --color-accent-hover: #3D3D3D;
+  --color-accent-light: #9AA1AB; /* el mismo gris, versión clara, para texto sobre fondos oscuros (el #515151 no se lee ahí) */
 
   --font-sans: "Montserrat", "Montserrat Fallback", ui-sans-serif, system-ui, sans-serif;
 
@@ -204,7 +205,7 @@
   pointer-events: none;
   opacity: 0;
   transition: opacity 0.6s ease;
-  background: radial-gradient(520px circle at var(--mx, 50%) var(--my, 50%), rgba(245, 166, 35, 0.16), transparent 62%);
+  background: radial-gradient(520px circle at var(--mx, 50%) var(--my, 50%), rgba(11, 29, 58, 0.10), transparent 62%);
 }
 @media (hover: hover) and (pointer: fine) {
   section:hover > .hero-glow { opacity: 1; }
@@ -282,13 +283,13 @@
   width: 0.375rem;
   height: 0.375rem;
   border-radius: 999px;
-  background-color: var(--color-accent);
+  background-color: var(--color-accent-light);
   animation: intro-pop 0.4s var(--ease-out-expo) both;
 }
 .intro-rule {
   width: 3.5rem;
   height: 2px;
-  background-color: var(--color-accent);
+  background-color: var(--color-accent-light);
   transform-origin: left;
   animation: intro-draw 0.6s var(--ease-out-expo) 0.95s both;
 }

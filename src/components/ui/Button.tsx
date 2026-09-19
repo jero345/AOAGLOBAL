@@ -32,7 +32,7 @@ const sizeClasses: Record<ButtonSize, string> = {
 
 const variantClasses: Record<ButtonVariant, string> = {
   // Acento: reservado para la acción principal de cada bloque
-  accent: 'bg-accent text-navy hover:bg-accent-hover focus-visible:outline-navy',
+  accent: 'bg-accent text-white hover:bg-accent-hover focus-visible:outline-navy',
   primary: 'bg-navy text-white hover:bg-ink focus-visible:outline-accent',
   outline: 'border border-navy text-navy hover:bg-navy hover:text-white focus-visible:outline-accent',
   inverse: 'bg-white text-navy hover:bg-line focus-visible:outline-accent'
