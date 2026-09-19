@@ -18,7 +18,7 @@
   /* Paleta oficial — no añadir colores fuera de esta lista */
   --color-navy: #0B1D3A;
   --color-deep: #06111F;    /* navy muy oscuro (footer, último bloque) */
-  --color-deeper: #030A14;  /* aún más oscuro: capa del hero móvil (Andrea: "más oscuro que el footer") */
+  --color-onyx: #090808;    /* casi negro pedido por Andrea para el hero (degradado escritorio y capa móvil) */
   --color-steel: #515151;   /* gris pedido por Andrea para el eyebrow del hero móvil */
   --color-ink: #111111;
   --color-slate: #6A6A6A;   /* 4.97:1 sobre mist, 5.5:1 sobre blanco (AA en texto pequeño) */

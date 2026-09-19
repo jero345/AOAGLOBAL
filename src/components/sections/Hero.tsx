@@ -50,7 +50,7 @@ export const Hero: React.FC = () => {
   return (
     <section
       ref={ref}
-      className="relative overflow-hidden bg-deeper text-white lg:bg-gradient-to-br lg:from-paper lg:from-40% lg:to-navy lg:to-100% lg:text-ink"
+      className="relative overflow-hidden bg-onyx text-white lg:bg-gradient-to-br lg:from-paper lg:from-40% lg:to-onyx lg:to-100% lg:text-ink"
     >
       {/* Móvil/tablet: imagen de fondo + capa azul casi negra (Andrea: más oscura que el footer, sin amarillo) */}
       <div aria-hidden className="absolute inset-0 lg:hidden">
@@ -66,7 +66,7 @@ export const Hero: React.FC = () => {
           decoding="async"
           className="h-full w-full object-cover object-center"
         />
-        <div className="absolute inset-0 bg-gradient-to-b from-deeper/88 via-deeper/82 to-deeper/94" />
+        <div className="absolute inset-0 bg-gradient-to-b from-onyx/88 via-onyx/82 to-onyx/94" />
       </div>
 
       {/* Escritorio: aurora navy/dorado y luz que sigue al cursor */}
