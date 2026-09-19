@@ -7,7 +7,6 @@ import { Button } from '../ui/Button';
 import { Reveal } from '../ui/Reveal';
 import { TextReveal } from '../ui/TextReveal';
 import { HeroFrame } from './HeroFrame';
-import { HeroFlow } from './HeroFlow';
 import { INTRO_HERO_DELAY, introWillPlay } from '../../lib/intro';
 
 const HERO_SRCSET = '/img/hero-640.webp 640w, /img/hero.webp 1400w';
@@ -17,7 +16,7 @@ const HERO_SRCSET = '/img/hero-640.webp 640w, /img/hero.webp 1400w';
  * Escritorio (lg+): texto a la izquierda; a la derecha la foto en un marco flotante que se inclina
  * siguiendo al cursor, con la línea dorada del proceso dibujándose encima. Detrás, una aurora
  * navy/dorado que deriva despacio y una luz dorada que sigue al cursor.
- * Móvil: la foto va de fondo bajo una capa navy (banner aprobado) con la misma línea dorada.
+ * Móvil: la foto va de fondo bajo una capa azul casi negra (sin línea dorada: Andrea no quiere amarillo ahí).
  */
 export const Hero: React.FC = () => {
   const { language, t } = useTranslation('hero');
@@ -51,9 +50,9 @@ export const Hero: React.FC = () => {
   return (
     <section
       ref={ref}
-      className="relative overflow-hidden bg-navy text-white lg:bg-gradient-to-br lg:from-paper lg:from-40% lg:to-navy lg:to-100% lg:text-ink"
+      className="relative overflow-hidden bg-deeper text-white lg:bg-gradient-to-br lg:from-paper lg:from-40% lg:to-navy lg:to-100% lg:text-ink"
     >
-      {/* Móvil/tablet: imagen de fondo + capa navy translúcida (versión aprobada) + línea dorada */}
+      {/* Móvil/tablet: imagen de fondo + capa azul casi negra (Andrea: más oscura que el footer, sin amarillo) */}
       <div aria-hidden className="absolute inset-0 lg:hidden">
         <img
           src="/img/hero.webp"
@@ -67,8 +66,7 @@ export const Hero: React.FC = () => {
           decoding="async"
           className="h-full w-full object-cover object-center"
         />
-        <div className="absolute inset-0 bg-gradient-to-b from-navy/80 via-navy/72 to-navy/90" />
-        <HeroFlow delay={d + 0.9} className="opacity-50" />
+        <div className="absolute inset-0 bg-gradient-to-b from-deeper/88 via-deeper/82 to-deeper/94" />
       </div>
 
       {/* Escritorio: aurora navy/dorado y luz que sigue al cursor */}
@@ -83,7 +81,7 @@ export const Hero: React.FC = () => {
         <div className="grid items-center gap-10 lg:grid-cols-[10fr_9fr] lg:gap-14 xl:gap-20">
           <div key={language} className="flex flex-col items-start">
             <Reveal immediate delay={d}>
-              <Eyebrow tone="navy" className="max-lg:text-accent">
+              <Eyebrow tone="navy" className="max-lg:text-steel">
                 {t.eyebrow}
               </Eyebrow>
             </Reveal>
@@ -102,7 +100,7 @@ export const Hero: React.FC = () => {
             </Reveal>
 
             <Reveal immediate delay={d + 0.45} className="mt-7 flex w-full flex-col items-start gap-4 sm:w-auto sm:flex-row sm:items-center sm:gap-6">
-              <Button variant="accent" href="#contact" track="hero_start" className="w-full sm:w-auto max-lg:border max-lg:border-white/40 max-lg:bg-navy max-lg:text-white max-lg:hover:bg-ink">
+              <Button variant="accent" href="#contact" track="hero_start" className="w-full sm:w-auto max-lg:border max-lg:border-white/40 max-lg:bg-deep max-lg:text-white max-lg:hover:bg-ink">
                 {t.primaryCta}
               </Button>
               <a
