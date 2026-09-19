@@ -4,7 +4,6 @@ import { useTranslation } from '../context/LanguageContext';
 import { company, SITE_URL, localePath } from '../content';
 import { Hero } from '../components/sections/Hero';
 import { Ticker } from '../components/ui/Ticker';
-import { ChapterIndex } from '../components/home/ChapterIndex';
 import { IntroOverlay } from '../components/home/IntroOverlay';
 import { useChapters } from '../components/home/chapters';
 import { ChallengesChapter } from '../components/home/ChallengesChapter';
@@ -15,7 +14,7 @@ import { FaqChapter } from '../components/home/FaqChapter';
 import { ContactChapter } from '../components/home/ContactChapter';
 
 /**
- * One-page leída como una propuesta: portada (hero) → índice → seis capítulos numerados:
+ * One-page leída como una propuesta: portada (hero) → seis capítulos numerados:
  * 01 desafíos de negocio → 02 nuestro enfoque → 03 soluciones → 04 ejemplos →
  * 05 preguntas frecuentes → 06 nuevos proyectos (formulario).
  * Los ids de sección y las anclas del menú no cambian.
@@ -45,7 +44,6 @@ export const Home: React.FC = () => {
       <Seo homeFaq schemas={[services]} />
       <IntroOverlay />
       <Hero />
-      <ChapterIndex />
       <Ticker items={hero.ticker} />
       <ChallengesChapter number={challenges.number} label={challenges.label} />
       <ApproachChapter number={approach.number} label={approach.label} />

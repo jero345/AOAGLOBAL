@@ -6,7 +6,7 @@ import { Chapter } from './Chapter';
 import { Reveal } from '../ui/Reveal';
 import { ContactForm } from '../sections/ContactForm';
 
-/** 06 · Nuevos proyectos: el último capítulo, en navy, con el formulario sobre papel. */
+/** 06 · Nuevos proyectos: el último capítulo, en azul tirando a negro, con el formulario sobre papel. */
 export const ContactChapter: React.FC<{ number: string; label: string }> = ({ number, label }) => {
   const { t } = useTranslation('contact');
   const reduce = useReducedMotion();
@@ -17,7 +17,7 @@ export const ContactChapter: React.FC<{ number: string; label: string }> = ({ nu
       whileInView={{ clipPath: 'inset(0 0 0% 0)' }}
       viewport={{ once: true, amount: 0.4 }}
       transition={{ duration: 0.9, ease: [0.16, 1, 0.3, 1] }}
-      className="group relative aspect-[4/3] overflow-hidden rounded-[var(--radius-card)] border border-white/15 bg-deep"
+      className="group relative aspect-[4/3] overflow-hidden rounded-[var(--radius-card)] border border-white/15 bg-navy"
     >
       <img
         src="/img/contact.webp"
@@ -33,7 +33,7 @@ export const ContactChapter: React.FC<{ number: string; label: string }> = ({ nu
   );
 
   return (
-    <Chapter id="contact" number={number} label={label} title={t.title} intro={t.intro} tone="navy" wideAside aside={image}>
+    <Chapter id="contact" number={number} label={label} title={t.title} intro={t.intro} tone="deep" wideAside aside={image}>
       <Reveal delay={0.1} className="rounded-[var(--radius-card)] border border-white/10 bg-paper p-5 shadow-[0_30px_60px_-30px_rgba(0,0,0,0.6)] md:p-8">
         <ContactForm />
       </Reveal>

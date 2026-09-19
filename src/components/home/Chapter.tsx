@@ -3,7 +3,7 @@ import { motion, useReducedMotion } from 'framer-motion';
 import { TextReveal } from '../ui/TextReveal';
 import { Reveal } from '../ui/Reveal';
 
-export type ChapterTone = 'paper' | 'mist' | 'navy';
+export type ChapterTone = 'paper' | 'mist' | 'navy' | 'deep';
 
 interface ChapterProps {
   id: string;
@@ -24,7 +24,9 @@ interface ChapterProps {
 const tones: Record<ChapterTone, { section: string; numeral: string; rule: string; label: string; title: string; intro: string }> = {
   paper: { section: 'bg-paper', numeral: 'text-navy', rule: 'bg-accent', label: 'text-slate', title: 'text-ink', intro: 'text-slate' },
   mist: { section: 'bg-mist', numeral: 'text-navy', rule: 'bg-accent', label: 'text-slate', title: 'text-ink', intro: 'text-slate' },
-  navy: { section: 'bg-navy', numeral: 'text-white', rule: 'bg-accent', label: 'text-accent', title: 'text-white', intro: 'text-white/75' }
+  navy: { section: 'bg-navy', numeral: 'text-white', rule: 'bg-accent', label: 'text-accent', title: 'text-white', intro: 'text-white/75' },
+  // Azul tirando a negro (el del footer): último capítulo
+  deep: { section: 'bg-deep', numeral: 'text-white', rule: 'bg-accent', label: 'text-accent', title: 'text-white', intro: 'text-white/75' }
 };
 
 /**
