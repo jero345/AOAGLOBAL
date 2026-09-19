@@ -6,8 +6,8 @@ import { Chapter } from './Chapter';
 import { Reveal } from '../ui/Reveal';
 import { ContactForm } from '../sections/ContactForm';
 
-/** 06 · Nuevos proyectos: el último capítulo, en azul tirando a negro, con el formulario sobre papel. */
-export const ContactChapter: React.FC<{ number: string; label: string }> = ({ number, label }) => {
+/** Nuevos proyectos: el último bloque (sin numeral, a petición de Andrea), en azul tirando a negro, con el formulario sobre papel. */
+export const ContactChapter: React.FC<{ label: string }> = ({ label }) => {
   const { t } = useTranslation('contact');
   const reduce = useReducedMotion();
 
@@ -33,7 +33,7 @@ export const ContactChapter: React.FC<{ number: string; label: string }> = ({ nu
   );
 
   return (
-    <Chapter id="contact" number={number} label={label} title={t.title} intro={t.intro} tone="deep" wideAside aside={image}>
+    <Chapter id="contact" label={label} title={t.title} intro={t.intro} tone="deep" wideAside aside={image}>
       <Reveal delay={0.1} className="rounded-[var(--radius-card)] border border-white/10 bg-paper p-5 shadow-[0_30px_60px_-30px_rgba(0,0,0,0.6)] md:p-8">
         <ContactForm />
       </Reveal>

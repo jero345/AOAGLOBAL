@@ -50,7 +50,7 @@ export const Home: React.FC = () => {
       <CapabilitiesChapter number={capabilities.number} label={capabilities.label} />
       <ProjectsChapter number={projects.number} label={projects.label} />
       <FaqChapter number={faq.number} label={faq.label} />
-      <ContactChapter number={contact.number} label={contact.label} />
+      <ContactChapter label={contact.label} />
     </>
   );
 };

@@ -7,7 +7,8 @@ export type ChapterTone = 'paper' | 'mist' | 'navy' | 'deep';
 
 interface ChapterProps {
   id: string;
-  number: string;
+  /** Numeral del capítulo; sin él, el encabezado muestra solo la regla y el nombre */
+  number?: string;
   /** Nombre del capítulo (eyebrow aprobado) */
   label: string;
   /** H2 del capítulo */
@@ -34,7 +35,7 @@ const tones: Record<ChapterTone, { section: string; numeral: string; rule: strin
  * El disparador (whileInView) va en el contenedor: el numeral arranca desplazado dentro de
  * un recorte y, si se observara a sí mismo, nunca "entraría" en pantalla.
  */
-const ChapterHead: React.FC<{ number: string; label: string; tone: ChapterTone }> = ({ number, label, tone }) => {
+const ChapterHead: React.FC<{ number?: string; label: string; tone: ChapterTone }> = ({ number, label, tone }) => {
   const reduce = useReducedMotion();
   const c = tones[tone];
   const ease = [0.16, 1, 0.3, 1] as const;
@@ -44,9 +45,9 @@ const ChapterHead: React.FC<{ number: string; label: string; tone: ChapterTone }
   if (reduce) {
     return (
       <div className="flex items-end gap-4 lg:block">
-        <span className={numeralClass}>{number}</span>
-        <span className="flex flex-col gap-2 pb-1 lg:mt-5 lg:pb-0">
-          <span aria-hidden className={`hidden h-0.5 w-10 lg:block ${c.rule}`} />
+        {number && <span className={numeralClass}>{number}</span>}
+        <span className={`flex flex-col gap-2 pb-1 lg:pb-0 ${number ? 'lg:mt-5' : ''}`}>
+          <span aria-hidden className={`h-0.5 w-10 ${number ? 'hidden lg:block' : 'block'} ${c.rule}`} />
           <span className={labelClass}>{label}</span>
         </span>
       </div>
@@ -60,19 +61,21 @@ const ChapterHead: React.FC<{ number: string; label: string; tone: ChapterTone }
       viewport={{ once: true, amount: 0.5 }}
       className="flex items-end gap-4 lg:block"
     >
-      <span className="block overflow-hidden">
-        <motion.span
-          variants={{ hidden: { y: '100%' }, visible: { y: 0, transition: { duration: 0.7, ease } } }}
-          className={numeralClass}
-        >
-          {number}
-        </motion.span>
-      </span>
-      <span className="flex flex-col gap-2 pb-1 lg:mt-5 lg:pb-0">
+      {number && (
+        <span className="block overflow-hidden">
+          <motion.span
+            variants={{ hidden: { y: '100%' }, visible: { y: 0, transition: { duration: 0.7, ease } } }}
+            className={numeralClass}
+          >
+            {number}
+          </motion.span>
+        </span>
+      )}
+      <span className={`flex flex-col gap-2 pb-1 lg:pb-0 ${number ? 'lg:mt-5' : ''}`}>
         <motion.span
           aria-hidden
           variants={{ hidden: { scaleX: 0 }, visible: { scaleX: 1, transition: { duration: 0.8, delay: 0.25, ease } } }}
-          className={`hidden h-0.5 w-10 origin-left lg:block ${c.rule}`}
+          className={`h-0.5 w-10 origin-left ${number ? 'hidden lg:block' : 'block'} ${c.rule}`}
         />
         <motion.span
           variants={{ hidden: { opacity: 0, y: 6 }, visible: { opacity: 1, y: 0, transition: { duration: 0.5, delay: 0.3, ease } } }}
