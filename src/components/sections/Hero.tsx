@@ -7,7 +7,7 @@ import { Button } from '../ui/Button';
 import { Reveal } from '../ui/Reveal';
 import { TextReveal } from '../ui/TextReveal';
 import { HeroFrame } from './HeroFrame';
-import { INTRO_HERO_DELAY, introWillPlay } from '../../lib/intro';
+import { useIntroReady } from '../../lib/intro';
 
 const HERO_SRCSET = '/img/hero-640.webp 640w, /img/hero.webp 1400w';
 
@@ -24,8 +24,9 @@ export const Hero: React.FC = () => {
   const ref = useRef<HTMLElement>(null);
   const { scrollYProgress } = useScroll({ target: ref, offset: ['start start', 'end start'] });
   const imgY = useTransform(scrollYProgress, [0, 1], ['0%', reduce ? '0%' : '8%']);
-  // Si la cortina de entrada se muestra, el hero arranca cuando esta empieza a levantarse
-  const d = introWillPlay() ? INTRO_HERO_DELAY : 0;
+  // Con cortina de entrada, el hero arranca cuando esta empieza a levantarse
+  const ready = useIntroReady();
+  const d = 0.15;
 
   // Luz dorada que sigue al cursor: solo actualiza dos variables CSS (sin re-render)
   useEffect(() => {
@@ -80,7 +81,7 @@ export const Hero: React.FC = () => {
       <div className="relative mx-auto max-w-[1200px] px-6 py-14 md:px-8 md:py-20 lg:py-20">
         <div className="grid items-center gap-10 lg:grid-cols-[10fr_9fr] lg:gap-14 xl:gap-20">
           <div key={language} className="flex flex-col items-start">
-            <Reveal immediate delay={d}>
+            <Reveal immediate play={ready} delay={d}>
               <Eyebrow tone="navy" className="max-lg:text-accent">
                 {t.eyebrow}
               </Eyebrow>
@@ -90,16 +91,17 @@ export const Hero: React.FC = () => {
               as="h1"
               text={t.title}
               immediate
+              play={ready}
               blur
               delay={d + 0.1}
               className="mt-4 text-4xl text-white sm:text-5xl lg:max-w-[16ch] lg:text-display lg:text-ink xl:text-[4rem] xl:leading-[1.03]"
             />
 
-            <Reveal immediate delay={d + 0.35} className="mt-5">
+            <Reveal immediate play={ready} delay={d + 0.35} className="mt-5">
               <p className="max-w-xl text-base leading-relaxed text-white/85 md:text-lg lg:text-slate">{t.description}</p>
             </Reveal>
 
-            <Reveal immediate delay={d + 0.45} className="mt-7 flex w-full flex-col items-start gap-4 sm:w-auto sm:flex-row sm:items-center sm:gap-6">
+            <Reveal immediate play={ready} delay={d + 0.45} className="mt-7 flex w-full flex-col items-start gap-4 sm:w-auto sm:flex-row sm:items-center sm:gap-6">
               <Button variant="accent" href="#contact" track="hero_start" className="w-full sm:w-auto max-lg:border max-lg:border-white/40 max-lg:bg-deep max-lg:text-white max-lg:hover:bg-ink">
                 {t.primaryCta}
               </Button>
@@ -113,7 +115,7 @@ export const Hero: React.FC = () => {
               </a>
             </Reveal>
 
-            <Reveal immediate delay={d + 0.55} className="mt-4">
+            <Reveal immediate play={ready} delay={d + 0.55} className="mt-4">
               <p className="max-w-md text-xs text-white/70 lg:text-slate">{t.note}</p>
             </Reveal>
           </div>
@@ -121,7 +123,7 @@ export const Hero: React.FC = () => {
           {/* Escritorio: la foto en su marco. Se revela de abajo hacia arriba y luego flota. */}
           <motion.div
             initial={reduce ? false : { opacity: 0, clipPath: 'inset(100% 0 0 0)' }}
-            animate={{ opacity: 1, clipPath: 'inset(0% 0 0 0)' }}
+            animate={ready || reduce ? { opacity: 1, clipPath: 'inset(0% 0 0 0)' } : { opacity: 0, clipPath: 'inset(100% 0 0 0)' }}
             transition={{ duration: 1, ease: [0.16, 1, 0.3, 1], delay: d + 0.25 }}
             className="hidden lg:block"
           >
@@ -135,6 +137,7 @@ export const Hero: React.FC = () => {
                 height={1050}
                 imgY={imgY}
                 delay={d}
+                play={ready}
               />
             </div>
           </motion.div>

@@ -210,6 +210,11 @@
 @media (hover: hover) and (pointer: fine) {
   section:hover > .hero-glow { opacity: 1; }
 }
+/* En pausa mientras la cortina de entrada está abajo (animation-play-state no se hereda: se aplica a cada capa) */
+.hero-flow[data-paused] .flow-path,
+.hero-flow[data-paused] .flow-pulse,
+.hero-flow[data-paused] .flow-node { animation-play-state: paused; }
+
 /* Móvil: la línea se dibuja una vez; sin pulso ni anillos en bucle (ahorro de CPU/batería) */
 @media (max-width: 1023px) {
   .flow-pulse, .flow-node__ring { display: none; }
@@ -230,8 +235,9 @@
   place-items: center;
   background-color: var(--color-navy);
   color: var(--color-paper);
-  animation: intro-lift 0.75s var(--ease-out-expo) 1.15s both;
 }
+/* La cortina se levanta cuando el visitante elige idioma (o al agotarse el tiempo) */
+.intro--leave { animation: intro-lift 0.8s var(--ease-out-expo) both; pointer-events: none; }
 .intro-inner {
   display: flex;
   flex-direction: column;
@@ -293,6 +299,44 @@
   transform-origin: left;
   animation: intro-draw 0.6s var(--ease-out-expo) 0.95s both;
 }
+/* Elección de idioma: entra después de la marca y espera */
+.intro-choose {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1rem;
+  margin-top: 1.25rem;
+  opacity: 0;
+  transform: translateY(10px);
+  transition: opacity 0.6s var(--ease-out-expo), transform 0.6s var(--ease-out-expo);
+}
+.intro-choose--in { opacity: 1; transform: translateY(0); }
+.intro-choose__label {
+  margin: 0;
+  font-size: 0.75rem;
+  font-weight: 500;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: rgba(255, 255, 255, 0.7);
+}
+.intro-choose__buttons { display: flex; gap: 0.75rem; }
+.intro-choose__btn {
+  min-width: 8.5rem;
+  padding: 0.8rem 1.5rem;
+  border: 1px solid rgba(255, 255, 255, 0.45);
+  border-radius: var(--radius-btn);
+  background: transparent;
+  color: var(--color-paper);
+  font: inherit;
+  font-size: 0.9375rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background-color 0.2s ease, color 0.2s ease, border-color 0.2s ease, transform 0.16s var(--ease-out-quart);
+}
+.intro-choose__btn--current { background: var(--color-paper); color: var(--color-navy); border-color: var(--color-paper); }
+.intro-choose__btn:hover { background: var(--color-paper); color: var(--color-navy); border-color: var(--color-paper); }
+.intro-choose__btn:active { transform: scale(0.97); }
+.intro-choose__btn:focus-visible { outline: 2px solid var(--color-paper); outline-offset: 3px; }
 @keyframes intro-pop  { from { opacity: 0; transform: scale(0.9); } to { opacity: 1; transform: scale(1); } }
 @keyframes intro-rise { from { opacity: 0; transform: translateY(0.6em); } to { opacity: 1; transform: translateY(0); } }
 @keyframes intro-draw { from { transform: scaleX(0); } to { transform: scaleX(1); } }

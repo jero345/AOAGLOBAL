@@ -10,13 +10,15 @@ interface TextRevealProps {
   delay?: number;
   /** Entrada con desenfoque (más cinematográfica): solo para el H1 del hero */
   blur?: boolean;
+  /** Con immediate: false mantiene el estado oculto hasta que pase a true (p. ej. tras la cortina) */
+  play?: boolean;
 }
 
 /**
  * Revela un titular palabra por palabra (deslizamiento + fade).
  * El texto completo queda en el DOM en orden: lectores de pantalla y SEO no se enteran del truco.
  */
-export const TextReveal: React.FC<TextRevealProps> = ({ text, as = 'h2', className = '', immediate = false, delay = 0, blur = false }) => {
+export const TextReveal: React.FC<TextRevealProps> = ({ text, as = 'h2', className = '', immediate = false, delay = 0, blur = false, play = true }) => {
   const reduce = useReducedMotion();
   const Tag = as;
   const words = text.split(' ');
@@ -30,7 +32,7 @@ export const TextReveal: React.FC<TextRevealProps> = ({ text, as = 'h2', classNa
     <MotionTag
       className={className}
       initial="hidden"
-      {...(immediate ? { animate: 'visible' } : { whileInView: 'visible' })}
+      {...(immediate ? { animate: play ? 'visible' : 'hidden' } : { whileInView: 'visible' })}
       viewport={{ once: true, amount: 0.2 }}
       variants={{ hidden: {}, visible }}
       aria-label={text}

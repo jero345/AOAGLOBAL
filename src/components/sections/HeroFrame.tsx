@@ -11,8 +11,10 @@ interface HeroFrameProps {
   height: number;
   /** Desplazamiento vertical ligado al scroll (parallax) */
   imgY: MotionValue<string>;
-  /** Retardo base de entrada (cortina) */
+  /** Retardo base de entrada */
   delay: number;
+  /** false = las animaciones CSS (kenburns, línea) quedan en pausa hasta que la cortina se levanta */
+  play?: boolean;
 }
 
 /**
@@ -20,7 +22,7 @@ interface HeroFrameProps {
  * puntero fino), las capas del marco tienen profundidad real y un brillo recorre el
  * cristal al pasar el cursor. Encima de la foto, la línea dorada de HeroFlow.
  */
-export const HeroFrame: React.FC<HeroFrameProps> = ({ src, srcSet, sizes, alt, width, height, imgY, delay }) => {
+export const HeroFrame: React.FC<HeroFrameProps> = ({ src, srcSet, sizes, alt, width, height, imgY, delay, play = true }) => {
   const reduce = useReducedMotion();
   const ref = useRef<HTMLDivElement>(null);
   const rx = useMotionValue(0);
@@ -77,10 +79,10 @@ export const HeroFrame: React.FC<HeroFrameProps> = ({ src, srcSet, sizes, alt, w
             loading="eager"
             {...{ fetchpriority: 'high' }}
             decoding="async"
-            style={{ y: imgY, animationDelay: `${delay}s` }}
+            style={{ y: imgY, animationDelay: `${delay}s`, animationPlayState: play ? 'running' : 'paused' }}
             className="kenburns h-[108%] w-full object-cover"
           />
-          <HeroFlow delay={delay + 1.15} />
+          <HeroFlow delay={delay + 1.15} paused={!play} />
           {/* Brillo que recorre el cristal al pasar el cursor */}
           <div aria-hidden className="hero-sweep pointer-events-none absolute inset-0" />
         </div>

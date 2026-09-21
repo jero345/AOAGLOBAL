@@ -4,6 +4,8 @@ interface HeroFlowProps {
   /** Segundos de espera antes de dibujar la línea (tras la cortina y el revelado de la foto) */
   delay?: number;
   className?: string;
+  /** En pausa hasta que la cortina de entrada se levanta */
+  paused?: boolean;
 }
 
 /** Ruta sobre la foto (viewBox 1000×750, mismo 4:3 que la imagen): tres nodos = estrategia → procesos → ejecución */
@@ -19,7 +21,7 @@ const NODES: Array<[number, number]> = [
  * tres nodos se encienden en secuencia y un pulso recorre la ruta en bucle.
  * Decorativo (aria-hidden); con prefers-reduced-motion queda la línea estática.
  */
-export const HeroFlow: React.FC<HeroFlowProps> = ({ delay = 0, className = '' }) => {
+export const HeroFlow: React.FC<HeroFlowProps> = ({ delay = 0, className = '', paused = false }) => {
   const style = { '--flow-delay': `${delay}s` } as React.CSSProperties;
   return (
     <svg
@@ -28,6 +30,7 @@ export const HeroFlow: React.FC<HeroFlowProps> = ({ delay = 0, className = '' })
       preserveAspectRatio="xMidYMid slice"
       className={`hero-flow pointer-events-none absolute inset-0 h-full w-full ${className}`}
       style={style}
+      data-paused={paused || undefined}
     >
       <defs>
         <filter id="flow-glow" x="-20%" y="-20%" width="140%" height="140%">

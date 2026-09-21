@@ -3,6 +3,7 @@ import { motion, AnimatePresence } from 'framer-motion';
 import { X } from 'lucide-react';
 import { useLanguage, useTranslation, LANG_PREF_KEY } from '../../context/LanguageContext';
 import type { Language } from '../../context/LanguageContext';
+import { INTRO_DONE_EVENT, introWillPlay } from '../../lib/intro';
 
 /**
  * Sugiere el idioma del navegador SOLO la primera vez y solo si difiere del actual.
@@ -14,17 +15,28 @@ export const LangSuggestBanner: React.FC = () => {
   const [suggested, setSuggested] = useState<Language | null>(null);
 
   useEffect(() => {
-    let pref: string | null = null;
-    try {
-      pref = localStorage.getItem(LANG_PREF_KEY);
-    } catch {
-      /* sin storage: mostramos igual, no persiste */
+    const evaluate = () => {
+      let pref: string | null = null;
+      try {
+        pref = localStorage.getItem(LANG_PREF_KEY);
+      } catch {
+        /* sin storage: mostramos igual, no persiste */
+      }
+      if (pref) {
+        setSuggested(null);
+        return;
+      }
+      const browser = (navigator.language || '').toLowerCase();
+      const wants: Language = browser.startsWith('es') ? 'es' : 'en';
+      setSuggested(wants !== language ? wants : null);
+    };
+    // Con la cortina de entrada (que ya ofrece elegir idioma) se evalúa cuando esta se levanta
+    if (!introWillPlay()) {
+      evaluate();
+      return;
     }
-    if (pref) return;
-
-    const browser = (navigator.language || '').toLowerCase();
-    const wants: Language = browser.startsWith('es') ? 'es' : 'en';
-    if (wants !== language) setSuggested(wants);
+    window.addEventListener(INTRO_DONE_EVENT, evaluate);
+    return () => window.removeEventListener(INTRO_DONE_EVENT, evaluate);
   }, [language]);
 
   const dismiss = () => {
