@@ -3,6 +3,7 @@
  * Sin IDs no se carga ningún script externo ni se envía nada.
  *
  * Eventos:
+ *  - page_view    { page_path, page_location, page_title, language }  → también al navegar sin recargar
  *  - cta_click    { label, location }   → cualquier elemento con data-track="..."
  *  - form_submit  { service, locale }
  *  - form_success { service, locale }
@@ -42,7 +43,10 @@ export const initAnalytics = (): void => {
       window.dataLayer!.push(arguments);
     };
     window.gtag('js', new Date());
-    window.gtag('config', GA4_ID, { anonymize_ip: true });
+    // send_page_view: false → las vistas las envía pageview() con la URL y el título
+    // correctos. Con el automático, al navegar sin recargar GA4 reutiliza los de la
+    // primera página. (GA4 anonimiza la IP por defecto: no hace falta anonymize_ip.)
+    window.gtag('config', GA4_ID, { send_page_view: false });
     loadScript(`https://www.googletagmanager.com/gtag/js?id=${GA4_ID}`);
   }
 
@@ -73,6 +77,18 @@ export const initAnalytics = (): void => {
       location: el.closest('section[id]')?.id ?? 'header'
     });
   });
+};
+
+/** Vista de página: la inicial y cada cambio de ruta (/, /es/, páginas secundarias) */
+export const pageview = (path: string, title: string, language: string): void => {
+  if (typeof window === 'undefined' || !GA4_ID) return;
+  window.gtag?.('event', 'page_view', {
+    send_to: GA4_ID,
+    page_location: window.location.href,
+    page_title: title,
+    language
+  });
+  if (import.meta.env.DEV) console.debug('[analytics] page_view', path, title);
 };
 
 export const track = (event: string, params: EventParams = {}): void => {

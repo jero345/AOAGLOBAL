@@ -5,6 +5,8 @@ import { Footer } from './Footer';
 import { ScrollProgress } from '../ui/ScrollProgress';
 import { FloatingContactPill } from '../ui/FloatingContactPill';
 import { LangSuggestBanner } from '../ui/LangSuggestBanner';
+import { pageview } from '../../lib/analytics';
+import { useLanguage } from '../../context/LanguageContext';
 
 /**
  * Comportamiento de scroll de la one-page:
@@ -61,10 +63,26 @@ function ScrollSync() {
   return null;
 }
 
+/** Google Analytics: una vista por cada ruta, incluida la primera */
+function RouteAnalytics() {
+  const { pathname } = useLocation();
+  const { language } = useLanguage();
+
+  useEffect(() => {
+    // react-helmet actualiza <title> tras pintar: se espera un instante para no
+    // registrar la vista con el título de la página anterior.
+    const id = window.setTimeout(() => pageview(pathname, document.title, language), 150);
+    return () => window.clearTimeout(id);
+  }, [pathname, language]);
+
+  return null;
+}
+
 export const Layout: React.FC = () => {
   return (
     <div className="flex min-h-screen flex-col bg-paper selection:bg-navy selection:text-white">
       <ScrollSync />
+      <RouteAnalytics />
       <ScrollProgress />
       <Header />
       <main className="flex-1">
