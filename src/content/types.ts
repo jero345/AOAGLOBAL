@@ -148,6 +148,19 @@ export interface SiteContent {
   /** Página SEO por mercado: EN → Australia, ES → Latinoamérica (par hreflang en-AU / es-419) */
   aiMarketPage: SiteContent['aiPage'] & { serviceArea: string[]; industries: { eyebrow: string; title: string; items: string[] } };
 
+  /** Página legal: política de privacidad (documento de Andrea, ES/EN) */
+  privacyPage: {
+    meta: { title: string; description: string };
+    eyebrow: string;
+    title: string;
+    updatedLabel: string;
+    updated: string;
+    contentsLabel: string;
+    backLabel: string;
+    contactLabel: string;
+    sections: Array<{ title: string; paragraphs: string[]; contact?: string[] }>;
+  };
+
   footer: {
     tagline: string;
     /** Línea de marca: Strategy · Technology · Execution */
@@ -158,6 +171,8 @@ export interface SiteContent {
     aiPageLink: string;
     /** Enlace a la página de IA por mercado (Australia / Latinoamérica) */
     aiMarketPageLink: string;
+    /** Enlace a la política de privacidad (fila legal) */
+    privacyLink: string;
     companyTitle: string;
     companyLinks: Array<{ label: string; anchor: string }>;
     contactTitle: string;

@@ -16,6 +16,8 @@ export const Header: React.FC = () => {
   const { language, t } = useTranslation('nav');
   const home = localePath(language);
   const isHome = location.pathname.replace(/\/$/, '') === home.replace(/\/$/, '');
+  // En páginas secundarias (IA, privacidad) las anclas llevan a la home
+  const anchorHref = (anchor: string) => (isHome ? anchor : `${home}${anchor}`);
   const active = useActiveSection(
     t.links.map((l) => l.anchor.replace(/^#/, '')),
     isHome
@@ -63,7 +65,7 @@ export const Header: React.FC = () => {
             return (
               <a
                 key={link.anchor}
-                href={link.anchor}
+                href={anchorHref(link.anchor)}
                 aria-current={isActive ? 'true' : undefined}
                 className={`relative py-1 text-sm font-medium transition-colors duration-200 hover:text-ink
                   after:absolute after:inset-x-0 after:-bottom-0.5 after:h-px after:origin-left after:bg-navy
@@ -78,7 +80,7 @@ export const Header: React.FC = () => {
 
         <div className="hidden lg:flex items-center gap-4">
           <LanguageSwitcher variant="light" />
-          <Button variant="accent" href="#contact" track="header_cta" className="px-5 py-2.5">
+          <Button variant="accent" href={anchorHref('#contact')} track="header_cta" className="px-5 py-2.5">
             {t.cta}
           </Button>
         </div>
@@ -114,7 +116,7 @@ export const Header: React.FC = () => {
               {t.links.map((link, idx) => (
                 <motion.a
                   key={link.anchor}
-                  href={link.anchor}
+                  href={anchorHref(link.anchor)}
                   onClick={() => setMobileMenuOpen(false)}
                   initial={{ opacity: 0, x: 20 }}
                   animate={{ opacity: 1, x: 0 }}
@@ -127,7 +129,7 @@ export const Header: React.FC = () => {
             </nav>
 
             <div className="flex flex-col space-y-4 border-t border-white/15 pt-8">
-              <Button variant="accent" href="#contact" track="mobile_menu_cta" className="w-full">
+              <Button variant="accent" href={anchorHref('#contact')} track="mobile_menu_cta" className="w-full">
                 {t.cta}
               </Button>
               <p className="text-center text-xs text-white/60">{company.email}</p>

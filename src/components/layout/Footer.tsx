@@ -122,7 +122,12 @@ export const Footer: React.FC = () => {
           <p>
             © {year} {company.name}. {t.rights}
           </p>
-          <p className="text-white/55">{t.legal}</p>
+          <p className="flex flex-wrap items-center gap-x-4 gap-y-1 text-white/55">
+            <Link to={pages.privacy[language]} className="transition-colors duration-200 hover:text-white">
+              {t.privacyLink}
+            </Link>
+            <span>{t.legal}</span>
+          </p>
         </div>
       </div>
     </footer>

@@ -13,6 +13,11 @@ export const FloatingContactPill: React.FC = () => {
 
   useEffect(() => {
     const contact = document.getElementById('contact');
+    // Sin formulario en la página (p. ej. política de privacidad) no hay a dónde llevar
+    if (!contact) {
+      setVisible(false);
+      return;
+    }
     let contactInView = false;
 
     const io = contact

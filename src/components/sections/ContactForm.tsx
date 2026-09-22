@@ -4,8 +4,9 @@ import { motion, AnimatePresence } from 'framer-motion';
 import { CheckCircle2, AlertCircle, ArrowRight, ChevronDown } from 'lucide-react';
 import { useTranslation } from '../../context/LanguageContext';
 import { useQuote, type QuoteService } from '../../context/QuoteContext';
-import { company } from '../../content';
+import { company, pages } from '../../content';
 import { Button } from '../ui/Button';
+import { Link } from 'react-router-dom';
 import { track } from '../../lib/analytics';
 
 const WEB3FORMS_ENDPOINT = 'https://api.web3forms.com/submit';
@@ -70,6 +71,7 @@ const labelClass = 'text-eyebrow font-semibold uppercase tracking-[0.08em] text-
 
 export const ContactForm: React.FC = () => {
   const { language, t } = useTranslation('contact');
+  const { t: footer } = useTranslation('footer');
   const { service, setService } = useQuote();
   const [status, setStatus] = useState<Status>('idle');
   const sending = useRef(false);
@@ -296,7 +298,12 @@ export const ContactForm: React.FC = () => {
           {status === 'sending' ? f.submitting : f.submit}
           {status !== 'sending' && <ArrowRight size={16} aria-hidden />}
         </Button>
-        <p className="text-xs text-slate sm:max-w-xs">{f.privacy}</p>
+        <p className="text-xs text-slate sm:max-w-xs">
+          {f.privacy}{' '}
+          <Link to={pages.privacy[language]} className="font-semibold text-navy hover:underline">
+            {footer.privacyLink}
+          </Link>
+        </p>
       </div>
     </form>
   );

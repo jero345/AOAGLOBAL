@@ -387,6 +387,155 @@ export const es: SiteContent = {
     serviceArea: ['Latinoamérica', 'Colombia', 'México', 'Chile', 'Perú', 'Argentina', 'Ecuador', 'Panamá']
   },
 
+  privacyPage: {
+    meta: { title: 'Política de privacidad | AOA Global Services', description: 'Cómo AOA Global Services LLC recopila, utiliza, protege y comparte la información personal en relación con su sitio web, sus comunicaciones y sus servicios.' },
+    eyebrow: 'Legal',
+    title: 'Política de privacidad',
+    updatedLabel: 'Última actualización',
+    updated: '22 de septiembre de 2026',
+    contentsLabel: 'Contenido',
+    backLabel: 'Volver al inicio',
+    contactLabel: 'Contacto para consultas de privacidad',
+    sections: [
+      {
+        title: 'Introducción',
+        paragraphs: [
+          'AOA Global Services LLC (“AOA”, “nosotros”, “nuestro” o “la Compañía”) reconoce la importancia de proteger la privacidad y los datos personales de sus clientes, potenciales clientes, proveedores, colaboradores, usuarios del sitio web y demás personas con quienes mantiene relaciones comerciales o profesionales.',
+          'Esta Política de Privacidad describe de manera general cómo AOA recopila, utiliza, almacena, protege y, cuando corresponde, comparte información personal en relación con sus servicios, comunicaciones y plataformas digitales. AOA Global Services LLC es una compañía de responsabilidad limitada constituida en Wyoming, Estados Unidos. Esta Política se aplica al sitio web de AOA, a las comunicaciones realizadas con la Compañía y a los servicios prestados por AOA, salvo que se indique expresamente la aplicación de términos o avisos específicos.'
+        ]
+      },
+      {
+        title: 'Información que podemos recopilar',
+        paragraphs: [
+          'Dependiendo de la relación con AOA, podemos recopilar nombre y apellidos; empresa, organización y cargo; correo electrónico; teléfono; país o ubicación general; información suministrada voluntariamente mediante formularios, correo electrónico, reuniones u otros medios; información necesaria para propuestas, contratos, proyectos o servicios; datos de facturación, pagos y transacciones comerciales; comunicaciones; información profesional o empresarial relevante; e información técnica relacionada con el acceso y utilización de nuestros sitios web o plataformas cuando sea recopilada por los sistemas utilizados por AOA.',
+          'AOA procura limitar la recopilación de información personal a aquella razonablemente necesaria para sus actividades y servicios.'
+        ]
+      },
+      {
+        title: 'Cómo recopilamos la información',
+        paragraphs: [
+          'Podemos obtener información directamente cuando una persona o empresa se comunica con AOA, solicita información o una propuesta, contrata nuestros servicios, completa formularios, participa en reuniones o proyectos, mantiene una relación comercial o profesional con AOA o utiliza canales autorizados de comunicación.',
+          'También podemos recibir determinada información a través de proveedores tecnológicos, fuentes públicas, referencias comerciales o terceros cuando resulte legítimo y apropiado.'
+        ]
+      },
+      {
+        title: 'Finalidades del tratamiento',
+        paragraphs: [
+          'AOA puede utilizar la información para responder consultas; evaluar necesidades; preparar y administrar propuestas, contratos y proyectos; prestar servicios de consultoría, estrategia, optimización de procesos, soluciones digitales, inteligencia artificial, automatización, desarrollo web y otros servicios profesionales; gestionar relaciones, facturación, pagos y registros; proporcionar soporte; mejorar servicios y plataformas; mantener la seguridad; prevenir fraude, abuso o accesos no autorizados; cumplir obligaciones legales, regulatorias, fiscales, contractuales o administrativas; ejercer o defender derechos legales; y realizar comunicaciones comerciales cuando estén permitidas.',
+          'AOA no utilizará deliberadamente información personal para finalidades sustancialmente incompatibles con aquellas para las cuales fue recopilada, salvo autorización del titular o cuando exista otra base legal aplicable.'
+        ]
+      },
+      {
+        title: 'Información sensible',
+        paragraphs: [
+          'Como regla general, AOA no requiere información personal sensible para el funcionamiento ordinario de su sitio web o para iniciar una relación comercial. Cuando un proyecto requiera acceso a información confidencial, sensible o especialmente protegida, su tratamiento podrá estar sujeto a medidas, acuerdos contractuales o condiciones adicionales apropiadas.'
+        ]
+      },
+      {
+        title: 'Información de clientes y proyectos',
+        paragraphs: [
+          'En determinados servicios, AOA puede recibir acceso a información, documentos, bases de datos, sistemas o materiales proporcionados por sus clientes. Cuando AOA trate información por cuenta de un cliente, la utilizará principalmente para prestar los servicios acordados y conforme a las obligaciones contractuales y legales aplicables.',
+          'La información del cliente no será utilizada deliberadamente para finalidades comerciales ajenas al servicio contratado sin autorización o una base legal que lo permita.'
+        ]
+      },
+      {
+        title: 'Inteligencia artificial y herramientas tecnológicas',
+        paragraphs: [
+          'Como parte de sus servicios profesionales y procesos internos, AOA puede utilizar herramientas digitales, automatización y tecnologías de inteligencia artificial. Cuando impliquen tratamiento de información de clientes o información personal, AOA procurará aplicar medidas razonables de confidencialidad, seguridad y control de acceso.',
+          'AOA no venderá información confidencial de clientes para entrenar modelos de inteligencia artificial de terceros. Cuando un proyecto requiera tratamientos particularmente sensibles mediante sistemas de inteligencia artificial, podrán establecerse condiciones específicas con el cliente.'
+        ]
+      },
+      {
+        title: 'Cookies y tecnologías similares',
+        paragraphs: [
+          'El sitio web de AOA puede utilizar cookies y tecnologías similares necesarias para su funcionamiento, seguridad, análisis de rendimiento o mejora de la experiencia del usuario. Su utilización concreta puede variar a medida que evolucionen nuestros sistemas y proveedores.',
+          'Cuando la legislación aplicable requiera consentimiento para determinadas cookies o tecnologías de seguimiento, AOA adoptará mecanismos razonables para obtenerlo.'
+        ]
+      },
+      {
+        title: 'Proveedores y terceros',
+        paragraphs: [
+          'AOA puede utilizar proveedores externos para apoyar sus operaciones, incluidos servicios de infraestructura y alojamiento tecnológico, almacenamiento y procesamiento de información, correo electrónico y comunicaciones, administración empresarial, pagos y facturación, seguridad, analítica, desarrollo, soporte tecnológico y servicios profesionales.',
+          'Estos proveedores pueden procesar información en la medida necesaria para proporcionar sus servicios o de acuerdo con sus propios términos, contratos y obligaciones legales.'
+        ]
+      },
+      {
+        title: 'Transferencias internacionales',
+        paragraphs: [
+          'AOA está constituida en Estados Unidos y puede prestar servicios a clientes en diferentes países. La información puede ser almacenada, procesada o gestionada en Estados Unidos, Australia u otros países en los que AOA, sus clientes o sus proveedores tecnológicos desarrollen operaciones.',
+          'Cuando la legislación aplicable establezca requisitos específicos para transferencias internacionales de información personal, AOA procurará adoptar las medidas correspondientes.'
+        ]
+      },
+      {
+        title: 'Seguridad de la información',
+        paragraphs: [
+          'AOA adopta medidas administrativas, organizativas y tecnológicas razonables destinadas a proteger la información bajo su control frente a pérdida, uso indebido, acceso no autorizado, alteración o divulgación. Ningún sistema tecnológico, método de transmisión o almacenamiento puede garantizar seguridad absoluta.',
+          'En caso de un incidente de seguridad que afecte información personal, AOA evaluará el incidente y realizará las actuaciones y notificaciones que correspondan conforme a la legislación aplicable.'
+        ]
+      },
+      {
+        title: 'Conservación de información',
+        paragraphs: [
+          'AOA conservará información personal durante el tiempo razonablemente necesario para proporcionar sus servicios, mantener relaciones comerciales, cumplir obligaciones contractuales, mantener registros, atender requisitos legales, fiscales o regulatorios, resolver controversias y proteger o ejercer derechos legales. Cuando deje de ser necesaria, AOA podrá eliminarla, anonimizarla o conservarla cuando exista una obligación o justificación legal.'
+        ]
+      },
+      {
+        title: 'Derechos sobre la información personal',
+        paragraphs: [
+          'Dependiendo de la legislación aplicable y del lugar de residencia del titular, una persona puede tener derechos de acceso, corrección o actualización, eliminación, oposición o restricción de determinados tratamientos, retiro del consentimiento, información acerca del tratamiento y presentación de reclamaciones.',
+          'Las solicitudes pueden enviarse a admin@aoaglobalservices.com. AOA podrá solicitar información razonable para verificar la identidad antes de proporcionar acceso, modificar o eliminar información.'
+        ]
+      },
+      {
+        title: 'Comunicaciones comerciales',
+        paragraphs: [
+          'AOA puede enviar información sobre sus servicios, novedades o contenidos profesionales a clientes, contactos comerciales o personas que hayan manifestado interés, cuando ello esté permitido. Cuando corresponda, podrán solicitar dejar de recibir dichas comunicaciones mediante los mecanismos disponibles o escribiendo a admin@aoaglobalservices.com.',
+          'Las comunicaciones administrativas, contractuales o necesarias para la prestación de un servicio no se consideran necesariamente promocionales.'
+        ]
+      },
+      {
+        title: 'Venta de información personal',
+        paragraphs: [
+          'AOA no tiene como modelo de negocio la venta de información personal de clientes o usuarios a terceros. Si sus prácticas cambiaran sustancialmente en este aspecto, esta Política será actualizada y se adoptarán las medidas exigidas por la legislación aplicable.'
+        ]
+      },
+      {
+        title: 'Menores de edad',
+        paragraphs: [
+          'Los servicios de AOA están dirigidos principalmente a empresas, profesionales y personas con capacidad para contratar servicios profesionales. AOA no dirige intencionadamente sus servicios a menores ni busca recopilar deliberadamente información personal de menores sin la autorización correspondiente cuando sea legalmente requerida.'
+        ]
+      },
+      {
+        title: 'Enlaces y servicios de terceros',
+        paragraphs: [
+          'El sitio web o las comunicaciones de AOA pueden contener enlaces a sitios web, plataformas o servicios administrados por terceros. AOA no controla sus prácticas de privacidad y el tratamiento realizado directamente por esos servicios estará sujeto a sus respectivos términos y políticas.'
+        ]
+      },
+      {
+        title: 'Legislación y alcance internacional',
+        paragraphs: [
+          'AOA Global Services LLC está constituida en Wyoming, Estados Unidos, y puede desarrollar actividades y prestar servicios internacionalmente. El tratamiento de información personal estará sujeto a las leyes y regulaciones de privacidad y protección de datos que resulten aplicables según la naturaleza del tratamiento, los servicios prestados y la jurisdicción correspondiente.',
+          'Nada en esta Política pretende limitar derechos que una persona tenga obligatoriamente bajo la legislación aplicable.'
+        ]
+      },
+      {
+        title: 'Consultas y reclamaciones',
+        paragraphs: [
+          'Para consultas, solicitudes o preocupaciones relacionadas con privacidad o tratamiento de información personal:',
+          'AOA revisará las solicitudes y reclamaciones y procurará responder dentro de un plazo razonable o dentro del plazo específicamente establecido por la legislación aplicable.'
+        ],
+        contact: ['AOA Global Services LLC', '30 N Gould St, STE R', 'Sheridan, Wyoming 82801', 'United States', 'Correo electrónico: admin@aoaglobalservices.com']
+      },
+      {
+        title: 'Cambios a esta Política',
+        paragraphs: [
+          'AOA puede modificar esta Política cuando cambien sus servicios, procesos, tecnologías, proveedores o requisitos legales. La versión actualizada será publicada en el sitio web indicando la fecha de su última actualización.',
+          'Cuando un cambio sea sustancial y la legislación aplicable requiera una notificación o consentimiento adicional, AOA adoptará las medidas correspondientes.'
+        ]
+      }
+    ]
+  },
+
   footer: {
     tagline: 'Consultoría estratégica, optimización de procesos e implementación de soluciones empresariales.',
     brandLine: 'Estrategia · Procesos · Ejecución',
@@ -400,6 +549,7 @@ export const es: SiteContent = {
     ],
     aiPageLink: 'Consultoría de inteligencia artificial',
     aiMarketPageLink: 'Consultoría de IA en Latinoamérica',
+    privacyLink: 'Política de privacidad',
     companyTitle: 'Empresa',
     companyLinks: [
       { label: 'Cómo trabajamos', anchor: '#approach' },
