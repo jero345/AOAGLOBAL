@@ -20,7 +20,11 @@ declare global {
   }
 }
 
-const GA4_ID = import.meta.env.VITE_GA4_ID as string | undefined;
+import { isProductionHost } from '../content';
+
+// Solo se mide en aoaglobalservices.com: las copias (Vercel, previews) y el entorno
+// local no deben ensuciar los informes de la propiedad.
+const GA4_ID = (import.meta.env.VITE_GA4_ID as string | undefined) || undefined;
 const PIXEL_ID = import.meta.env.VITE_META_PIXEL_ID as string | undefined;
 
 let initialised = false;
@@ -36,7 +40,9 @@ export const initAnalytics = (): void => {
   if (initialised || typeof window === 'undefined') return;
   initialised = true;
 
-  if (GA4_ID) {
+  const measure = GA4_ID && isProductionHost();
+
+  if (measure) {
     window.dataLayer = window.dataLayer || [];
     window.gtag = function gtag() {
       // eslint-disable-next-line prefer-rest-params
@@ -81,7 +87,7 @@ export const initAnalytics = (): void => {
 
 /** Vista de página: la inicial y cada cambio de ruta (/, /es/, páginas secundarias) */
 export const pageview = (path: string, title: string, language: string): void => {
-  if (typeof window === 'undefined' || !GA4_ID) return;
+  if (typeof window === 'undefined' || !GA4_ID || !isProductionHost()) return;
   window.gtag?.('event', 'page_view', {
     send_to: GA4_ID,
     page_location: window.location.href,

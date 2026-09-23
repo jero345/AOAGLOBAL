@@ -1,7 +1,7 @@
 import React from 'react';
 import { Helmet } from 'react-helmet-async';
 import { useLanguage } from '../../context/LanguageContext';
-import { content, company, localePath, SITE_URL, LOCALES, DEFAULT_LOCALE, type Locale } from '../../content';
+import { content, company, localePath, SITE_URL, LOCALES, DEFAULT_LOCALE, isProductionHost, type Locale } from '../../content';
 import font400 from '@fontsource/montserrat/files/montserrat-latin-400-normal.woff2?url';
 import font700 from '@fontsource/montserrat/files/montserrat-latin-700-normal.woff2?url';
 
@@ -32,6 +32,8 @@ export const Seo: React.FC<SeoProps> = ({ title, description, paths, schemas = [
   const pathFor = (l: Locale) => paths?.[l] ?? localePath(l);
   const canonical = SITE_URL + pathFor(language);
   const ogLocale = language === 'es' ? 'es_ES' : 'en_US';
+  // Copias fuera del dominio (Vercel, previews): no deben competir en buscadores
+  const offDomain = typeof window !== 'undefined' && !isProductionHost() && window.location.hostname !== 'localhost';
   const pageTitle = title ?? t.meta.title;
   const pageDescription = description ?? t.meta.description;
 
@@ -64,6 +66,7 @@ export const Seo: React.FC<SeoProps> = ({ title, description, paths, schemas = [
         <link key={href} rel="preload" as="font" type="font/woff2" href={href} crossOrigin="anonymous" />
       ))}
       <meta name="description" content={pageDescription} />
+      {offDomain && <meta name="robots" content="noindex, nofollow" />}
       <link rel="canonical" href={canonical} />
 
       {LOCALES.map((l) => (

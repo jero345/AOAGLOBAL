@@ -10,6 +10,12 @@ export const LOCALES: Locale[] = ['en', 'es'];
 /** Dominio de producción: canonical, hreflang, OG, sitemap */
 export const SITE_URL = 'https://aoaglobalservices.com';
 
+/** Único dominio de producción. Fuera de él no se mide ni se indexa (copias de Vercel, previews). */
+export const SITE_HOST = 'aoaglobalservices.com';
+export const isProductionHost = (): boolean =>
+  typeof window !== 'undefined' &&
+  (window.location.hostname === SITE_HOST || window.location.hostname.endsWith(`.${SITE_HOST}`));
+
 export const content: Record<Locale, SiteContent> = { en, es };
 
 /** Datos institucionales independientes del idioma */
