@@ -4,13 +4,13 @@ import { useTranslation } from '../../context/LanguageContext';
 import { Chapter } from './Chapter';
 import { Rule } from '../ui/Rule';
 
-/** 01 · Desafíos de negocio: tres situaciones como filas de una lista, no tarjetas. */
-export const ChallengesChapter: React.FC<{ number: string; label: string }> = ({ number, label }) => {
+/** Desafíos: tres situaciones como filas de una lista numerada, no tarjetas. */
+export const ChallengesChapter: React.FC<{ label: string }> = ({ label }) => {
   const { t } = useTranslation('challenges');
   const reduce = useReducedMotion();
 
   return (
-    <Chapter id="challenges" number={number} label={label} title={t.title} tone="paper">
+    <Chapter id="challenges" label={label} title={t.title} tone="paper">
       <ol>
         {t.items.map((item, i) => {
           return (

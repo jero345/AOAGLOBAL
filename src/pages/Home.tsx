@@ -14,9 +14,9 @@ import { FaqChapter } from '../components/home/FaqChapter';
 import { ContactChapter } from '../components/home/ContactChapter';
 
 /**
- * One-page leída como una propuesta: portada (hero) → seis capítulos numerados:
- * 01 desafíos de negocio → 02 nuestro enfoque → 03 soluciones → 04 ejemplos →
- * 05 preguntas frecuentes → 06 nuevos proyectos (formulario).
+ * One-page leída como una propuesta: portada (hero) → seis bloques:
+ * desafíos → enfoque → soluciones → ejemplos → preguntas frecuentes →
+ * nuevos proyectos (formulario). Sin numerales en los encabezados.
  * Los ids de sección y las anclas del menú no cambian.
  */
 export const Home: React.FC = () => {
@@ -45,11 +45,11 @@ export const Home: React.FC = () => {
       <IntroOverlay />
       <Hero />
       <Ticker items={hero.ticker} />
-      <ChallengesChapter number={challenges.number} label={challenges.label} />
-      <ApproachChapter number={approach.number} label={approach.label} />
-      <CapabilitiesChapter number={capabilities.number} label={capabilities.label} />
-      <ProjectsChapter number={projects.number} label={projects.label} />
-      <FaqChapter number={faq.number} label={faq.label} />
+      <ChallengesChapter label={challenges.label} />
+      <ApproachChapter label={approach.label} />
+      <CapabilitiesChapter label={capabilities.label} />
+      <ProjectsChapter label={projects.label} />
+      <FaqChapter label={faq.label} />
       <ContactChapter label={contact.label} />
     </>
   );

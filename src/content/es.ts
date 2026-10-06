@@ -38,7 +38,7 @@ export const es: SiteContent = {
     eyebrow: 'Estrategia · Procesos · Ejecución',
     title: 'Consultoría estratégica para mejorar el desempeño de las organizaciones.',
     description:
-      'AOA Global Services integra análisis organizacional, optimización de procesos y gestión de proyectos para convertir prioridades estratégicas en mejoras operativas. Definimos qué debe cambiar y cómo implementarlo, incorporando buenas prácticas de gestión y soluciones digitales cuando el proyecto lo requiere.',
+      'Ayudamos a organizaciones públicas y privadas a identificar qué está dificultando su operación y poner en marcha las mejoras necesarias. Organizamos procesos, definimos prioridades y acompañamos la ejecución de proyectos, incorporando soluciones digitales cuando aportan valor.',
     primaryCta: 'Iniciar un proyecto',
     secondaryCta: 'Explorar soluciones',
     note: 'Para requerimientos claramente definidos, podemos presentar una propuesta inicial en hasta 48 horas hábiles.',

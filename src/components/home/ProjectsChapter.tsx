@@ -5,14 +5,14 @@ import { Rule } from '../ui/Rule';
 import { Reveal } from '../ui/Reveal';
 
 /**
- * 04 · Ejemplos de soluciones: tipos de solución que AOA desarrolla, como lista numerada.
+ * Ejemplos de soluciones: tipos de solución que AOA desarrolla, como lista numerada.
  * No son clientes concretos ni casos de éxito; sin métricas.
  */
-export const ProjectsChapter: React.FC<{ number: string; label: string }> = ({ number, label }) => {
+export const ProjectsChapter: React.FC<{ label: string }> = ({ label }) => {
   const { t } = useTranslation('projects');
 
   return (
-    <Chapter id="projects" number={number} label={label} title={t.title} tone="mist">
+    <Chapter id="projects" label={label} title={t.title} tone="mist">
       <ol className="grid grid-cols-1 gap-x-8 md:grid-cols-3">
         {t.items.map((item, i) => (
           <li key={item.title}>

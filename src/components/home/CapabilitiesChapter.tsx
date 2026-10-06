@@ -52,12 +52,12 @@ const StickyImage: React.FC<{ items: Item[]; active: ServiceSlug; index: number 
 };
 
 /**
- * 03 · Soluciones: las cinco capacidades como un índice de filas numeradas.
+ * Soluciones: las cinco capacidades como un índice de filas numeradas.
  * En escritorio la imagen de la fila activa queda fija a la izquierda; en móvil cada fila
  * lleva su miniatura. "Ver detalles" despliega las capacidades específicas; el CTA lleva
  * al formulario con el tipo de proyecto preseleccionado.
  */
-export const CapabilitiesChapter: React.FC<{ number: string; label: string }> = ({ number, label }) => {
+export const CapabilitiesChapter: React.FC<{ label: string }> = ({ label }) => {
   const { language, t } = useTranslation('capabilities');
   const { t: footer } = useTranslation('footer');
   const { requestQuote } = useQuote();
@@ -87,7 +87,7 @@ export const CapabilitiesChapter: React.FC<{ number: string; label: string }> = 
   return (
     <Chapter
       id="capabilities"
-      number={number}
+     
       label={label}
       title={t.title}
       intro={t.intro}

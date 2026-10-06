@@ -5,14 +5,14 @@ import { Chapter } from './Chapter';
 import { Reveal } from '../ui/Reveal';
 import { TextReveal } from '../ui/TextReveal';
 
-/** 02 · Nuestro enfoque: comprender → diseñar → implementar, y la línea de cierre como cita. */
-export const ApproachChapter: React.FC<{ number: string; label: string }> = ({ number, label }) => {
+/** Nuestro enfoque: comprender → diseñar → implementar, y la línea de cierre como cita. */
+export const ApproachChapter: React.FC<{ label: string }> = ({ label }) => {
   const { t } = useTranslation('approach');
   const reduce = useReducedMotion();
   const ease = [0.16, 1, 0.3, 1] as const;
 
   return (
-    <Chapter id="approach" number={number} label={label} title={t.title} tone="mist">
+    <Chapter id="approach" label={label} title={t.title} tone="mist">
       <div className="relative">
         {/* La línea del método se dibuja de izquierda a derecha; cada paso "aterriza" sobre ella */}
         <motion.div
